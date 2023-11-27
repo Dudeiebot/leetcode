@@ -25,19 +25,38 @@ import (
 // 	}
 // }
 
-func TestIsAnagram(t *testing.T) {
+// func TestIsAnagram(t *testing.T) {
+// 	tests := []struct {
+// 		s, t string
+// 		want bool
+// 	}{
+// 		{"anagram", "nagaram", true},
+// 		{"car", "rat", false},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v and %v", tc.s, tc.t), func(t *testing.T) {
+// 			got := isAnagram(tc.s, tc.t)
+// 			if got != tc.want {
+// 				t.Fatalf("Valid Anagram() = %v; want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestIsPalindrome(t *testing.T) {
 	tests := []struct {
-		s, t string
+		s    string
 		want bool
 	}{
-		{"anagram", "nagaram", true},
-		{"car", "rat", false},
+		{"A man, a plan, a canal: Panama", true},
+		{"race a car", false},
+		{" ", true},
 	}
 	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v and %v", tc.s, tc.t), func(t *testing.T) {
-			got := isAnagram(tc.s, tc.t)
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := IsPalindrome(tc.s)
 			if got != tc.want {
-				t.Fatalf("Valid Anagram() = %v; want %v", got, tc.want)
+				t.Fatalf("Valid Palindrome() = %v; want %v", got, tc.want)
 			}
 		})
 	}
