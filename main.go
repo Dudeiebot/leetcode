@@ -73,3 +73,5 @@ func IsPalindrome(s string) bool {
 	}
 	return true
 }
+
+// Single Number in an array
