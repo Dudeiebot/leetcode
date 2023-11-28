@@ -42,21 +42,40 @@ import (
 // 		})
 // 	}
 // }
+//
+// func TestIsPalindrome(t *testing.T) {
+// 	tests := []struct {
+// 		s    string
+// 		want bool
+// 	}{
+// 		{"A man, a plan, a canal: Panama", true},
+// 		{"race a car", false},
+// 		{" ", true},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+// 			got := IsPalindrome(tc.s)
+// 			if got != tc.want {
+// 				t.Fatalf("Valid Palindrome() = %v; want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
 
-func TestIsPalindrome(t *testing.T) {
+func TestIsSingeNos(t *testing.T) {
 	tests := []struct {
-		s    string
-		want bool
+		nums []int
+		want int
 	}{
-		{"A man, a plan, a canal: Panama", true},
-		{"race a car", false},
-		{" ", true},
+		{[]int{2, 2, 1}, 1},
+		{[]int{4, 1, 2, 1, 2}, 4},
+		{[]int{1}, 1},
 	}
 	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
-			got := IsPalindrome(tc.s)
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := IsSingleNos(tc.nums)
 			if got != tc.want {
-				t.Fatalf("Valid Palindrome() = %v; want %v", got, tc.want)
+				t.Fatalf("The Single Nos() = %v; want %v", got, tc.want)
 			}
 		})
 	}
