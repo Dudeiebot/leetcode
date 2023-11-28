@@ -77,8 +77,8 @@ package main
 // Single Number in an array
 // These is not memory safe and i am just putting these here for the normal understanding of how it works
 
-// func IsSingleNos(nums []int) int {
-// 	res := 0
+//func IsSingleNos(nums []int) int {
+// 	// res := 0
 // 	seen := make(map[int]int)
 //
 // 	for _, num := range nums {
@@ -86,22 +86,22 @@ package main
 // 	}
 //
 // 	for num, count := range seen {
-// 		if count == 1 {
-// 			res = num
+// 		if count <= 1 {
+// 			return num
 // 		}
 // 	}
-// 	return res
+// 	return 0
 // }
 
 /* The bitwise XOR operation (^) has the property that when applied twice with the same value, it returns the original value. Therefore, when XORing all elements in the slice, the elements that appear an odd number of times will contribute to the final result, and those that appear an even number of times will cancel out.
  */
 //The memory safe one
 
-func IsSingleNos(nums []int) int {
-	res := 0
-
-	for _, num := range nums {
-		res = res ^ num
-	}
-	return res
-}
+// func IsSingleNos(nums []int) int {
+// 	res := 0
+//
+// 	for _, num := range nums {
+// 		res = res ^ num
+// 	}
+// 	return res
+// }
