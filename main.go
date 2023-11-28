@@ -1,9 +1,9 @@
 package main
 
-import (
-	"strings"
-	"unicode"
-)
+// import (
+// 	"strings"
+// 	"unicode"
+// )
 
 // duplicate num in a array
 
@@ -58,20 +58,50 @@ import (
 // valid Palindrome
 // before i wanted to use the rune datatype reverse model but it takes a lot of memory and it is not fast
 // so these is me comparing the first and the last and going through it in a single for loop statement
-func IsPalindrome(s string) bool {
-	s = strings.Map(func(r rune) rune {
-		if !unicode.IsLetter(r) && !unicode.IsNumber(r) {
-			return -1
-		}
-		return unicode.ToLower(r)
-	}, s)
-
-	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-		if s[i] != s[j] {
-			return false
-		}
-	}
-	return true
-}
+// func IsPalindrome(s string) bool {
+// 	s = strings.Map(func(r rune) rune {
+// 		if !unicode.IsLetter(r) && !unicode.IsNumber(r) {
+// 			return -1
+// 		}
+// 		return unicode.ToLower(r)
+// 	}, s)
+//
+// 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+// 		if s[i] != s[j] {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
 
 // Single Number in an array
+// These is not memory safe and i am just putting these here for the normal understanding of how it works
+
+// func IsSingleNos(nums []int) int {
+// 	res := 0
+// 	seen := make(map[int]int)
+//
+// 	for _, num := range nums {
+// 		seen[num]++
+// 	}
+//
+// 	for num, count := range seen {
+// 		if count == 1 {
+// 			res = num
+// 		}
+// 	}
+// 	return res
+// }
+
+/* The bitwise XOR operation (^) has the property that when applied twice with the same value, it returns the original value. Therefore, when XORing all elements in the slice, the elements that appear an odd number of times will contribute to the final result, and those that appear an even number of times will cancel out.
+ */
+//The memory safe one
+
+func IsSingleNos(nums []int) int {
+	res := 0
+
+	for _, num := range nums {
+		res = res ^ num
+	}
+	return res
+}
