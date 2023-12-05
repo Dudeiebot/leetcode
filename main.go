@@ -46,7 +46,7 @@ package main
 // 		c_t[char]++
 // 	}
 //
-// 	// range through our mao and check if the count of c_s matches the one of c_t
+// 	// range through our map and check if the count of c_s matches the one of c_t
 // 	for char, count := range c_s {
 // 		if count != c_t[char] {
 // 			return false
