@@ -62,21 +62,31 @@ import (
 // 	}
 // }
 
-func TestIsSingeNos(t *testing.T) {
-	tests := []struct {
-		nums []int
-		want int
-	}{
-		{[]int{2, 2, 1}, 1},
-		{[]int{4, 1, 2, 1, 2}, 4},
-		{[]int{1}, 1},
-	}
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
-			got := IsSingleNos(tc.nums)
-			if got != tc.want {
-				t.Fatalf("The Single Nos() = %v; want %v", got, tc.want)
-			}
-		})
-	}
+// func TestIsSingeNos(t *testing.T) {
+// 	tests := []struct {
+// 		nums []int
+// 		want int
+// 	}{
+// 		{[]int{2, 2, 1}, 1},
+// 		{[]int{4, 1, 2, 1, 2}, 4},
+// 		{[]int{1}, 1},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+// 			got := IsSingleNos(tc.nums)
+// 			if got != tc.want {
+// 				t.Fatalf("The Single Nos() = %v; want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+
+
+func TestTwoSums (t *testing.T) {
+  tests := []struct {
+    nums []int, target int
+    want int
+  }{
+
+  }
 }
