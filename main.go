@@ -105,3 +105,7 @@ package main
 // 	}
 // 	return res
 // }
+
+func twoSums(nums []int, target int) []int {
+	return nil
+}
