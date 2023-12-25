@@ -108,17 +108,32 @@ package main
 
 // We are finding the sum of 2 number in an array that formes a target and we return the indices of the numbers
 // constant space of time technique O(n)
-func twoSums(nums []int, target int) []int {
-	seen := make(map[int]int)
+// func twoSums(nums []int, target int) []int {
+// 	seen := make(map[int]int)
+//
+// 	for i, num := range nums {
+// 		diff := target - num
+// 		if j, ok := seen[diff]; ok {
+// 			return []int{j, i}
+// 		}
+// 		seen[num] = i
+// 	}
+// 	return nil
+// }
+//
+// bruteforce techniques O(n2)
 
-	for i, num := range nums {
-		diff := target - num
-		if j, ok := seen[diff]; ok {
-			return []int{j, i}
+func twoSums(nums []int, target int) []int {
+	arr := make([]int, 2)
+
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[i]+nums[j] == target {
+				arr[0] = i
+				arr[1] = j
+				return arr
+			}
 		}
-		seen[num] = i
 	}
 	return nil
 }
-
-// bruteforce techniques O(n2)
