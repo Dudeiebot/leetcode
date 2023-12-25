@@ -106,6 +106,8 @@ package main
 // 	return res
 // }
 
+// We are finding the sum of 2 number in an array that formes a target and we return the indices of the numbers
+// constant space of time technique O(n)
 func twoSums(nums []int, target int) []int {
 	seen := make(map[int]int)
 
@@ -118,3 +120,5 @@ func twoSums(nums []int, target int) []int {
 	}
 	return nil
 }
+
+// bruteforce techniques O(n2)
