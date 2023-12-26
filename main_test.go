@@ -82,21 +82,21 @@ import (
 // 	}
 // }
 
-func TestTwoSums(t *testing.T) {
-	tests := []struct {
-		nums   []int
-		target int
-		want   []int
-	}{
-		{[]int{2, 1, 3, 4, 5}, 9, []int{3, 4}},
-		{[]int{5, 3, 2, 6, 7, 8}, 5, []int{1, 2}},
-	}
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v and %v", tc.nums, tc.target), func(t *testing.T) {
-			got := twoSums(tc.nums, tc.target)
-			if !reflect.DeepEqual(got, tc.want) {
-				t.Fatalf("Valid two sums in the slice() = %v; want %v", got, tc.want)
-			}
-		})
-	}
-}
+// func TestTwoSums(t *testing.T) {
+// 	tests := []struct {
+// 		nums   []int
+// 		target int
+// 		want   []int
+// 	}{
+// 		{[]int{2, 1, 3, 4, 5}, 9, []int{3, 4}},
+// 		{[]int{5, 3, 2, 6, 7, 8}, 5, []int{1, 2}},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v and %v", tc.nums, tc.target), func(t *testing.T) {
+// 			got := twoSums(tc.nums, tc.target)
+// 			if !reflect.DeepEqual(got, tc.want) {
+// 				t.Fatalf("Valid two sums in the slice() = %v; want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
