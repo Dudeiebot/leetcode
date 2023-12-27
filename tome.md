@@ -1,5 +1,5 @@
 
-Just tome.md for my all everything into into
+Just tome.md for my all everything into
 
 
 So here basically we have the algorith for leetcode and some explainantion following them
