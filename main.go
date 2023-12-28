@@ -136,3 +136,17 @@ package main
 // 	}
 // 	return nil
 // }
+
+// nos Palindrome but we dont first convert the nos to string
+func isNosPalindrome(x int) bool {
+	if x < 0 || (x != 0 && x%10 == 0) {
+		return false
+	}
+
+	temph := 0
+	for x > temph {
+		temph = (temph * 10) + (x % 10)
+		x = x / 10
+	}
+	return x == temph || x == temph/10
+}
