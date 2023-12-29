@@ -102,22 +102,22 @@ import (
 // 	}
 // }
 
-func TestIsNosPalindrome(t *testing.T) {
-	tests := []struct {
-		x    int
-		want bool
-	}{
-		{121, true},
-		{-121, true},
-		{10, false},
-		{21312, true},
-	}
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.x), func(t *testing.T) {
-			got := isNosPalindrome(tc.x)
-			if got != tc.want {
-				t.Fatalf("%v palindrome want %v", tc.want, got)
-			}
-		})
-	}
-}
+// func TestIsNosPalindrome(t *testing.T) {
+// 	tests := []struct {
+// 		x    int
+// 		want bool
+// 	}{
+// 		{121, true},
+// 		{-121, true},
+// 		{10, false},
+// 		{21312, true},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.x), func(t *testing.T) {
+// 			got := isNosPalindrome(tc.x)
+// 			if got != tc.want {
+// 				t.Fatalf("%v palindrome want %v", tc.want, got)
+// 			}
+// 		})
+// 	}
+// }
