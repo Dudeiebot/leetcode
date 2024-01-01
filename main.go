@@ -150,3 +150,25 @@ package main
 // 	}
 // 	return x == temph || x == temph/10
 // }
+
+func rom2Int(s string) int {
+	Numeral := map[byte]int{
+		'I': 1,
+		'V': 5,
+		'X': 10,
+		'L': 50,
+		'C': 100,
+		'D': 500,
+		'M': 1000,
+	}
+
+	res := 0
+	for i := 0; i < len(s)-1; i++ {
+		if Numeral[s[i]] < Numeral[s[i+1]] {
+			res -= Numeral[s[i]]
+		} else {
+			res += Numeral[s[i]]
+		}
+	}
+	return res + Numeral[s[len(s)-1]]
+}
