@@ -1,7 +1,7 @@
 package main
 
-import "strings"
-
+// import "strings"
+//
 // import (
 // 	"strings"
 // 	"unicode"
@@ -175,27 +175,28 @@ import "strings"
 // 	return res + Numeral[s[len(s)-1]]
 // }
 
-func rom2Int(s string) int {
-	Numeral := map[string]int{
-		"I": 1,
-		"V": 5,
-		"X": 10,
-		"L": 50,
-		"C": 100,
-		"D": 500,
-		"M": 1000,
-	}
-
-	res := 0
-	s = strings.Replace(s, "IV", "IIII", -1)
-	s = strings.Replace(s, "IX", "VIIII", -1)
-	s = strings.Replace(s, "XL", "XXXX", -1)
-	s = strings.Replace(s, "XC", "LXXXX", -1)
-	s = strings.Replace(s, "CD", "CCCC", -1)
-	s = strings.Replace(s, "CM", "DCCCC", -1)
-
-	for _, i := range s {
-		res += Numeral[string(i)]
-	}
-	return res
-}
+//this approach have a twist to it and it is not straightforward because you have to be raplacing about
+// func rom2Int(s string) int {
+// 	Numeral := map[string]int{
+// 		"I": 1,
+// 		"V": 5,
+// 		"X": 10,
+// 		"L": 50,
+// 		"C": 100,
+// 		"D": 500,
+// 		"M": 1000,
+// 	}
+//
+// 	res := 0
+// 	s = strings.Replace(s, "IV", "IIII", -1)
+// 	s = strings.Replace(s, "IX", "VIIII", -1)
+// 	s = strings.Replace(s, "XL", "XXXX", -1)
+// 	s = strings.Replace(s, "XC", "LXXXX", -1)
+// 	s = strings.Replace(s, "CD", "CCCC", -1)
+// 	s = strings.Replace(s, "CM", "DCCCC", -1)
+//
+// 	for _, i := range s {
+// 		res += Numeral[string(i)]
+// 	}
+// 	return res
+// }
