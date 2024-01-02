@@ -141,3 +141,10 @@ import (
 // 		})
 // 	}
 // }
+
+func TestLongestPrefix(t *testing.T) {
+	tests := []struct {
+		s    []string
+		want string
+	}{}
+}
