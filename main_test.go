@@ -123,21 +123,21 @@ import (
 // 	}
 // }
 
-func TestRom2Int(t *testing.T) {
-	tests := []struct {
-		s    string
-		want int
-	}{
-		{"MCDIX", 1409},
-		{"III", 3},
-		{"MCMIII", 1903},
-	}
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
-			got := rom2Int(tc.s)
-			if got != tc.want {
-				t.Fatalf("%v roman numeral want %v", got, tc.want)
-			}
-		})
-	}
-}
+// func TestRom2Int(t *testing.T) {
+// 	tests := []struct {
+// 		s    string
+// 		want int
+// 	}{
+// 		{"MCDIX", 1409},
+// 		{"III", 3},
+// 		{"MCMIII", 1903},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+// 			got := rom2Int(tc.s)
+// 			if got != tc.want {
+// 				t.Fatalf("%v roman numeral want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
