@@ -228,12 +228,13 @@ func checkParenthesis(s string) bool {
 	}
 
 	for _, i := range s {
+		// we can use the switch case statement also here
 		if i == '[' || i == '{' || i == '(' {
-			stack = append(stack, i)
+			stack = append(stack, i) // we append to the stack
 		} else if i == ']' || i == '}' || i == ')' && len(stack) > 0 {
 			popped := stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
-			if pairs[popped] != i {
+			if pairs[popped] != i { // we pop from the stack and compare it with the else if (i)
 				return false
 			}
 		}
