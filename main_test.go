@@ -146,5 +146,17 @@ func TestLongestPrefix(t *testing.T) {
 	tests := []struct {
 		s    []string
 		want string
-	}{}
+	}{
+		{[]string{"flower", "flow", "flight"}, "f"},
+		{[]string{"dog", "racecar", "car"}, ""},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := longestPrefix(tc.s)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
 }
