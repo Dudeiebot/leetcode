@@ -208,7 +208,7 @@ func longestPrefix(s []string) string {
 
 	firstLet := s[0]
 
-	for i := 0; i < len(s); i++ {
+	for i := 0; i < len(firstLet); i++ {
 		for _, words := range s[1:] {
 			if i == len(words) || words[i] != firstLet[i] {
 				return firstLet[0:i]
