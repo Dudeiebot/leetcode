@@ -217,3 +217,26 @@ package main
 // 	}
 // 	return firstLet
 // }
+
+func checkParenthesis(s string) bool {
+	stack := make([]rune, 0)
+
+	pairs := map[rune]rune{
+		'[': ']',
+		'{': '}',
+		'(': ')',
+	}
+
+	for _, i := range s {
+		if i == '[' || i == '{' || i == '(' {
+			stack = append(stack, i)
+		} else if i == ']' || i == '}' || i == ')' && len(stack) > 0 {
+			popped := stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if pairs[popped] != i {
+				return false
+			}
+		}
+	}
+	return len(stack) == 0
+}
