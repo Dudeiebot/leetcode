@@ -117,7 +117,7 @@ import (
 // 		t.Run(fmt.Sprintf("%v", tc.x), func(t *testing.T) {
 // 			got := isNosPalindrome(tc.x)
 // 			if got != tc.want {
-// 				t.Fatalf("%v palindrome want %v", tc.want, got)
+// 				t.Fatalf("got %v, want %v", got, tc.want)
 // 			}
 // 		})
 // 	}
@@ -136,7 +136,7 @@ import (
 // 		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
 // 			got := rom2Int(tc.s)
 // 			if got != tc.want {
-// 				t.Fatalf("%v roman numeral want %v", got, tc.want)
+// 				t.Fatalf("got %v, want %v", got, tc.want)
 // 			}
 // 		})
 // 	}
