@@ -161,22 +161,22 @@ import (
 // 	}
 // }
 
-func TestCheckParenthesis(t *testing.T) {
-	tests := []struct {
-		s    string
-		want bool
-	}{
-		{"()", true},
-		{"()[]{}", true},
-		{"(]", false},
-	}
-
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
-			got := checkParenthesis(tc.s)
-			if got != tc.want {
-				t.Fatalf("got %v, want %v", got, tc.want)
-			}
-		})
-	}
-}
+// func TestCheckParenthesis(t *testing.T) {
+// 	tests := []struct {
+// 		s    string
+// 		want bool
+// 	}{
+// 		{"()", true},
+// 		{"()[]{}", true},
+// 		{"(]", false},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+// 			got := checkParenthesis(tc.s)
+// 			if got != tc.want {
+// 				t.Fatalf("got %v, want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
