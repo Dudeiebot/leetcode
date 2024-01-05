@@ -242,31 +242,32 @@ package main
 // 	return len(stack) == 0
 // }
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
-	tempNode := &ListNode{}
-	currentNode := tempNode
-
-	for list1 != nil && list2 != nil {
-		if list1.Val < list2.Val {
-			currentNode.Next = list1 // this point to the currentvalue in our tempNode
-			list1 = list1.Next       // this point to our NextValue
-		} else {
-			currentNode.Next = list2
-			list2 = list2.Next
-		}
-		currentNode = currentNode.Next
-	}
-
-	// and when any of them come to finish here, we add the remaining to currentNode(which also lead to our tempNode)
-	if list1 != nil {
-		currentNode.Next = list1
-	} else {
-		currentNode.Next = list2
-	}
-	return tempNode.Next
-}
+// Merge two sorted linked list
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
+//
+// func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+// 	tempNode := &ListNode{}
+// 	currentNode := tempNode
+//
+// 	for list1 != nil && list2 != nil {
+// 		if list1.Val < list2.Val {
+// 			currentNode.Next = list1 // this point to the currentvalue in our tempNode
+// 			list1 = list1.Next       // this point to our NextValue
+// 		} else {
+// 			currentNode.Next = list2
+// 			list2 = list2.Next
+// 		}
+// 		currentNode = currentNode.Next
+// 	}
+//
+// 	// and when any of them come to finish here, we add the remaining to currentNode(which also lead to our tempNode)
+// 	if list1 != nil {
+// 		currentNode.Next = list1
+// 	} else {
+// 		currentNode.Next = list2
+// 	}
+// 	return tempNode.Next
+// }
