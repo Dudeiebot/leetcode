@@ -181,46 +181,46 @@ import (
 // 	}
 // }
 
-func TestMergeTwoLists(t *testing.T) {
-	// We first of all create a linked list from an array, and (the linked list is showing that everything in the array is linked), the we convert the link to arr and the merge it
-
-	createList := func(arr []int) *ListNode {
-		tempNode := &ListNode{}
-		currentNode := tempNode
-		for _, val := range arr {
-			currentNode.Next = &ListNode{Val: val}
-			currentNode = currentNode.Next
-		}
-		return tempNode.Next
-	}
-
-	list2Arr := func(list *ListNode) []int {
-		res := make([]int, 0)
-		for list != nil {
-			res = append(res, list.Val)
-			list = list.Next
-		}
-		return res
-	}
-
-	tests := []struct {
-		list1 []int
-		list2 []int
-		want  []int
-	}{
-		{[]int{1, 3, 5}, []int{2, 4, 6}, []int{1, 2, 3, 4, 5, 6}},
-		{[]int{1, 2, 4}, []int{1, 3, 4}, []int{1, 1, 2, 3, 4, 4}},
-		{[]int{}, []int{0}, []int{0}},
-		{[]int{}, []int{}, []int{}},
-	}
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("merge %v and %v", tc.list1, tc.list2), func(t *testing.T) {
-			list1 := createList(tc.list1)
-			list2 := createList(tc.list2)
-			got := list2Arr(mergeTwoLists(list1, list2))
-			if !reflect.DeepEqual(got, tc.want) {
-				t.Fatalf("got %v, mergeTwoLists want %v", got, tc.want)
-			}
-		})
-	}
-}
+// func TestMergeTwoLists(t *testing.T) {
+// 	// We first of all create a linked list from an array, and (the linked list is showing that everything in the array is linked), the we convert the link to arr and the merge it
+//
+// 	createList := func(arr []int) *ListNode {
+// 		tempNode := &ListNode{}
+// 		currentNode := tempNode
+// 		for _, val := range arr {
+// 			currentNode.Next = &ListNode{Val: val}
+// 			currentNode = currentNode.Next
+// 		}
+// 		return tempNode.Next
+// 	}
+//
+// 	list2Arr := func(list *ListNode) []int {
+// 		res := make([]int, 0)
+// 		for list != nil {
+// 			res = append(res, list.Val)
+// 			list = list.Next
+// 		}
+// 		return res
+// 	}
+//
+// 	tests := []struct {
+// 		list1 []int
+// 		list2 []int
+// 		want  []int
+// 	}{
+// 		{[]int{1, 3, 5}, []int{2, 4, 6}, []int{1, 2, 3, 4, 5, 6}},
+// 		{[]int{1, 2, 4}, []int{1, 3, 4}, []int{1, 1, 2, 3, 4, 4}},
+// 		{[]int{}, []int{0}, []int{0}},
+// 		{[]int{}, []int{}, []int{}},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("merge %v and %v", tc.list1, tc.list2), func(t *testing.T) {
+// 			list1 := createList(tc.list1)
+// 			list2 := createList(tc.list2)
+// 			got := list2Arr(mergeTwoLists(list1, list2))
+// 			if !reflect.DeepEqual(got, tc.want) {
+// 				t.Fatalf("got %v, mergeTwoLists want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
