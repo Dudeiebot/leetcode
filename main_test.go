@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"reflect"
+	//"reflect"
 	"testing"
 )
 
@@ -224,3 +224,22 @@ import (
 // 		})
 // 	}
 // }
+
+func TestRemoveDuplicates(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 1, 2}, 2},
+		{[]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}, 5},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := removeDuplicates(tc.nums)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
