@@ -273,26 +273,26 @@ package main
 // }
 
 // here we are using a pointer, and the pointer is used to compare to the num
-func removeDuplicates(nums []int) int {
-	i := 0
-
-	for k := 0; k < len(nums); k++ {
-		if nums[k] != nums[i] {
-			i++
-			nums[i] = nums[k]
-		}
-	}
-	return i + 1
-}
-
-// same thing here also the pointer is necesay for constant space of time
-func removeElements(nums []int, val int) int {
-	i := 0
-	for _, num := range nums {
-		if num != val {
-			nums[i] = num
-			i++
-		}
-	}
-	return i
-}
+// func removeDuplicates(nums []int) int {
+// 	i := 0
+//
+// 	for k := 0; k < len(nums); k++ {
+// 		if nums[k] != nums[i] {
+// 			i++
+// 			nums[i] = nums[k]
+// 		}
+// 	}
+// 	return i + 1
+// }
+//
+// // same thing here also the pointer is necesay for constant space of time
+// func removeElements(nums []int, val int) int {
+// 	i := 0
+// 	for _, num := range nums {
+// 		if num != val {
+// 			nums[i] = num
+// 			i++
+// 		}
+// 	}
+// 	return i
+// }
