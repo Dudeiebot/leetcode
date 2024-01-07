@@ -297,22 +297,50 @@ package main
 // 	return i
 // }
 
-func strstr(mainString string, substring string) int {
-	// this is fast way
-	// return strings.Index(mainString, substring)
+// func strstr(mainString string, substring string) int {
+// 	// this is fast way
+// 	// return strings.Index(mainString, substring)
+//
+// 	k := len(mainString) + 1 - len(substring)
+// 	for i := 0; i < k; i++ {
+// 		if mainString[i:i+len(substring)] == substring {
+// 			return i
+// 		}
+// 	}
+// 	return -1
+//
+// 	// sadbutsad = 9
+// 	// sad = 3
+//
+// 	// 9 + 1 -3 = 7 //we do this to not get to the final end but like a letter behind the end
+//
+// 	// s: ad == sad
+// }
 
-	k := len(mainString) + 1 - len(substring)
-	for i := 0; i < k; i++ {
-		if mainString[i:i+len(substring)] == substring {
-			return i
+func searchInsert(nums []int, target int) int {
+	// l := 0
+	// r := len(nums) - 1
+	//
+	// for l <= r {
+	// 	mid := (l + r) / 2
+	// 	if nums[mid] < target {
+	// 		l = mid + 1
+	// 	} else if nums[mid] > target {
+	// 		r = mid - 1
+	// 	} else {
+	// 		return mid
+	// 	}
+	// }
+	// return l
+	//Binary search using Olog(n)
+
+	for k := range nums {
+		if nums[k] == target {
+			return k
+		} else if nums[k] > target {
+			return k
 		}
 	}
-	return -1
-
-	// sadbutsad = 9
-	// sad = 3
-
-	// 9 + 1 -3 = 7 //we do this to not get to the final end but like a letter behind the end
-
-	// s: ad == sad
+	return len(nums)
+	// linear Search
 }
