@@ -296,3 +296,16 @@ package main
 // 	}
 // 	return i
 // }
+
+func strstr(mainString string, substring string) int {
+	// this is fast way
+	// return strings.Index(mainString, substring)
+
+	k := len(mainString) + 1 - len(substring)
+	for i := 0; i < k; i++ {
+		if mainString[i:i+len(substring)] == substring {
+			return i
+		}
+	}
+	return -1
+}
