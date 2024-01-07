@@ -308,4 +308,11 @@ func strstr(mainString string, substring string) int {
 		}
 	}
 	return -1
+
+	// sadbutsad = 9
+	// sad = 3
+
+	// 9 + 1 -3 = 7 //we do this to not get to the final end but like a letter behind the end
+
+	// s: ad == sad
 }
