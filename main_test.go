@@ -263,3 +263,25 @@ import (
 // 		})
 // 	}
 // }
+
+func TestRemoveElements(t *testing.T) {
+	tests := []struct {
+		mainString, substring string
+		want                  int
+	}{
+		{"sadbutsad", "sad", 0},
+		{"leetcode", "leeto", -1},
+	}
+
+	for _, tc := range tests {
+		t.Run(
+			fmt.Sprintf("the mainstring %v and substring %v", tc.mainString, tc.substring),
+			func(t *testing.T) {
+				got := strstr(tc.mainString, tc.substring)
+				if got != tc.want {
+					t.Fatalf("got %v, want %v", got, tc.want)
+				}
+			},
+		)
+	}
+}
