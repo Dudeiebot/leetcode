@@ -359,3 +359,17 @@ package main
 // 	}
 // 	return l
 // }
+
+func plusOne(digits []int) []int {
+	r := len(digits) - 1
+
+	for i := r; i >= 0; i-- {
+		if digits[i] < 9 {
+			digits[i]++
+			return digits
+		}
+		digits[i] = 0
+	}
+	digits = append([]int{1}, digits...)
+	return digits
+}
