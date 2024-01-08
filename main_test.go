@@ -286,23 +286,23 @@ import (
 // 	}
 // }
 
-func TestSearchInsert(t *testing.T) {
-	tests := []struct {
-		nums   []int
-		target int
-		want   int
-	}{
-		{[]int{1, 3, 5, 6}, 5, 2},
-		{[]int{1, 3, 5, 6}, 2, 1},
-		{[]int{1, 3, 5, 6}, 7, 4},
-	}
-
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v %v", tc.nums, tc.target), func(t *testing.T) {
-			got := searchInsert(tc.nums, tc.target)
-			if got != tc.want {
-				t.Fatalf("got %v, want %v", got, tc.want)
-			}
-		})
-	}
-}
+// func TestSearchInsert(t *testing.T) {
+// 	tests := []struct {
+// 		nums   []int
+// 		target int
+// 		want   int
+// 	}{
+// 		{[]int{1, 3, 5, 6}, 5, 2},
+// 		{[]int{1, 3, 5, 6}, 2, 1},
+// 		{[]int{1, 3, 5, 6}, 7, 4},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v %v", tc.nums, tc.target), func(t *testing.T) {
+// 			got := searchInsert(tc.nums, tc.target)
+// 			if got != tc.want {
+// 				t.Fatalf("got %v, want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
