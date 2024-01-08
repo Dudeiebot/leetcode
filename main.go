@@ -317,30 +317,31 @@ package main
 // 	// s: ad == sad
 // }
 
-func searchInsert(nums []int, target int) int {
-	// l := 0
-	// r := len(nums) - 1
-	//
-	// for l <= r {
-	// 	mid := (l + r) / 2
-	// 	if nums[mid] < target {
-	// 		l = mid + 1
-	// 	} else if nums[mid] > target {
-	// 		r = mid - 1
-	// 	} else {
-	// 		return mid
-	// 	}
-	// }
-	// return l
-	//Binary search using Olog(n)
-
-	for k := range nums {
-		if nums[k] == target {
-			return k
-		} else if nums[k] > target {
-			return k
-		}
-	}
-	return len(nums)
-	// linear Search
-}
+// func searchInsert(nums []int, target int) int {
+// 	// l := 0
+// 	// r := len(nums) - 1
+// 	//
+// 	// for l <= r {
+// 	// 	mid := (l + r) / 2
+// 	// 	if nums[mid] < target {
+// 	// 		l = mid + 1
+// 	// 	} else if nums[mid] > target {
+// 	// 		r = mid - 1
+// 	// 	} else {
+// 	// 		return mid
+// 	// 	}
+// 	// }
+// 	// return l
+// 	//Binary search using Olog(n)
+//
+// 	for k := range nums {
+// 		if nums[k] == target {
+// 			return k
+// 		} else if nums[k] > target {
+// 			return k
+// 		}
+// 	}
+// 	return len(nums)
+// 	// linear Search
+// }
+//
