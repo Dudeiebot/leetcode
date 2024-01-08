@@ -306,3 +306,23 @@ import (
 // 		})
 // 	}
 // }
+
+func TestLengthOfLastWord(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"Hello World", 5},
+		{"   fly me   to   the moon  ", 4},
+		{"luffy is still joyboy", 6},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := lengthOfLastWord(tc.s)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
