@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"reflect"
+	//	"reflect"
 	"testing"
 )
 
@@ -346,3 +346,22 @@ import (
 // 		})
 // 	}
 // }
+
+func TestAddBinary(t *testing.T) {
+	tests := []struct {
+		a, b string
+		want string
+	}{
+		{"11", "1", "100"},
+		{"1010", "1011", "10101"},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v %v", tc.a, tc.b), func(t *testing.T) {
+			got := addBinary(tc.a, tc.b)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
