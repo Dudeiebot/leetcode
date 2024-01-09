@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	//	"fmt"
+	"math/big"
+)
 
 // import "strings"
 //
@@ -376,29 +379,38 @@ import "fmt"
 // 	return digits
 // }
 
-func addBinary(a string, b string) string {
-	res := ""
-	carry := 0
+// func addBinary(a string, b string) string {
+// 	res := ""
+// 	carry := 0
+//
+// 	i, j := len(a)-1, len(b)-1
+//
+// 	for i >= 0 || j >= 0 || carry > 0 {
+// 		sum := carry
+//
+// 		if i >= 0 {
+// 			sum += int(a[i] - '0') // the string here is converted to int here
+// 			i--
+// 		}
+//
+// 		if j >= 0 {
+// 			sum += int(b[j] - '0')
+// 			j--
+// 		}
+//
+// 		rem := sum % 2
+// 		res = fmt.Sprintf("%d%s", rem, res)
+//
+// 		carry = sum / 2
+// 	}
+// 	return res
+// }
 
-	i, j := len(a)-1, len(b)-1
+// We can use the standard library but in interviews you wont be allowed to use it, so Therefore use the normal formula
+func addBinary(a, b string) string {
+	num1, _ := new(big.Int).SetString(a, 2)
+	num2, _ := new(big.Int).SetString(b, 2)
 
-	for i >= 0 || j >= 0 || carry > 0 {
-		sum := carry
-
-		if i >= 0 {
-			sum += int(a[i] - '0') // the string here is converted to int here
-			i--
-		}
-
-		if j >= 0 {
-			sum += int(b[j] - '0')
-			j--
-		}
-
-		rem := sum % 2
-		res = fmt.Sprintf("%d%s", rem, res)
-
-		carry = sum / 2
-	}
-	return res
+	sum := new(big.Int).Add(num1, num2)
+	return sum.Text(2)
 }
