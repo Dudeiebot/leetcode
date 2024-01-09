@@ -365,3 +365,22 @@ import (
 // 		})
 // 	}
 // }
+
+func TestMySqrt(t *testing.T) {
+	tests := []struct {
+		n    int
+		want int
+	}{
+		{16, 4},
+		{8, 2},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := mySqrt(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
