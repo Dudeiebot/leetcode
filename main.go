@@ -407,10 +407,12 @@ import (
 // }
 
 // We can use the standard library but in interviews you wont be allowed to use it, so Therefore use the normal formula
-func addBinary(a, b string) string {
-	num1, _ := new(big.Int).SetString(a, 2)
-	num2, _ := new(big.Int).SetString(b, 2)
-
-	sum := new(big.Int).Add(num1, num2)
-	return sum.Text(2)
-}
+// func addBinary(a, b string) string {
+// 	num1, _ := new(big.Int).SetString(a, 2)
+// 	num2, _ := new(big.Int).SetString(b, 2)
+//
+// 	sum := new(big.Int).Add(num1, num2)
+// 	return sum.Text(2)
+// }
+//
+// there are other standard library to use like strconv.ParseInt and strconv.FormatInt
