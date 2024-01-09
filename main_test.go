@@ -327,22 +327,22 @@ import (
 // 	}
 // }
 
-func TestPlusOne(t *testing.T) {
-	tests := []struct {
-		digits []int
-		want   []int
-	}{
-		{[]int{1, 2, 3}, []int{1, 2, 4}},
-		{[]int{4, 3, 2, 1}, []int{4, 3, 2, 2}},
-		{[]int{9}, []int{1, 0}},
-	}
-
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.digits), func(t *testing.T) {
-			got := plusOne(tc.digits)
-			if !reflect.DeepEqual(got, tc.want) {
-				t.Fatalf("got %v, want %v", got, tc.want)
-			}
-		})
-	}
-}
+// func TestPlusOne(t *testing.T) {
+// 	tests := []struct {
+// 		digits []int
+// 		want   []int
+// 	}{
+// 		{[]int{1, 2, 3}, []int{1, 2, 4}},
+// 		{[]int{4, 3, 2, 1}, []int{4, 3, 2, 2}},
+// 		{[]int{9}, []int{1, 0}},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.digits), func(t *testing.T) {
+// 			got := plusOne(tc.digits)
+// 			if !reflect.DeepEqual(got, tc.want) {
+// 				t.Fatalf("got %v, want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
