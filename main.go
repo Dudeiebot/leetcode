@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // import "strings"
 //
 // import (
@@ -373,3 +375,30 @@ package main
 // 	digits = append([]int{1}, digits...)
 // 	return digits
 // }
+
+func addBinary(a string, b string) string {
+	res := ""
+	carry := 0
+
+	i, j := len(a)-1, len(b)-1
+
+	for i >= 0 || j >= 0 || carry > 0 {
+		sum := carry
+
+		if i >= 0 {
+			sum += int(a[i] - '0') // the string here is converted to int here
+			i--
+		}
+
+		if j >= 0 {
+			sum += int(b[j] - '0')
+			j--
+		}
+
+		rem := sum % 2
+		res = fmt.Sprintf("%d%s", rem, res)
+
+		carry = sum / 2
+	}
+	return res
+}
