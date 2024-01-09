@@ -23,3 +23,5 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - Searching for insert in a array and we are returning the index if it is in the array or where it is supposed to be in the array, We are using the O(log n) here which is the binary search (it goes through the middle and does the search from there) 
 - we are returning the legth of the last word in a sentences, so firstly take away all the trailing spaces then we count back the last word
 - We are incrementing the last word in an array and when the last array is 9 we do the normal addition, we dont forget that we need to start from the last unit. We start our for loop from the end and perform our addition.
+- We are adding two binary nos together, so we will just use the normal addition of two binary nos(not greater than 2)
+- mySqrt used to get the square of a number without using the standard library, we use binary search and check from the middle, the we multiply it twice to see if it is right
