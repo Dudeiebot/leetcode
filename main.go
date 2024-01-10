@@ -429,20 +429,38 @@ package main
 // 	return r
 // }
 
-func climbStairs(n int) int {
-	// this is related to the fibonacci (synamic programming) and we can use that recursion for it also till n got to 1 and 2
-	if n == 1 {
-		return 1
-	}
+// func climbStairs(n int) int {
+// 	// this is related to the fibonacci (synamic programming) and we can use that recursion for it also till n got to 1 and 2
+// 	if n == 1 {
+// 		return 1
+// 	}
+//
+// 	n1 := 1
+// 	n2 := 1
+// 	total := 0
+//
+// 	for i := 2; i <= n; i++ {
+// 		total = n1 + n2
+// 		n2 = n1
+// 		n1 = total
+// 	}
+// 	return total
+// }
 
-	n1 := 1
-	n2 := 1
-	total := 0
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
 
-	for i := 2; i <= n; i++ {
-		total = n1 + n2
-		n2 = n1
-		n1 = total
+func delDuplicates(head *ListNode) *ListNode {
+	res := head
+
+	for head != nil && head.Next != nil {
+		if head.Next.Val == head.Val {
+			head.Next = head.Next.Next
+		} else {
+			head = head.Next
+		}
 	}
-	return total
+	return res
 }
