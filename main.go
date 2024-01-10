@@ -411,20 +411,20 @@ package main
 //
 // there are other standard library to use like strconv.ParseInt and strconv.FormatInt
 
-func mySqrt(n int) int {
-	// without using the standard library
-	l, r := 0, n
-
-	for l <= r {
-		mid := (l + r) / 2
-
-		if mid*mid < n {
-			l = mid + 1
-		} else if mid*mid > n {
-			r = mid - 1
-		} else {
-			return mid
-		}
-	}
-	return r
-}
+// func mySqrt(n int) int {
+// 	// without using the standard library
+// 	l, r := 0, n
+//
+// 	for l <= r {
+// 		mid := (l + r) / 2
+//
+// 		if mid*mid < n {
+// 			l = mid + 1
+// 		} else if mid*mid > n {
+// 			r = mid - 1
+// 		} else {
+// 			return mid
+// 		}
+// 	}
+// 	return r
+// }
