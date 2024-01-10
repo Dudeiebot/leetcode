@@ -26,3 +26,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - We are adding two binary nos together, so we will just use the normal addition of two binary nos(not greater than 2)
 - mySqrt used to get the square of a number without using the standard library, we use binary search and check from the middle, the we multiply it twice to see if it is right
 - Dynamic programming which is related to the fibonacci series, we have a nos of ways to climb a step. If there are no step at all there will be only one way(not to climb at all). so the no(ways) == no(ways) - 1 + no(ways) - 2
+- removing duplicates from a linked list, we assign a pointer to our list and it get updated
