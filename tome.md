@@ -25,3 +25,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - We are incrementing the last word in an array and when the last array is 9 we do the normal addition, we dont forget that we need to start from the last unit. We start our for loop from the end and perform our addition.
 - We are adding two binary nos together, so we will just use the normal addition of two binary nos(not greater than 2)
 - mySqrt used to get the square of a number without using the standard library, we use binary search and check from the middle, the we multiply it twice to see if it is right
+- Dynamic programming which is related to the fibonacci series, we have a nos of ways to climb a step. If there are no step at all there will be only one way(not to climb at all). so the no(ways) == no(ways) - 1 + no(ways) - 2
