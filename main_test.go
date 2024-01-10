@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	//	"fmt"
+	"reflect"
 	// 	//	"reflect"
 	"testing"
 )
@@ -385,21 +386,71 @@ import (
 // 	}
 // }
 
-func TestClimbStairs(t *testing.T) {
+// func TestClimbStairs(t *testing.T) {
+// 	tests := []struct {
+// 		n    int
+// 		want int
+// 	}{
+// 		{0, 0},
+// 		{1, 1},
+// 		{3, 3},
+// 		{40, 165580141},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("n=%v", tc.n), func(t *testing.T) {
+// 			got := climbStairs(tc.n)
+// 			if got != tc.want {
+// 				t.Fatalf("Fibonacci() = %v; want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestDelDuplicates(t *testing.T) {
 	tests := []struct {
-		n    int
-		want int
+		name     string
+		input    *ListNode
+		expected *ListNode
 	}{
-		{0, 0},
-		{1, 1},
-		{3, 3},
-		{40, 165580141},
+		{
+			name: "No duplicates",
+			input: &ListNode{
+				Val:  1,
+				Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}},
+			},
+			expected: &ListNode{
+				Val:  1,
+				Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}},
+			},
+		},
+		{
+			name: "Duplicates in the middle",
+			input: &ListNode{
+				Val:  1,
+				Next: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
+			},
+			expected: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
+		},
+		{
+			name: "Duplicates at the end",
+			input: &ListNode{
+				Val:  1,
+				Next: &ListNode{Val: 2, Next: &ListNode{Val: 2, Next: nil}},
+			},
+			expected: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
+		},
+		{
+			name:     "Empty list",
+			input:    nil,
+			expected: nil,
+		},
 	}
+
 	for _, tc := range tests {
-		t.Run(fmt.Sprintf("n=%v", tc.n), func(t *testing.T) {
-			got := climbStairs(tc.n)
-			if got != tc.want {
-				t.Fatalf("Fibonacci() = %v; want %v", got, tc.want)
+		t.Run(tc.name, func(t *testing.T) {
+			result := delDuplicates(tc.input)
+			if !reflect.DeepEqual(result, tc.expected) {
+				t.Errorf("Expected %v, got %v", tc.expected, result)
 			}
 		})
 	}
