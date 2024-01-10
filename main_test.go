@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	//	"reflect"
+	// 	//	"reflect"
 	"testing"
 )
 
@@ -384,3 +384,23 @@ import (
 // 		})
 // 	}
 // }
+
+func TestClimbStairs(t *testing.T) {
+	tests := []struct {
+		n    int
+		want int
+	}{
+		{0, 0},
+		{1, 1},
+		{3, 3},
+		{40, 165580141},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("n=%v", tc.n), func(t *testing.T) {
+			got := climbStairs(tc.n)
+			if got != tc.want {
+				t.Fatalf("Fibonacci() = %v; want %v", got, tc.want)
+			}
+		})
+	}
+}
