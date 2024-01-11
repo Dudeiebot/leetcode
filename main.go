@@ -447,20 +447,20 @@ package main
 // 	return total
 // }
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-func delDuplicates(head *ListNode) *ListNode {
-	res := head
-
-	for head != nil && head.Next != nil {
-		if head.Next.Val == head.Val {
-			head.Next = head.Next.Next
-		} else {
-			head = head.Next
-		}
-	}
-	return res
-}
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
+//
+// func delDuplicates(head *ListNode) *ListNode {
+// 	res := head
+//
+// 	for head != nil && head.Next != nil {
+// 		if head.Next.Val == head.Val {
+// 			head.Next = head.Next.Next
+// 		} else {
+// 			head = head.Next
+// 		}
+// 	}
+// 	return res
+// }
