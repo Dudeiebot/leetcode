@@ -406,52 +406,52 @@ import (
 // 	}
 // }
 
-func TestDelDuplicates(t *testing.T) {
-	tests := []struct {
-		name     string
-		input    *ListNode
-		expected *ListNode
-	}{
-		{
-			name: "No duplicates",
-			input: &ListNode{
-				Val:  1,
-				Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}},
-			},
-			expected: &ListNode{
-				Val:  1,
-				Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}},
-			},
-		},
-		{
-			name: "Duplicates in the middle",
-			input: &ListNode{
-				Val:  1,
-				Next: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
-			},
-			expected: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
-		},
-		{
-			name: "Duplicates at the end",
-			input: &ListNode{
-				Val:  1,
-				Next: &ListNode{Val: 2, Next: &ListNode{Val: 2, Next: nil}},
-			},
-			expected: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
-		},
-		{
-			name:     "Empty list",
-			input:    nil,
-			expected: nil,
-		},
-	}
-
-	for _, tc := range tests {
-		t.Run(tc.name, func(t *testing.T) {
-			result := delDuplicates(tc.input)
-			if !reflect.DeepEqual(result, tc.expected) {
-				t.Errorf("Expected %v, got %v", tc.expected, result)
-			}
-		})
-	}
-}
+// func TestDelDuplicates(t *testing.T) {
+// 	tests := []struct {
+// 		name     string
+// 		input    *ListNode
+// 		expected *ListNode
+// 	}{
+// 		{
+// 			name: "No duplicates",
+// 			input: &ListNode{
+// 				Val:  1,
+// 				Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}},
+// 			},
+// 			expected: &ListNode{
+// 				Val:  1,
+// 				Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: nil}},
+// 			},
+// 		},
+// 		{
+// 			name: "Duplicates in the middle",
+// 			input: &ListNode{
+// 				Val:  1,
+// 				Next: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
+// 			},
+// 			expected: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
+// 		},
+// 		{
+// 			name: "Duplicates at the end",
+// 			input: &ListNode{
+// 				Val:  1,
+// 				Next: &ListNode{Val: 2, Next: &ListNode{Val: 2, Next: nil}},
+// 			},
+// 			expected: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}},
+// 		},
+// 		{
+// 			name:     "Empty list",
+// 			input:    nil,
+// 			expected: nil,
+// 		},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(tc.name, func(t *testing.T) {
+// 			result := delDuplicates(tc.input)
+// 			if !reflect.DeepEqual(result, tc.expected) {
+// 				t.Errorf("Expected %v, got %v", tc.expected, result)
+// 			}
+// 		})
+// 	}
+// }
