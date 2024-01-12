@@ -488,6 +488,14 @@ func TestInorderTraversal(t *testing.T) {
 	}{
 		{(*TreeNode)(nil), []int{}},
 		{&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}}, []int{2, 1, 3}},
+		{
+			&TreeNode{
+				Val:   1,
+				Left:  &TreeNode{Val: 3},
+				Right: &TreeNode{Val: 2},
+			},
+			[]int{3, 1, 2},
+		},
 	}
 
 	for _, tc := range tests {
