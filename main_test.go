@@ -480,3 +480,22 @@ import (
 // 		})
 // 	}
 // }
+
+func TestInorderTraversal(t *testing.T) {
+	tests := []struct {
+		root *TreeNode
+		want []int
+	}{
+		{(*TreeNode)(nil), []int{}},
+		{&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}}, []int{2, 1, 3}},
+	}
+
+	for _, tc := range tests {
+		t.Run(" ", func(t *testing.T) {
+			got := inorderTraversal(tc.root)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
