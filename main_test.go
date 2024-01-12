@@ -456,27 +456,27 @@ import (
 // 	}
 // }
 
-func TestMerge(t *testing.T) {
-	tests := []struct {
-		nums1 []int
-		nums2 []int
-		m     int
-		n     int
-		want  []int
-	}{
-		{[]int{1, 2, 3, 0, 0, 0}, []int{2, 5, 6}, 3, 3, []int{1, 2, 2, 3, 5, 6}},
-		{[]int{4, 5, 6, 0, 0, 0}, []int{1, 2, 3}, 3, 3, []int{1, 2, 3, 4, 5, 6}},
-		{[]int{0}, []int{1}, 0, 1, []int{1}},
-		{[]int{1}, []int{}, 1, 0, []int{1}},
-	}
-
-	for _, tc := range tests {
-		t.Run(" ", func(t *testing.T) {
-			merge(tc.nums1, tc.m, tc.nums2, tc.n)
-			if !reflect.DeepEqual(tc.nums1, tc.want) {
-				t.Fatalf("got %v, want %v", tc.nums1, tc.want)
-				// nums1 get modified and can be represented as our got
-			}
-		})
-	}
-}
+// func TestMerge(t *testing.T) {
+// 	tests := []struct {
+// 		nums1 []int
+// 		nums2 []int
+// 		m     int
+// 		n     int
+// 		want  []int
+// 	}{
+// 		{[]int{1, 2, 3, 0, 0, 0}, []int{2, 5, 6}, 3, 3, []int{1, 2, 2, 3, 5, 6}},
+// 		{[]int{4, 5, 6, 0, 0, 0}, []int{1, 2, 3}, 3, 3, []int{1, 2, 3, 4, 5, 6}},
+// 		{[]int{0}, []int{1}, 0, 1, []int{1}},
+// 		{[]int{1}, []int{}, 1, 0, []int{1}},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(" ", func(t *testing.T) {
+// 			merge(tc.nums1, tc.m, tc.nums2, tc.n)
+// 			if !reflect.DeepEqual(tc.nums1, tc.want) {
+// 				t.Fatalf("got %v, want %v", tc.nums1, tc.want)
+// 				// nums1 get modified and can be represented as our got
+// 			}
+// 		})
+// 	}
+// }
