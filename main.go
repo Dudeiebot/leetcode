@@ -480,3 +480,32 @@ package main
 // 		c--
 // 	}
 // }
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func inorderTraversal(root *TreeNode) []int {
+	res := make([]int, 0) // create the arr that store the result
+	stck := make([]*TreeNode, 0)
+	// create a slack of our datatype
+	curr := root
+
+	// note: we are trving the left tree first
+	for curr != nil || len(stck) > 0 {
+		for curr != nil {
+			stck = append(stck, curr)
+			// the left is being pushed to the stack
+			curr = curr.Left
+			// dont forget we want to be moving left
+		}
+		curr = stck[len(stck)-1]
+		stck = stck[:len(stck)-1]
+		// and when it doesnot have anything it is being popped ande appended to our res here
+		res = append(res, curr.Val)
+		curr = curr.Right
+	}
+	return res
+}
