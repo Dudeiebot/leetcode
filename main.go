@@ -509,6 +509,8 @@ type TreeNode struct {
 // 		curr = curr.Right
 // 	}
 // 	return res
+/* I can practically use recursion here which append the left first and then the root with the right late
+just like this (append(ourarr, inorderTraversal(root.Left)...), followed by append to root append(ourarr, inorderTraversal(root.Val)) and then append right) */
 // }
 
 func isSameTree(p, q *TreeNode) bool {
