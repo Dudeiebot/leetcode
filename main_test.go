@@ -2,8 +2,7 @@ package main
 
 import (
 	//	"fmt"
-	"reflect"
-	// 	//	"reflect"
+	//	"reflect"
 	"testing"
 )
 
@@ -481,27 +480,65 @@ import (
 // 	}
 // }
 
-func TestInorderTraversal(t *testing.T) {
+// func TestInorderTraversal(t *testing.T) {
+// 	tests := []struct {
+// 		root *TreeNode
+// 		want []int
+// 	}{
+// 		{(*TreeNode)(nil), []int{}},
+// 		{&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}}, []int{2, 1, 3}},
+// 		{
+// 			&TreeNode{
+// 				Val:   1,
+// 				Left:  &TreeNode{Val: 3},
+// 				Right: &TreeNode{Val: 2},
+// 			},
+// 			[]int{3, 1, 2},
+// 		},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(" ", func(t *testing.T) {
+// 			got := inorderTraversal(tc.root)
+// 			if !reflect.DeepEqual(got, tc.want) {
+// 				t.Fatalf("got %v, want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestSameTree(t *testing.T) {
 	tests := []struct {
-		root *TreeNode
-		want []int
+		name string
+		p    *TreeNode
+		q    *TreeNode
+		want bool
 	}{
-		{(*TreeNode)(nil), []int{}},
-		{&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}}, []int{2, 1, 3}},
+		{"the first", nil, nil, true},
 		{
-			&TreeNode{
-				Val:   1,
-				Left:  &TreeNode{Val: 3},
-				Right: &TreeNode{Val: 2},
-			},
-			[]int{3, 1, 2},
+			"the second",
+			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}},
+			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 2}},
+			false,
+		},
+		{
+			"the third",
+			&TreeNode{Val: 1, Left: &TreeNode{Val: 0}, Right: &TreeNode{Val: 3}},
+			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}},
+			false,
+		},
+		{
+			"the third",
+			&TreeNode{Val: 1, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 2}},
+			&TreeNode{Val: 1, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 2}},
+			true,
 		},
 	}
 
 	for _, tc := range tests {
-		t.Run(" ", func(t *testing.T) {
-			got := inorderTraversal(tc.root)
-			if !reflect.DeepEqual(got, tc.want) {
+		t.Run(tc.name, func(t *testing.T) {
+			got := isSameTree(tc.p, tc.q)
+			if got != tc.want {
 				t.Fatalf("got %v, want %v", got, tc.want)
 			}
 		})
