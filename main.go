@@ -544,3 +544,21 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	// Check symmetry starting from the root
 // 	return dfs(root.Left, root.Right)
 // }
+
+func maximumDepth(root *TreeNode) int {
+	max := func(a, b int) int {
+		if a > b {
+			return a
+		}
+		return b
+	}
+
+	if root == nil {
+		return 0
+	}
+
+	leftHeight := maximumDepth(root.Left)
+	rightHeight := maximumDepth(root.Right)
+
+	return 1 + max(leftHeight, rightHeight)
+}
