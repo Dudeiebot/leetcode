@@ -591,3 +591,37 @@ import (
 // 		})
 // 	}
 // }
+
+func TestMaximumDepth(t *testing.T) {
+	tests := []struct {
+		root *TreeNode
+		want int
+	}{
+		{nil, 0},               // Empty tree
+		{&TreeNode{Val: 1}, 1}, // Single-node tree
+		{
+			&TreeNode{
+				Val:   1,
+				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}},
+				Right: &TreeNode{Val: 4, Right: &TreeNode{Val: 5}},
+			},
+			3, // Balanced tree
+		},
+		{
+			&TreeNode{
+				Val:   1,
+				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}},
+				Right: &TreeNode{Val: 4, Right: &TreeNode{Val: 5, Left: &TreeNode{Val: 6}}},
+			},
+			4, // Unbalanced tree
+		},
+	}
+	for _, tc := range tests {
+		t.Run(" ", func(t *testing.T) {
+			got := maximumDepth(tc.root)
+			if got != tc.want {
+				t.Errorf("maximumDepth(%v) = %v, want %v", tc.root, got, tc.want)
+			}
+		})
+	}
+}
