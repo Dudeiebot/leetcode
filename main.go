@@ -513,16 +513,34 @@ type TreeNode struct {
 just like this (append(ourarr, inorderTraversal(root.Left)...), followed by append to root append(ourarr, inorderTraversal(root.Val)) and then append right) */
 // }
 
-func isSameTree(p, q *TreeNode) bool {
-	if p == nil && q == nil {
-		return true
+// func isSameTree(p, q *TreeNode) bool {
+// 	if p == nil && q == nil {
+// 		return true
+// 	}
+//
+// 	// check if one of them is empty or their values are not the same
+// 	if (p == nil || q == nil) || (p.Val != q.Val) {
+// 		return false
+// 	}
+//
+// 	// now, this is the recursive step that checks the right and left
+// 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+// }
+
+func isSymmetry(root *TreeNode) bool {
+	var dfs func(left *TreeNode, right *TreeNode) bool
+
+	dfs = func(left, right *TreeNode) bool {
+		if left == nil && right == nil {
+			return true
+		}
+		if left == nil || right == nil {
+			return false
+		}
+		// Corrected the order of comparison for opposite sides: left.Right with right.Left
+		return left.Val == right.Val && dfs(left.Right, right.Left) && dfs(left.Left, right.Right)
 	}
 
-	// check if one of them is empty or their values are not the same
-	if (p == nil || q == nil) || (p.Val != q.Val) {
-		return false
-	}
-
-	// now, this is the recursive step that checks the right and left
-	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+	// Check symmetry starting from the root
+	return dfs(root.Left, root.Right)
 }
