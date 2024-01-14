@@ -506,38 +506,85 @@ import (
 // 		})
 // 	}
 // }
+//
+// func TestSameTree(t *testing.T) {
+// 	tests := []struct {
+// 		name string
+// 		p    *TreeNode
+// 		q    *TreeNode
+// 		want bool
+// 	}{
+// 		{"the first", nil, nil, true},
+// 		{
+// 			"the second",
+// 			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}},
+// 			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 2}},
+// 			false,
+// 		},
+// 		{
+// 			"the third",
+// 			&TreeNode{Val: 1, Left: &TreeNode{Val: 0}, Right: &TreeNode{Val: 3}},
+// 			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}},
+// 			false,
+// 		},
+// 		{
+// 			"the third",
+// 			&TreeNode{Val: 1, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 2}},
+// 			&TreeNode{Val: 1, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 2}},
+// 			true,
+// 		},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(tc.name, func(t *testing.T) {
+// 			got := isSameTree(tc.p, tc.q)
+// 			if got != tc.want {
+// 				t.Fatalf("got %v, want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
 
-func TestSameTree(t *testing.T) {
+func TestIsSymmetry(t *testing.T) {
 	tests := []struct {
-		name string
-		p    *TreeNode
-		q    *TreeNode
+		root *TreeNode
 		want bool
 	}{
-		{"the first", nil, nil, true},
 		{
-			"the second",
-			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}},
-			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 2}},
-			false,
+			&TreeNode{
+				Val: 1,
+				Left: &TreeNode{
+					Val:   2,
+					Left:  &TreeNode{Val: 3},
+					Right: &TreeNode{Val: 4},
+				},
+				Right: &TreeNode{
+					Val:   2,
+					Left:  &TreeNode{Val: 4},
+					Right: &TreeNode{Val: 3},
+				},
+			},
+			true, // Symmetric tree
 		},
 		{
-			"the third",
-			&TreeNode{Val: 1, Left: &TreeNode{Val: 0}, Right: &TreeNode{Val: 3}},
-			&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}},
-			false,
-		},
-		{
-			"the third",
-			&TreeNode{Val: 1, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 2}},
-			&TreeNode{Val: 1, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 2}},
-			true,
+			&TreeNode{
+				Val: 1,
+				Left: &TreeNode{
+					Val:   2,
+					Right: &TreeNode{Val: 3},
+				},
+				Right: &TreeNode{
+					Val:   2,
+					Right: &TreeNode{Val: 3},
+				},
+			},
+			false, // Asymmetric tree
 		},
 	}
 
 	for _, tc := range tests {
-		t.Run(tc.name, func(t *testing.T) {
-			got := isSameTree(tc.p, tc.q)
+		t.Run(" ", func(t *testing.T) {
+			got := isSymmetry(tc.root)
 			if got != tc.want {
 				t.Fatalf("got %v, want %v", got, tc.want)
 			}
