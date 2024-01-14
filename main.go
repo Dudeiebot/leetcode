@@ -527,20 +527,20 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 // }
 
-func isSymmetry(root *TreeNode) bool {
-	var dfs func(left *TreeNode, right *TreeNode) bool
-
-	dfs = func(left, right *TreeNode) bool {
-		if left == nil && right == nil {
-			return true
-		}
-		if left == nil || right == nil {
-			return false
-		}
-		// Corrected the order of comparison for opposite sides: left.Right with right.Left
-		return left.Val == right.Val && dfs(left.Right, right.Left) && dfs(left.Left, right.Right)
-	}
-
-	// Check symmetry starting from the root
-	return dfs(root.Left, root.Right)
-}
+// func isSymmetry(root *TreeNode) bool {
+// 	var dfs func(left *TreeNode, right *TreeNode) bool
+//
+// 	dfs = func(left, right *TreeNode) bool {
+// 		if left == nil && right == nil {
+// 			return true
+// 		}
+// 		if left == nil || right == nil {
+// 			return false
+// 		}
+// 		// Corrected the order of comparison for opposite sides: left.Right with right.Left
+// 		return left.Val == right.Val && dfs(left.Right, right.Left) && dfs(left.Left, right.Right)
+// 	}
+//
+// 	// Check symmetry starting from the root
+// 	return dfs(root.Left, root.Right)
+// }
