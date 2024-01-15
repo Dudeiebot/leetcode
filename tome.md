@@ -32,4 +32,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - IsSame Tree, we check for the base case and if the root (p.Val, q.Val) are not equal then we check for same left and same right
 - IsSymmetry(checking if the tree is mirror like), here we create a helper func dfs that check the difference between the left and the right node because we cant use the root node alone to check if they are mirror like. This func is effective (left.Right, right.Left && left.Left, right.Right) which check for opposite sides of the tree
 - for finding the maximum depth in a tree, we perform a recursion to the left and right of the tree, then add 1 to the max of the height(root.Left && root.Right). Always remember the base case for all this algorithm or you can get it wrong there
-
+- converting a sorted array to a binary tree is straight forward with recursion and that is by dividing the array into 2, and representing the root as the middle, then follows the remaining value of root.right and root.left
