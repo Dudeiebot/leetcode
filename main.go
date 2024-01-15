@@ -430,7 +430,7 @@ package main
 // }
 
 // func climbStairs(n int) int {
-// 	// this is related to the fibonacci (synamic programming) and we can use that recursion for it also till n got to 1 and 2
+// 	// this is related to the fibonacci (dynamic programming) and we can use that recursion for it also till n got to 1 and 2
 // 	if n == 1 {
 // 		return 1
 // 	}
