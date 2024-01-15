@@ -2,7 +2,7 @@ package main
 
 import (
 	//	"fmt"
-	"reflect"
+	//	"reflect"
 	"testing"
 )
 
@@ -626,26 +626,76 @@ import (
 // 	}
 // }
 
-func TestSortedArrayToBST(t *testing.T) {
+// func TestSortedArrayToBST(t *testing.T) {
+// 	tests := []struct {
+// 		nums     []int
+// 		expected *TreeNode
+// 	}{
+// 		{
+// 			nums: []int{-10, -3, 0, 5, 9},
+// 			expected: &TreeNode{
+// 				Val:   0,
+// 				Left:  &TreeNode{Val: -3, Left: &TreeNode{Val: -10}},
+// 				Right: &TreeNode{Val: 9, Left: &TreeNode{Val: 5}},
+// 			},
+// 		},
+// 		// Add more test cases as needed
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run("", func(t *testing.T) {
+// 			result := sortedArray2BST(tc.nums)
+// 			if !reflect.DeepEqual(result, tc.expected) {
+// 				t.Errorf("Expected %v, got %v", tc.expected, result)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestIsBalanced(t *testing.T) {
 	tests := []struct {
-		nums     []int
-		expected *TreeNode
+		root     *TreeNode
+		expected bool
 	}{
+		{nil, true}, // An empty tree is balanced
 		{
-			nums: []int{-10, -3, 0, 5, 9},
-			expected: &TreeNode{
-				Val:   0,
-				Left:  &TreeNode{Val: -3, Left: &TreeNode{Val: -10}},
-				Right: &TreeNode{Val: 9, Left: &TreeNode{Val: 5}},
+			&TreeNode{
+				Val: 1,
+				Left: &TreeNode{
+					Val:   2,
+					Left:  &TreeNode{Val: 3},
+					Right: &TreeNode{Val: 4},
+				},
+				Right: &TreeNode{
+					Val:   2,
+					Left:  &TreeNode{Val: 4},
+					Right: &TreeNode{Val: 3},
+				},
 			},
+			true, // Balanced tree
 		},
-		// Add more test cases as needed
+		{
+			&TreeNode{
+				Val: 1,
+				Left: &TreeNode{
+					Val:  2,
+					Left: &TreeNode{Val: 3},
+					Right: &TreeNode{
+						Val:   3,
+						Left:  &TreeNode{Val: 4},
+						Right: &TreeNode{Val: 4},
+					},
+				},
+				Right: &TreeNode{Val: 0},
+			},
+			false,
+		},
 	}
 
 	for _, tc := range tests {
 		t.Run("", func(t *testing.T) {
-			result := sortedArray2BST(tc.nums)
-			if !reflect.DeepEqual(result, tc.expected) {
+			result := isBalanced(tc.root)
+			if result != tc.expected {
 				t.Errorf("Expected %v, got %v", tc.expected, result)
 			}
 		})
