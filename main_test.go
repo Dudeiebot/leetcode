@@ -2,7 +2,7 @@ package main
 
 import (
 	//	"fmt"
-	//	"reflect"
+	"reflect"
 	"testing"
 )
 
@@ -592,35 +592,61 @@ import (
 // 	}
 // }
 
-func TestMaximumDepth(t *testing.T) {
+// func TestMaximumDepth(t *testing.T) {
+// 	tests := []struct {
+// 		root *TreeNode
+// 		want int
+// 	}{
+// 		{nil, 0},               // Empty tree
+// 		{&TreeNode{Val: 1}, 1}, // Single-node tree
+// 		{
+// 			&TreeNode{
+// 				Val:   1,
+// 				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}},
+// 				Right: &TreeNode{Val: 4, Right: &TreeNode{Val: 5}},
+// 			},
+// 			3, // Balanced tree
+// 		},
+// 		{
+// 			&TreeNode{
+// 				Val:   1,
+// 				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}},
+// 				Right: &TreeNode{Val: 4, Right: &TreeNode{Val: 5, Left: &TreeNode{Val: 6}}},
+// 			},
+// 			4, // Unbalanced tree
+// 		},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(" ", func(t *testing.T) {
+// 			got := maximumDepth(tc.root)
+// 			if got != tc.want {
+// 				t.Errorf("maximumDepth(%v) = %v, want %v", tc.root, got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestSortedArrayToBST(t *testing.T) {
 	tests := []struct {
-		root *TreeNode
-		want int
+		nums     []int
+		expected *TreeNode
 	}{
-		{nil, 0},               // Empty tree
-		{&TreeNode{Val: 1}, 1}, // Single-node tree
 		{
-			&TreeNode{
-				Val:   1,
-				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}},
-				Right: &TreeNode{Val: 4, Right: &TreeNode{Val: 5}},
+			nums: []int{-10, -3, 0, 5, 9},
+			expected: &TreeNode{
+				Val:   0,
+				Left:  &TreeNode{Val: -3, Left: &TreeNode{Val: -10}},
+				Right: &TreeNode{Val: 9, Left: &TreeNode{Val: 5}},
 			},
-			3, // Balanced tree
 		},
-		{
-			&TreeNode{
-				Val:   1,
-				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}},
-				Right: &TreeNode{Val: 4, Right: &TreeNode{Val: 5, Left: &TreeNode{Val: 6}}},
-			},
-			4, // Unbalanced tree
-		},
+		// Add more test cases as needed
 	}
+
 	for _, tc := range tests {
-		t.Run(" ", func(t *testing.T) {
-			got := maximumDepth(tc.root)
-			if got != tc.want {
-				t.Errorf("maximumDepth(%v) = %v, want %v", tc.root, got, tc.want)
+		t.Run("", func(t *testing.T) {
+			result := sortedArray2BST(tc.nums)
+			if !reflect.DeepEqual(result, tc.expected) {
+				t.Errorf("Expected %v, got %v", tc.expected, result)
 			}
 		})
 	}
