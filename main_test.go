@@ -652,49 +652,100 @@ import (
 // 	}
 // }
 
-func TestIsBalanced(t *testing.T) {
+// func TestIsBalanced(t *testing.T) {
+// 	tests := []struct {
+// 		root     *TreeNode
+// 		expected bool
+// 	}{
+// 		{nil, true}, // An empty tree is balanced
+// 		{
+// 			&TreeNode{
+// 				Val: 1,
+// 				Left: &TreeNode{
+// 					Val:   2,
+// 					Left:  &TreeNode{Val: 3},
+// 					Right: &TreeNode{Val: 4},
+// 				},
+// 				Right: &TreeNode{
+// 					Val:   2,
+// 					Left:  &TreeNode{Val: 4},
+// 					Right: &TreeNode{Val: 3},
+// 				},
+// 			},
+// 			true, // Balanced tree
+// 		},
+// 		{
+// 			&TreeNode{
+// 				Val: 1,
+// 				Left: &TreeNode{
+// 					Val:  2,
+// 					Left: &TreeNode{Val: 3},
+// 					Right: &TreeNode{
+// 						Val:   3,
+// 						Left:  &TreeNode{Val: 4},
+// 						Right: &TreeNode{Val: 4},
+// 					},
+// 				},
+// 				Right: &TreeNode{Val: 0},
+// 			},
+// 			false,
+// 		},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run("", func(t *testing.T) {
+// 			result := isBalanced(tc.root)
+// 			if result != tc.expected {
+// 				t.Errorf("Expected %v, got %v", tc.expected, result)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestMinDepth(t *testing.T) {
 	tests := []struct {
 		root     *TreeNode
-		expected bool
+		expected int
 	}{
-		{nil, true}, // An empty tree is balanced
+		{nil, 0},
 		{
 			&TreeNode{
-				Val: 1,
-				Left: &TreeNode{
-					Val:   2,
-					Left:  &TreeNode{Val: 3},
-					Right: &TreeNode{Val: 4},
-				},
+				Val:  2,
+				Left: nil,
 				Right: &TreeNode{
-					Val:   2,
-					Left:  &TreeNode{Val: 4},
-					Right: &TreeNode{Val: 3},
-				},
-			},
-			true, // Balanced tree
-		},
-		{
-			&TreeNode{
-				Val: 1,
-				Left: &TreeNode{
-					Val:  2,
-					Left: &TreeNode{Val: 3},
+					Val:  3,
+					Left: nil,
 					Right: &TreeNode{
-						Val:   3,
-						Left:  &TreeNode{Val: 4},
-						Right: &TreeNode{Val: 4},
+						Val:  4,
+						Left: nil,
+						Right: &TreeNode{
+							Val:  5,
+							Left: nil,
+							Right: &TreeNode{
+								Val:   6,
+								Left:  nil,
+								Right: nil,
+							},
+						},
 					},
 				},
-				Right: &TreeNode{Val: 0},
 			},
-			false,
+			5,
+		},
+		{&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}}, 2},
+		{
+			&TreeNode{
+				Val:   1,
+				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}},
+				Right: &TreeNode{Val: 4},
+			},
+			2,
 		},
 	}
 
 	for _, tc := range tests {
 		t.Run("", func(t *testing.T) {
-			result := isBalanced(tc.root)
+			result := minimumDepth(tc.root)
 			if result != tc.expected {
 				t.Errorf("Expected %v, got %v", tc.expected, result)
 			}
