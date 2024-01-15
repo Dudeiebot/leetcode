@@ -563,14 +563,52 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return 1 + max(leftHeight, rightHeight)
 // }
 
-func sortedArray2BST(nums []int) *TreeNode {
-	if len(nums) == 0 {
-		return nil
+// func sortedArray2BST(nums []int) *TreeNode {
+// 	if len(nums) == 0 {
+// 		return nil
+// 	}
+//
+// 	m := len(nums) / 2
+// 	root := &TreeNode{Val: nums[m]}
+// 	root.Left = sortedArray2BST(nums[:m])
+// 	root.Right = sortedArray2BST(nums[m+1:])
+// 	return root
+// }
+
+func isBalanced(root *TreeNode) bool {
+	var dfs func(root *TreeNode) (bool, int)
+	var abs func(n int) int
+	var max func(a, b int) int
+
+	max = func(a, b int) int {
+		if a > b {
+			return a
+		}
+		return b
 	}
 
-	m := len(nums) / 2
-	root := &TreeNode{Val: nums[m]}
-	root.Left = sortedArray2BST(nums[:m])
-	root.Right = sortedArray2BST(nums[m+1:])
-	return root
+	abs = func(n int) int {
+		if n < 0 {
+			return -n
+		}
+		return n
+	}
+
+	dfs = func(root *TreeNode) (bool, int) {
+		if root == nil {
+			return true, 0
+		}
+
+		isLeftBalanced, leftHeight := dfs(root.Left)
+		isRightBalanced, rightHeight := dfs(root.Right)
+		diff := abs(leftHeight - rightHeight)
+		if isLeftBalanced && isRightBalanced && diff <= 1 {
+			return true, 1 + max(leftHeight, rightHeight)
+		}
+		return false, -1
+	}
+	ans, _ := dfs(root)
+	return ans
+
+	// I can use 0(n2) time complexity that get the max depth first and then find the diff between them (if it is greater than 1 then we return false)
 }
