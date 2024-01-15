@@ -482,12 +482,12 @@ package main
 // }
 
 // This is a long range of binary tree question so we are going to be using this struct all true
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
+// type TreeNode struct {
+// 	Val   int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
+//
 // func inorderTraversal(root *TreeNode) []int {
 // 	res := make([]int, 0) // create the arr that store the result
 // 	stck := make([]*TreeNode, 0)
@@ -613,28 +613,28 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	// I can use 0(n2) time complexity that get the max depth first and then find the diff between them (if it is greater than 1 then we return false)
 // }
 
-func minimumDepth(root *TreeNode) int {
-	var min func(a, b int) int
-
-	min = func(a, b int) int {
-		if a == 0 {
-			return b
-		}
-		if b == 0 {
-			return a
-		}
-		if a < b {
-			return a
-		} else {
-			return b
-		}
-	}
-
-	if root == nil {
-		return 0
-	}
-
-	leftHeight := minimumDepth(root.Left)
-	rightHeight := minimumDepth(root.Right)
-	return 1 + min(leftHeight, rightHeight)
-}
+// func minimumDepth(root *TreeNode) int {
+// 	var min func(a, b int) int
+//
+// 	min = func(a, b int) int {
+// 		if a == 0 {
+// 			return b
+// 		}
+// 		if b == 0 {
+// 			return a
+// 		}
+// 		if a < b {
+// 			return a
+// 		} else {
+// 			return b
+// 		}
+// 	}
+//
+// 	if root == nil {
+// 		return 0
+// 	}
+//
+// 	leftHeight := minimumDepth(root.Left)
+// 	rightHeight := minimumDepth(root.Right)
+// 	return 1 + min(leftHeight, rightHeight)
+// }
