@@ -545,20 +545,32 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return dfs(root.Left, root.Right)
 // }
 
-func maximumDepth(root *TreeNode) int {
-	max := func(a, b int) int {
-		if a > b {
-			return a
-		}
-		return b
+// func maximumDepth(root *TreeNode) int {
+// 	max := func(a, b int) int {
+// 		if a > b {
+// 			return a
+// 		}
+// 		return b
+// 	}
+//
+// 	if root == nil {
+// 		return 0
+// 	}
+//
+// 	leftHeight := maximumDepth(root.Left)
+// 	rightHeight := maximumDepth(root.Right)
+//
+// 	return 1 + max(leftHeight, rightHeight)
+// }
+
+func sortedArray2BST(nums []int) *TreeNode {
+	if len(nums) == 0 {
+		return nil
 	}
 
-	if root == nil {
-		return 0
-	}
-
-	leftHeight := maximumDepth(root.Left)
-	rightHeight := maximumDepth(root.Right)
-
-	return 1 + max(leftHeight, rightHeight)
+	m := len(nums) / 2
+	root := &TreeNode{Val: nums[m]}
+	root.Left = sortedArray2BST(nums[:m])
+	root.Right = sortedArray2BST(nums[m+1:])
+	return root
 }
