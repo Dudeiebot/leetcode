@@ -482,11 +482,11 @@ package main
 // }
 
 // This is a long range of binary tree question so we are going to be using this struct all true
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// type TreeNode struct {
+// 	Val   int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
 
 //
 // func inorderTraversal(root *TreeNode) []int {
@@ -640,15 +640,15 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return 1 + min(leftHeight, rightHeight)
 // }
 
-func hasPathSum(root *TreeNode, targetSum int) bool {
-	if root == nil {
-		return false
-	}
-
-	targetSum = targetSum - root.Val
-
-	if root.Left == nil && root.Right == nil {
-		return targetSum == 0
-	}
-	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
-}
+// func hasPathSum(root *TreeNode, targetSum int) bool {
+// 	if root == nil {
+// 		return false
+// 	}
+//
+// 	targetSum = targetSum - root.Val
+//
+// 	if root.Left == nil && root.Right == nil {
+// 		return targetSum == 0
+// 	}
+// 	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
+// }
