@@ -3,6 +3,8 @@ package main
 import (
 	//	"fmt"
 	//	"reflect"
+	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -787,3 +789,22 @@ import (
 // 		})
 // 	}
 // }
+
+func TestGeneratePascal(t *testing.T) {
+	tests := []struct {
+		numRows int
+		want    [][]int
+	}{
+		{5, [][]int{{1}, {1, 1}, {1, 2, 1}, {1, 3, 3, 1}, {1, 4, 6, 4, 1}}},
+		{1, [][]int{{1}}},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("numsAndRows= %v", tc.numRows), func(t *testing.T) {
+			got := generatePascal(tc.numRows)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got = %v, want = %v", got, tc.want)
+			}
+		})
+	}
+}
