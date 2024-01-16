@@ -652,3 +652,18 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	}
 // 	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
 // }
+
+func generatePascal(numsRows int) [][]int {
+	res := make([][]int, numsRows)
+
+	for i := 0; i < numsRows; i++ {
+		// just understand here that for the first 2, which i = 0 and 1 j doesnot get to execute. J start executing when i = 2 that means it have 2 nos
+		rows := make([]int, i+1)
+		rows[0], rows[i] = 1, 1
+		for j := 1; j < i; j++ {
+			rows[j] = res[i-1][j-1] + res[i-1][j]
+		}
+		res[i] = rows
+	}
+	return res
+}
