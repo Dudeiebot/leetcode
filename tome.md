@@ -36,3 +36,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - checking for balanced tree, we go create 3 helper func max, abs and dfs. the max func check between our max height on both the left and right, the abs check for the diff between the left and the right and the dfs is use to introduce the new int we added to the program 
 - Minimum height, we create a helper func that check for the Minimum values and also when all the remaining value are nil, it give us the second output as answer then we add it to the root
 - the path sum is checked from the deduction of the targetSum from the root.Val and then a recursion is performed on it till root.Left and root.Right become nil
+- Generating Pascal triangle, we know the first array is 1 and the second is 1, 1 then we can also use that information in generating the remaining ones.
