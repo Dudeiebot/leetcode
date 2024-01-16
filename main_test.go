@@ -752,3 +752,38 @@ import (
 // 		})
 // 	}
 // }
+
+func TestHasPathSum(t *testing.T) {
+	tests := []struct {
+		root      *TreeNode
+		targetSum int
+		expected  bool
+	}{
+		{nil, 0, false},
+		{
+			&TreeNode{
+				Val:   1,
+				Left:  &TreeNode{Val: 2, Left: &TreeNode{Val: 3}, Right: &TreeNode{Val: 4}},
+				Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 4}, Right: &TreeNode{Val: 3}},
+			},
+			7,
+			true,
+		},
+		{&TreeNode{Val: 5, Left: &TreeNode{Val: 4}, Right: &TreeNode{Val: 8}}, 13, true},
+		{&TreeNode{Val: 5, Left: &TreeNode{Val: 4}, Right: &TreeNode{Val: 8}}, 10, false},
+	}
+
+	for _, tc := range tests {
+		t.Run("", func(t *testing.T) {
+			result := hasPathSum(tc.root, tc.targetSum)
+			if result != tc.expected {
+				t.Errorf(
+					"For target sum %d, expected %v, got %v",
+					tc.targetSum,
+					tc.expected,
+					result,
+				)
+			}
+		})
+	}
+}
