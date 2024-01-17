@@ -685,19 +685,23 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // }
 
 // This another era and we are using a defined max function here
-func max
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 
+func bestTimeStock(prices []int) int {
+	buy := 0
+	profit := 0
 
-
-
-
-func bestTimeStock (prices []int) int {
-  buy := 0
-  profit := 0
-
-  for sell := 0; sell < len(prices); sell++{
-    if prices[sell] > prices[buy] {
-      profit += max(profit, )
-    }
-  }
+	for sell := 1; sell < len(prices); sell++ {
+		if prices[sell] > prices[buy] {
+			profit = max(profit, prices[sell]-prices[buy])
+		} else {
+			buy = sell
+		}
+	}
+	return profit
 }
