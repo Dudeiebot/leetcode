@@ -14,6 +14,7 @@ package main
 // 	for _, num := range nums {
 // 		if s[num] {
 // 			return true
+//  //because it ask us to return true if it has the same nos of occurrence, check unique occur(question 1207 for the reason)
 // 		}
 // 		s[num] = true
 // 	}
@@ -666,4 +667,19 @@ func generatePascal(numsRows int) [][]int {
 		res[i] = rows
 	}
 	return res
+}
+
+// I love this solution it is straight forward and easily understandable
+func getRow(rowIndex int) []int {
+	result := []int{1}
+
+	var value int = 1
+
+	for i := 1; i <= rowIndex; i++ {
+		value = value * (rowIndex - i + 1) / i
+
+		result = append(result, value)
+	}
+
+	return result
 }
