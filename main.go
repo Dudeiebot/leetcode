@@ -654,32 +654,50 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
 // }
 
-func generatePascal(numsRows int) [][]int {
-	res := make([][]int, numsRows)
+// func generatePascal(numsRows int) [][]int {
+// 	res := make([][]int, numsRows)
+//
+// 	for i := 0; i < numsRows; i++ {
+// 		// just understand here that for the first 2, which i = 0 and 1 j doesnot get to execute. J start executing when i = 2 that means it have 2 nos
+// 		rows := make([]int, i+1)
+// 		rows[0], rows[i] = 1, 1
+// 		for j := 1; j < i; j++ {
+// 			rows[j] = res[i-1][j-1] + res[i-1][j]
+// 		}
+// 		res[i] = rows
+// 	}
+// 	return res
+// }
+//
+// // I love this solution it is straight forward and easily understandable
+// func getRow(rowIndex int) []int {
+// 	result := []int{1}
+//
+// 	var value int = 1
+//
+// 	for i := 1; i <= rowIndex; i++ {
+// 		value = value * (rowIndex - i + 1) / i
+//
+// 		result = append(result, value)
+// 	}
+//
+// 	return result
+// }
 
-	for i := 0; i < numsRows; i++ {
-		// just understand here that for the first 2, which i = 0 and 1 j doesnot get to execute. J start executing when i = 2 that means it have 2 nos
-		rows := make([]int, i+1)
-		rows[0], rows[i] = 1, 1
-		for j := 1; j < i; j++ {
-			rows[j] = res[i-1][j-1] + res[i-1][j]
-		}
-		res[i] = rows
-	}
-	return res
-}
+// This another era and we are using a defined max function here
+func max
 
-// I love this solution it is straight forward and easily understandable
-func getRow(rowIndex int) []int {
-	result := []int{1}
 
-	var value int = 1
 
-	for i := 1; i <= rowIndex; i++ {
-		value = value * (rowIndex - i + 1) / i
 
-		result = append(result, value)
-	}
 
-	return result
+func bestTimeStock (prices []int) int {
+  buy := 0
+  profit := 0
+
+  for sell := 0; sell < len(prices); sell++{
+    if prices[sell] > prices[buy] {
+      profit += max(profit, )
+    }
+  }
 }
