@@ -39,3 +39,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - Generating Pascal triangle, we know the first array is 1 and the second is 1, 1 then we can also use that information in generating the remaining ones.
 - Getting the row index of a pascal triangle can be easy with out pointer approach and appending the value to our slice
 - The best time stock is can eaily be done with a two pointer(lef and right) approach techniques that goes from the beginning to the end
+- max profit from a stock, we are also using the 2 pointer approach only that here there is no else in our code and thatt means the buy goes through loop across all 
