@@ -847,3 +847,23 @@ func TestBestTimeStock(t *testing.T) {
 		})
 	}
 }
+
+func TestMaxProfit(t *testing.T) {
+	tests := []struct {
+		prices []int
+		want   int
+	}{
+		{[]int{7, 1, 5, 3, 6, 4}, 7},
+		{[]int{1, 2, 3, 4, 5}, 4},
+		{[]int{7, 6, 4, 3, 1}, 0},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.prices), func(t *testing.T) {
+			got := maxProfit(tc.prices)
+			if got != tc.want {
+				t.Fatalf("got = %v, want = %v", got, tc.want)
+			}
+		})
+	}
+}
