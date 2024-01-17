@@ -705,3 +705,16 @@ func bestTimeStock(prices []int) int {
 	}
 	return profit
 }
+
+func maxProfit(prices []int) int {
+	buy := 0
+	profit := 0
+
+	for sell := 1; sell < len(prices); sell++ {
+		if prices[sell] > prices[buy] {
+			profit += prices[sell] - prices[buy]
+		}
+		buy = sell
+	}
+	return profit
+}
