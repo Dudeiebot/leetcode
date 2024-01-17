@@ -38,3 +38,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - the path sum is checked from the deduction of the targetSum from the root.Val and then a recursion is performed on it till root.Left and root.Right become nil
 - Generating Pascal triangle, we know the first array is 1 and the second is 1, 1 then we can also use that information in generating the remaining ones.
 - Getting the row index of a pascal triangle can be easy with out pointer approach and appending the value to our slice
+- The best time stock is can eaily be done with a two pointer(lef and right) approach techniques that goes from the beginning to the end
