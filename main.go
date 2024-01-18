@@ -685,36 +685,66 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // }
 
 // This another era and we are using a defined max function here
-func max(a, b int) int {
-	if a > b {
-		return a
+// func max(a, b int) int {
+// 	if a > b {
+// 		return a
+// 	}
+// 	return b
+// }
+//
+// func bestTimeStock(prices []int) int {
+// 	buy := 0
+// 	profit := 0
+//
+// 	for sell := 1; sell < len(prices); sell++ {
+// 		if prices[sell] > prices[buy] {
+// 			profit = max(profit, prices[sell]-prices[buy])
+// 		} else {
+// 			buy = sell
+// 		}
+// 	}
+// 	return profit
+// }
+//
+// func maxProfit(prices []int) int {
+// 	buy := 0
+// 	profit := 0
+//
+// 	for sell := 1; sell < len(prices); sell++ {
+// 		if prices[sell] > prices[buy] {
+// 			profit += prices[sell] - prices[buy]
+// 		}
+// 		buy = sell
+// 	}
+// 	return profit
+// }
+
+// This check among 3 nos
+// O(n2)
+//
+//	func singleNum(nums []int) int {
+//		seen := make(map[int]int)
+//
+//		for _, num := range nums {
+//			seen[num]++
+//		}
+//
+//		for num, count := range seen {
+//			if count == 1 {
+//				return num
+//			}
+//		}
+//		return 0
+//	}
+//
+// O(n)
+func singleNum(nums []int) int {
+	ones := 0
+	twos := 0
+
+	for _, num := range nums {
+		ones ^= (num & ^twos)
+		twos ^= (num & ^ones)
 	}
-	return b
-}
-
-func bestTimeStock(prices []int) int {
-	buy := 0
-	profit := 0
-
-	for sell := 1; sell < len(prices); sell++ {
-		if prices[sell] > prices[buy] {
-			profit = max(profit, prices[sell]-prices[buy])
-		} else {
-			buy = sell
-		}
-	}
-	return profit
-}
-
-func maxProfit(prices []int) int {
-	buy := 0
-	profit := 0
-
-	for sell := 1; sell < len(prices); sell++ {
-		if prices[sell] > prices[buy] {
-			profit += prices[sell] - prices[buy]
-		}
-		buy = sell
-	}
-	return profit
+	return ones
 }
