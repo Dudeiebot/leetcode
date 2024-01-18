@@ -829,40 +829,59 @@ import (
 // 	}
 // }
 
-func TestBestTimeStock(t *testing.T) {
+// func TestBestTimeStock(t *testing.T) {
+// 	tests := []struct {
+// 		prices []int
+// 		want   int
+// 	}{
+// 		{[]int{7, 1, 5, 3, 6, 4}, 5},
+// 		{[]int{7, 6, 4, 3, 1}, 0},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.prices), func(t *testing.T) {
+// 			got := bestTimeStock(tc.prices)
+// 			if got != tc.want {
+// 				t.Fatalf("got = %v, want = %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+//
+// func TestMaxProfit(t *testing.T) {
+// 	tests := []struct {
+// 		prices []int
+// 		want   int
+// 	}{
+// 		{[]int{7, 1, 5, 3, 6, 4}, 7},
+// 		{[]int{1, 2, 3, 4, 5}, 4},
+// 		{[]int{7, 6, 4, 3, 1}, 0},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.prices), func(t *testing.T) {
+// 			got := maxProfit(tc.prices)
+// 			if got != tc.want {
+// 				t.Fatalf("got = %v, want = %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestSingeNum(t *testing.T) {
 	tests := []struct {
-		prices []int
-		want   int
+		nums []int
+		want int
 	}{
-		{[]int{7, 1, 5, 3, 6, 4}, 5},
-		{[]int{7, 6, 4, 3, 1}, 0},
+		{[]int{2, 2, 2, 1}, 1},
+		{[]int{4, 1, 2, 1, 2, 1, 2}, 4},
+		{[]int{1}, 1},
 	}
-
 	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.prices), func(t *testing.T) {
-			got := bestTimeStock(tc.prices)
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := singleNum(tc.nums)
 			if got != tc.want {
-				t.Fatalf("got = %v, want = %v", got, tc.want)
-			}
-		})
-	}
-}
-
-func TestMaxProfit(t *testing.T) {
-	tests := []struct {
-		prices []int
-		want   int
-	}{
-		{[]int{7, 1, 5, 3, 6, 4}, 7},
-		{[]int{1, 2, 3, 4, 5}, 4},
-		{[]int{7, 6, 4, 3, 1}, 0},
-	}
-
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.prices), func(t *testing.T) {
-			got := maxProfit(tc.prices)
-			if got != tc.want {
-				t.Fatalf("got = %v, want = %v", got, tc.want)
+				t.Fatalf("The Single Nos() = %v; want %v", got, tc.want)
 			}
 		})
 	}
