@@ -3,7 +3,7 @@ package main
 import (
 	//	"fmt"
 	//	"reflect"
-	"fmt"
+	//	"fmt"
 	"testing"
 )
 
@@ -868,20 +868,66 @@ import (
 // 	}
 // }
 
-func TestSingeNum(t *testing.T) {
+// func TestSingeNum(t *testing.T) {
+// 	tests := []struct {
+// 		nums []int
+// 		want int
+// 	}{
+// 		{[]int{2, 2, 2, 1}, 1},
+// 		{[]int{4, 1, 2, 1, 2, 1, 2}, 4},
+// 		{[]int{1}, 1},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+// 			got := singleNum(tc.nums)
+// 			if got != tc.want {
+// 				t.Fatalf("The Single Nos() = %v; want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestHasCycle(t *testing.T) {
 	tests := []struct {
-		nums []int
-		want int
+		input    *ListNode
+		expected bool
 	}{
-		{[]int{2, 2, 2, 1}, 1},
-		{[]int{4, 1, 2, 1, 2, 1, 2}, 4},
-		{[]int{1}, 1},
+		{
+			input: func() *ListNode {
+				node1 := &ListNode{Val: 1}
+				node2 := &ListNode{Val: 2}
+				node3 := &ListNode{Val: 3}
+				node4 := &ListNode{Val: 4}
+
+				node1.Next = node2
+				node2.Next = node3
+				node3.Next = node4
+				node4.Next = node2 // Creating a cycle by connecting the last node to the second node
+
+				return node1
+			}(),
+			expected: true,
+		},
+		{
+			input: func() *ListNode {
+				node5 := &ListNode{Val: 5}
+				node6 := &ListNode{Val: 6}
+				node7 := &ListNode{Val: 7}
+
+				node5.Next = node6
+				node6.Next = node7
+
+				return node5
+			}(),
+			expected: false,
+		},
 	}
+
 	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
-			got := singleNum(tc.nums)
-			if got != tc.want {
-				t.Fatalf("The Single Nos() = %v; want %v", got, tc.want)
+		t.Run(" ", func(t *testing.T) {
+			result := hasCycle(tc.input)
+			if result != tc.expected {
+				t.Errorf("Expected %v, but got %v", tc.expected, result)
 			}
 		})
 	}
