@@ -40,3 +40,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - Getting the row index of a pascal triangle can be easy with out pointer approach and appending the value to our slice
 - The best time stock is can eaily be done with a two pointer(lef and right) approach techniques that goes from the beginning to the end
 - max profit from a stock, we are also using the 2 pointer approach only that here there is no else in our code and thatt means the buy goes through loop across all 
+- finding the single number among number that are 3 in an array, this is different from the first single nos among two same nos in an array, we can use the bruteforce and also the constant space of time method here. the xor operator for the constant space of time goes through the nums and create a 2 pointer which then equal ones ^= (num & ^twos) and same for the secodn pointer
