@@ -448,10 +448,11 @@ package main
 // 	return total
 // }
 
-// type ListNode struct {
-// 	Val  int
-// 	Next *ListNode
-// }
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 //
 // func delDuplicates(head *ListNode) *ListNode {
 // 	res := head
@@ -738,13 +739,26 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 //	}
 //
 // O(n)
-func singleNum(nums []int) int {
-	ones := 0
-	twos := 0
+// func singleNum(nums []int) int {
+// 	ones := 0
+// 	twos := 0
+//
+// 	for _, num := range nums {
+// 		ones ^= (num & ^twos)
+// 		twos ^= (num & ^ones)
+// 	}
+// 	return ones
+// }
 
-	for _, num := range nums {
-		ones ^= (num & ^twos)
-		twos ^= (num & ^ones)
+func hasCycle(head *ListNode) bool {
+	slow, fast := head, head
+
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			return true
+		}
 	}
-	return ones
+	return false
 }
