@@ -536,28 +536,28 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	// return append([]int{root.Val}, append(preOrderTraversal(root.Left), preOrderTraversal(root.Right)...)...)
 // }
 
-func postOrderTraversal(root *TreeNode) []int {
-	res := make([]int, 0)
-	stck := make([]*TreeNode, 0)
-	curr := root
-
-	for curr != nil || len(stck) > 0 {
-		for curr != nil {
-			stck = append(stck, curr)
-			res = append([]int{curr.Val}, res...)
-			curr = curr.Right
-		}
-		curr = stck[len(stck)-1]
-		stck = stck[:len(stck)-1]
-		curr = curr.Left
-	}
-	return res
-	// the recursion method after you have treated the base case finish
-	// return append(
-	// 	append(postOrderTraversal(root.Left), postOrderTraversal(root.Right)...),
-	// 	root.Val,
-	// )
-}
+// func postOrderTraversal(root *TreeNode) []int {
+// 	res := make([]int, 0)
+// 	stck := make([]*TreeNode, 0)
+// 	curr := root
+//
+// 	for curr != nil || len(stck) > 0 {
+// 		for curr != nil {
+// 			stck = append(stck, curr)
+// 			res = append([]int{curr.Val}, res...)
+// 			curr = curr.Right
+// 		}
+// 		curr = stck[len(stck)-1]
+// 		stck = stck[:len(stck)-1]
+// 		curr = curr.Left
+// 	}
+// 	return res
+// 	// the recursion method after you have treated the base case finish
+// 	// return append(
+// 	// 	append(postOrderTraversal(root.Left), postOrderTraversal(root.Right)...),
+// 	// 	root.Val,
+// 	// )
+// }
 
 // func isSameTree(p, q *TreeNode) bool {
 // 	if p == nil && q == nil {
