@@ -448,10 +448,10 @@ package main
 // 	return total
 // }
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
 
 //
 // func delDuplicates(head *ListNode) *ListNode {
@@ -484,11 +484,11 @@ type ListNode struct {
 // }
 
 // This is a long range of binary tree question so we are going to be using this struct all true
-// type TreeNode struct {
-// 	Val   int
-// 	Left  *TreeNode
-// 	Right *TreeNode
-// }
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 //
 // func inorderTraversal(root *TreeNode) []int {
@@ -507,7 +507,7 @@ type ListNode struct {
 // 		}
 // 		curr = stck[len(stck)-1]
 // 		stck = stck[:len(stck)-1]
-// 		// and when it doesnot have anything it is being popped ande appended to our res here
+// 		// and when it doesnot have anything it is being popped and appended to our res here
 // 		res = append(res, curr.Val)
 // 		curr = curr.Right
 // 	}
@@ -515,6 +515,26 @@ type ListNode struct {
 /* I can practically use recursion here which append the left first and then the root with the right late
 just like this (append(ourarr, inorderTraversal(root.Left)...), followed by append to root append(ourarr, inorderTraversal(root.Val)) and then append right) */
 // }
+
+func preOrderTraversal(root *TreeNode) []int {
+	res := make([]int, 0)
+	stck := make([]*TreeNode, 0)
+	curr := root
+
+	for curr != nil || len(stck) > 0 {
+		for curr != nil {
+			res = append(res, curr.Val)
+			stck = append(stck, curr)
+			curr = curr.Left
+		}
+		curr = stck[len(stck)-1]
+		stck = stck[:len(stck)-1]
+		curr = curr.Right
+	}
+	return res
+	// the recursion method and also trat the base case if where root == 0
+	// return append([]int{root.Val}, append(preOrderTraversal(root.Left), preOrderTraversal(root.Right)...)...)
+}
 
 // func isSameTree(p, q *TreeNode) bool {
 // 	if p == nil && q == nil {
@@ -750,15 +770,15 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return ones
 // }
 
-func hasCycle(head *ListNode) bool {
-	slow, fast := head, head
-
-	for fast != nil && fast.Next != nil {
-		slow = slow.Next
-		fast = fast.Next.Next
-		if slow == fast {
-			return true
-		}
-	}
-	return false
-}
+// func hasCycle(head *ListNode) bool {
+// 	slow, fast := head, head
+//
+// 	for fast != nil && fast.Next != nil {
+// 		slow = slow.Next
+// 		fast = fast.Next.Next
+// 		if slow == fast {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }
