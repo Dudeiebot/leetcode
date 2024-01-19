@@ -29,6 +29,7 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - removing duplicates from a linked list, we assign a pointer to our list and it get updated
 - Merging 2 sorted array of length (m + n) and length (n), and the final sorted ahould not be returned but instead be sorted in nums1, so here we basically swap values and compare between the 2 arrays
 - Inorder traversal is one of the DFS techniques that use 0(n) time complexity, which traverse the left node first to the root and the right node last. I am using the iterative techniques here we create a stack to store our current elements, the stack append when the current is not nil and pop out when the current is nil 
+- PreOrder traversal and here we put the root first followed by the left and right, we can also use iterative and recursion method also. 
 - IsSame Tree, we check for the base case and if the root (p.Val, q.Val) are not equal then we check for same left and same right
 - IsSymmetry(checking if the tree is mirror like), here we create a helper func dfs that check the difference between the left and the right node because we cant use the root node alone to check if they are mirror like. This func is effective (left.Right, right.Left && left.Left, right.Right) which check for opposite sides of the tree
 - for finding the maximum depth in a tree, we perform a recursion to the left and right of the tree, then add 1 to the max of the height(root.Left && root.Right). Always remember the base case for all this algorithm or you can get it wrong there
