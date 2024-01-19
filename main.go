@@ -516,24 +516,47 @@ type TreeNode struct {
 just like this (append(ourarr, inorderTraversal(root.Left)...), followed by append to root append(ourarr, inorderTraversal(root.Val)) and then append right) */
 // }
 
-func preOrderTraversal(root *TreeNode) []int {
+// func preOrderTraversal(root *TreeNode) []int {
+// 	res := make([]int, 0)
+// 	stck := make([]*TreeNode, 0)
+// 	curr := root
+//
+// 	for curr != nil || len(stck) > 0 {
+// 		for curr != nil {
+// 			res = append(res, curr.Val)
+// 			stck = append(stck, curr)
+// 			curr = curr.Left
+// 		}
+// 		curr = stck[len(stck)-1]
+// 		stck = stck[:len(stck)-1]
+// 		curr = curr.Right
+// 	}
+// 	return res
+// 	// the recursion method and also trat the base case if where root == 0
+// 	// return append([]int{root.Val}, append(preOrderTraversal(root.Left), preOrderTraversal(root.Right)...)...)
+// }
+
+func postOrderTraversal(root *TreeNode) []int {
 	res := make([]int, 0)
 	stck := make([]*TreeNode, 0)
 	curr := root
 
 	for curr != nil || len(stck) > 0 {
 		for curr != nil {
-			res = append(res, curr.Val)
 			stck = append(stck, curr)
-			curr = curr.Left
+			res = append([]int{curr.Val}, res...)
+			curr = curr.Right
 		}
 		curr = stck[len(stck)-1]
 		stck = stck[:len(stck)-1]
-		curr = curr.Right
+		curr = curr.Left
 	}
 	return res
-	// the recursion method and also trat the base case if where root == 0
-	// return append([]int{root.Val}, append(preOrderTraversal(root.Left), preOrderTraversal(root.Right)...)...)
+	// the recursion method after you have treated the base case finish
+	// return append(
+	// 	append(postOrderTraversal(root.Left), postOrderTraversal(root.Right)...),
+	// 	root.Val,
+	// )
 }
 
 // func isSameTree(p, q *TreeNode) bool {
