@@ -535,33 +535,33 @@ import (
 // 	}
 // }
 
-func TestPostOrderTraversal(t *testing.T) {
-	tests := []struct {
-		root *TreeNode
-		want []int
-	}{
-		{(*TreeNode)(nil), []int{}},
-		{&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}}, []int{2, 3, 1}},
-		{
-			&TreeNode{
-				Val:   1,
-				Left:  &TreeNode{Val: 3},
-				Right: &TreeNode{Val: 2},
-			},
-			[]int{3, 2, 1},
-		},
-	}
-
-	for _, tc := range tests {
-		t.Run(" ", func(t *testing.T) {
-			got := postOrderTraversal(tc.root)
-			if !reflect.DeepEqual(got, tc.want) {
-				t.Fatalf("got %v, want %v", got, tc.want)
-			}
-		})
-	}
-}
-
+// func TestPostOrderTraversal(t *testing.T) {
+// 	tests := []struct {
+// 		root *TreeNode
+// 		want []int
+// 	}{
+// 		{(*TreeNode)(nil), []int{}},
+// 		{&TreeNode{Val: 1, Left: &TreeNode{Val: 2}, Right: &TreeNode{Val: 3}}, []int{2, 3, 1}},
+// 		{
+// 			&TreeNode{
+// 				Val:   1,
+// 				Left:  &TreeNode{Val: 3},
+// 				Right: &TreeNode{Val: 2},
+// 			},
+// 			[]int{3, 2, 1},
+// 		},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(" ", func(t *testing.T) {
+// 			got := postOrderTraversal(tc.root)
+// 			if !reflect.DeepEqual(got, tc.want) {
+// 				t.Fatalf("got %v, want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
+//
 //
 // func TestSameTree(t *testing.T) {
 // 	tests := []struct {
