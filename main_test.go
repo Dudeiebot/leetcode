@@ -987,3 +987,51 @@ import (
 // 		})
 // 	}
 // }
+
+// func TestHasCycle(t *testing.T) {
+// 	tests := []struct {
+// 		input    *ListNode
+// 		expected *ListNode
+// 	}{
+// 		{
+// 			input: func() *ListNode {
+// 				node1 := &ListNode{Val: 1}
+// 				node2 := &ListNode{Val: 2}
+// 				node3 := &ListNode{Val: 3}
+// 				node4 := &ListNode{Val: 4}
+//
+// 				node1.Next = node2
+// 				node2.Next = node3
+// 				node3.Next = node4
+// 				node4.Next = node2 // Creating a cycle by connecting the last node to the second node
+//
+// 				return node1
+// 			}(),
+// 			expected: true,
+// 		},
+// 		{
+// 			input: func() *ListNode {
+// 				node5 := &ListNode{Val: 5}
+// 				node6 := &ListNode{Val: 6}
+// 				node7 := &ListNode{Val: 7}
+//
+// 				node5.Next = node6
+// 				node6.Next = node7
+//
+// 				return node5
+// 			}(),
+// 			expected: false,
+// 		},
+// 	}
+//
+// 	for _, tc := range tests {
+// 		t.Run(" ", func(t *testing.T) {
+// 			result := hasCycle(tc.input)
+// 			if result != tc.expected {
+// 				t.Errorf("Expected %v, but got %v", tc.expected, result)
+// 			}
+// 		})
+// 	}
+// }
+
+// No test case for detect cycle
