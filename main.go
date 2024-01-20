@@ -243,10 +243,11 @@ package main
 // }
 
 // Merge two sorted linked list
-// type ListNode struct {
-// 	Val  int
-// 	Next *ListNode
-// }
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 //
 // func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 // 	tempNode := &ListNode{}
@@ -805,3 +806,21 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	}
 // 	return false
 // }
+
+func detectCycle(head *ListNode) *ListNode {
+	slow, fast := head, head
+
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			slow = head
+			for slow != fast {
+				slow = slow.Next
+				fast = fast.Next
+			}
+			return slow
+		}
+	}
+	return nil
+}
