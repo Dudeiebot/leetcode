@@ -243,10 +243,10 @@ package main
 // }
 
 // Merge two sorted linked list
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
 
 //
 // func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
@@ -807,33 +807,33 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return false
 // }
 
-func detectCycle(head *ListNode) *ListNode {
-	slow, fast := head, head
-
-	for fast != nil && fast.Next != nil {
-		slow = slow.Next
-		fast = fast.Next.Next
-		if slow == fast {
-			slow = head
-			for slow != fast {
-				slow = slow.Next
-				fast = fast.Next
-			}
-			return slow
-		}
-	}
-	return nil
-}
-
-// Using Hashmap
-func detectCycle(head *ListNode) *ListNode {
-	seen := make(map[*TreeNode]bool)
-
-	for i := head; i != nil; i = i.Next {
-		if _, ok := seen[i]; ok {
-			return i
-		}
-		seen[i] = true
-	}
-	return nil
-}
+// func detectCycle(head *ListNode) *ListNode {
+// 	slow, fast := head, head
+//
+// 	for fast != nil && fast.Next != nil {
+// 		slow = slow.Next
+// 		fast = fast.Next.Next
+// 		if slow == fast {
+// 			slow = head
+// 			for slow != fast {
+// 				slow = slow.Next
+// 				fast = fast.Next
+// 			}
+// 			return slow
+// 		}
+// 	}
+// 	return nil
+// }
+//
+// // Using Hashmap
+// func detectCycle(head *ListNode) *ListNode {
+// 	seen := make(map[*TreeNode]bool)
+//
+// 	for i := head; i != nil; i = i.Next {
+// 		if _, ok := seen[i]; ok {
+// 			return i
+// 		}
+// 		seen[i] = true
+// 	}
+// 	return nil
+// }
