@@ -824,3 +824,16 @@ func detectCycle(head *ListNode) *ListNode {
 	}
 	return nil
 }
+
+// Using Hashmap
+func detectCycle(head *ListNode) *ListNode {
+	seen := make(map[*TreeNode]bool)
+
+	for i := head; i != nil; i = i.Next {
+		if _, ok := seen[i]; ok {
+			return i
+		}
+		seen[i] = true
+	}
+	return nil
+}
