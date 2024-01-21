@@ -3,7 +3,7 @@ package main
 import (
 	//	"fmt"
 	//	"reflect"
-	//	"fmt"
+	"fmt"
 	"testing"
 )
 
@@ -1037,3 +1037,22 @@ import (
 // No test case for detect cycle
 
 // No test case for detect Intersection
+
+func TestExcelSheetConv(t *testing.T) {
+	tests := []struct {
+		columnNumber int
+		want         string
+	}{
+		{1, "A"},
+		{28, "AB"},
+		{701, "ZY"},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.columnNumber), func(t *testing.T) {
+			got := excelSheetConv(tc.columnNumber)
+			if got != tc.want {
+				t.Fatalf("got %v; want %v", got, tc.want)
+			}
+		})
+	}
+}
