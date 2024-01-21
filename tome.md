@@ -46,3 +46,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - cycle in a linked list, we use the floyd tortiose and hare method, which means we have 2 pointer called slow and fast. Fast goes 2* faster than slow, we return true when fast and slow get to meet or false if they dont meet at all. Perfect illustration is a circular track 
 - detecting the cycle in the linked list can be done with hashmap
 - Getting Intersection Node can come in 2 ways using the hashmap, we save a ListNode on the map and we range the other one to check the equality. For good optimization and adequate memory we can create two pointer, where a and b will intersect then go through each other one by one and this is possible because a doesnot get to nil  and b also doesnot get to nil and when it does a becomes headB and b becomes headA and we return one of them when they are the same
+- so this is a mathematics question, that have the equation and also some rune conversion
