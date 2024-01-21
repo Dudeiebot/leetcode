@@ -838,17 +838,36 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return nil
 // }
 
-func detectIntersection(headA, headB *ListNode) *ListNode {
-	seen := make(map[*ListNode]bool)
+// func getIntersectionNode(headA, headB *ListNode) *ListNode {
+// 	seen := make(map[*ListNode]bool)
+//
+// 	for i := headA; i != nil; i = i.Next {
+// 		seen[i] = true
+// 	}
+//
+// 	for j := headB; j != nil; j = j.Next {
+// 		if seen[j] {
+// 			return j
+// 		}
+// 	}
+// 	return nil
+// }
 
-	for i := headA; i != nil; i = i.Next {
-		seen[i] = true
-	}
+// For more optimization we can use the 2 pointer notation
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	a, b := headA, headB
+	for a != b {
+		if a != nil {
+			a = a.Next
+		} else {
+			a = headB
+		}
 
-	for j := headB; j != nil; j = j.Next {
-		if seen[j] {
-			return j
+		if b != nil {
+			b = b.Next
+		} else {
+			b = headA
 		}
 	}
-	return nil
+	return a
 }
