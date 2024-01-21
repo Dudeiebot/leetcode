@@ -855,19 +855,19 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 
 // For more optimization we can use the 2 pointer notation
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	a, b := headA, headB
+	a, b := headA, headB // create our 2 pointers
 	for a != b {
 		if a != nil {
 			a = a.Next
 		} else {
 			a = headB
-		}
+		} // anytime a becomes nil, it move to the other ListNode
 
 		if b != nil {
 			b = b.Next
 		} else {
 			b = headA
-		}
+		} // vice Versa here also
 	}
-	return a
+	return a // We return one of them
 }
