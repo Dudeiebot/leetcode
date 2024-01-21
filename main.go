@@ -854,20 +854,30 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // }
 
 // For more optimization we can use the 2 pointer notation
-func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	a, b := headA, headB // create our 2 pointers
-	for a != b {
-		if a != nil {
-			a = a.Next
-		} else {
-			a = headB
-		} // anytime a becomes nil, it move to the other ListNode
+// func getIntersectionNode(headA, headB *ListNode) *ListNode {
+// 	a, b := headA, headB // create our 2 pointers
+// 	for a != b {
+// 		if a != nil {
+// 			a = a.Next
+// 		} else {
+// 			a = headB
+// 		} // anytime a becomes nil, it move to the other ListNode
+//
+// 		if b != nil {
+// 			b = b.Next
+// 		} else {
+// 			b = headA
+// 		} // vice Versa here also
+// 	}
+// 	return a // We return one of them
+// }
 
-		if b != nil {
-			b = b.Next
-		} else {
-			b = headA
-		} // vice Versa here also
+func excelSheetConv(colunmnNumber int) string {
+	res := ""
+	for colunmnNumber > 0 {
+		rem := (colunmnNumber - 1) % 26
+		res = string(rune('A'+rem)) + res
+		colunmnNumber = (colunmnNumber - 1) / 26
 	}
-	return a // We return one of them
+	return res
 }
