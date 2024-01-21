@@ -243,10 +243,10 @@ package main
 // }
 
 // Merge two sorted linked list
-// type ListNode struct {
-// 	Val  int
-// 	Next *ListNode
-// }
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
 
 //
 // func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
@@ -837,3 +837,18 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	}
 // 	return nil
 // }
+
+func detectIntersection(headA, headB *ListNode) *ListNode {
+	seen := make(map[*ListNode]bool)
+
+	for i := headA; i != nil; i = i.Next {
+		seen[i] = true
+	}
+
+	for j := headB; j != nil; j = j.Next {
+		if seen[j] {
+			return j
+		}
+	}
+	return nil
+}
