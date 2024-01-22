@@ -881,3 +881,13 @@ func excelSheetConv(colunmnNumber int) string {
 	}
 	return res
 }
+
+func excelSheetConvNum(columnTitle string) int {
+	res := 0
+	mul := 1 // multiplier
+	for i := len(columnTitle) - 1; i >= 0; i-- {
+		res = int(columnTitle[i]-'A'+1)*mul + res
+		mul *= 26
+	}
+	return res
+}
