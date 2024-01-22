@@ -48,3 +48,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - Getting Intersection Node can come in 2 ways using the hashmap, we save a ListNode on the map and we range the other one to check the equality. For good optimization and adequate memory we can create two pointer, where a and b will intersect then go through each other one by one and this is possible because a doesnot get to nil  and b also doesnot get to nil and when it does a becomes headB and b becomes headA and we return one of them when they are the same
 - so this is a mathematics question, that have the equation and also some rune conversion
 - the opposite of the conversion to string, this one the conversion is to int and they are not pretty hard just mathematics conversion and ranging through
+- so here we are going to be using hashmap and boyer moore algorithm, they are both straight forward and easily understandable also
