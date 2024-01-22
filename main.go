@@ -891,3 +891,21 @@ func excelSheetConvNum(columnTitle string) int {
 	}
 	return res
 }
+
+func majorityNumber(nums []int) int {
+	// We are going to be using 2 method to solve this. 1. Hashmap, 2. pointer solution (boyer moore algorithm)
+
+	// Using Hashmap
+	seen := make(map[int]int)
+	m := len(nums) / 2
+	for _, num := range nums {
+		seen[num]++
+	}
+
+	for i, count := range seen {
+		if count > m {
+			return i
+		}
+	}
+	return 0
+}
