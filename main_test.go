@@ -1056,3 +1056,22 @@ func TestExcelSheetConv(t *testing.T) {
 		})
 	}
 }
+
+func TestExcelSheetConvNum(t *testing.T) {
+	tests := []struct {
+		columnTitle string
+		want        int
+	}{
+		{"A", 1},
+		{"AB", 28},
+		{"ZY", 701},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.columnTitle), func(t *testing.T) {
+			got := excelSheetConvNum(tc.columnTitle)
+			if got != tc.want {
+				t.Fatalf("got %v; want %v", got, tc.want)
+			}
+		})
+	}
+}
