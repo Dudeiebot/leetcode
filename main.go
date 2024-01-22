@@ -911,7 +911,7 @@ func excelSheetConvNum(columnTitle string) int {
 // }
 
 func majorityNumber(nums []int) int {
-	// Uisng boyer moore
+	// Using boyer moore
 	res, count := 0, 0
 
 	for _, num := range nums {
