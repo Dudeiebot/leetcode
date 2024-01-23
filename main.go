@@ -926,3 +926,13 @@ func majorityNumber(nums []int) int {
 	}
 	return res
 }
+
+func reverseBit(num uint32) uint32 {
+	var res uint32
+	for i := 0; i < 32; i++ {
+		res <<= 1             // for every loop we shift result to the left by 1
+		res = res | (num & 1) // performs a bitwise operation
+		num >>= 1             // shifts the num to the right by 1
+	}
+	return res
+}
