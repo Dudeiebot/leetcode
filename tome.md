@@ -50,3 +50,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - the opposite of the conversion to string, this one the conversion is to int and they are not pretty hard just mathematics conversion and ranging through
 - so here we are going to be using hashmap and boyer moore algorithm, they are both straight forward and easily understandable also
 - reversing uint32 here, we have to do some bit manipulating and by doing this, we loop through our nos and for every loop we shift the result left once perform a bitwise operation and shift the num to the right once
+- hamming weight is when we return the non-zero part of a number, and we are using unsigned int here so we check for till the num is not equal to 0 then we mod the last digit and move the num to the right once. Finally we return count
