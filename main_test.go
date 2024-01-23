@@ -1131,3 +1131,22 @@ func TestHammingWeight(t *testing.T) {
 		})
 	}
 }
+
+func TestIsHappy(t *testing.T) {
+	tests := []struct {
+		n    int
+		want bool
+	}{
+		{19, true},
+		{2, false},
+		{7, true},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := isHappy(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
