@@ -1094,3 +1094,21 @@ func TestMajorityNumber(t *testing.T) {
 		})
 	}
 }
+
+func TestReverseBit(t *testing.T) {
+	tests := []struct {
+		num  uint32
+		want uint32
+	}{
+		{0b00000010100101000001111010011100, 0b00111001011110000010100101000000},
+		{0b11111111111111111111111111111101, 3221225471},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.num), func(t *testing.T) {
+			got := reverseBit(tc.num)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
