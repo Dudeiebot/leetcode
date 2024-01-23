@@ -1112,3 +1112,22 @@ func TestReverseBit(t *testing.T) {
 		})
 	}
 }
+
+func TestHammingWeight(t *testing.T) {
+	tests := []struct {
+		num  uint32
+		want int
+	}{
+		{0b00000000000000000000000000001011, 3},
+		{0b00000000000000000000000010000000, 1},
+		{0b11111111111111111111111111111101, 31},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.num), func(t *testing.T) {
+			got := hammingWeight(tc.num)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
