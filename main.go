@@ -947,3 +947,20 @@ func hammingWeight(num uint32) int {
 	// for more optimization, we can do num = num & (num - 1) and then increment the count
 	// We minus 1 from our num and then & it
 }
+
+func isHappy(n int) bool {
+	seen := make(map[int]bool)
+
+	for n != 1 && !seen[n] {
+		seen[n] = true
+		sum := 0
+
+		for n > 0 {
+			rem := n % 10
+			sum += rem * rem
+			n /= 10
+		}
+		n = sum
+	}
+	return n == 1
+}
