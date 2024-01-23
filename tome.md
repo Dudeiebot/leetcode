@@ -49,3 +49,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - so this is a mathematics question, that have the equation and also some rune conversion
 - the opposite of the conversion to string, this one the conversion is to int and they are not pretty hard just mathematics conversion and ranging through
 - so here we are going to be using hashmap and boyer moore algorithm, they are both straight forward and easily understandable also
+- reversing uint32 here, we have to do some bit manipulating and by doing this, we loop through our nos and for every loop we shift the result left once perform a bitwise operation and shift the num to the right once
