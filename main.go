@@ -936,3 +936,14 @@ func reverseBit(num uint32) uint32 {
 	}
 	return res
 }
+
+func hammingWeight(num uint32) int {
+	count := 0
+	for num != 0 {
+		count += int(num % 2)
+		num >>= 1
+	}
+	return count
+	// for more optimization, we can do num = num & (num - 1) and then increment the count
+	// We minus 1 from our num and then & it
+}
