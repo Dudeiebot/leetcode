@@ -1,25 +1,26 @@
 package main
 
-// import (
-// 	"strings"
-// 	"unicode"
-// "math/big"
-// )
+import (
+	//	"strings"
+	//	"unicode"
+	"leetCode/struct"
+	// "math/big"
+)
 
 // duplicate num in a array
 
-// func DupNum(nums []int) bool {
-// 	s := make(map[int]bool)
-//
-// 	for _, num := range nums {
-// 		if s[num] {
-// 			return true
-//  //because it ask us to return true if it has the same nos of occurrence, check unique occur(question 1207 for the reason)
-// 		}
-// 		s[num] = true
-// 	}
-// 	return false
-// }
+func DupNum(nums []int) bool {
+	s := make(map[int]bool)
+
+	for _, num := range nums {
+		if s[num] {
+			return true
+			// because it ask us to return true if it has the same nos of occurrence, check unique occur(question 1207 for the reason)
+		}
+		s[num] = true
+	}
+	return false
+}
 
 // func DupNum(nums []int) bool {
 // 	for i := 0; i < len(nums); i++ {
@@ -243,12 +244,6 @@ package main
 // }
 
 // Merge two sorted linked list
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-//
 // func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 // 	tempNode := &ListNode{}
 // 	currentNode := tempNode
@@ -449,11 +444,6 @@ type ListNode struct {
 // 	return total
 // }
 
-// type ListNode struct {
-// 	Val  int
-// 	Next *ListNode
-// }
-
 //
 // func delDuplicates(head *ListNode) *ListNode {
 // 	res := head
@@ -485,13 +475,6 @@ type ListNode struct {
 // }
 
 // This is a long range of binary tree question so we are going to be using this struct all true
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-//
 // func inorderTraversal(root *TreeNode) []int {
 // 	res := make([]int, 0) // create the arr that store the result
 // 	stck := make([]*TreeNode, 0)
@@ -963,4 +946,20 @@ func isHappy(n int) bool {
 		n = sum
 	}
 	return n == 1
+}
+
+func removeLinkedList(head *util.ListNode, val int) *util.ListNode {
+	dummyNode := &util.ListNode{Next: head}
+	prev, curr := dummyNode, head
+
+	for curr != nil {
+		nxt := curr.Next
+		if curr.Val == val {
+			prev.Next = nxt
+		} else {
+			prev = curr
+		}
+		curr = nxt
+	}
+	return dummyNode.Next
 }
