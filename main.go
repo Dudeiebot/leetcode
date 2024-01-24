@@ -968,7 +968,7 @@ func isIsomorphics(s, t string) bool {
 	seenS, seenT := make(map[byte]byte), make(map[byte]byte)
 
 	for i := 0; i < len(s); i++ {
-		s1, t1 := s[1], t[1]
+		s1, t1 := s[i], t[i]
 		if value, ok := seenS[t1]; ok && value != s1 {
 			return false
 		}
@@ -980,4 +980,19 @@ func isIsomorphics(s, t string) bool {
 		seenT[s1] = t1
 	}
 	return true
+}
+
+func reverseList(head *util.ListNode) *util.ListNode {
+	// iterative solution
+	// We can use iteration method also but i am not taking it necessary
+	var prev *util.ListNode
+	curr := head
+
+	for curr != nil {
+		nxt := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = nxt
+	}
+	return prev
 }
