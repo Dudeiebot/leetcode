@@ -54,3 +54,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - is HAPPY alogrithm does some mathematical calculation to check if something pass or not, check leetcode for more understanding on it (Leetcode 202) 
 - for removing elements in a linked list that are the same with our provided value, we just create 2 pointer and a dummy node that start before the beginning adn range through all. (dont worry about my util.ListNode, i created a package in the folder struct to avoid me writing the struct type all the time)
 - isIsmorphic can be check with 2 different map back and forth just like the definition of ismorphic
+- To reverse a list we can use 2 pointer for the iterative version, ann that is just creating a list outside and then swapping values(and remember curr.Next = prev and not curr.Val because it is an int)
