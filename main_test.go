@@ -1180,7 +1180,7 @@ func TestRemoveLinkedList(t *testing.T) {
 	}
 }
 
-func IsIsmorphics(t *testing.T) {
+func TestIsIsmorphics(t *testing.T) {
 	tests := []struct {
 		s, t string
 		want bool
@@ -1194,6 +1194,37 @@ func IsIsmorphics(t *testing.T) {
 		t.Run(fmt.Sprintf("%v and %v", tc.s, tc.t), func(t *testing.T) {
 			got := isIsomorphics(tc.s, tc.t)
 			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
+
+func TestReverseList(t *testing.T) {
+	tests := []struct {
+		head *util.ListNode
+		want *util.ListNode
+	}{
+		{
+			head: &util.ListNode{
+				Val: 1,
+				Next: &util.ListNode{
+					Val: 2, Next: &util.ListNode{Val: 3, Next: &util.ListNode{Val: 4}},
+				},
+			},
+			want: &util.ListNode{
+				Val: 4,
+				Next: &util.ListNode{
+					Val: 3, Next: &util.ListNode{Val: 2, Next: &util.ListNode{Val: 1}},
+				},
+			},
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run("", func(t *testing.T) {
+			got := reverseList(tc.head)
+			if !reflect.DeepEqual(got, tc.want) {
 				t.Fatalf("got %v, want %v", got, tc.want)
 			}
 		})
