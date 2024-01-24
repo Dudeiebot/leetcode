@@ -963,3 +963,21 @@ func removeLinkedList(head *util.ListNode, val int) *util.ListNode {
 	}
 	return dummyNode.Next
 }
+
+func isIsomorphics(s, t string) bool {
+	seenS, seenT := make(map[byte]byte), make(map[byte]byte)
+
+	for i := 0; i < len(s); i++ {
+		s1, t1 := s[1], t[1]
+		if value, ok := seenS[t1]; ok && value != s1 {
+			return false
+		}
+		seenS[t1] = s1
+
+		if value, ok := seenT[s1]; ok && value != t1 {
+			return false
+		}
+		seenT[s1] = t1
+	}
+	return true
+}
