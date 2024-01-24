@@ -1179,3 +1179,23 @@ func TestRemoveLinkedList(t *testing.T) {
 		})
 	}
 }
+
+func IsIsmorphics(t *testing.T) {
+	tests := []struct {
+		s, t string
+		want bool
+	}{
+		{"bar", "foo", false},
+		{"egg", "add", true},
+		{"paper", "title", true},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v and %v", tc.s, tc.t), func(t *testing.T) {
+			got := isIsomorphics(tc.s, tc.t)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
