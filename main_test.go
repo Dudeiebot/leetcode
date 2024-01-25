@@ -1230,3 +1230,23 @@ func TestReverseList(t *testing.T) {
 		})
 	}
 }
+
+func TestContainsDuplicates(t *testing.T) {
+	tests := []struct {
+		nums []int
+		k    int
+		want bool
+	}{
+		{[]int{1, 2, 3, 1}, 3, true},
+		{[]int{1, 0, 1, 1}, 1, true},
+		{[]int{1, 2, 3, 1, 2, 3}, 2, false},
+	}
+	for _, tc := range tests {
+		t.Run("", func(t *testing.T) {
+			got := containsNearbyDuplicate(tc.nums, tc.k)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
