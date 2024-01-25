@@ -1008,3 +1008,13 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 	}
 	return false
 }
+
+func countNodes(root *util.TreeNode) int {
+	// guess what we can use both the inorder, preorder and postorder to traverse around the treenode and return the count but let just use recursion here to get the countNodes
+
+	if root == nil {
+		return 0
+	}
+
+	return 1 + countNodes(root.Left) + countNodes(root.Right)
+}
