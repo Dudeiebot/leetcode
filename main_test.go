@@ -1250,3 +1250,22 @@ func TestContainsDuplicates(t *testing.T) {
 		})
 	}
 }
+
+func TestCountNodes(t *testing.T) {
+	tests := []struct {
+		root *util.TreeNode
+		want int
+	}{
+		{(*util.TreeNode)(nil), 0},
+		{&util.TreeNode{Val: 1, Left: &util.TreeNode{Val: 2}, Right: &util.TreeNode{Val: 3}}, 3},
+	}
+
+	for _, tc := range tests {
+		t.Run(" ", func(t *testing.T) {
+			got := countNodes(tc.root)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
