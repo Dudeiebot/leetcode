@@ -996,3 +996,15 @@ func reverseList(head *util.ListNode) *util.ListNode {
 	}
 	return prev
 }
+
+func containsNearbyDuplicate(nums []int, k int) bool {
+	seen := make(map[int]int)
+
+	for i, num := range nums {
+		if j, exists := seen[num]; exists && i-j <= k {
+			return true
+		}
+		seen[num] = i
+	}
+	return false
+}
