@@ -1269,3 +1269,25 @@ func TestCountNodes(t *testing.T) {
 		})
 	}
 }
+
+func TestInverseNode(t *testing.T) {
+	tests := []struct {
+		root *util.TreeNode
+		want *util.TreeNode
+	}{
+		{(*util.TreeNode)(nil), nil},
+		{
+			&util.TreeNode{Val: 1, Left: &util.TreeNode{Val: 2}, Right: &util.TreeNode{Val: 3}},
+			&util.TreeNode{Val: 1, Left: &util.TreeNode{Val: 3}, Right: &util.TreeNode{Val: 2}},
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(" ", func(t *testing.T) {
+			got := inverseNode(tc.root)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
