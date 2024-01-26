@@ -1018,3 +1018,16 @@ func countNodes(root *util.TreeNode) int {
 
 	return 1 + countNodes(root.Left) + countNodes(root.Right)
 }
+
+func inverseNode(root *util.TreeNode) *util.TreeNode {
+	if root == nil {
+		return nil
+	}
+	temp := root.Left
+	root.Left = root.Right
+	root.Right = temp
+
+	inverseNode(root.Left)
+	inverseNode(root.Right)
+	return root
+}
