@@ -57,3 +57,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - To reverse a list we can use 2 pointer for the iterative version, ann that is just creating a list outside and then swapping values(and remember curr.Next = prev and not curr.Val because it is an int)
 - contains Nearby Duplicates can be done by creating 2 pointers or by using hashmap, either will work well but the hashmap is more memory efficient
 - To count all the node, we can easily traverse through them all but let jsut use recursion for faster out and easy code
+- Inverse a binary tree, we are going to use recursion with a pointer that exchange the left and right, then we return root. Always remember to add the base Case of root == nil {return nil}
