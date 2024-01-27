@@ -1291,3 +1291,22 @@ func TestInverseNode(t *testing.T) {
 		})
 	}
 }
+
+func TestSummaryRanges(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want []string
+	}{
+		{[]int{0, 1, 2, 5, 6, 9}, []string{"0->2", "5->6", "9"}},
+		{[]int{0, 2, 3, 4, 6, 8, 9}, []string{"0", "2->4", "6", "8->9"}},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := summaryRanges(tc.nums)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
