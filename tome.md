@@ -58,3 +58,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - contains Nearby Duplicates can be done by creating 2 pointers or by using hashmap, either will work well but the hashmap is more memory efficient
 - To count all the node, we can easily traverse through them all but let jsut use recursion for faster out and easy code
 - Inverse a binary tree, we are going to use recursion with a pointer that exchange the left and right, then we return root. Always remember to add the base Case of root == nil {return nil}
+- Summary Ranges does some array ranging and does string conversion then append the result to a slice
