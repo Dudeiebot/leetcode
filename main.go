@@ -4,6 +4,7 @@ import (
 	//	"strings"
 	//	"unicode"
 	"leetCode/struct"
+	"strconv"
 	// "math/big"
 )
 
@@ -1030,4 +1031,22 @@ func inverseNode(root *util.TreeNode) *util.TreeNode {
 	inverseNode(root.Left)
 	inverseNode(root.Right)
 	return root
+}
+
+func summaryRanges(nums []int) []string {
+	var res []string
+
+	for i := 0; i < len(nums); {
+		k := strconv.Itoa(nums[i])
+		j := i + 1
+
+		for ; j < len(nums) && nums[j]-nums[j-1] == 1; j++ {
+		}
+		if j-1 > i {
+			k += "->" + strconv.Itoa(nums[j-1])
+		}
+		res = append(res, k)
+		i = j
+	}
+	return res
 }
