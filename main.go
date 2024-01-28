@@ -1050,3 +1050,20 @@ func summaryRanges(nums []int) []string {
 	}
 	return res
 }
+
+func isPowerOfTwos(n int) bool {
+	temp := n
+
+	for temp > 1 {
+		if temp%2 != 0 {
+			return false
+		}
+		temp /= 2
+	}
+	return temp == 1
+
+	// you can use bit manipulation also
+	// func isPowerOfTwo(n int) bool {
+	//     return n != 0 && (n & (n - 1) == 0)
+	// }
+}
