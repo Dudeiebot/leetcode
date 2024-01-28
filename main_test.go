@@ -1330,3 +1330,36 @@ func TestIsPowerOfTwos(t *testing.T) {
 		})
 	}
 }
+
+func TestIsLinkPalindrome(t *testing.T) {
+	tests := []struct {
+		head *util.ListNode
+		want bool
+	}{
+		{
+			head: &util.ListNode{
+				Val: 1,
+				Next: &util.ListNode{
+					Val: 2,
+					Next: &util.ListNode{
+						Val: 2,
+						Next: &util.ListNode{
+							Val:  1,
+							Next: nil,
+						},
+					},
+				},
+			},
+			want: true,
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run("", func(t *testing.T) {
+			result := isLinkPalindrome(tc.head)
+			if result != tc.want {
+				t.Errorf("Expected %v, got %v", tc.want, result)
+			}
+		})
+	}
+}
