@@ -1067,3 +1067,53 @@ func isPowerOfTwos(n int) bool {
 	//     return n != 0 && (n & (n - 1) == 0)
 	// }
 }
+
+// func isLinkPalindrome(head *util.ListNode) bool {
+// 	slow := head
+// 	fast := head
+//
+// 	// Find the middle node
+// 	for fast != nil && fast.Next != nil {
+// 		slow = slow.Next
+// 		fast = fast.Next.Next
+// 	}
+//
+// 	// reverse the node
+// 	var prev *util.ListNode
+// 	for slow != nil {
+// 		temp := slow.Next
+// 		slow.Next = prev
+// 		prev = slow
+// 		slow = temp
+// 	}
+//
+// 	// compare the first node and the new node prev
+// 	l, r := head, prev
+// 	for r != nil {
+// 		if l.Val != r.Val {
+// 			return false
+// 		}
+// 		l = l.Next
+// 		r = r.Next
+// 	}
+// 	return true
+// }
+
+func isLinkPalindrome(head *util.ListNode) bool {
+	var nums []int
+
+	for head != nil {
+		nums = append(nums, head.Val)
+		head = head.Next
+	}
+
+	l, r := 0, len(nums)-1
+	for l <= r {
+		if nums[l] != nums[r] {
+			return false
+		}
+		l++
+		r--
+	}
+	return true
+}
