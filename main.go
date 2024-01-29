@@ -3,6 +3,7 @@ package main
 import (
 	//	"strings"
 	//	"unicode"
+	"fmt"
 	"leetCode/struct"
 	"strconv"
 	// "math/big"
@@ -1116,4 +1117,25 @@ func isLinkPalindrome(head *util.ListNode) bool {
 		r--
 	}
 	return true
+}
+
+func binaryTreePaths(root *util.TreeNode) []string {
+	var res []string
+	var rec func(*util.TreeNode, string)
+	rec = func(node *util.TreeNode, path string) {
+		if node.Left == nil && node.Right == nil {
+			res = append(res, path)
+			return
+		}
+
+		if node.Left != nil {
+			rec(node.Left, fmt.Sprintf("%s->%d", path, node.Left.Val))
+		}
+		if node.Right != nil {
+			rec(node.Right, fmt.Sprintf("%s->%d", path, node.Right.Val))
+		}
+	}
+
+	rec(root, fmt.Sprintf("%d", root.Val))
+	return res
 }
