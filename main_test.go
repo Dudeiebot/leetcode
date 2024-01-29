@@ -1363,3 +1363,33 @@ func TestIsLinkPalindrome(t *testing.T) {
 		})
 	}
 }
+
+func TestBinaryTreePaths(t *testing.T) {
+	// Create a sample binary tree
+	root := &util.TreeNode{
+		Val: 1,
+		Left: &util.TreeNode{
+			Val: 2,
+			Left: &util.TreeNode{
+				Val: 5,
+			},
+			Right: &util.TreeNode{
+				Val: 4,
+			},
+		},
+		Right: &util.TreeNode{
+			Val: 3,
+		},
+	}
+
+	// Define the expected result
+	expectedResult := []string{"1->2->5", "1->2->4", "1->3"}
+
+	// Call the function
+	result := binaryTreePaths(root)
+
+	// Check if the result matches the expected result
+	if !reflect.DeepEqual(result, expectedResult) {
+		t.Errorf("Expected %v, got %v", expectedResult, result)
+	}
+}
