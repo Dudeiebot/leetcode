@@ -857,25 +857,25 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return a // We return one of them
 // }
 
-func excelSheetConv(colunmnNumber int) string {
-	res := ""
-	for colunmnNumber > 0 {
-		rem := (colunmnNumber - 1) % 26
-		res = string(rune('A'+rem)) + res
-		colunmnNumber = (colunmnNumber - 1) / 26
-	}
-	return res
-}
-
-func excelSheetConvNum(columnTitle string) int {
-	res := 0
-	mul := 1 // multiplier
-	for i := len(columnTitle) - 1; i >= 0; i-- {
-		res = int(columnTitle[i]-'A'+1)*mul + res
-		mul *= 26
-	}
-	return res
-}
+// func excelSheetConv(colunmnNumber int) string {
+// 	res := ""
+// 	for colunmnNumber > 0 {
+// 		rem := (colunmnNumber - 1) % 26
+// 		res = string(rune('A'+rem)) + res
+// 		colunmnNumber = (colunmnNumber - 1) / 26
+// 	}
+// 	return res
+// }
+//
+// func excelSheetConvNum(columnTitle string) int {
+// 	res := 0
+// 	mul := 1 // multiplier
+// 	for i := len(columnTitle) - 1; i >= 0; i-- {
+// 		res = int(columnTitle[i]-'A'+1)*mul + res
+// 		mul *= 26
+// 	}
+// 	return res
+// }
 
 // func majorityNumber(nums []int) int {
 // 	// We are going to be using 2 method to solve this. 1. Hashmap, 2. pointer solution (boyer moore algorithm)
