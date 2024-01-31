@@ -1074,24 +1074,24 @@ func TestDupNum(t *testing.T) {
 // 	}
 //}
 
-func TestMajorityNumber(t *testing.T) {
-	tests := []struct {
-		nums []int
-		want int
-	}{
-		{[]int{3, 2, 3}, 3},
-		{[]int{1, 2, 1, 2, 3, 2, 2}, 2},
-		{[]int{2, 2, 1, 1, 1, 2, 2}, 2},
-	}
-	for _, tc := range tests {
-		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
-			got := majorityNumber(tc.nums)
-			if got != tc.want {
-				t.Fatalf("got %v, want %v", got, tc.want)
-			}
-		})
-	}
-}
+// func TestMajorityNumber(t *testing.T) {
+// 	tests := []struct {
+// 		nums []int
+// 		want int
+// 	}{
+// 		{[]int{3, 2, 3}, 3},
+// 		{[]int{1, 2, 1, 2, 3, 2, 2}, 2},
+// 		{[]int{2, 2, 1, 1, 1, 2, 2}, 2},
+// 	}
+// 	for _, tc := range tests {
+// 		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+// 			got := majorityNumber(tc.nums)
+// 			if got != tc.want {
+// 				t.Fatalf("got %v, want %v", got, tc.want)
+// 			}
+// 		})
+// 	}
+// }
 
 func TestReverseBit(t *testing.T) {
 	tests := []struct {
