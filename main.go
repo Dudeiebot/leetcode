@@ -895,22 +895,22 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	return 0
 // }
 
-func majorityNumber(nums []int) int {
-	// Using boyer moore
-	res, count := 0, 0
-
-	for _, num := range nums {
-		if count == 0 {
-			res = num
-			count = 1
-		} else if num == res {
-			count++
-		} else {
-			count--
-		}
-	}
-	return res
-}
+// func majorityNumber(nums []int) int {
+// 	// Using boyer moore
+// 	res, count := 0, 0
+//
+// 	for _, num := range nums {
+// 		if count == 0 {
+// 			res = num
+// 			count = 1
+// 		} else if num == res {
+// 			count++
+// 		} else {
+// 			count--
+// 		}
+// 	}
+// 	return res
+// }
 
 func reverseBit(num uint32) uint32 {
 	var res uint32
