@@ -63,3 +63,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - checking if a linked list is a palindrome, we can use 2 ways and that is, (1.) We convert our linkedlist to an array and then use a 2 pointer to check if they are the same but another way to do it, (2.) We will first of all check the middle of an array and then we will reverse the array from the middle then we compare the newly reversed array with the first array
 - BinarytreePath, we range through and append to the array, then we use recursion
 - addDigit, we add numbers that are less than 10 till they become a single num, and that can be done with checking the mod of 9 on those num because of some mahtematical knowledge
+- isUgly are number whose prime factors are limited to 2, 3 and 5. So here we basically check if the num provided is divisible by 2, 3 and 5 and finally return 1, basically we range through the newly created array and we then do the mod and division on them
