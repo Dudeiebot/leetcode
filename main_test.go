@@ -1413,3 +1413,23 @@ func TestAddDigits(t *testing.T) {
 		})
 	}
 }
+
+func TestIsUgly(t *testing.T) {
+	tests := []struct {
+		n    int
+		want bool
+	}{
+		{6, true},
+		{1, true},
+		{14, false},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := isUgly(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
