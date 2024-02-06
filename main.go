@@ -1150,3 +1150,16 @@ func addDigits(num int) int {
 	}
 	return num % 9
 }
+
+func isUgly(n int) bool {
+	if n <= 0 {
+		return false
+	}
+
+	for _, i := range []int{2, 3, 5} {
+		if n%i == 0 {
+			n /= i
+		}
+	}
+	return n == 1
+}
