@@ -1393,3 +1393,23 @@ func TestBinaryTreePaths(t *testing.T) {
 		t.Errorf("Expected %v, got %v", expectedResult, result)
 	}
 }
+
+func TestAddDigits(t *testing.T) {
+	tests := []struct {
+		num  int
+		want int
+	}{
+		{1, 1},
+		{38, 2},
+		{0, 0},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.num), func(t *testing.T) {
+			got := addDigits(tc.num)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
