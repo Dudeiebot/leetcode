@@ -1172,3 +1172,15 @@ func missingNum(nums []int) int {
 	}
 	return total
 }
+
+// first bad version is solve using binary search from the middle to the left and right
+
+func moveZeroes(nums []int) {
+	r := 0
+	for l := 0; l < len(nums); l++ {
+		if nums[l] != 0 {
+			nums[l], nums[r] = nums[r], nums[l]
+			r++
+		}
+	}
+}
