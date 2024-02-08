@@ -1452,3 +1452,22 @@ func TestMissingNum(t *testing.T) {
 		})
 	}
 }
+
+func TestMoveZeroes(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want []int
+	}{
+		{[]int{0, 3, 2, 0, 12}, []int{3, 2, 12, 0, 0}},
+		{[]int{0}, []int{0}},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			moveZeroes(tc.nums)
+			if !reflect.DeepEqual(tc.nums, tc.want) {
+				t.Fatalf("got %v, want %v", tc.nums, tc.want)
+			}
+		})
+	}
+}
