@@ -1163,3 +1163,12 @@ func isUgly(n int) bool {
 	}
 	return n == 1
 }
+
+func missingNum(nums []int) int {
+	n := len(nums)
+	total := (n + 1) * n / 2 // sum of num from 0 to n
+	for _, num := range nums {
+		total -= num // subtract from num and then return reminder
+	}
+	return total
+}
