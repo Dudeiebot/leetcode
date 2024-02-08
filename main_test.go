@@ -1433,3 +1433,22 @@ func TestIsUgly(t *testing.T) {
 		})
 	}
 }
+
+func TestMissingNum(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{0, 3, 2}, 1},
+		{[]int{1, 3, 4, 5, 6, 7, 0}, 2},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := missingNum(tc.nums)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
