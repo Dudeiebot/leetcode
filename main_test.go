@@ -1331,6 +1331,26 @@ func TestIsPowerOfTwos(t *testing.T) {
 	}
 }
 
+func TestIsPowerOfThrees(t *testing.T) {
+	tests := []struct {
+		n    int
+		want bool
+	}{
+		{-1, false},
+		{0, false},
+		{27, true},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := isPowerOfThree(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
+
 func TestIsLinkPalindrome(t *testing.T) {
 	tests := []struct {
 		head *util.ListNode
