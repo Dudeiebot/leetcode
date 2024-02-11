@@ -59,10 +59,10 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - To count all the node, we can easily traverse through them all but let jsut use recursion for faster out and easy code
 - Inverse a binary tree, we are going to use recursion with a pointer that exchange the left and right, then we return root. Always remember to add the base Case of root == nil {return nil}
 - Summary Ranges does some array ranging and does string conversion then append the result to a slice
-- is power of Twos can be gotten through the mod of 2 and then we range through it till our temp = 1 (temp is equal to our nos), then to get teh last nos we will check the mod of 2 and then divide it by 2
+- is power of Twos can be gotten through the mod of 2 and then we range through it till our temp = 1 (temp is equal to our nos), then to get teh last nos we will check the mod of 2 and then divide it by 2, which is the same also for isPowerOfThree
 - checking if a linked list is a palindrome, we can use 2 ways and that is, (1.) We convert our linkedlist to an array and then use a 2 pointer to check if they are the same but another way to do it, (2.) We will first of all check the middle of an array and then we will reverse the array from the middle then we compare the newly reversed array with the first array
 - BinarytreePath, we range through and append to the array, then we use recursion
 - addDigit, we add numbers that are less than 10 till they become a single num, and that can be done with checking the mod of 9 on those num because of some mahtematical knowledge
 - isUgly are number whose prime factors are limited to 2, 3 and 5. So here we basically check if the num provided is divisible by 2, 3 and 5 and finally return 1, basically we range through the newly created array and we then do the mod and division on them
 - missing nums out of a lise of num in an array can be very tricky especiall when we have to use constant space of time, we solved this by getting the total from 0 to n(len of the array) in the array and this can be done with (total = (n + 1) * n/2) then we range through the array and delete those nums
-- for moving zeros to the end of an array, we first of all check for all the nonzero input and move them to the end with the 2 pointer strategy if we want to use constant space of time, the 2 pointer starts at the beginning and the a pointer increment when we meet a non zero num
+-  
