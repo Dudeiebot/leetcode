@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"leetCode/struct"
 	"strconv"
+	"strings"
 	// "math/big"
 )
 
@@ -1194,4 +1195,29 @@ func moveZeroes(nums []int) {
 			r++
 		}
 	}
+}
+
+func wordPattern(pattern string, s string) bool {
+	realS := strings.Split(s, " ")
+
+	if len(pattern) != len(realS) {
+		return false
+	}
+
+	seen1 := make(map[string]string)
+	seen2 := make(map[string]byte)
+
+	for i, str := range realS {
+		realP := string(pattern[i]) // convert all letter each in pattern to string
+		if val, ok := seen1[str]; ok && val != realP {
+			return false
+		}
+
+		if val, ok := seen2[realP]; ok && val != str[0] {
+			return false
+		}
+		seen1[str] = realP
+		seen2[realP] = str[0]
+	}
+	return true
 }
