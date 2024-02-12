@@ -1491,3 +1491,23 @@ func TestMoveZeroes(t *testing.T) {
 		})
 	}
 }
+
+func TestWordPattern(t *testing.T) {
+	tests := []struct {
+		pattern string
+		s       string
+		want    bool
+	}{
+		{"abba", "dog, cat, cat, dog", true},
+		{"bbaa", "cat, dog, cat, dog", false},
+	}
+
+	for _, tc := range tests {
+		t.Run(" ", func(t *testing.T) {
+			got := wordPattern(tc.pattern, tc.s)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
