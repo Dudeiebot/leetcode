@@ -1221,3 +1221,16 @@ func wordPattern(pattern string, s string) bool {
 	}
 	return true
 }
+
+func countBits(n int) []int {
+	ans := make([]int, n+1)
+	count := 1
+
+	for i := 1; i <= n; i++ {
+		if count*2 == i {
+			count = i
+		}
+		ans[i] = 1 + ans[i-count]
+	}
+	return ans
+}
