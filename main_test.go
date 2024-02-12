@@ -1511,3 +1511,21 @@ func TestWordPattern(t *testing.T) {
 		})
 	}
 }
+
+func TestCountBits(t *testing.T) {
+	tests := []struct {
+		n    int
+		want []int
+	}{
+		{2, []int{0, 1, 1}},
+		{5, []int{0, 1, 1, 2, 1, 2}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := countBits(tc.n)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
