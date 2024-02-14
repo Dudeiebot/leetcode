@@ -1254,3 +1254,28 @@ func reverseStrings(s []byte) {
 		r--
 	}
 }
+
+func reverseVowels(s string) string {
+	var isVowel func(s rune) bool
+	temp := []rune(s)
+
+	isVowel = func(s rune) bool {
+		return s == 'a' || s == 'e' || s == 'i' || s == 'o' || s == 'u' || s == 'A' || s == 'E' ||
+			s == 'I' ||
+			s == 'O' ||
+			s == 'U'
+	}
+
+	for i, j := 0, len(temp)-1; i < j; {
+		if isVowel(temp[i]) && isVowel(temp[j]) {
+			temp[i], temp[j] = temp[j], temp[i]
+			i++
+			j--
+		} else if !isVowel(temp[i]) {
+			i++
+		} else if !isVowel(temp[j]) {
+			j--
+		}
+	}
+	return string(temp)
+}
