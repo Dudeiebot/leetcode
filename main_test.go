@@ -1549,3 +1549,21 @@ func TestCountBits(t *testing.T) {
 		})
 	}
 }
+
+func TestReversStrings(t *testing.T) {
+	tests := []struct {
+		s    []byte
+		want []byte
+	}{
+		{[]byte{'h', 'e', 'l', 'l', 'o'}, []byte{'o', 'l', 'l', 'e', 'h'}},
+		{[]byte{'H', 'a', 'p', 'p', 'y'}, []byte{'y', 'p', 'p', 'a', 'H'}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			reverseStrings(tc.s)
+			if !reflect.DeepEqual(tc.s, tc.want) {
+				t.Fatalf("got %v, want %v", tc.s, tc.want)
+			}
+		})
+	}
+}
