@@ -1245,3 +1245,12 @@ func countBits(n int) []int {
 	}
 	return ans
 }
+
+func reverseStrings(s []byte) {
+	r := len(s) - 1
+
+	for l := 0; l < r; l++ {
+		s[l], s[r] = s[r], s[l]
+		r--
+	}
+}
