@@ -1567,3 +1567,21 @@ func TestReversStrings(t *testing.T) {
 		})
 	}
 }
+
+func TestReverseVowels(t *testing.T) {
+	tests := []struct {
+		s    string
+		want string
+	}{
+		{"hello", "holle"},
+		{"leetcode", "leotcede"},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := reverseVowels(tc.s)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
