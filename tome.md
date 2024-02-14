@@ -59,7 +59,7 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - To count all the node, we can easily traverse through them all but let jsut use recursion for faster out and easy code
 - Inverse a binary tree, we are going to use recursion with a pointer that exchange the left and right, then we return root. Always remember to add the base Case of root == nil {return nil}
 - Summary Ranges does some array ranging and does string conversion then append the result to a slice
-- is power of Twos can be gotten through the mod of 2 and then we range through it till our temp = 1 (temp is equal to our nos), then to get teh last nos we will check the mod of 2 and then divide it by 2, which is the same also for isPowerOfThree
+- is power of Twos can be gotten through the mod of 2 and then we range through it till our temp = 1 (temp is equal to our nos), then to get the last nos we will check the mod of 2 and then divide it by 2, which is the same also for isPowerOfThree and also powerOfFour
 - checking if a linked list is a palindrome, we can use 2 ways and that is, (1.) We convert our linkedlist to an array and then use a 2 pointer to check if they are the same but another way to do it, (2.) We will first of all check the middle of an array and then we will reverse the array from the middle then we compare the newly reversed array with the first array
 - BinarytreePath, we range through and append to the array, then we use recursion
 - addDigit, we add numbers that are less than 10 till they become a single num, and that can be done with checking the mod of 9 on those num because of some mahtematical knowledge
