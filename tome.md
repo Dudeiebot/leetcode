@@ -67,3 +67,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - missing nums out of a lise of num in an array can be very tricky especiall when we have to use constant space of time, we solved this by getting the total from 0 to n(len of the array) in the array and this can be done with (total = (n + 1) * n/2) then we range through the array and delete those nums
 - for finding the world pattern we remove all the space in the other string, then we create 2 map and range through each to compare
 - countBits can be solved with the dynamic programming techniques and here we have a count that check for our significant bit (1,2,4,8,16) and in this significant bit there is a recursion that occur there
+- reverse strings in a byte array, we are just going to use the 2 pointer and start our right at the end and left at the beginning, we swap values and we are good to go
