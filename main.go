@@ -1279,3 +1279,20 @@ func reverseVowels(s string) string {
 	}
 	return string(temp)
 }
+
+func intersection(nums1 []int, nums2 []int) []int {
+	seen := make(map[int]bool)
+	res := []int{}
+
+	for _, num := range nums1 {
+		seen[num] = true
+	}
+
+	for _, num := range nums2 {
+		if seen[num] {
+			res = append(res, num)
+			seen[num] = false
+		}
+	}
+	return res
+}
