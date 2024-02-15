@@ -1585,3 +1585,22 @@ func TestReverseVowels(t *testing.T) {
 		})
 	}
 }
+
+func TestIntersection(t *testing.T) {
+	tests := []struct {
+		nums1 []int
+		nums2 []int
+		want  []int
+	}{
+		{[]int{1, 2, 2, 1, 0, 3}, []int{1, 2, 3, 4}, []int{1, 2, 3}},
+		{[]int{5, 4, 6, 9, 0, 2}, []int{5, 5, 5, 1, 8, 7}, []int{5}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.nums1, tc.nums2), func(t *testing.T) {
+			got := intersection(tc.nums1, tc.nums2)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
