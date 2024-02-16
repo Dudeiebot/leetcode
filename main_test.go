@@ -1624,3 +1624,21 @@ func TestIntersect(t *testing.T) {
 		})
 	}
 }
+
+func TestSquare(t *testing.T) {
+	tests := []struct {
+		n    int
+		want bool
+	}{
+		{16, true},
+		{14, false},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := validSquare(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
