@@ -69,4 +69,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - countBits can be solved with the dynamic programming techniques and here we have a count that check for our significant bit (1,2,4,8,16) and in this significant bit there is a recursion that occur there
 - reverse strings in a byte array, we are just going to use the 2 pointer and start our right at the end and left at the beginning, we swap values and we are good to go
 - reverse the vowels in a string, we create a helper function that check for vowels(isVowels which return boolean and take in rune), we convert our string to rune and we compare with our 2 pointers and then finally we convert the rune collected to string
-- for finding the intersection, we use a map to check for duplicates and then we range through the second also to append then check for eqality with (seen[num]=false)
+- for finding the intersection, we use a map to check for duplicates and then we range through the second also to append then check for eqality with (seen[num]=false), the other one is intersetion of 2 array also just that this one must show as many time it is being shown in the 2 array
