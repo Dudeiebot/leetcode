@@ -1604,3 +1604,23 @@ func TestIntersection(t *testing.T) {
 		})
 	}
 }
+
+func TestIntersect(t *testing.T) {
+	tests := []struct {
+		nums1 []int
+		nums2 []int
+		want  []int
+	}{
+		// Assuming the function accounts for duplicates and the order of the elements in the result is not specified
+		{[]int{1, 2, 2, 1}, []int{2, 2}, []int{2, 2}},
+		{[]int{4, 9, 5}, []int{9, 4, 9, 8, 4}, []int{4, 9}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.nums1, tc.nums2), func(t *testing.T) {
+			got := intersect(tc.nums1, tc.nums2)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
