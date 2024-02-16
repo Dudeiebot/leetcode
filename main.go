@@ -1317,3 +1317,18 @@ func intersect(nums1, nums2 []int) []int {
 	}
 	return res
 }
+
+func validSquare(n int) bool {
+	l, r := 0, n+1
+
+	for l < r {
+		m := l + (r-l)/2
+
+		if m*m >= n {
+			r = m // we have just equate right to mid cause if the mid * mid is > n then we can have a new right
+		} else {
+			l = m + 1
+		}
+	}
+	return l*l == n
+}
