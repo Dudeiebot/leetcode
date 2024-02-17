@@ -1642,3 +1642,23 @@ func TestSquare(t *testing.T) {
 		})
 	}
 }
+
+func TestCanConstruct(t *testing.T) {
+	tests := []struct {
+		ransomNote string
+		magazine   string
+		want       bool
+	}{
+		{"a", "b", false},
+		{"aa", "aab", true},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.ransomNote, tc.magazine), func(t *testing.T) {
+			got := canConstruct(tc.ransomNote, tc.magazine)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
