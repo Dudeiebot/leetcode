@@ -72,3 +72,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the intersection, we use a map to check for duplicates and then we range through the second also to append then check for eqality with (seen[num]=false), the other one is intersetion of 2 array also just that this one must show as many time it is being shown in the 2 array
 - for finding if a number is a valid square, we cna use binary search that check from the middle to the left and then to the right in a for loop where l < r
 - i have the guessing api in the guess folder
+- for canConstruct, we provide 2 string and then we check if one can be created form the other one. I used hashmap here 
