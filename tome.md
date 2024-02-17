@@ -73,3 +73,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding if a number is a valid square, we cna use binary search that check from the middle to the left and then to the right in a for loop where l < r
 - i have the guessing api in the guess folder
 - for canConstruct, we provide 2 string and then we check if one can be created form the other one. I used hashmap here 
+- first Unique character, i used hashmap also but there is another method with array and i will do it also
