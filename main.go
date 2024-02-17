@@ -1353,3 +1353,18 @@ func canConstruct(ransomNote, magazine string) bool {
 	}
 	return true
 }
+
+func firstUniqueChar(s string) int {
+	seen := make(map[rune]int)
+
+	for _, each := range s {
+		seen[each]++
+	}
+
+	for i, char := range s {
+		if seen[char] == 1 {
+			return i
+		}
+	}
+	return -1
+}
