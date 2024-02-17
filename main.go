@@ -1332,3 +1332,24 @@ func validSquare(n int) bool {
 	}
 	return l*l == n
 }
+
+func canConstruct(ransomNote, magazine string) bool {
+	seenR := make(map[rune]int)
+	seenM := make(map[rune]int)
+
+	for _, each := range ransomNote {
+		seenR[each]++
+	}
+
+	for _, each := range magazine {
+		seenM[each]++
+	}
+
+	for char, count := range seenR {
+		count2, exists := seenM[char]
+		if !exists || count > count2 {
+			return false
+		}
+	}
+	return true
+}
