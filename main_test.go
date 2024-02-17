@@ -1662,3 +1662,22 @@ func TestCanConstruct(t *testing.T) {
 		})
 	}
 }
+
+func TestFirstUniqueChar(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"leetcode", 0},
+		{"lovely", 1},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := firstUniqueChar(tc.s)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
