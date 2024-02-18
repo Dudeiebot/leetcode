@@ -1681,3 +1681,23 @@ func TestFirstUniqueChar(t *testing.T) {
 		})
 	}
 }
+
+func TestFindTheDifference(t *testing.T) {
+	tests := []struct {
+		s    string
+		t    string
+		want byte
+	}{
+		{"abcd", "abcde", 'e'},
+		{"", "y", 'y'},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.s, tc.t), func(t *testing.T) {
+			got := findTheDifference(tc.s, tc.t)
+			if got != tc.want {
+				t.Fatalf(" got %v, want %v", tc.s, tc.t)
+			}
+		})
+	}
+}
