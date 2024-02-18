@@ -75,3 +75,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for canConstruct, we provide 2 string and then we check if one can be created form the other one. I used hashmap here 
 - first Unique character, i used hashmap also but there is another method with array and i will do it also
 - finding the difference between two string, we can use hashmap like i said in the code but i am using bit manipulation techniques here, which stores the answer in a result. 
+- for finding the subsequence from s in a longer string t, we use the 2 pointer approach that start at the samne point and then l goes +1 if they are equal and if they are not equal, r only goes + 1, then we equate when l equals the len of s
