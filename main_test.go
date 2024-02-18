@@ -1696,7 +1696,27 @@ func TestFindTheDifference(t *testing.T) {
 		t.Run(fmt.Sprintf("%v, %v", tc.s, tc.t), func(t *testing.T) {
 			got := findTheDifference(tc.s, tc.t)
 			if got != tc.want {
-				t.Fatalf(" got %v, want %v", tc.s, tc.t)
+				t.Fatalf(" got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
+
+func TestIsSubsequence(t *testing.T) {
+	tests := []struct {
+		s    string
+		t    string
+		want bool
+	}{
+		{"abc", "ahbgnc", true},
+		{"aed", "ayefrd", true},
+		{"bfg", "tyfg", false},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.s, tc.t), func(t *testing.T) {
+			got := isSubsequence(tc.s, tc.t)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
 			}
 		})
 	}
