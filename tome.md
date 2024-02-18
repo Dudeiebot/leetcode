@@ -74,3 +74,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - i have the guessing api in the guess folder
 - for canConstruct, we provide 2 string and then we check if one can be created form the other one. I used hashmap here 
 - first Unique character, i used hashmap also but there is another method with array and i will do it also
+- finding the difference between two string, we can use hashmap like i said in the code but i am using bit manipulation techniques here, which stores the answer in a result. 
