@@ -1401,3 +1401,15 @@ func findTheDifference(s, t string) byte {
 
 	return result
 }
+
+func isSubsequence(s, t string) bool {
+	l, r := 0, 0
+
+	for l < len(s) && r < len(t) {
+		if s[l] == t[r] {
+			l++
+		}
+		r++
+	}
+	return l == len(s)
+}
