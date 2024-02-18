@@ -1384,3 +1384,20 @@ func firstUniqueChar(s string) int {
 	}
 	return -1
 }
+
+func findTheDifference(s, t string) byte {
+	// i can use hashmap to solve this but let use use the bit manipulation
+	// for the hashmap we creat 2 hashmap and then we caheck for count diff and return the byte(count)
+
+	var result byte = 0
+
+	for _, char := range s {
+		result ^= byte(char)
+	}
+
+	for _, char := range t {
+		result ^= byte(char)
+	}
+
+	return result
+}
