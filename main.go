@@ -1429,3 +1429,17 @@ func readBinaryWatch(turnedOn int) []string {
 	}
 	return time
 }
+
+func sumOfLeftLeaves(root *util.TreeNode) int {
+	res := 0
+
+	if root == nil {
+		return 0
+	}
+
+	if root.Left != nil && root.Left.Left == nil && root.Left.Right == nil {
+		res = root.Left.Val
+	}
+
+	return res + sumOfLeftLeaves(root.Left) + sumOfLeftLeaves(root.Right)
+}
