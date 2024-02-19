@@ -1721,3 +1721,35 @@ func TestIsSubsequence(t *testing.T) {
 		})
 	}
 }
+
+func TestReadBinaryWatch(t *testing.T) {
+	tests := []struct {
+		turnedOn int
+		want     []string
+	}{
+		{
+			1,
+			[]string{
+				"0:01",
+				"0:02",
+				"0:04",
+				"0:08",
+				"0:16",
+				"0:32",
+				"1:00",
+				"2:00",
+				"4:00",
+				"8:00",
+			},
+		},
+		{9, []string{}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.turnedOn), func(t *testing.T) {
+			got := readBinaryWatch(tc.turnedOn)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
