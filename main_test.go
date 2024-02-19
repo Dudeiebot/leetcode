@@ -1753,3 +1753,21 @@ func TestReadBinaryWatch(t *testing.T) {
 		})
 	}
 }
+
+func TestSumOfLeftLeaves(t *testing.T) {
+	tests := []struct {
+		root *util.TreeNode
+		want int
+	}{
+		{(*util.TreeNode)(nil), 0},
+		{&util.TreeNode{Val: 1, Left: &util.TreeNode{Val: 2}, Right: &util.TreeNode{Val: 3}}, 2},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.root), func(t *testing.T) {
+			got := sumOfLeftLeaves(tc.root)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
