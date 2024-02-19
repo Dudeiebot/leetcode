@@ -5,6 +5,7 @@ import (
 	//	"unicode"
 	"fmt"
 	"leetCode/struct"
+	"math/bits"
 	"strconv"
 	"strings"
 	// "math/big"
@@ -1412,4 +1413,19 @@ func isSubsequence(s, t string) bool {
 		r++
 	}
 	return l == len(s)
+}
+
+func readBinaryWatch(turnedOn int) []string {
+	time := []string{}
+
+	for h := 0; h < 12; h++ {
+		i := bits.OnesCount(uint(h))
+		for m := 0; m < 60; m++ {
+			j := bits.OnesCount(uint(m))
+			if turnedOn == i+j {
+				time = append(time, fmt.Sprintf("%d:%02d", h, m))
+			}
+		}
+	}
+	return time
 }
