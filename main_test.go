@@ -1807,3 +1807,41 @@ func TestLongestPalindrome(t *testing.T) {
 		})
 	}
 }
+
+func TestFizzBuzz(t *testing.T) {
+	tests := []struct {
+		n    int
+		want []string
+	}{
+		{3, []string{"1", "2", "Fizz"}},
+		{5, []string{"1", "2", "Fizz", "4", "Buzz"}},
+		{
+			15,
+			[]string{
+				"1",
+				"2",
+				"Fizz",
+				"4",
+				"Buzz",
+				"Fizz",
+				"7",
+				"8",
+				"Fizz",
+				"Buzz",
+				"11",
+				"Fizz",
+				"13",
+				"14",
+				"FizzBuzz",
+			},
+		},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := fizzbuzz(tc.n)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
