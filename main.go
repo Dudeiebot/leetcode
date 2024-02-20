@@ -1443,3 +1443,23 @@ func sumOfLeftLeaves(root *util.TreeNode) int {
 
 	return res + sumOfLeftLeaves(root.Left) + sumOfLeftLeaves(root.Right)
 }
+
+func toHex(n int) string {
+	res := ""
+	const hexChar = "0123456789abcdef"
+
+	if n == 0 {
+		return "0"
+	}
+
+	if n < 1 {
+		n += 0x100000000
+	}
+
+	for n > 0 {
+		rem := n % 16
+		res = string(hexChar[rem]) + res
+		n /= 16
+	}
+	return res
+}
