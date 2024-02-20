@@ -1778,11 +1778,29 @@ func TestToHex(t *testing.T) {
 		want string
 	}{
 		{-1, "ffffffff"},
-		{26, "2a"},
+		{26, "1a"},
 	}
 	for _, tc := range tests {
 		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
 			got := toHex(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
+
+func TestLongestPalindrome(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"abccccdd", 7},
+		{"a", 1},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := longestPalindrome(tc.s)
 			if got != tc.want {
 				t.Fatalf("got %v, want %v", got, tc.want)
 			}
