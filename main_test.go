@@ -1771,3 +1771,21 @@ func TestSumOfLeftLeaves(t *testing.T) {
 		})
 	}
 }
+
+func TestToHex(t *testing.T) {
+	tests := []struct {
+		n    int
+		want string
+	}{
+		{-1, "ffffffff"},
+		{26, "2a"},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := toHex(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
