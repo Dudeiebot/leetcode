@@ -1463,3 +1463,27 @@ func toHex(n int) string {
 	}
 	return res
 }
+
+func longestPalindrome(s string) int {
+	charCount := make(map[rune]int)
+	ans := 0
+	oddCount := false
+
+	for _, char := range s {
+		charCount[char]++
+	}
+
+	for _, count := range charCount {
+		if count%2 == 0 {
+			ans += count
+		} else {
+			ans += count - 1
+			oddCount = true
+		}
+	}
+
+	if oddCount {
+		ans++
+	}
+	return ans
+}
