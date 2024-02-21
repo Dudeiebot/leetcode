@@ -82,3 +82,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the longest palindrome, we are using hashmap here which will have a rune and int count on it, we range through the hashmap to check for all even nos and then add them to the ans we created, we have an els statement also that implicitly check for odd number and what it does is that it minus 1 from all odd number and add them up togther and finally we add 1 to the ans if it have odd nos on it
 - fizzbuzz is just a simple if and else statement or switch case statement
 - for finding the thirdmax, we are suppose to sort but we are not sorting here because it can be expensive for larger array, and here what we are just doing is initialising the new 3 var to math.MinInt64 and then when are greater than occurs num are swapped and given new values etc..........
+- Adding strings, this is just the normal addition process where we carry through and all
