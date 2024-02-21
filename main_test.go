@@ -1865,3 +1865,22 @@ func TestThirdMax(t *testing.T) {
 		})
 	}
 }
+
+func TestAddString(t *testing.T) {
+	tests := []struct {
+		num1, num2 string
+		want       string
+	}{
+		{"111", "123", "234"},
+		{"456", "77", "533"},
+		{"0", "0", "0"},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.num1, tc.num2), func(t *testing.T) {
+			got := addStrings(tc.num1, tc.num2)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
