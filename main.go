@@ -5,6 +5,7 @@ import (
 	//	"unicode"
 	"fmt"
 	"leetCode/struct"
+	"math"
 	"math/bits"
 	"strconv"
 	"strings"
@@ -1503,4 +1504,29 @@ func fizzbuzz(n int) []string {
 		}
 	}
 	return res
+}
+
+func thirdMax(nums []int) int {
+	first, second, third := math.MinInt64, math.MinInt64, math.MinInt64
+
+	for _, num := range nums {
+		if num == first || num == second || num == third {
+			// skipping duplicates here, if the number is seen we just skip and continue
+			continue
+		}
+
+		if num > first {
+			third, second, first = second, first, num
+		} else if num > second {
+			third, second = second, num
+		} else if num > third {
+			third = num
+		}
+	}
+
+	if third == math.MinInt64 {
+		return first
+	}
+
+	return third
 }
