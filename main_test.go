@@ -1845,3 +1845,23 @@ func TestFizzBuzz(t *testing.T) {
 		})
 	}
 }
+
+func TestThirdMax(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{2, 3, 1, 4}, 2},
+		{[]int{3, 2, 1}, 1},
+		{[]int{1, 2}, 2},
+		{[]int{2, 2, 3, 1}, 1},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := thirdMax(tc.nums)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
