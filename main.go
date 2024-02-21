@@ -1530,3 +1530,30 @@ func thirdMax(nums []int) int {
 
 	return third
 }
+
+func addStrings(num1, num2 string) string {
+	res := ""
+	carry := 0
+
+	i, j := len(num1)-1, len(num2)-1
+
+	for i >= 0 || j >= 0 || carry > 0 {
+		sum := carry
+
+		if i >= 0 {
+			sum += int(num1[i] - '0')
+			i--
+		}
+
+		if j >= 0 {
+			sum += int(num2[j] - '0')
+			j--
+		}
+
+		carry = sum / 10
+		digit := sum % 10
+
+		res = fmt.Sprintf("%d", digit) + res
+	}
+	return res
+}
