@@ -9,6 +9,7 @@ import (
 	"math/bits"
 	"strconv"
 	"strings"
+	"unicode"
 	// "math/big"
 )
 
@@ -1556,4 +1557,16 @@ func addStrings(num1, num2 string) string {
 		res = fmt.Sprintf("%d", digit) + res
 	}
 	return res
+}
+
+func countSegments(s string) int {
+	str := strings.FieldsFunc(s, unicode.IsSpace)
+	count := 0
+
+	for _, each := range str {
+		if each != "" {
+			count++
+		}
+	}
+	return count
 }
