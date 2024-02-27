@@ -1884,3 +1884,21 @@ func TestAddString(t *testing.T) {
 		})
 	}
 }
+
+func TestCountSegment(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"we are a king in the hood", 7},
+		{"yoo, can you introduce me to this king", 8},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := countSegments(tc.s)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
