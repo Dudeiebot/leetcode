@@ -83,3 +83,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - fizzbuzz is just a simple if and else statement or switch case statement
 - for finding the thirdmax, we are suppose to sort but we are not sorting here because it can be expensive for larger array, and here what we are just doing is initialising the new 3 var to math.MinInt64 and then when are greater than occurs num are swapped and given new values etc..........
 - Adding strings, this is just the normal addition process where we carry through and all
+- we are going to be using strings.FieldsFunc here that takes in (a string and a rune which is space, which is unicode.IsSpace) it seperates them and then we range through it with a count increment
