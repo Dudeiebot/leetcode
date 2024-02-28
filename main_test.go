@@ -1902,3 +1902,23 @@ func TestCountSegment(t *testing.T) {
 		})
 	}
 }
+
+func TestArrangeCoins(t *testing.T) {
+	tests := []struct {
+		n    int
+		want int
+	}{
+		{5, 2},
+		{8, 3},
+		{6, 3},
+	}
+
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := arrangeCoins(tc.n)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
