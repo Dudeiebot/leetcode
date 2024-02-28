@@ -1571,19 +1571,30 @@ func countSegments(s string) int {
 	return count
 }
 
-func arrangeCoins(n int) int {
-	l, r := 1, n
-	res := 0
+// func arrangeCoins(n int) int {
+// 	l, r := 1, n
+// 	res := 0
+//
+// 	for l <= r {
+// 		m := l + (r-l)/n
+// 		coins := m * (m + 1) / 2
+// 		if coins > n {
+// 			r = m - 1
+// 		} else {
+// 			res = m
+// 			l = m + 1
+// 		}
+// 	}
+// 	return res
+// }
 
-	for l <= r {
-		m := l + (r-l)/n
-		coins := m * (m + 1) / 2
-		if coins > n {
-			r = m - 1
-		} else {
-			res = m
-			l = m + 1
-		}
+func arrangeCoins(n int) int {
+	k := 1
+	n--
+
+	for n >= 0 {
+		k++
+		n -= k
 	}
-	return res
+	return k - 1
 }
