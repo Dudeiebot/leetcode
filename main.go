@@ -1570,3 +1570,20 @@ func countSegments(s string) int {
 	}
 	return count
 }
+
+func arrangeCoins(n int) int {
+	l, r := 1, n
+	res := 0
+
+	for l <= r {
+		m := l + (r-l)/n
+		coins := m * (m + 1) / 2
+		if coins > n {
+			r = m - 1
+		} else {
+			res = m
+			l = m + 1
+		}
+	}
+	return res
+}
