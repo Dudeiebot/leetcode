@@ -1610,3 +1610,25 @@ func findAllDuplicates(nums []int) []int {
 	}
 	return res
 }
+
+func findDisapperedNumber(nums []int) []int {
+	k := len(nums)
+	res := make([]int, k)
+
+	if k == 0 {
+		return nil
+	}
+
+	for _, num := range nums {
+		res[num-1] = num
+	}
+
+	j := 0
+	for i := range res {
+		if res[i] == 0 {
+			res[j] = i + 1
+			j++
+		}
+	}
+	return res[:j]
+}
