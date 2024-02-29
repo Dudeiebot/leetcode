@@ -1598,3 +1598,15 @@ func arrangeCoins(n int) int {
 	}
 	return k - 1
 }
+
+func findAllDuplicates(nums []int) []int {
+	res := []int{}
+
+	for _, i := range nums {
+		if nums[util.Abs(i)-1] < 0 {
+			res = append(res, util.Abs(i))
+		}
+		nums[util.Abs(i)-1] *= -1
+	}
+	return res
+}
