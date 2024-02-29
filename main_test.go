@@ -1958,3 +1958,21 @@ func TestFindDisappearedNumber(t *testing.T) {
 		})
 	}
 }
+
+func TestAssignCookies(t *testing.T) {
+	tests := []struct {
+		g, s []int
+		want int
+	}{
+		{[]int{1, 2, 3}, []int{1, 1}, 1},
+		{[]int{1, 2}, []int{1, 2, 3}, 2},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.g, tc.s), func(t *testing.T) {
+			got := assignCookies(tc.g, tc.s)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
