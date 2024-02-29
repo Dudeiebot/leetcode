@@ -1922,3 +1922,21 @@ func TestArrangeCoins(t *testing.T) {
 		})
 	}
 }
+
+func TestFindAllDuplicate(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want []int
+	}{
+		{[]int{1, 1, 2}, []int{1}},
+		{[]int{4, 3, 5, 6, 7, 3, 2, 1, 1}, []int{3, 1}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := findAllDuplicates(tc.nums)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
