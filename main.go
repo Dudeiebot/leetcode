@@ -7,6 +7,7 @@ import (
 	"leetCode/struct"
 	"math"
 	"math/bits"
+	"sort"
 	"strconv"
 	"strings"
 	"unicode"
@@ -1631,4 +1632,21 @@ func findDisapperedNumber(nums []int) []int {
 		}
 	}
 	return res[:j]
+}
+
+func assignCookies(g []int, s []int) int {
+	sort.Ints(g)
+	sort.Ints(s)
+
+	count := 0
+	i, j := 0, 0
+
+	for i < len(g) && j < len(s) {
+		if g[i] <= s[j] {
+			count++
+			i++
+		}
+		j++
+	}
+	return count
 }
