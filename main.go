@@ -1650,3 +1650,14 @@ func assignCookies(g []int, s []int) int {
 	}
 	return count
 }
+
+func hammingDistance(x int, y int) int {
+	or := x ^ y
+	count := 0
+
+	for or > 0 {
+		count += or & 1
+		or >>= 1
+	}
+	return count
+}
