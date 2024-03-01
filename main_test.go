@@ -1994,3 +1994,22 @@ func TestHammingDistance(t *testing.T) {
 		})
 	}
 }
+
+func TestRepeatedSubString(t *testing.T) {
+	tests := []struct {
+		s    string
+		want bool
+	}{
+		{"aba", false},
+		{"abab", true},
+		{"abcabcabcabc", true},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.s), func(t *testing.T) {
+			got := reapeatedSubString(tc.s)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
