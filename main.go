@@ -1661,3 +1661,10 @@ func hammingDistance(x int, y int) int {
 	}
 	return count
 }
+
+func reapeatedSubString(s string) bool {
+	len := len(s)
+
+	double := s[1:len] + s[0:len-1]
+	return strings.Contains(double, s)
+}
