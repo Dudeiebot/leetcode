@@ -1976,3 +1976,21 @@ func TestAssignCookies(t *testing.T) {
 		})
 	}
 }
+
+func TestHammingDistance(t *testing.T) {
+	tests := []struct {
+		x, y int
+		want int
+	}{
+		{1, 4, 2},
+		{3, 1, 1},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.x, tc.y), func(t *testing.T) {
+			got := hammingDistance(tc.x, tc.y)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
