@@ -2013,3 +2013,21 @@ func TestRepeatedSubString(t *testing.T) {
 		})
 	}
 }
+
+func TestFindComplement(t *testing.T) {
+	tests := []struct {
+		n    int
+		want int
+	}{
+		{5, 2},
+		{1, 0},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := findComplement(tc.n)
+			if got != tc.want {
+				t.Fatalf(" got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
