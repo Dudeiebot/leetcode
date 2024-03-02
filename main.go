@@ -1668,3 +1668,12 @@ func reapeatedSubString(s string) bool {
 	double := s[1:len] + s[0:len-1]
 	return strings.Contains(double, s)
 }
+
+func findComplement(n int) int {
+	temp := 1
+
+	for temp < n {
+		temp = (temp << 1) | 1
+	}
+	return n ^ temp
+}
