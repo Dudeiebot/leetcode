@@ -1693,3 +1693,20 @@ func licenseFormatting(s string, k int) string {
 	}
 	return s
 }
+
+func findMaxConsecutivesOne(nums []int) int {
+	temp := 0
+	max := 0
+
+	for _, num := range nums {
+		if num == 1 {
+			temp++
+			if temp > max {
+				max = temp
+			}
+		} else {
+			temp = 0
+		}
+	}
+	return max
+}
