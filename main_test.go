@@ -2050,3 +2050,21 @@ func TestLicenseFormatting(t *testing.T) {
 		})
 	}
 }
+
+func TestConsecutivesOnes(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 0, 1, 1, 0, 1, 1, 1}, 3},
+		{[]int{1, 0, 1, 1, 0, 1}, 2},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.nums), func(t *testing.T) {
+			got := findMaxConsecutivesOne(tc.nums)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
