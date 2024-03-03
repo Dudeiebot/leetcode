@@ -92,3 +92,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - Repeated string, we perform a kind of concaqtenation on the strings and that is by doubling it (from index 1 to index 0 : len - 1)  then we check if it contains the string in the concatenated string
 - for finding the complement, we create a temp that is equial to 1 then we left it with 1 and the exclusive or it with 1, it is in a for loop the check till it is creater than the n created then xor the num and the newly created temp to give us our result
 - for license formatting we are going firstly convert all the strings to Upper and the replace all "-" to space "", then we check for the mod between the len and the int. If we get 0, it means we divide it to equal part and then concatenate it
+- for finding max consectuives one, we create 2 pointer that keep both nos of 1 and hte max nos of 1, at the end we do some checking and balancing
