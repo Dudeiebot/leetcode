@@ -2031,3 +2031,22 @@ func TestFindComplement(t *testing.T) {
 		})
 	}
 }
+
+func TestLicenseFormatting(t *testing.T) {
+	tests := []struct {
+		s    string
+		k    int
+		want string
+	}{
+		{"5F3Z-2e-9-w", 4, "5F3Z-2E9W"},
+		{"2-5g-3-J", 2, "2-5G-3J"},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v %v", tc.s, tc.k), func(t *testing.T) {
+			got := licenseFormatting(tc.s, tc.k)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
