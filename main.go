@@ -1677,3 +1677,19 @@ func findComplement(n int) int {
 	}
 	return n ^ temp
 }
+
+func licenseFormatting(s string, k int) string {
+	s = strings.ToUpper(strings.Replace(s, "-", "", -1))
+
+	mod := len(s) % k
+
+	if mod == 0 {
+		mod += k // new mod nos
+	}
+
+	for mod < len(s) {
+		s = s[:mod] + "-" + s[mod:]
+		mod = mod + k + 1
+	}
+	return s
+}
