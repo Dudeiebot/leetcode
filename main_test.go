@@ -2087,3 +2087,23 @@ func TestConstructRectangle(t *testing.T) {
 		})
 	}
 }
+
+func TestFindPoisonedDuration(t *testing.T) {
+	tests := []struct {
+		timeSeries []int
+		duration   int
+		want       int
+	}{
+		{[]int{1, 4}, 2, 4},
+		{[]int{1, 2}, 2, 3},
+		{[]int{4, 5}, 3, 4},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.timeSeries, tc.duration), func(t *testing.T) {
+			got := findPoisonedDuration(tc.timeSeries, tc.duration)
+			if got != tc.want {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
