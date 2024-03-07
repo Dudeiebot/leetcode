@@ -1722,3 +1722,16 @@ func construtRectangle(area int) []int {
 	}
 	return nil
 }
+
+func findPoisonedDuration(timeSeries []int, duration int) int {
+	t := 0
+
+	for i := 0; i < len(timeSeries)-1; i++ {
+		if timeSeries[i]+duration-1 < timeSeries[i+1] {
+			t += duration
+		} else {
+			t += timeSeries[i+1] - timeSeries[i]
+		}
+	}
+	return t + duration
+}
