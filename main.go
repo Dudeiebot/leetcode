@@ -1735,3 +1735,27 @@ func findPoisonedDuration(timeSeries []int, duration int) int {
 	}
 	return t + duration
 }
+
+func nextGreaterElement(nums1 []int, nums2 []int) []int {
+	seen := make(map[int]int)
+	res := make([]int, len(nums1))
+
+	for i, num := range nums2 {
+		seen[num] = i
+	}
+
+	for i, num := range nums1 {
+		found := false
+		for next := seen[num] + 1; next < len(nums2); next++ {
+			if nums2[next] > num {
+				res[i] = nums2[next]
+				found = true
+				break
+			}
+		}
+		if !found {
+			res[i] = -1
+		}
+	}
+	return res
+}
