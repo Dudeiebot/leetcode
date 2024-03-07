@@ -2068,3 +2068,22 @@ func TestConsecutivesOnes(t *testing.T) {
 		})
 	}
 }
+
+func TestConstructRectangle(t *testing.T) {
+	tests := []struct {
+		area int
+		want []int
+	}{
+		{4, []int{2, 2}},
+		{37, []int{37, 1}},
+		{122122, []int{427, 286}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.area), func(t *testing.T) {
+			got := construtRectangle(tc.area)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
