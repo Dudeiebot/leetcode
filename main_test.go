@@ -2107,3 +2107,22 @@ func TestFindPoisonedDuration(t *testing.T) {
 		})
 	}
 }
+
+func TestNextGreaterElement(t *testing.T) {
+	tests := []struct {
+		nums1 []int
+		nums2 []int
+		want  []int
+	}{
+		{[]int{4, 1, 2}, []int{1, 3, 4, 2}, []int{-1, 3, -1}},
+		{[]int{2, 4}, []int{1, 2, 3, 4}, []int{3, -1}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.nums1, tc.nums2), func(t *testing.T) {
+			got := nextGreaterElement(tc.nums1, tc.nums2)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
