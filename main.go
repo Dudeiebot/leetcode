@@ -1710,3 +1710,15 @@ func findMaxConsecutivesOne(nums []int) int {
 	}
 	return max
 }
+
+func construtRectangle(area int) []int {
+	temp := int(math.Sqrt(float64(area)))
+
+	for temp > 0 {
+		if area%temp == 0 {
+			return []int{area / temp, temp}
+		}
+		temp--
+	}
+	return nil
+}
