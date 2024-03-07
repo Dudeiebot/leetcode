@@ -95,3 +95,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding max consectuives one, we create 2 pointer that keep both nos of 1 and hte max nos of 1, at the end we do some checking and balancing
 - for construct rectangle, we need to firstly find the square root of the area, then we range through it, then any where the area % sqrt is equal to 0 we return and if not we decrease by 1
 - this is type of game whereby you have the time series you have to start and end in an array [the start, the end but this does not have end] so now the duration is being added to both side, let say for instance timeSeries[1,2] with duration 2, the person start at 1 and end at 2 then start at 2 again anf end at 4 the time used to fight is then 3
+- for finding the next greater element we create a mao and a new array, the map stores the nums2 with there equivalent position in the array, then we go through the nums1 and then perform some math there
