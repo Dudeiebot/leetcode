@@ -1791,3 +1791,35 @@ func findWords(words []string) []string {
 	}
 	return res
 }
+
+func findMode(root *util.TreeNode) []int {
+	seen := make(map[int]int)
+	var Inorder func(root *util.TreeNode)
+	max := 0
+	res := []int{}
+
+	if root.Left == nil && root.Right == nil {
+		return []int{root.Val}
+	}
+
+	Inorder = func(root *util.TreeNode) {
+		if root == nil {
+			return
+		}
+		seen[root.Val]++
+		if max < seen[root.Val] {
+			max = root.Val
+		}
+
+		Inorder(root.Left)
+		Inorder(root.Right)
+	}
+	Inorder(root)
+
+	for i, val := range seen {
+		if val == max {
+			res = append(res, i)
+		}
+	}
+	return res
+}
