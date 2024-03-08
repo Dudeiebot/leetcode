@@ -1823,3 +1823,26 @@ func findMode(root *util.TreeNode) []int {
 	}
 	return res
 }
+
+func base7(n int) string {
+	res := ""
+	if n == 0 {
+		return "0"
+	}
+
+	negative := n < 0
+	if negative {
+		n = -n
+	}
+
+	for n != 0 {
+		rem := n % 7
+		res = strconv.Itoa(rem) + res
+		n /= 7
+	}
+
+	if negative {
+		res = "-" + res
+	}
+	return res
+}
