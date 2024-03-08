@@ -1759,3 +1759,35 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 	}
 	return res
 }
+
+func findWords(words []string) []string {
+	letters := make([]int, 26)
+	res := make([]string, 0)
+
+	for _, r := range "qwertyuiop" {
+		letters[r-'a'] = 1
+	}
+
+	for _, r := range "asdfghjkl" {
+		letters[r-'a'] = 2
+	}
+
+	for _, r := range "zxcvbnm" {
+		letters[r-'a'] = 3
+	}
+
+	for _, each := range words {
+		w := strings.ToLower(each)
+		match := true
+		for i := 1; i < len(w); i++ {
+			if letters[w[i]-'a'] != letters[w[0]-'a'] {
+				match = false
+				break
+			}
+		}
+		if match {
+			res = append(res, each)
+		}
+	}
+	return res
+}
