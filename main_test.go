@@ -2126,3 +2126,22 @@ func TestNextGreaterElement(t *testing.T) {
 		})
 	}
 }
+
+func TestFindWords(t *testing.T) {
+	tests := []struct {
+		words []string
+		want  []string
+	}{
+		{[]string{"Hello", "Alaska", "Dad", "Peace"}, []string{"Alaska", "Dad"}},
+		{[]string{"omk"}, []string{}},
+		{[]string{"adsdf", "sfd"}, []string{"adsdf", "sfd"}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.words), func(t *testing.T) {
+			got := findWords(tt.words)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
