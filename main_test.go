@@ -2145,3 +2145,25 @@ func TestFindWords(t *testing.T) {
 		})
 	}
 }
+
+func TestInorderTraversal(t *testing.T) {
+	tests := []struct {
+		root *util.TreeNode
+		want []int
+	}{
+		{&util.TreeNode{Val: 0}, []int{0}},
+		{
+			&util.TreeNode{Val: 1, Left: &util.TreeNode{Val: 2}, Right: &util.TreeNode{Val: 2}},
+			[]int{2},
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(" ", func(t *testing.T) {
+			got := findMode(tc.root)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
