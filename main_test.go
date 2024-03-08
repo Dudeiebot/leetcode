@@ -2167,3 +2167,21 @@ func TestInorderTraversal(t *testing.T) {
 		})
 	}
 }
+
+func TestBase7(t *testing.T) {
+	tests := []struct {
+		n    int
+		want string
+	}{
+		{100, "202"},
+		{-7, "-10"},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v", tc.n), func(t *testing.T) {
+			got := base7(tc.n)
+			if got != tc.want {
+				t.Fatalf(" got %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
