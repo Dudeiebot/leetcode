@@ -2185,3 +2185,21 @@ func TestBase7(t *testing.T) {
 		})
 	}
 }
+
+func TestFindRelativeRank(t *testing.T) {
+	tests := []struct {
+		score []int
+		want  []string
+	}{
+		{[]int{5, 4, 3, 2, 1}, []string{"Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"}},
+		{[]int{10, 3, 8, 9, 4}, []string{"Gold Medal", "5", "Bronze Medal", "Silver Medal", "4"}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.score), func(t *testing.T) {
+			got := findRelativeRank(tt.score)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
