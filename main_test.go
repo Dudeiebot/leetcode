@@ -2203,3 +2203,22 @@ func TestFindRelativeRank(t *testing.T) {
 		})
 	}
 }
+
+func TestPerfectNum(t *testing.T) {
+	tests := []struct {
+		num  int
+		want bool
+	}{
+		{6, true},
+		{28, true},
+		{4, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.num), func(t *testing.T) {
+			got := perfectNum(tt.num)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
