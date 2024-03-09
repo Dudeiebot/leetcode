@@ -1846,3 +1846,27 @@ func base7(n int) string {
 	}
 	return res
 }
+
+func findRelativeRank(score []int) []string {
+	seen := make(map[int]int)
+	res := make([]string, len(score))
+
+	for i, each := range score {
+		seen[each] = i
+	}
+
+	sort.Sort(sort.Reverse(sort.IntSlice(score)))
+	for i, val := range score {
+		switch i {
+		case 0:
+			res[seen[val]] = "Gold Medal"
+		case 1:
+			res[seen[val]] = "Silver Medal"
+		case 2:
+			res[seen[val]] = "Bronze Medal"
+		default:
+			res[seen[val]] = strconv.Itoa(i + 1)
+		}
+	}
+	return res
+}
