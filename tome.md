@@ -101,3 +101,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the the base 7 of a num, it is the normal way we do it. you % and divide aand for the negative nos here we are going to convert to normal int and use concat to do the remaining
 - for finding relative ranks, we first store the element in a map with their equivalent position and then sort in descending order. we can now use switch case to put the 1-3 in their position and dont forget we check it with the map also
 - we have only 6 perfect nos but we can use the range method to go through it and some mathematical calculation
+- we know how fibnacci work with it frequence, we just do some ranging and swapping values
