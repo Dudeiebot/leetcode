@@ -485,7 +485,7 @@ func DupNum(nums []int) bool {
 // func inorderTraversal(root *TreeNode) []int {
 // 	res := make([]int, 0) // create the arr that store the result
 // 	stck := make([]*TreeNode, 0)
-// 	// create a slack of our datatype
+// 	// create a stack of our datatype
 // 	curr := root
 //
 // 	// note: we are trving the left tree first
