@@ -2222,3 +2222,25 @@ func TestPerfectNum(t *testing.T) {
 		})
 	}
 }
+
+func TestFibonacci(t *testing.T) {
+	tests := []struct {
+		n    int
+		want int
+	}{
+		{0, 0},
+		{1, 1},
+		{2, 1},
+		{3, 2},
+		{4, 3},
+		{5, 5},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("n=%v", tc.n), func(t *testing.T) {
+			got := fibonacci(tc.n)
+			if got != tc.want {
+				t.Fatalf("Fibonacci() = %v; want %v", got, tc.want)
+			}
+		})
+	}
+}
