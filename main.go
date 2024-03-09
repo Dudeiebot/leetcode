@@ -1870,3 +1870,22 @@ func findRelativeRank(score []int) []string {
 	}
 	return res
 }
+
+func perfectNum(num int) bool {
+	// there are only 6 perfect nos (6,28,496,8128,3355036, 8589869056)
+	// i can maybe range through it and boom
+
+	if num <= 1 {
+		return false
+	}
+	temp := 1
+	for i := 2; i*i <= num; i++ {
+		if num%i == 0 {
+			temp += i
+			if i != num/i {
+				temp += num / i
+			}
+		}
+	}
+	return temp == num
+}
