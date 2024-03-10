@@ -1904,3 +1904,10 @@ func fibonacci(n int) int {
 	}
 	return cur
 }
+
+func detectCapitalUse(s string) bool {
+	allCaps := strings.ToUpper(s)
+	remainingPart := strings.ToLower(s)[1:]
+
+	return s == allCaps || s == remainingPart
+}
