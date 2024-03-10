@@ -4,7 +4,6 @@ import (
 	"fmt"
 	util "leetCode/struct"
 	"reflect"
-	"strings"
 	"testing"
 )
 
@@ -2246,9 +2245,20 @@ func TestFibonacci(t *testing.T) {
 	}
 }
 
-func detectCapitalUse(s string) bool {
-	allCaps := strings.ToUpper(s)
-	remainingPart := strings.ToLower(s)[1:]
-
-	return s == allCaps || s == remainingPart
+func TestDetectCapitalUse(t *testing.T) {
+	tests := []struct {
+		S    string
+		want bool
+	}{
+		{"USA", true},
+		{"FlaG", false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.S), func(t *testing.T) {
+			got := detectCapitalUse(tt.S)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
