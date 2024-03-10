@@ -4,6 +4,7 @@ import (
 	"fmt"
 	util "leetCode/struct"
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -2243,4 +2244,11 @@ func TestFibonacci(t *testing.T) {
 			}
 		})
 	}
+}
+
+func detectCapitalUse(s string) bool {
+	allCaps := strings.ToUpper(s)
+	remainingPart := strings.ToLower(s)[1:]
+
+	return s == allCaps || s == remainingPart
 }
