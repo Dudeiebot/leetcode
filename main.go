@@ -1925,3 +1925,18 @@ func detectCapitalUse(S string) bool {
 	}
 	return (caps == len(S)) || (caps == 1 && isCapital(S[0])) || (caps == 0)
 }
+
+func reverseStr(s string, k int) string {
+	ss := []byte(s)
+
+	for i := 0; i < len(ss); i = i + 2*k {
+		l := i
+		r := util.Min(i+k-1, len(ss)-1)
+		for l < r {
+			ss[l], ss[r] = ss[r], ss[l]
+			l++
+			r--
+		}
+	}
+	return string(ss)
+}
