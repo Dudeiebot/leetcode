@@ -2262,3 +2262,22 @@ func TestDetectCapitalUse(t *testing.T) {
 		})
 	}
 }
+
+func TestReverseStr(t *testing.T) {
+	tests := []struct {
+		s    string
+		k    int
+		want string
+	}{
+		{"abcdefg", 2, "bacdfeg"},
+		{"abcd", 2, "bacd"},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s, tt.k), func(t *testing.T) {
+			got := reverseStr(tt.s, tt.k)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
