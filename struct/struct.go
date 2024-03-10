@@ -17,3 +17,10 @@ func Abs(n int) int {
 	}
 	return n
 }
+
+func Min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
