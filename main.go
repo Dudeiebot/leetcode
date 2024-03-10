@@ -1905,9 +1905,23 @@ func fibonacci(n int) int {
 	return cur
 }
 
-func detectCapitalUse(s string) bool {
-	allCaps := strings.ToUpper(s)
-	remainingPart := strings.ToLower(s)[1:]
+// func detectCapitalUse(s string) bool {
+// 	allCaps := strings.ToUpper(s)
+// 	remainingPart := strings.ToLower(s)[1:]
+//
+// 	return s == allCaps || s == remainingPart
+// }
 
-	return s == allCaps || s == remainingPart
+func detectCapitalUse(S string) bool {
+	var isCapital func(c byte) bool = func(c byte) bool {
+		return c >= 'A' && c <= 'Z'
+	}
+
+	caps := 0
+	for i := range S {
+		if isCapital(S[i]) {
+			caps++
+		}
+	}
+	return (caps == len(S)) || (caps == 1 && isCapital(S[0])) || (caps == 0)
 }
