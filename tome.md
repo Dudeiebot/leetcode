@@ -104,3 +104,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - we know how fibnacci work with it frequence, we just do some ranging and swapping values
 - to detect capital use we are going to be using 2 ways, the first one is creating 2 variable and check for if both are true(d 2 variables are allCaps anbd remainingPart) and the other way is creating another helper func that check for each byte level of (c >= 'A' && c <= 'Z') then we range through the word and check for inequality
 - reversing a certain amount of string and skipping 2 * k part, we convert it to byte and then range through the byte individually we skipped the amount needed to skip and then reverse what we need to revers
+- for finding the longest uncommon subsequence, we check if the string are the same then we return -1, and then if len of a is  greater than len ob then we return max
