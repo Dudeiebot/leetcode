@@ -1940,3 +1940,13 @@ func reverseStr(s string, k int) string {
 	}
 	return string(ss)
 }
+
+func findLusLength(a string, b string) int {
+	if a == b {
+		return -1
+	}
+	if len(a) > len(b) {
+		return len(a)
+	}
+	return len(b)
+}
