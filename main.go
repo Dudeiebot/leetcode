@@ -1950,3 +1950,24 @@ func findLusLength(a string, b string) int {
 	}
 	return len(b)
 }
+
+func getMinimumDifference(root *util.TreeNode) int {
+	prev := -1
+	minDiff := math.MinInt64
+
+	var Inorder func(root *util.TreeNode)
+	Inorder = func(root *util.TreeNode) {
+		if root == nil {
+			return
+		}
+
+		Inorder(root.Left)
+		if prev != -1 && root.Val-prev < minDiff {
+			minDiff = root.Val - prev
+		}
+		prev = root.Val
+		Inorder(root.Right)
+	}
+	Inorder(root)
+	return minDiff
+}
