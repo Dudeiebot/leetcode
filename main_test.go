@@ -2281,3 +2281,23 @@ func TestReverseStr(t *testing.T) {
 		})
 	}
 }
+
+func TestFindLusLength(t *testing.T) {
+	tests := []struct {
+		a    string
+		b    string
+		want int
+	}{
+		{"aba", "cdc", 3},
+		{"aaa", "bbb", 3},
+		{"aaa", "aaa", -1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.a, tt.b), func(t *testing.T) {
+			got := findLusLength(tt.a, tt.b)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
