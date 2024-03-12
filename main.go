@@ -1989,3 +1989,26 @@ func diameterOfBinaryTree(root *util.TreeNode) int {
 	dfs(root)
 	return res
 }
+
+func checkRecords(s string) bool {
+	absent := 0
+	alwaysLate := 0
+
+	for _, char := range s {
+		if char == 'A' {
+			absent++
+			if absent > 1 {
+				return false
+			}
+		}
+		if char == 'L' {
+			alwaysLate++
+			if alwaysLate > 2 {
+				return false
+			}
+		} else {
+			alwaysLate = 0
+		}
+	}
+	return true
+}
