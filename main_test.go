@@ -2301,3 +2301,21 @@ func TestFindLusLength(t *testing.T) {
 		})
 	}
 }
+
+func TestCheckRecords(t *testing.T) {
+	tests := []struct {
+		s    string
+		want bool
+	}{
+		{"PPALLP", true},
+		{"PPALLL", false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := checkRecords(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
