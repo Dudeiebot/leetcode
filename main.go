@@ -2012,3 +2012,22 @@ func checkRecords(s string) bool {
 	}
 	return true
 }
+
+func reverseWords(s string) string {
+	char := []byte(s)
+	l, r := 0, 0
+	lastSpaceIndex := -1
+
+	for i := 0; i <= len(char); i++ {
+		if i == len(char) || char[i] == ' ' {
+			l, r = lastSpaceIndex+1, i-1
+			for l < r {
+				char[l], char[r] = char[r], char[l]
+				l++
+				r--
+			}
+			lastSpaceIndex = i
+		}
+	}
+	return string(char)
+}
