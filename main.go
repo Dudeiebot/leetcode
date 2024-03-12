@@ -1971,3 +1971,21 @@ func getMinimumDifference(root *util.TreeNode) int {
 	Inorder(root)
 	return minDiff
 }
+
+func diameterOfBinaryTree(root *util.TreeNode) int {
+	res := 0
+
+	var dfs func(root *util.TreeNode) int
+	dfs = func(root *util.TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		left := dfs(root.Left)
+		right := dfs(root.Right)
+
+		res = util.Max(res, left+right)
+		return util.Max(left, right) + 1
+	}
+	dfs(root)
+	return res
+}
