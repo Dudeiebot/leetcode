@@ -107,3 +107,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the longest uncommon subsequence, we check if the string are the same then we return -1, and then if len of a is  greater than len ob then we return max
 - for finding the Minimum diff in a binary tree, we are going to be using the recursive Inorderhelper function and prev is given -1 (which  is used to flag to indicate the forst node being visited) and minDiff is give the maximum possible int in go value. so if prev is still -1 it means this is the first Node and then it being calculated like that in all
 - for finding the diameter of a binary tree, we are going to be using dfs recursive search to go through the node and we need to be check the max because we dont want to return the min but the max diameter
+- for check Records, we are going to be using 2 pointers that increment when they notice the character and return their their necessary bool when it more or less
