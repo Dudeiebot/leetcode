@@ -31,3 +31,8 @@ func Max(a, b int) int {
 	}
 	return b
 }
+
+type Node struct {
+	Val      int
+	Children []*Node
+}
