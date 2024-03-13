@@ -1,17 +1,15 @@
 package main
 
 import (
-	//	"strings"
-	//	"unicode"
 	"fmt"
 	"leetCode/struct"
 	"math"
 	"math/bits"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
 	"unicode"
-	// "math/big"
 )
 
 // duplicate num in a array
@@ -2044,4 +2042,14 @@ func maxDepth(root *util.Node) int {
 		max = util.Max(max, maxDepth(v))
 	}
 	return max + 1
+}
+
+func arrayPairSum(nums []int) int {
+	sum := 0
+	slices.Sort(nums)
+
+	for i := 0; i < len(nums)-0; i += 2 {
+		sum += nums[i]
+	}
+	return sum
 }
