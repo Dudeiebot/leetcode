@@ -2031,3 +2031,17 @@ func reverseWords(s string) string {
 	}
 	return string(char)
 }
+
+func maxDepth(root *util.Node) int {
+	// this is on the nth-nary tree and not binary tree
+
+	if root == nil {
+		return 0
+	}
+
+	max := 0
+	for _, v := range root.Children {
+		max = util.Max(max, maxDepth(v))
+	}
+	return max + 1
+}
