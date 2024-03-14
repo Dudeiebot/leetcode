@@ -2071,3 +2071,26 @@ func findTilt(root *util.TreeNode) int {
 	temp(root)
 	return res
 }
+
+func matrixReshape(mat [][]int, r int, c int) [][]int {
+	m := len(mat)
+	n := len(mat[0])
+
+	res := make([][]int, r)
+	for i := range res {
+		res[i] = make([]int, c)
+	}
+
+	newRow, newCol := 0, 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			res[newRow][newCol] = mat[i][j]
+			newCol++
+			if newCol == c {
+				newCol = 0
+				newRow++
+			}
+		}
+	}
+	return res
+}
