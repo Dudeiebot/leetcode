@@ -2355,3 +2355,21 @@ func TestArrayPairs(t *testing.T) {
 		})
 	}
 }
+
+func TestMatrixReshape(t *testing.T) {
+	tests := []struct {
+		mat  [][]int
+		r, c int
+		want [][]int
+	}{
+		{[][]int{{1, 2}, {3, 4}}, 1, 4, [][]int{{1, 2, 3, 4}}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v, %v", tt.mat, tt.c, tt.r), func(t *testing.T) {
+			got := matrixReshape(tt.mat, tt.r, tt.c)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
