@@ -2053,3 +2053,21 @@ func arrayPairSum(nums []int) int {
 	}
 	return sum
 }
+
+func findTilt(root *util.TreeNode) int {
+	res := 0
+
+	var temp func(root *util.TreeNode) int
+	temp = func(root *util.TreeNode) int {
+		if root == nil {
+			return 0
+		}
+
+		l := temp(root.Left)
+		r := temp(root.Right)
+		res += util.Abs(l - r)
+		return l + r + root.Val
+	}
+	temp(root)
+	return res
+}
