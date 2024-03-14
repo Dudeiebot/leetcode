@@ -548,19 +548,19 @@ just like this (append(ourarr, inorderTraversal(root.Left)...), followed by appe
 // 	// )
 // }
 
-// func isSameTree(p, q *TreeNode) bool {
-// 	if p == nil && q == nil {
-// 		return true
-// 	}
-//
-// 	// check if one of them is empty or their values are not the same
-// 	if (p == nil || q == nil) || (p.Val != q.Val) {
-// 		return false
-// 	}
-//
-// 	// now, this is the recursive step that checks the right and left
-// 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
-// }
+func isSameTree(p, q *util.TreeNode) bool {
+	if p == nil && q == nil {
+		return true
+	}
+
+	// check if one of them is empty or their values are not the same
+	if (p == nil || q == nil) || (p.Val != q.Val) {
+		return false
+	}
+
+	// now, this is the recursive step that checks the right and left
+	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+}
 
 // func isSymmetry(root *TreeNode) bool {
 // 	var dfs func(left *TreeNode, right *TreeNode) bool
@@ -2093,4 +2093,20 @@ func matrixReshape(mat [][]int, r int, c int) [][]int {
 		}
 	}
 	return res
+}
+
+func isSubTree(root *util.TreeNode, subRoot *util.TreeNode) bool {
+	if root == nil && subRoot == nil {
+		return root == subRoot
+	}
+
+	if root == nil || subRoot == nil {
+		return root != subRoot
+	}
+
+	if isSameTree(root, subRoot) {
+		return true
+	}
+
+	return isSubTree(root.Left, subRoot) || isSubTree(root.Right, subRoot)
 }
