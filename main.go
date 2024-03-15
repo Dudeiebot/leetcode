@@ -2110,3 +2110,17 @@ func isSubTree(root *util.TreeNode, subRoot *util.TreeNode) bool {
 
 	return isSubTree(root.Left, subRoot) || isSubTree(root.Right, subRoot)
 }
+
+func distributeCandy(candyType []int) int {
+	seen := make(map[int]int)
+	n := len(candyType) / 2
+
+	for _, i := range candyType {
+		seen[i]++
+	}
+	if n > len(seen) {
+		return len(seen)
+	} else {
+		return n
+	}
+}
