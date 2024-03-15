@@ -114,3 +114,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the tilt in a binary tree (The tilt of a tree node is the absolute difference between the sum of all left subtree node values and all right subtree node values), and we are going to create a helper func that traverse through the binary treeNode and then we perform the abs diff between the left and right
 - for reshaping a 2d(matrix) array, we are going to create another 2d array to keep our res, then we range through the 2d array given to us and then we equate them to each other. We check for if we have gotten to the end of the column given to us then we increment reow then and return res
 - for finding if the sub Tree is in the tree, we are using our func isSameTree then we recure on the root.Left with subRoot, root.Right with subtree
+- distributing candy type, we need a hashmap and then we check for the lens with some certain instruction following it
