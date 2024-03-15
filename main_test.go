@@ -2373,3 +2373,22 @@ func TestMatrixReshape(t *testing.T) {
 		})
 	}
 }
+
+func TestDistributeCandy(t *testing.T) {
+	tests := []struct {
+		candyType []int
+		want      int
+	}{
+		{[]int{1, 1, 2, 2, 3, 3}, 3},
+		{[]int{1, 1, 2, 3}, 2},
+		{[]int{6, 6, 6, 6}, 1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.candyType), func(t *testing.T) {
+			got := distributeCandy(tt.candyType)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
