@@ -2124,3 +2124,19 @@ func distributeCandy(candyType []int) int {
 		return n
 	}
 }
+
+func preOrder(root *util.Node) []int {
+	// this is for the nth-nary tree and we can use recursion and iteration for this preOrder
+	res := []int{}
+	stack := []*util.Node{root}
+
+	for len(stack) != 0 {
+		node := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		res = append(res, node.Val)
+		for i := len(node.Children) - 1; i >= 0; i-- {
+			stack = append(stack, node.Children[i])
+		}
+	}
+	return res
+}
