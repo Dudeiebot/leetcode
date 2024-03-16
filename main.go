@@ -2144,3 +2144,27 @@ func preOrder(root *util.Node) []int {
 	//res = append(res, preOrder(child)...)
 	//}
 }
+
+func postOrder(root *util.Node) []int {
+	res := []int{}
+	stack := []*util.Node{root}
+
+	if root == nil {
+		return res
+	}
+
+	for len(stack) != 0 {
+		node := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		res = append([]int{node.Val}, res...)
+		for _, child := range node.Children {
+			stack = append(stack, child)
+		}
+	}
+	return res
+	//recursion on this
+	// for i := range root.Children{
+	// res = append(res, postOrder(root.Children[i])...)
+	//}
+	// res = append(res, root.Val)
+}
