@@ -2139,4 +2139,8 @@ func preOrder(root *util.Node) []int {
 		}
 	}
 	return res
+	//the recursive will be like this after the base case of root == 0
+	// for _, child := range Children{
+	//res = append(res, preOrder(child)...)
+	//}
 }
