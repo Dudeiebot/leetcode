@@ -2168,3 +2168,20 @@ func postOrder(root *util.Node) []int {
 	//}
 	// res = append(res, root.Val)
 }
+
+func findLHS(nums []int) int {
+	seen := make(map[int]int)
+	res := 0
+
+	for _, num := range nums {
+		seen[num]++
+	}
+
+	for n, c1 := range seen {
+		if c2, ok := seen[n+1]; ok {
+			t := c1 + c2
+			res = util.Max(res, t)
+		}
+	}
+	return res
+}
