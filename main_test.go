@@ -2392,3 +2392,22 @@ func TestDistributeCandy(t *testing.T) {
 		})
 	}
 }
+
+func TestFindLHS(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 3, 2, 2, 2, 3, 5, 7}, 5},
+		{[]int{6, 6, 6, 6}, 0},
+		{[]int{1, 2, 3, 4}, 2},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := findLHS(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
