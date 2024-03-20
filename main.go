@@ -2195,3 +2195,26 @@ func maxCount(m int, n int, ops [][]int) int {
 	}
 	return x * y
 }
+
+func findRestaurant(list1 []string, list2 []string) []string {
+	seen := make(map[string]int)
+	var res []string
+	min := math.MaxInt
+
+	for i, each := range list1 {
+		seen[each] = i
+	}
+
+	for i, each := range list2 {
+		if j, ok := seen[each]; ok {
+			temp := i + j
+			if temp < min {
+				min = temp
+				res = []string{each}
+			} else if temp == min {
+				res = append(res, each)
+			}
+		}
+	}
+	return res
+}
