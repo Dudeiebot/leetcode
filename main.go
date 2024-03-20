@@ -2185,3 +2185,13 @@ func findLHS(nums []int) int {
 	}
 	return res
 }
+
+func maxCount(m int, n int, ops [][]int) int {
+	x, y := m, n
+
+	for _, op := range ops {
+		x = util.Min(op[0], x)
+		y = util.Min(op[1], y)
+	}
+	return x * y
+}
