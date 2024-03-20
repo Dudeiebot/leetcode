@@ -2430,3 +2430,29 @@ func TestMaxCount(t *testing.T) {
 		})
 	}
 }
+
+func TestFindRestaurant(t *testing.T) {
+	tests := []struct {
+		list1, list2 []string
+		want         []string
+	}{
+		{
+			[]string{"Shogun", "Tapioca Express", "Burger King", "KFC"},
+			[]string{"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"},
+			[]string{"Shogun"},
+		},
+		{
+			[]string{"happy", "sad", "good"},
+			[]string{"sad", "happy", "good"},
+			[]string{"sad", "happy"},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.list1, tt.list2), func(t *testing.T) {
+			got := findRestaurant(tt.list1, tt.list2)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf(" got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
