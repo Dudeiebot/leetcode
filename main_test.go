@@ -2411,3 +2411,22 @@ func TestFindLHS(t *testing.T) {
 		})
 	}
 }
+
+func TestMaxCount(t *testing.T) {
+	tests := []struct {
+		m, n int
+		ops  [][]int
+		want int
+	}{
+		{3, 3, [][]int{{2, 2}, {3, 3}}, 4},
+		{3, 3, [][]int{}, 9},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v, %v", tt.m, tt.n, tt.ops), func(t *testing.T) {
+			got := maxCount(tt.m, tt.n, tt.ops)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
