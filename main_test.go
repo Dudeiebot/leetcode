@@ -2456,3 +2456,22 @@ func TestFindRestaurant(t *testing.T) {
 		})
 	}
 }
+
+func TestCanPlaceFlower(t *testing.T) {
+	tests := []struct {
+		flowerBed []int
+		n         int
+		want      bool
+	}{
+		{[]int{1, 0, 0, 0, 1}, 1, true},
+		{[]int{1, 0, 0, 0, 1}, 2, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.flowerBed, tt.n), func(t *testing.T) {
+			got := canPlaceFlower(tt.flowerBed, tt.n)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
