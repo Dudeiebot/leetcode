@@ -2242,3 +2242,17 @@ func canPlaceFlower(flowerBed []int, n int) bool {
 	}
 	return n == 0
 }
+
+func mergeTrees(root1 *util.TreeNode, root2 *util.TreeNode) *util.TreeNode {
+	if root1 == nil {
+		return root2
+	}
+	if root2 == nil {
+		return root1
+	}
+	res := &util.TreeNode{Val: root1.Val + root2.Val}
+
+	res.Left = mergeTrees(root1.Left, root2.Left)
+	res.Right = mergeTrees(root1.Right, root2.Right)
+	return res
+}
