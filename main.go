@@ -2218,3 +2218,27 @@ func findRestaurant(list1 []string, list2 []string) []string {
 	}
 	return res
 }
+
+func canPlaceFlower(flowerBed []int, n int) bool {
+	if n == 0 {
+		return false
+	}
+	if len(flowerBed) == 1 {
+		return flowerBed[0] == 0
+	}
+	if flowerBed[0] == 0 && flowerBed[1] == 0 {
+		flowerBed[0] = 1
+		n--
+	}
+	for i := 1; i < len(flowerBed)-1 && n != 0; i++ {
+		if flowerBed[i] == 0 && flowerBed[i-1] == 0 && flowerBed[i+1] == 0 {
+			flowerBed[i] = 1
+			n--
+		}
+	}
+	if n != 0 && flowerBed[len(flowerBed)-1] == 0 && flowerBed[len(flowerBed)-2] == 0 {
+		flowerBed[len(flowerBed)-1] = 1
+		n--
+	}
+	return n == 0
+}
