@@ -121,3 +121,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the maxCount, we range through the double array and range through each x and y on it then we find the min val of it each and finally multiply then together
 - for finding restaurant, we are going to be  using hashMap and maxInt value because we want to find the minimal index value or the same index value in both list
 -can replace flowerBed is user to make sure there are no flowers planted adjacent to each other, and that is why checking some base change is important and when we do that, checking the left side and the right side also is important
+- for merging 2 trees, we are using the recursion method and we check for the base case(if root1 is nil return root2 and vice-versa), we then point value and add both value from root1 and root2 together
