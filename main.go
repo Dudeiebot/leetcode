@@ -2256,3 +2256,19 @@ func mergeTrees(root1 *util.TreeNode, root2 *util.TreeNode) *util.TreeNode {
 	res.Right = mergeTrees(root1.Right, root2.Right)
 	return res
 }
+
+func maximumProducts(nums []int) int {
+	slices.Sort(nums)
+
+	n := len(nums)
+
+	max := nums[n-1] * nums[n-2] * nums[n-3]
+
+	if nums[0] < 0 && nums[1] < 0 {
+		temp := nums[0] * nums[1] * nums[n-1]
+		if temp > n {
+			max = temp
+		}
+	}
+	return max
+}
