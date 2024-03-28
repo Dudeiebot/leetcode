@@ -122,3 +122,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding restaurant, we are going to be  using hashMap and maxInt value because we want to find the minimal index value or the same index value in both list
 -can replace flowerBed is user to make sure there are no flowers planted adjacent to each other, and that is why checking some base change is important and when we do that, checking the left side and the right side also is important
 - for merging 2 trees, we are using the recursion method and we check for the base case(if root1 is nil return root2 and vice-versa), we then point value and add both value from root1 and root2 together
+- for finding the maximum products, we are going to first of all sort the array nums, do some products on 3 of the nos and  finding the max among them
