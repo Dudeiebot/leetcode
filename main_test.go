@@ -2475,3 +2475,22 @@ func TestCanPlaceFlower(t *testing.T) {
 		})
 	}
 }
+
+func TestMaximumProducts(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 2, 3}, 6},
+		{[]int{1, 2, 3, 4}, 24},
+		{[]int{-1, -2, -3}, -6},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := maximumProducts(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
