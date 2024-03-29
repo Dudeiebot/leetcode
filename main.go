@@ -2272,3 +2272,34 @@ func maximumProducts(nums []int) int {
 	}
 	return max
 }
+
+func averageOfLevels(root *util.TreeNode) []float64 {
+	res := []float64{}
+	if root == nil {
+		return res
+	}
+
+	temp := []*util.TreeNode{}
+	temp = append(temp, root)
+
+	for len(temp) > 0 {
+		n := len(temp)
+		sum := 0.0
+
+		for i := 0; i < n; i++ {
+			j := temp[0]
+			sum += float64(j.Val)
+			temp = temp[1:]
+
+			if j.Left != nil {
+				temp = append(temp, j.Left)
+			}
+			if j.Right != nil {
+				temp = append(temp, j.Right)
+			}
+		}
+
+		res = append(res, float64(sum/float64(n)))
+	}
+	return res
+}
