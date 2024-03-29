@@ -124,3 +124,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for merging 2 trees, we are using the recursion method and we check for the base case(if root1 is nil return root2 and vice-versa), we then point value and add both value from root1 and root2 together
 - for finding the maximum products, we are going to first of all sort the array nums, do some products on 3 of the nos and  finding the max among them
 - for finding the average between each node in the tree, check for base case go on to looping till the node is equal to 0, we check for each part of the node and divide by the node nos. then we append our result to a slice we created
+- for finding the max average, we are finding the maximum average in the array with a certain nos k, and that is done by checking when the k nos is reached also when we reach the max among the array. find the average and then we done
