@@ -2303,3 +2303,21 @@ func averageOfLevels(root *util.TreeNode) []float64 {
 	}
 	return res
 }
+
+func findMaxAverage(nums []int, k int) float64 {
+	res := math.MinInt
+	sum := 0
+
+	for i, each := range nums {
+		sum += each
+		if i >= k-1 {
+			if i != k-1 {
+				sum = sum - nums[i-k]
+			}
+			if res < sum {
+				res = sum
+			}
+		}
+	}
+	return float64(res) / float64(k)
+}
