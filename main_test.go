@@ -2494,3 +2494,22 @@ func TestMaximumProducts(t *testing.T) {
 		})
 	}
 }
+
+func TestFindMaxAverarge(t *testing.T) {
+	tests := []struct {
+		nums []int
+		k    int
+		want float64
+	}{
+		{[]int{1, 12, -5, -6, 50, 3}, 4, 12.75000},
+		{[]int{5}, 1, 5.0000},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.nums, tt.k), func(t *testing.T) {
+			got := findMaxAverage(tt.nums, tt.k)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
