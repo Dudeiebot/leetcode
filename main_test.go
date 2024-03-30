@@ -2513,3 +2513,21 @@ func TestFindMaxAverarge(t *testing.T) {
 		})
 	}
 }
+
+func TestFindErrorNums(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want []int
+	}{
+		{[]int{1, 2, 2, 4}, []int{2, 3}},
+		{[]int{1, 1}, []int{1, 2}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := findErrorNums(tt.nums)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
