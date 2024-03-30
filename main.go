@@ -2321,3 +2321,23 @@ func findMaxAverage(nums []int, k int) float64 {
 	}
 	return float64(res) / float64(k)
 }
+
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	seen := make([]int, n+1)
+	var double int
+
+	for _, val := range nums {
+		seen[val]++
+		if seen[val] == 2 {
+			double = val
+		}
+	}
+
+	for i := 0; i <= n; i++ {
+		if seen[i] == 0 {
+			return []int{double, i}
+		}
+	}
+	return nil
+}
