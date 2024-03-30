@@ -2531,3 +2531,21 @@ func TestFindErrorNums(t *testing.T) {
 		})
 	}
 }
+
+func TestJudgeCircle(t *testing.T) {
+	tests := []struct {
+		moves string
+		want  bool
+	}{
+		{"UD", true},
+		{"LL", false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.moves), func(t *testing.T) {
+			got := judgeCirce(tt.moves)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
