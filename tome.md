@@ -127,3 +127,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the max average, we are finding the maximum average in the array with a certain nos k, and that is done by checking when the k nos is reached also when we reach the max among the array. find the average and then we done
 - for finding error nums, we are checking for doubles and then we create a new slice that stores both the double element and and the next one that need to be incremented.
 - finding target in a binary tree, we are using the recursion way in and checking it with a map for storing values
+- judging circle is for checking a completed cycle, and it just easy cause we want to see if our x and y are back to 0, 0 after going U,D,L,R. which are technically up, down, left and right.
