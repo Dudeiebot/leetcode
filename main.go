@@ -2341,3 +2341,20 @@ func findErrorNums(nums []int) []int {
 	}
 	return nil
 }
+
+func findTarget(root *util.TreeNode, k int) bool {
+	var dfs func(root *util.TreeNode, k int, m map[int]bool) bool
+
+	dfs = func(root *util.TreeNode, k int, m map[int]bool) bool {
+		if root == nil {
+			return false
+		}
+
+		if m[k-root.Val] {
+			return true
+		}
+		m[root.Val] = true
+		return dfs(root.Left, k, m) || dfs(root.Right, k, m)
+	}
+	return dfs(root, k, make(map[int]bool))
+}
