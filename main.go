@@ -2358,3 +2358,21 @@ func findTarget(root *util.TreeNode, k int) bool {
 	}
 	return dfs(root, k, make(map[int]bool))
 }
+
+func judgeCirce(moves string) bool {
+	x, y := 0, 0
+
+	for _, each := range moves {
+		switch each {
+		case 'L':
+			x++
+		case 'R':
+			x--
+		case 'U':
+			y++
+		case 'D':
+			y--
+		}
+	}
+	return x == 0 && y == 0
+}
