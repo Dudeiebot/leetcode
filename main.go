@@ -2334,7 +2334,7 @@ func findErrorNums(nums []int) []int {
 		}
 	}
 
-	for i := 0; i <= n; i++ {
+	for i := 1; i <= n; i++ {
 		if seen[i] == 0 {
 			return []int{double, i}
 		}
