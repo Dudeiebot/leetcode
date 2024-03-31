@@ -120,7 +120,7 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the longest harminous subsequence(We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1), we create a map and iterate over their occurence, then we check for difference of 1 and find the max of it
 - for finding the maxCount, we range through the double array and range through each x and y on it then we find the min val of it each and finally multiply then together
 - for finding restaurant, we are going to be  using hashMap and maxInt value because we want to find the minimal index value or the same index value in both list
--can replace flowerBed is user to make sure there are no flowers planted adjacent to each other, and that is why checking some base change is important and when we do that, checking the left side and the right side also is important
+- can replace flowerBed is user to make sure there are no flowers planted adjacent to each other, and that is why checking some base change is important and when we do that, checking the left side and the right side also is important
 - for merging 2 trees, we are using the recursion method and we check for the base case(if root1 is nil return root2 and vice-versa), we then point value and add both value from root1 and root2 together
 - for finding the maximum products, we are going to first of all sort the array nums, do some products on 3 of the nos and  finding the max among them
 - for finding the average between each node in the tree, check for base case go on to looping till the node is equal to 0, we check for each part of the node and divide by the node nos. then we append our result to a slice we created
