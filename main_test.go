@@ -2549,3 +2549,21 @@ func TestJudgeCircle(t *testing.T) {
 		})
 	}
 }
+
+func TestFindLengthOfLcis(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 3, 5, 4, 7}, 3},
+		{[]int{2, 2, 2, 2, 2}, 1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := findLengthOfLCIS(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
