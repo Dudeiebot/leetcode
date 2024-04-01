@@ -2567,3 +2567,22 @@ func TestFindLengthOfLcis(t *testing.T) {
 		})
 	}
 }
+
+func TestValidPalindrome(t *testing.T) {
+	tests := []struct {
+		s    string
+		want bool
+	}{
+		{"aba", true},
+		{"abca", true},
+		{"abc", false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := validPalindrome(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
