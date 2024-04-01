@@ -2420,3 +2420,30 @@ func findLengthOfLCIS(nums []int) int {
 	}
 	return res
 }
+
+func validPalindrome(s string) bool {
+	var IsPalindrome func(s string, l, r int) (bool, int, int)
+
+	IsPalindrome = func(s string, l, r int) (bool, int, int) {
+		for l < r {
+			if s[l] != s[r] {
+				return false, l, r
+			}
+			l++
+			r--
+		}
+		return true, 0, 0
+	}
+
+	valid, l, r := IsPalindrome(s, 0, len(s)-1)
+	if valid {
+		return true
+	}
+	if valid, _, _ := IsPalindrome(s, l+1, r); valid {
+		return true
+	}
+	if valid, _, _ := IsPalindrome(s, 0, r-1); valid {
+		return true
+	}
+	return false
+}
