@@ -2404,3 +2404,19 @@ func findSecondMinValue(root *util.TreeNode) int {
 	}
 	return -1
 }
+
+func findLengthOfLCIS(nums []int) int {
+	res, count := 1, 1
+
+	for r := 1; r < len(nums); r++ {
+		if nums[r] > nums[r-1] {
+			count++
+			if count > res {
+				res = count
+			}
+		} else {
+			count = 1
+		}
+	}
+	return res
+}
