@@ -2376,3 +2376,31 @@ func judgeCirce(moves string) bool {
 	}
 	return x == 0 && y == 0
 }
+
+func findSecondMinValue(root *util.TreeNode) int {
+	if root == nil {
+		return -1
+	}
+
+	min := root.Val
+	res := math.MaxInt
+	queue := []*util.TreeNode{root}
+
+	for len(queue) > 0 {
+		node := queue[0]
+		queue = queue[1:]
+
+		if node.Val > min && node.Val < res {
+			node.Val = res
+		}
+
+		if node.Left != nil {
+			queue = append(queue, node.Left)
+			queue = append(queue, node.Right)
+		}
+	}
+	if res != math.MaxInt {
+		return res
+	}
+	return -1
+}
