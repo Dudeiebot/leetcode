@@ -132,3 +132,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for finding the lowest common increasing subsequence, and we need 2 pointers because of instances where they are all the same number throughout. 
 - valid palindrome with removing at most one letter from the string, we are going to be Using a helper func isPalindrome that takes in the string, left, and right then return bool, int, int. we check for eqality at the beginning and the end but most importantly we are going to be removing some certain letters and checking again if they equqlly palindrome.
 - for calculating the points in a baseball game, we are just using swictch case for our array and perfoirming each operation on each cases
+- for checking the alternating bits in a binary nos, we are going to first of all convert the nos to binary and then we check if the last nos is the same as the next and if it is we return false and if not we return true
