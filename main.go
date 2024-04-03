@@ -2471,3 +2471,18 @@ func calPoints(operations []string) int {
 	}
 	return sum
 }
+
+func hasAlternativesBit(n int) bool {
+	prevr := -1
+
+	for n > 0 {
+		r := n % 2
+		n /= 2
+
+		if r == prevr {
+			return false
+		}
+		prevr = r
+	}
+	return true
+}
