@@ -2624,3 +2624,21 @@ func TestAlternatingBits(t *testing.T) {
 		})
 	}
 }
+
+func TestBinarySubstring(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"00110011", 6},
+		{"10101", 4},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := countBinarySubstring(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
