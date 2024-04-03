@@ -2605,3 +2605,22 @@ func TestCalPoints(t *testing.T) {
 		})
 	}
 }
+
+func TestAlternatingBits(t *testing.T) {
+	tests := []struct {
+		n    int
+		want bool
+	}{
+		{5, true},
+		{7, false},
+		{11, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.n), func(t *testing.T) {
+			got := hasAlternativesBit(tt.n)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
