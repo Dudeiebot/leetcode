@@ -2586,3 +2586,22 @@ func TestValidPalindrome(t *testing.T) {
 		})
 	}
 }
+
+func TestCalPoints(t *testing.T) {
+	tests := []struct {
+		operations []string
+		want       int
+	}{
+		{[]string{"5", "2", "C", "D", "+"}, 30},
+		{[]string{"5", "-2", "4", "C", "D", "9", "+", "+"}, 27},
+		{[]string{"1", "C"}, 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.operations), func(t *testing.T) {
+			got := calPoints(tt.operations)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
