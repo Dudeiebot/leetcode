@@ -2447,3 +2447,27 @@ func validPalindrome(s string) bool {
 	}
 	return false
 }
+
+func calPoints(operations []string) int {
+	temp := make([]int, 0)
+
+	for _, each := range operations {
+		switch each {
+		case "+":
+			temp = append(temp, temp[len(temp)-1]+temp[len(temp)-2])
+		case "D":
+			temp = append(temp, temp[len(temp)-1]*2)
+		case "C":
+			temp = temp[:len(temp)-1]
+		default:
+			val, _ := strconv.Atoi(each)
+			temp = append(temp, val)
+		}
+	}
+
+	sum := 0
+	for _, val := range temp {
+		sum += val
+	}
+	return sum
+}
