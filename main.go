@@ -2486,3 +2486,19 @@ func hasAlternativesBit(n int) bool {
 	}
 	return true
 }
+
+func countBinarySubstring(s string) int {
+	p, q, res := 1, 0, 0
+
+	for i := 1; i < len(s); i++ {
+		if s[i] == s[i-1] {
+			p++
+		} else {
+			p, q = 1, p
+		}
+		if q >= p {
+			res++
+		}
+	}
+	return res
+}
