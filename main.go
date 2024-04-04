@@ -2503,17 +2503,38 @@ func countBinarySubstring(s string) int {
 	return res
 }
 
-func searchBST (root *util.TreeNode, val int) *util.TreeNode {
-  temp := root
+func searchBST(root *util.TreeNode, val int) *util.TreeNode {
+	temp := root
 
-  for temp != nil {
-    if val == temp.Val {
-      return temp
-    } else if val  < temp.Val {
-      return temp = temp.Left
-    } else if val > temp.Val {
-      return temp = temp.Right
-    }
-  }
-  return nil
+	for temp != nil {
+		if val == temp.Val {
+			return temp
+		} else if val < temp.Val {
+			temp = temp.Left
+		} else if val > temp.Val {
+			temp = temp.Right
+		}
+	}
+	return nil
+}
+
+func findShortestSubarray(nums []int) int {
+	res := 1
+	starts := make(map[int]int)
+	counters, maxCounters := make(map[int]int), 1
+
+	for i, num := range nums {
+		if _, ok := starts[num]; ok {
+			counters[num]++
+			if counters[num] > maxCounters {
+				maxCounters = counters[num]
+				res = i - starts[num] + 1
+			} else if counters[num] == maxCounters && i-starts[num] < res {
+				res = i - starts[num] + 1
+			}
+		} else {
+			starts[num], counters[num] = i, 1
+		}
+	}
+	return res
 }
