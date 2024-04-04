@@ -2502,3 +2502,18 @@ func countBinarySubstring(s string) int {
 	}
 	return res
 }
+
+func searchBST (root *util.TreeNode, val int) *util.TreeNode {
+  temp := root
+
+  for temp != nil {
+    if val == temp.Val {
+      return temp
+    } else if val  < temp.Val {
+      return temp = temp.Left
+    } else if val > temp.Val {
+      return temp = temp.Right
+    }
+  }
+  return nil
+}
