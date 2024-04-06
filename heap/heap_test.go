@@ -29,3 +29,5 @@ func TestKthLargest(t *testing.T) {
 		t.Errorf("Expected 8, got %d", obj.Add(4))
 	}
 }
+
+// for finding the KthLargest number, we are using minHeap and it is available in the standard library(the min heap kind of sort the array for us easily with the nums)
