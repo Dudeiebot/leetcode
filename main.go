@@ -344,6 +344,8 @@ func searchInsert(nums []int, target int) int {
 	// }
 	// return len(nums)
 	// linear Search
+
+	// we can also use map to solve this
 }
 
 // func lengthOfLastWord(s string) int {
