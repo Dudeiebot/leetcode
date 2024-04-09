@@ -27,7 +27,7 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - mySqrt used to get the square of a number without using the standard library, we use binary search and check from the middle, the we multiply it twice to see if it is right
 - Dynamic programming which is related to the fibonacci series, we have a nos of ways to climb a step. If there are no step at all there will be only one way(not to climb at all). so the no(ways) == no(ways) - 1 + no(ways) - 2
 - removing duplicates from a linked list, we assign a pointer to our list and it get updated
-- Merging 2 sorted array of length (m + n) and length (n), and the final sorted ahould not be returned but instead be sorted in nums1, so here we basically swap values and compare between the 2 arrays
+- Merging 2 sorted array of length (m + n) and length (n), and the final sorted should not be returned but instead be sorted in nums1, so here we basically swap values and compare between the 2 arrays
 - Inorder traversal is one of the DFS techniques that use 0(n) time complexity, which traverse the left node first to the root and the right node last. I am using the iterative techniques here we create a stack to store our current elements, the stack append when the current is not nil and pop out when the current is nil 
 - PreOrder traversal, here we put the root first followed by the left and right, we can also use iterative and recursion method also. 
 - PostOrder traversal, here we put the root Val last. We first traverse the left and also the right and finally the root is added last, we can use both iterative and recursion method here also
