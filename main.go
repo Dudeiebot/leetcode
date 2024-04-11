@@ -2541,6 +2541,17 @@ func findShortestSubarray(nums []int) int {
 	return res
 }
 
+// func toLower(s string) string {
+// 	return strings.ToLower(s)
+// }
+
 func toLower(s string) string {
-	return strings.ToLower(s)
+	temp := []byte(s)
+
+	for i := 0; i < len(temp); i++ {
+		if temp[i] <= 'Z' && temp[i] >= 'A' {
+			temp[i] = temp[i] + 32
+		}
+	}
+	return string(temp)
 }
