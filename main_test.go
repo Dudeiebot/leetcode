@@ -2660,3 +2660,22 @@ func TestFindShortestSubArray(t *testing.T) {
 		})
 	}
 }
+
+func TestToLower(t *testing.T) {
+	tests := []struct {
+		s    string
+		want string
+	}{
+		{"Hello", "hello"},
+		{"here", "here"},
+		{"LOVELY", "lovely"},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := toLower(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
