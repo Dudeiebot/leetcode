@@ -2540,3 +2540,7 @@ func findShortestSubarray(nums []int) int {
 	}
 	return res
 }
+
+func toLower(s string) string {
+	return strings.ToLower(s)
+}
