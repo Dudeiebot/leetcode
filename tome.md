@@ -138,3 +138,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - finding the shortest sub array, we look at the most common element using 2 maps (one and keeping track of the starting index with the num and the other track of each encountered element so far).
 - to Lower, we can use the standard library strings.ToLower or maybe the another breakdown method where we convert the string to byte and use the ascii values in converting to lower letter
 - for checking is one bits character, we go through it and check if it have a last 0 and it is a one bit or otherwise
+- The pivot index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right, and we are doing that through the  array method and some calculation.
