@@ -2679,3 +2679,21 @@ func TestToLower(t *testing.T) {
 		})
 	}
 }
+
+func TestIsOneBitsCharacter(t *testing.T) {
+	tests := []struct {
+		bits []int
+		want bool
+	}{
+		{[]int{1, 0, 0}, true},
+		{[]int{1, 1, 1, 0}, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.bits), func(t *testing.T) {
+			got := isOneBitsCharacter(tt.bits)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
