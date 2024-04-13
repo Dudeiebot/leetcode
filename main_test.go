@@ -2716,3 +2716,21 @@ func TestPivotIndex(t *testing.T) {
 		})
 	}
 }
+
+func TestSelfDividingNums(t *testing.T) {
+	tests := []struct {
+		left, right int
+		want        []int
+	}{
+		{1, 22, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22}},
+		{47, 85, []int{48, 55, 66, 77}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.left, tt.right), func(t *testing.T) {
+			got := selfDividingNumbers(tt.left, tt.right)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
