@@ -2555,3 +2555,26 @@ func toLower(s string) string {
 	}
 	return string(temp)
 }
+
+func isOneBitsCharacter(bits []int) bool {
+	if len(bits) == 1 {
+		return true
+	}
+
+	for i, j := 0, 1; j < len(bits) && i < len(bits)-1; {
+		if i == len(bits)-2 {
+			if bits[i] == 0 {
+				return true
+			}
+			return false
+		}
+		if bits[i] == 0 {
+			i++
+			j++
+		} else {
+			i = i + 2
+			j = j + 2
+		}
+	}
+	return true
+}
