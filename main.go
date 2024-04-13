@@ -2594,3 +2594,25 @@ func pivotIndex(nums []int) int {
 	}
 	return -1
 }
+
+func selfDividingNumbers(left int, right int) []int {
+	res := []int{}
+	var isSelfDivising func(k int) bool
+
+	isSelfDivising = func(k int) bool {
+		for n := k; n > 0; n /= 10 {
+			d := n % 10
+			if d == 0 || k%d != 0 {
+				return false
+			}
+		}
+		return true
+	}
+	for left <= right {
+		if isSelfDivising(left) {
+			res = append(res, left)
+		}
+		left++
+	}
+	return res
+}
