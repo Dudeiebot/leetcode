@@ -139,3 +139,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - to Lower, we can use the standard library strings.ToLower or maybe the another breakdown method where we convert the string to byte and use the ascii values in converting to lower letter
 - for checking is one bits character, we go through it and check if it have a last 0 and it is a one bit or otherwise
 - The pivot index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right, and we are doing that through the  array method and some calculation.
+- to check a number from left to right, if it self dividing we are going to creating a helper function that checks it and we do that like this (for example 128, 128/1, 128/2. 128/8 and that mean 128 is self dividing)
