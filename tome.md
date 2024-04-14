@@ -40,7 +40,7 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - the path sum is checked from the deduction of the targetSum from the root.Val and then a recursion is performed on it till root.Left and root.Right become nil
 - Generating Pascal triangle, we know the first array is 1 and the second is 1, 1 then we can also use that information in generating the remaining ones.
 - Getting the row index of a pascal triangle can be easy with out pointer approach and appending the value to our slice
-- The best time stock is can eaily be done with a two pointer(lef and right) approach techniques that goes from the beginning to the end
+- The best time stock is can eaily be done with a two pointer(left and right) approach techniques that goes from the beginning to the end
 - max profit from a stock, we are also using the 2 pointer approach only that here there is no else in our code and thatt means the buy goes through loop across all 
 - finding the single number among number that are 3 in an array, this is different from the first single nos and among two same nos in an array, we can use the bruteforce and also the constant space of time method here. the xor operator for the constant space of time goes through the nums and create a 2 pointer which can be calculated ones ^= (num & ^twos) and same for the second pointer
 - cycle in a linked list, we use the floyd tortiose and hare method, which means we have 2 pointer called slow and fast. Fast goes 2* faster than slow, we return true when fast and slow get to meet or false if they don't meet at all. Perfect illustration is a circular track 
