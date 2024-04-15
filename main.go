@@ -2616,3 +2616,20 @@ func selfDividingNumbers(left int, right int) []int {
 	}
 	return res
 }
+
+func nextGreatestLetter(letters []byte, target byte) byte {
+	l, r := 0, len(letters)-1
+
+	for l < r {
+		m := l + (r-l)/2
+		if letters[m] > target {
+			r = m
+		} else {
+			l = m + 1
+		}
+	}
+	if letters[l] <= target {
+		return letters[0]
+	}
+	return letters[l]
+}
