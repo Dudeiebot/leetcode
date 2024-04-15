@@ -2734,3 +2734,22 @@ func TestSelfDividingNums(t *testing.T) {
 		})
 	}
 }
+
+func TestNextGreatestLetters(t *testing.T) {
+	tests := []struct {
+		letter []byte
+		target byte
+		want   byte
+	}{
+		{[]byte{'c', 'f', 'j'}, 'a', 'c'},
+		{[]byte{'x', 'x', 'y', 'y'}, 'z', 'x'},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.letter, tt.target), func(t *testing.T) {
+			got := nextGreatestLetter(tt.letter, tt.target)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
