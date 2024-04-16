@@ -2642,3 +2642,23 @@ func minCostClimbingStairs(cost []int) int {
 	}
 	return util.Min(n1, n2)
 }
+
+func dominantIndex(nums []int) int {
+	max := math.MinInt32
+	secondMax := math.MinInt32
+	maxIndex := 0
+
+	for i, num := range nums {
+		if num > max {
+			secondMax = max
+			max = num
+			maxIndex = i
+		} else if num > secondMax {
+			secondMax = num
+		}
+	}
+	if max >= secondMax*2 {
+		return maxIndex
+	}
+	return -1
+}
