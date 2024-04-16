@@ -2633,3 +2633,12 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 	}
 	return letters[l]
 }
+
+func minCostClimbingStairs(cost []int) int {
+	n1, n2 := 0, 0
+
+	for _, each := range cost {
+		n1, n2 = n2, util.Min(n1, n2)+each
+	}
+	return util.Min(n1, n2)
+}
