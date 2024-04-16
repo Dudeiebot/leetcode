@@ -2771,3 +2771,21 @@ func TestMinCostClimbingStairs(t *testing.T) {
 		})
 	}
 }
+
+func TestDominantIndex(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{3, 6, 2, 1}, 1},
+		{[]int{1, 2, 3, 4}, -1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := dominantIndex(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
