@@ -2662,3 +2662,35 @@ func dominantIndex(nums []int) int {
 	}
 	return -1
 }
+
+func countPrimeSetBits(left int, right int) int {
+	var countBits func(n int) int
+
+	countBits = func(n int) int {
+		cnt := 0
+		for n != 0 {
+			n = n & (n - 1)
+			cnt++
+		}
+		return cnt
+	}
+
+	primes := map[int]bool{
+		2:  true,
+		3:  true,
+		5:  true,
+		7:  true,
+		11: true,
+		13: true,
+		17: true,
+		19: true,
+	}
+	c := 0
+	for i := left; i <= right; i++ {
+		s := countBits(i)
+		if primes[s] {
+			c++
+		}
+	}
+	return c
+}
