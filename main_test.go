@@ -2789,3 +2789,21 @@ func TestDominantIndex(t *testing.T) {
 		})
 	}
 }
+
+func TestCountPrimesSetBits(t *testing.T) {
+	tests := []struct {
+		left, right int
+		want        int
+	}{
+		{6, 10, 4},
+		{10, 15, 5},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.left, tt.right), func(t *testing.T) {
+			got := countPrimeSetBits(tt.left, tt.right)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
