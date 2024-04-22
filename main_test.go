@@ -2807,3 +2807,21 @@ func TestCountPrimesSetBits(t *testing.T) {
 		})
 	}
 }
+
+func TestNumJewelInStone(t *testing.T) {
+	tests := []struct {
+		jewels, stones string
+		want           int
+	}{
+		{"aA", "aAAbbbb", 3},
+		{"z", "ZZ", 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.jewels, tt.stones), func(t *testing.T) {
+			got := numJewelInStone(tt.jewels, tt.stones)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
