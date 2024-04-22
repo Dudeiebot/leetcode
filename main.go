@@ -2694,3 +2694,21 @@ func countPrimeSetBits(left int, right int) int {
 	}
 	return c
 }
+
+func numJewelInStone(jewels string, stones string) int {
+	var cnt int
+	// for _, stone := range stones {
+	// 	if strings.Contains(jewels, string(stone)) {
+	// 		cnt++
+	// 	}
+	// }
+
+	for _, jewel := range jewels {
+		for _, stone := range stones {
+			if jewel == stone {
+				cnt++
+			}
+		}
+	}
+	return cnt
+}
