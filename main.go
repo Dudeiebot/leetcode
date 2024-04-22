@@ -2712,3 +2712,16 @@ func numJewelInStone(jewels string, stones string) int {
 	}
 	return cnt
 }
+
+func rotateString(s string, goal string) bool {
+	arr := []rune(s)
+
+	for _, arr1 := range arr {
+		arr = arr[1:]
+		arr = append(arr, arr1)
+		if string(arr) == goal {
+			return true
+		}
+	}
+	return false
+}
