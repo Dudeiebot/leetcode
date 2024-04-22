@@ -2714,14 +2714,15 @@ func numJewelInStone(jewels string, stones string) int {
 }
 
 func rotateString(s string, goal string) bool {
-	arr := []rune(s)
-
-	for _, arr1 := range arr {
-		arr = arr[1:]
-		arr = append(arr, arr1)
-		if string(arr) == goal {
-			return true
-		}
-	}
-	return false
+	return len(s) == len(goal) && strings.Contains(s+s, goal)
+	// arr := []rune(s)
+	//
+	// for _, arr1 := range arr {
+	// 	arr = arr[1:]
+	// 	arr = append(arr, arr1)
+	// 	if string(arr) == goal {
+	// 		return true
+	// 	}
+	// }
+	// return false
 }
