@@ -2825,3 +2825,21 @@ func TestNumJewelInStone(t *testing.T) {
 		})
 	}
 }
+
+func TestRotateString(t *testing.T) {
+	tests := []struct {
+		s, goal string
+		want    bool
+	}{
+		{"abcde", "cdeab", true},
+		{"abcde", "abced", false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.goal, tt.s), func(t *testing.T) {
+			got := rotateString(tt.s, tt.goal)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
