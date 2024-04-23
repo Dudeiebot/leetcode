@@ -2942,3 +2942,22 @@ func TestNumberOfLines(t *testing.T) {
 		})
 	}
 }
+
+func TestMostCommon(t *testing.T) {
+	tests := []struct {
+		paragraph string
+		banned    []string
+		want      string
+	}{
+		{"Bob hit a ball, the hit BALL flew far after it was hit.", []string{"hit"}, "ball"},
+		{"a.", []string{}, "a"},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.paragraph, tt.banned), func(t *testing.T) {
+			got := mostCommonWord(tt.paragraph, tt.banned)
+			if got != tt.want {
+				t.Fatalf("got  %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
