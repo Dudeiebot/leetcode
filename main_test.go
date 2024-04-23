@@ -2861,3 +2861,84 @@ func TestUniqueMorseRepresentation(t *testing.T) {
 		})
 	}
 }
+
+func TestNumberOfLines(t *testing.T) {
+	tests := []struct {
+		width []int
+		s     string
+		want  []int
+	}{
+		{
+			[]int{
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+			},
+			"abcdefghijklmnopqrstuvwxyz",
+			[]int{3, 60},
+		},
+		{
+			[]int{
+				4,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+				10,
+			},
+			"bbbcccdddaaa",
+			[]int{2, 4},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s, tt.width), func(t *testing.T) {
+			got := numberOfLines(tt.width, tt.s)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
