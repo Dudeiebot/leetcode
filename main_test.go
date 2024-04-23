@@ -2843,3 +2843,21 @@ func TestRotateString(t *testing.T) {
 		})
 	}
 }
+
+func TestUniqueMorseRepresentation(t *testing.T) {
+	tests := []struct {
+		words []string
+		want  int
+	}{
+		{[]string{"gin", "zen", "gig", "msg"}, 2},
+		{[]string{"a"}, 1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.words), func(t *testing.T) {
+			got := uniqueMorseRepresentation(tt.words)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
