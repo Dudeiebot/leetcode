@@ -146,3 +146,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for countingPrimeSetBits, we are going to create a helper function that count bits and when it do that we check it with our map primes that have the primes listed and if true count is being incremented and given result
 - nums of jewel in stones, we are going to range through the stong and use our stdLib strings.Contain to check if it is inside or we can range through the both jewel and stone twice and check if they are equal
 - rotate string, we convert the string to rune array and then we range through it and the detach a element and append to the arr then we compare and return the necessary boolean
+- for checking for unique morseCode representation, we are going to be using the hashMap defining our morseMap and also a morseSet thst keep trrsck of our morseCode then we return the length of our morseSet
