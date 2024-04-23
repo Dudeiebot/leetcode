@@ -2726,3 +2726,43 @@ func rotateString(s string, goal string) bool {
 	// }
 	// return false
 }
+
+func uniqueMorseRepresentation(words []string) int {
+	morseMap := map[byte]string{
+		'a': ".-",
+		'b': "-...",
+		'c': "-.-.",
+		'd': "-..",
+		'e': ".",
+		'f': "..-.",
+		'g': "--.",
+		'h': "....",
+		'i': "..",
+		'j': ".---",
+		'k': "-.-",
+		'l': ".-..",
+		'm': "--",
+		'n': "-.",
+		'o': "---",
+		'p': ".--.",
+		'q': "--.-",
+		'r': ".-.",
+		's': "...",
+		't': "-",
+		'u': "..-",
+		'v': "...-",
+		'w': ".--",
+		'x': "-..-",
+		'y': "-.--",
+		'z': "--..",
+	}
+	morseSet := make(map[string]int)
+	for _, word := range words {
+		morseWord := ""
+		for _, letter := range word {
+			morseWord += morseMap[byte(letter)]
+		}
+		morseSet[morseWord] = 0
+	}
+	return len(morseSet)
+}
