@@ -148,3 +148,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - rotate string, we convert the string to rune array and then we range through it and the detach a element and append to the arr then we compare and return the necessary boolean
 - for checking for unique morseCode representation, we are going to be using the hashMap defining our morseMap and also a morseSet thst keep trrsck of our morseCode then we return the length of our morseSet
 - finding the number of lines in a width, we are going to use our range function and also for this (each - 'a', to get the index that is why we are using each-'a', if the letter is a then a - 'a' = 0 which is index 0)
+- for the mostCommon Word , we are creating 2 maps that store the banned word and the other that store each word in the paragraph (the paragraph is being converted to remove all FieldsFunc) and then we check for max and return the maxWord
