@@ -2766,3 +2766,17 @@ func uniqueMorseRepresentation(words []string) int {
 	}
 	return len(morseSet)
 }
+
+func numberOfLines(width []int, s string) []int {
+	pixel := 0
+	lines := 1
+	for _, each := range s {
+		pixel += width[each-'a']
+		// to get the index that is why we are using each-'a', if the letter is a then a - 'a' = 0 which is index 0
+		if pixel > 100 {
+			lines++
+			pixel = width[each-'a']
+		}
+	}
+	return []int{lines, pixel}
+}
