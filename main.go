@@ -2780,3 +2780,32 @@ func numberOfLines(width []int, s string) []int {
 	}
 	return []int{lines, pixel}
 }
+
+func mostCommonWord(paragraph string, banned []string) string {
+	m := make(map[string]int)
+	m2 := make(map[string]int)
+
+	words := strings.FieldsFunc(paragraph, func(r rune) bool {
+		return !unicode.IsLetter(r) && !unicode.IsNumber(r)
+	})
+
+	for _, ban := range banned {
+		m[ban] = 1
+	}
+
+	for _, word := range words {
+		s := strings.ToLower(word)
+		m2[s]++
+	}
+
+	res := ""
+	max := 0
+
+	for i, l := range m2 {
+		if l > max && m[i] == 0 && i != "" {
+			max = l
+			res = i
+		}
+	}
+	return res
+}
