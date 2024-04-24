@@ -2961,3 +2961,22 @@ func TestMostCommon(t *testing.T) {
 		})
 	}
 }
+
+func TestShortestToChar(t *testing.T) {
+	tests := []struct {
+		s    string
+		c    byte
+		want []int
+	}{
+		{"loveleetcode", 'e', []int{3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0}},
+		{"aaab", 'b', []int{3, 2, 1, 0}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s, tt.c), func(t *testing.T) {
+			got := shortestToChar(tt.s, tt.c)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
