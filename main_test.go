@@ -2980,3 +2980,24 @@ func TestShortestToChar(t *testing.T) {
 		})
 	}
 }
+
+func TestToGoatLatin(t *testing.T) {
+	tests := []struct {
+		sentence string
+		want     string
+	}{
+		{"I speak Goat Latin", "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"},
+		{
+			"The quick brown fox jumped over the lazy dog",
+			"heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.sentence), func(t *testing.T) {
+			got := toGoatLatin(tt.sentence)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
