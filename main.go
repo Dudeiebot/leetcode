@@ -2809,3 +2809,23 @@ func mostCommonWord(paragraph string, banned []string) string {
 	}
 	return res
 }
+
+func shortestToChar(s string, c byte) []int {
+	res := make([]int, len(s))
+	c_pos := -len(s)
+
+	for i := 0; i < len(s); i++ {
+		if s[i] == c {
+			c_pos = i
+		}
+		res[i] = i - c_pos
+	}
+
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] == c {
+			c_pos = i
+		}
+		res[i] = util.Min(res[i], util.Abs(i-c_pos))
+	}
+	return res
+}
