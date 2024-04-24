@@ -2829,3 +2829,30 @@ func shortestToChar(s string, c byte) []int {
 	}
 	return res
 }
+
+func toGoatLatin(sentence string) string {
+	res := ""
+	words := strings.Split(sentence, " ")
+	vowels := map[string]bool{
+		"a": true,
+		"e": true,
+		"i": true,
+		"o": true,
+		"u": true,
+		"A": true,
+		"E": true,
+		"O": true,
+		"I": true,
+		"U": true,
+	}
+
+	for i, word := range words {
+		if vowels[string(word[0])] {
+			word += "ma"
+		} else {
+			word = word[1:] + string(word[0]) + "ma"
+		}
+		res += word + strings.Repeat("a", i+1) + " "
+	}
+	return strings.TrimSpace(res)
+}
