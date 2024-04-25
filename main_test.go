@@ -3001,3 +3001,22 @@ func TestToGoatLatin(t *testing.T) {
 		})
 	}
 }
+
+func TestLargeGroupPosition(t *testing.T) {
+	tests := []struct {
+		s    string
+		want [][]int
+	}{
+		{"abbxxxxzzy", [][]int{{3, 6}}},
+		{"abc", [][]int{}},
+		{"abcdddeeeeaabbbcd", [][]int{{3, 5}, {6, 9}, {12, 14}}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := largeGroupPosition(tt.s)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
