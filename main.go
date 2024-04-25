@@ -2856,3 +2856,19 @@ func toGoatLatin(sentence string) string {
 	}
 	return strings.TrimSpace(res)
 }
+
+func largeGroupPosition(s string) [][]int {
+	res := [][]int{}
+	s = s + " "
+	l := 0
+
+	for r := 1; r < len(s); r++ {
+		if s[r] != s[r-1] {
+			if r-l >= 3 {
+				res = append(res, []int{l, r - 1})
+			}
+			l = r
+		}
+	}
+	return res
+}
