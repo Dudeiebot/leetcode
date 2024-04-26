@@ -2872,3 +2872,26 @@ func largeGroupPosition(s string) [][]int {
 	}
 	return res
 }
+
+func flipAndInvertImage(image [][]int) [][]int {
+	flip := func(a int) int {
+		if a == 0 {
+			return 1
+		}
+		return 0
+	}
+
+	for r := 0; r < len(image); r++ {
+		l, i := 0, len(image[r])-1
+
+		for l < i {
+			image[r][l], image[r][i] = flip(image[r][i]), flip(image[r][l])
+			l++
+			i--
+		}
+		if l == i {
+			image[r][i] = flip(image[r][i])
+		}
+	}
+	return image
+}
