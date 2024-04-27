@@ -21,7 +21,7 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - Removing elements and removing duplicates elements are the same because it uses the same two pointer approach with increment/decrement on it, for constant space of time 
 - Checking the index in which a substring is, in a mainstring, we can use the fast route with the go library strings.Index and then we can use a pointer that point to the end(but not directly the end cause that means we are wasting time), then we use the array indexing library to do the equality(which is this i: i+len(substring))
 - Searching for insert in an array and returning the index if it is in the array or where it is supposed to be in the array, We are using O(log n) here which is the binary search (it goes through the middle and does the search from there) 
-- we are returning the length of the last word in a sentences, so first we take away all the trailing spaces then we count back the last word
+- we are returning the length of the last word in a sentence, so first we take away all the trailing space then we count back the last word
 - We are incrementing the last word in an array and when the last array is 9 we do the normal addition (which is add 1 to the left side and make unit 0), dont forget that we need to start from the last unit. We start our for loop from the end and perform our addition.
 - We are adding two binary nos together, so we will just use the normal addition of two binary nos(not greater than 2)
 - mySqrt used to get the square of a number without using the standard library, we use binary search and check from the middle, the we multiply it twice to see if it is right
