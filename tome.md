@@ -153,3 +153,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - to convert a string to goat latin(it is important to know what a goat latin words look like), we store our vowel in a map and any occurence, string concaqtenation occurs and finally we trom whitespaces
 - for finding the large Group positions in a strings and returning the double 2d array, so we are going to be using 2 pointer and checking for instances where it occurs more than 3 or equal 3 and then we return the result
 - for fliping image and inverting it in a 2d array, we are going to be fliping all 0 to 1 and the left to the right and any occurence that is left behind without left and right we just flip it and return our new 2d array
+- checking if a rectangle overlap, we check for the overlap rectangle snd that is the left, right, up and down which are the max and min of each rectangle side. Then  if right and up is greater than right and down we return an overLap or false
