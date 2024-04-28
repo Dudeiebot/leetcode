@@ -2905,3 +2905,7 @@ func isRectangleOverlap(rec1 []int, rec2 []int) bool {
 	}
 	return false
 }
+
+func computeArea(a, b, c, d, e, f, g, h int) int {
+	return 1
+}
