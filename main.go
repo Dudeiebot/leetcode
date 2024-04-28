@@ -2895,3 +2895,13 @@ func flipAndInvertImage(image [][]int) [][]int {
 	}
 	return image
 }
+
+func isRectangleOverlap(rec1 []int, rec2 []int) bool {
+	l, r := util.Max(rec1[0], rec2[0]), util.Min(rec1[2], rec2[2])
+	up, down := util.Min(rec1[3], rec2[3]), util.Max(rec1[1], rec2[1])
+
+	if r > l && up > down {
+		return true
+	}
+	return false
+}
