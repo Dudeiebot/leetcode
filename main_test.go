@@ -3041,3 +3041,22 @@ func TestFlipAndInvertImage(t *testing.T) {
 		})
 	}
 }
+
+func TestIsRectangleOverlap(t *testing.T) {
+	tests := []struct {
+		rec1, rec2 []int
+		want       bool
+	}{
+		{[]int{0, 0, 2, 2}, []int{1, 1, 3, 3}, true},
+		{[]int{0, 0, 1, 1}, []int{1, 0, 2, 1}, false},
+		{[]int{0, 0, 1, 1}, []int{2, 2, 3, 3}, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.rec1, tt.rec2), func(t *testing.T) {
+			got := isRectangleOverlap(tt.rec1, tt.rec2)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
