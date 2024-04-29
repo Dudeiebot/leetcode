@@ -3060,3 +3060,21 @@ func TestIsRectangleOverlap(t *testing.T) {
 		})
 	}
 }
+
+func TestComputeArea(t *testing.T) {
+	tests := []struct {
+		a, b, c, d, e, f, g, h int
+		want                   int
+	}{
+		{-3, 0, 3, 4, 0, -1, 9, 2, 45},
+		{-2, -2, 2, 2, -2, -2, 2, 2, 16},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("the input can be very long you know"), func(t *testing.T) {
+			got := computeArea(tt.a, tt.b, tt.c, tt.d, tt.e, tt.f, tt.g, tt.h)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
