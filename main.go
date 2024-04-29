@@ -2907,5 +2907,15 @@ func isRectangleOverlap(rec1 []int, rec2 []int) bool {
 }
 
 func computeArea(a, b, c, d, e, f, g, h int) int {
-	return 1
+	ABCDrec := (d - b) * (c - a)
+	EFGHrec := (h - f) * (g - e)
+	sum := ABCDrec + EFGHrec
+
+	l, r := util.Max(a, e), util.Min(g, c)
+	up, down := util.Min(d, h), util.Max(f, b)
+
+	if r > l && up > down {
+		sum -= (r - l) * (up - down)
+	}
+	return sum
 }
