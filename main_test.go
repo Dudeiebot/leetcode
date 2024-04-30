@@ -3078,3 +3078,23 @@ func TestComputeArea(t *testing.T) {
 		})
 	}
 }
+
+func TestBackspaceCompare(t *testing.T) {
+	tests := []struct {
+		s    string
+		t    string
+		want bool
+	}{
+		{"ab#d", "ae#d", true},
+		{"a#c", "b", false},
+		{"ab##", "c#d#", true},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s, tt.t), func(t *testing.T) {
+			got := backspaceCompare(tt.s, tt.t)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
