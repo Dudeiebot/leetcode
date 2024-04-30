@@ -2919,3 +2919,34 @@ func computeArea(a, b, c, d, e, f, g, h int) int {
 	}
 	return sum
 }
+
+func backspaceCompare(s string, t string) bool {
+	processString := func(char []rune) int {
+		k := 0
+		for _, c := range char {
+			if c != '#' {
+				char[k] = c
+				k++
+			} else if k > 0 {
+				k--
+			}
+		}
+		return k
+	}
+
+	sRunes := []rune(s)
+	tRunes := []rune(t)
+	k := processString(sRunes)
+	p := processString(tRunes)
+
+	if k != p {
+		return false
+	}
+
+	for i := 0; i < k; i++ {
+		if sRunes[i] != tRunes[i] {
+			return false
+		}
+	}
+	return true
+}
