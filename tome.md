@@ -155,4 +155,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for fliping image and inverting it in a 2d array, we are going to be fliping all 0 to 1 and the left to the right and any occurence that is left behind without left and right we just flip it and return our new 2d array
 - checking if a rectangle overlap, we check for the overlap rectangle snd that is the left, right, up and down which are the max and min of each rectangle side. Then  if right and up is greater than right and down we return an overLap or false
 - same as overlap but here we are going to be checking the area of the overlap and it all make sense all together
-- deleting a letter we encouter behind #, we convert to rune slice  and then we check with our if statement and return the necesary bool.
+- deleting a letter we encouter behind #, we convert to rune slice, then our helper function help us to check for the occurrence of '#' in the string and the letters behind are removed from the string then we check with our if the string is still the same and finally return the necesary bool.
