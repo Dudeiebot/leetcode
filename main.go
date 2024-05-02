@@ -2982,3 +2982,16 @@ func lemonadeChange(bills []int) bool {
 	}
 	return true
 }
+
+func transposeMatrix(matrix [][]int) [][]int {
+	rows, cols := len(matrix), len(matrix[0])
+	res := make([][]int, cols)
+
+	for r := 0; r < cols; r++ {
+		res[r] = make([]int, rows)
+		for c := 0; c < rows; c++ {
+			res[r][c] = matrix[c][r]
+		}
+	}
+	return res
+}
