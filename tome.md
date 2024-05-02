@@ -157,3 +157,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - same as overlap but here we are going to be checking the area of the overlap and it all make sense all together
 - deleting a letter we encouter behind #, we convert to rune slice, then our helper function help us to check for the occurrence of '#' in the string and the letters behind are removed from the string then we check with our if the string is still the same and finally return the necesary bool.
 - a cashier type of mathematics, we are going to be using the switch statement and it is sgoing to range through the bills and check if there is change for all customers and return the necessary bool.
+- to transpose a matrix, we are intialize our row and cols(which are the len of the matrix and the len of the first index in the matrix) then we range through the matrix and before we do that remember to intialize each rows of our result with the correct number of cols
