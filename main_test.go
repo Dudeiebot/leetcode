@@ -3098,3 +3098,21 @@ func TestBackspaceCompare(t *testing.T) {
 		})
 	}
 }
+
+func TestLemonadeChange(t *testing.T) {
+	tests := []struct {
+		bills []int
+		want  bool
+	}{
+		{[]int{5, 5, 5, 10, 20}, true},
+		{[]int{5, 5, 10, 10, 10, 20}, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.bills), func(t *testing.T) {
+			got := lemonadeChange(tt.bills)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
