@@ -3134,3 +3134,22 @@ func TestTransposeMatrix(t *testing.T) {
 		})
 	}
 }
+
+func TestBinaryGap(t *testing.T) {
+	tests := []struct {
+		n    int
+		want int
+	}{
+		{22, 2},
+		{8, 0},
+		{5, 2},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.n), func(t *testing.T) {
+			got := binaryGap(tt.n)
+			if got != tt.want {
+				t.Fatalf("got = %v, want = %v", got, tt.want)
+			}
+		})
+	}
+}
