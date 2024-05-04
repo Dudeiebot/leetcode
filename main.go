@@ -2995,3 +2995,20 @@ func transposeMatrix(matrix [][]int) [][]int {
 	}
 	return res
 }
+
+func binaryGap(n int) int {
+	bins := fmt.Sprintf("%b", n)
+	count, res := 0, 0
+
+	for _, bin := range bins {
+		if bin == '0' {
+			count++
+		} else {
+			if res < count {
+				res = count
+			}
+			count = 1
+		}
+	}
+	return res
+}
