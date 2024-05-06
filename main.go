@@ -5,6 +5,7 @@ import (
 	"leetCode/struct"
 	"math"
 	"math/bits"
+	"reflect"
 	"slices"
 	"sort"
 	"strconv"
@@ -3011,4 +3012,20 @@ func binaryGap(n int) int {
 		}
 	}
 	return res
+}
+
+func leafSimilarTrees(root1 *util.TreeNode, root2 *util.TreeNode) bool {
+	var dfs func(root *util.TreeNode) []int
+
+	dfs = func(root *util.TreeNode) []int {
+		if root == nil {
+			return []int{}
+		}
+		if root.Left == nil && root.Right == nil {
+			return []int{root.Val}
+		}
+		return append(dfs(root.Left), dfs(root.Right)...)
+	}
+
+	return reflect.DeepEqual(dfs(root1), dfs(root2))
 }
