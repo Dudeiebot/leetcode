@@ -3029,3 +3029,40 @@ func leafSimilarTrees(root1 *util.TreeNode, root2 *util.TreeNode) bool {
 
 	return reflect.DeepEqual(dfs(root1), dfs(root2))
 }
+
+func buddyStrings(s, goal string) bool {
+	sn, gn := len(s), len(goal)
+
+	if sn != gn {
+		return false
+	}
+
+	diff := []int{}
+	for i := range s {
+		if s[i] != goal[i] {
+			diff = append(diff, i)
+
+			if len(diff) > 2 {
+				return false
+			}
+		}
+	}
+
+	if len(diff) == 2 {
+		return s[diff[0]] == goal[diff[1]] && s[diff[1]] == goal[diff[0]]
+	}
+
+	if len(diff) == 1 {
+		return false
+	}
+
+	sameMap := make(map[byte]int)
+	for i := range s {
+		_, exists := sameMap[s[i]]
+		if exists {
+			return true
+		}
+		sameMap[s[i]]++
+	}
+	return false
+}
