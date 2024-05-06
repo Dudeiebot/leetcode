@@ -3153,3 +3153,22 @@ func TestBinaryGap(t *testing.T) {
 		})
 	}
 }
+
+func TestBodyStrings(t *testing.T) {
+	tests := []struct {
+		s, goal string
+		want    bool
+	}{
+		{"ab", "ba", true},
+		{"ab", "ab", false},
+		{"aa", "aa", true},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s, tt.goal), func(t *testing.T) {
+			got := buddyStrings(tt.s, tt.goal)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
