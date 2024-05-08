@@ -3172,3 +3172,22 @@ func TestBodyStrings(t *testing.T) {
 		})
 	}
 }
+
+func TestProjectionArea(t *testing.T) {
+	test := []struct {
+		grid [][]int
+		want int
+	}{
+		{[][]int{{1, 2}, {3, 4}}, 17},
+		{[][]int{{2}}, 5},
+		{[][]int{{1, 0}, {0, 2}}, 8},
+	}
+	for _, tt := range test {
+		t.Run(fmt.Sprintf("%v", tt.grid), func(t *testing.T) {
+			got := projectionArea(tt.grid)
+			if got != tt.want {
+				t.Fatalf("got: %v, want: %v", got, tt.want)
+			}
+		})
+	}
+}
