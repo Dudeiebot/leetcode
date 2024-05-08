@@ -3066,3 +3066,26 @@ func buddyStrings(s, goal string) bool {
 	}
 	return false
 }
+
+func projectionArea(grid [][]int) int {
+	res := 0
+
+	for i := range grid {
+		maxRow, maxCol := 0, 0
+		// this col part was able to work because they are a 3d array size instead it is meant to be range in grid[i]
+		for j := range grid {
+			if grid[j][i] > maxRow {
+				maxRow = grid[j][i]
+			}
+			if grid[i][j] > maxCol {
+				maxCol = grid[i][j]
+			}
+
+			if grid[i][j] != 0 {
+				res++
+			}
+		}
+		res += maxCol + maxRow
+	}
+	return res
+}
