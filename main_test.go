@@ -3191,3 +3191,34 @@ func TestProjectionArea(t *testing.T) {
 		})
 	}
 }
+
+func TestMiddleNode(t *testing.T) {
+	// Test case 1: 1->2->3->4->5
+	head1 := util.NewListNode(1)
+	head1.Next = util.NewListNode(2)
+	head1.Next.Next = util.NewListNode(3)
+	head1.Next.Next.Next = util.NewListNode(4)
+	head1.Next.Next.Next.Next = util.NewListNode(5)
+
+	expected1 := head1.Next.Next // The middle node is 3
+	result1 := middleNode(head1)
+	if result1 != expected1 {
+		t.Errorf("Test case 1 failed: expected %v, got %v", expected1.Val, result1.Val)
+	}
+
+	// Test case 2: 1->2->3->4->5->6
+	head2 := util.NewListNode(1)
+	head2.Next = util.NewListNode(2)
+	head2.Next.Next = util.NewListNode(3)
+	head2.Next.Next.Next = util.NewListNode(4)
+	head2.Next.Next.Next.Next = util.NewListNode(5)
+	head2.Next.Next.Next.Next.Next = util.NewListNode(6)
+
+	expected2 := head2.Next.Next.Next // The middle node is 4
+	result2 := middleNode(head2)
+	if result2 != expected2 {
+		t.Errorf("Test case 2 failed: expected %v, got %v", expected2.Val, result2.Val)
+	}
+
+	// Add more test cases as needed
+}
