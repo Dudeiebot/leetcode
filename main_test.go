@@ -3191,3 +3191,22 @@ func TestProjectionArea(t *testing.T) {
 		})
 	}
 }
+
+func TestUncommonInSentence(t *testing.T) {
+	tests := []struct {
+		s1   string
+		s2   string
+		want []string
+	}{
+		{"the clown is present", "the clown is late", []string{"present", "late"}},
+		{"apple apple", "banana", []string{"banana"}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s1, tt.s2), func(t *testing.T) {
+			got := uncommonFromSentence(tt.s1, tt.s2)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
