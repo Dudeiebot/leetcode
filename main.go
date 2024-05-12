@@ -3099,3 +3099,21 @@ func middleNode(head *util.ListNode) *util.ListNode {
 	}
 	return s
 }
+
+func uncommonFromSentence(s1 string, s2 string) []string {
+	word := strings.Split(s1, " ")
+	word = append(word, strings.Split(s2, " ")...)
+	res := []string{}
+	sameMap := make(map[string]int)
+
+	for _, each := range word {
+		sameMap[each]++
+	}
+
+	for k, v := range sameMap {
+		if v == 1 {
+			res = append(res, k)
+		}
+	}
+	return res
+}
