@@ -3117,3 +3117,28 @@ func uncommonFromSentence(s1 string, s2 string) []string {
 	}
 	return res
 }
+
+func fairCandySwap(aliceSizes []int, bobSizes []int) []int {
+	aliceSum := 0
+	bobSum := 0
+
+	for _, n := range aliceSizes {
+		aliceSum += n
+	}
+
+	for _, n := range bobSizes {
+		bobSum += n
+	}
+
+	targetTotal := (aliceSum + bobSum) / 2
+	aliceDiff := targetTotal - aliceSum
+
+	for _, aliceBox := range aliceSizes {
+		for _, bobBox := range bobSizes {
+			if aliceBox+aliceDiff == bobBox {
+				return []int{aliceBox, bobBox}
+			}
+		}
+	}
+	return []int{}
+}
