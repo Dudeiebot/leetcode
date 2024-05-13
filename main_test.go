@@ -3210,3 +3210,23 @@ func TestUncommonInSentence(t *testing.T) {
 		})
 	}
 }
+
+func TestFairCandySwap(t *testing.T) {
+	tests := []struct {
+		aliceSizes []int
+		bobSizes   []int
+		want       []int
+	}{
+		{[]int{1, 1}, []int{2, 2}, []int{1, 2}},
+		{[]int{1, 2}, []int{2, 3}, []int{1, 2}},
+		{[]int{2}, []int{1, 3}, []int{2, 3}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.aliceSizes, tt.bobSizes), func(t *testing.T) {
+			got := fairCandySwap(tt.aliceSizes, tt.bobSizes)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
