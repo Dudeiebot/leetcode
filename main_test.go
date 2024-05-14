@@ -3230,3 +3230,22 @@ func TestFairCandySwap(t *testing.T) {
 		})
 	}
 }
+
+func TestIsMonotonic(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want bool
+	}{
+		{[]int{1, 2, 2, 3}, true},
+		{[]int{6, 5, 4, 4}, true},
+		{[]int{1, 3, 2}, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := isMonotonic(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
