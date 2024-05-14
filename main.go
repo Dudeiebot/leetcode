@@ -3159,3 +3159,18 @@ func isMonotonic(nums []int) bool {
 	}
 	return true
 }
+
+func increasingBst(root *util.TreeNode) *util.TreeNode {
+	var dfs func(root, tail *util.TreeNode) *util.TreeNode
+
+	dfs = func(root, tail *util.TreeNode) *util.TreeNode {
+		if root == nil {
+			return tail
+		}
+		res := dfs(root.Left, root)
+		root.Left = nil
+		root.Right = dfs(root.Right, tail)
+		return res
+	}
+	return dfs(root, nil)
+}
