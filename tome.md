@@ -164,6 +164,6 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for the projection area in a 3d cube, then we range through the row and the col. We grid[j][i] and grid[i][j] > maxCol and maxRow we equate it to maxRow and maxCol and increment the res if grid[j][i] is not equal to zero, we add it all up together to get our result
 - finding middle Node in  ListNode, we are using the fast and slow approach(the slow move at 1 pace and the fast move at 2* pace). we cvheck if fast is not nil and fast.Next is not nil then slow = slow.Next and f = f.Next.Next, we are returning s because there is a thoery that when fast get to the end then slow will get to the middle.
 - for checking the uncommon in sentence, we can use a map to store all the strings and increment any strign appearing twice and if it appear once we append it to a result
-- for fair candySwap 
+- for fair candySwap (confusing kindA)
 - is Montonic is checking whether the nums[j] and nums[i] are not more than 1 either increasing or decreasing, so we are going to be intialiozing our var increasing and decreasing to false var and check the necessary nums when we range through it
 - increasing bst is just rearranging the binary tree in an increasing order,  and we are going to be using the dfs also the recursive way
