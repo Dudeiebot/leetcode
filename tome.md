@@ -166,3 +166,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - for checking the uncommon in sentence, we can use a map to store all the strings and increment any strign appearing twice and if it appear once we append it to a result
 - for fair candySwap 
 - is Montonic is checking whether the nums[j] and nums[i] are not more than 1 either increasing or decreasing, so we are going to be intialiozing our var increasing and decreasing to false var and check the necessary nums when we range through it
+- increasing bst is just rearranging the binary tree in an increasing order,  and we are going to be using the dfs also the recursive way
