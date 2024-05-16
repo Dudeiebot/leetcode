@@ -3174,3 +3174,18 @@ func increasingBst(root *util.TreeNode) *util.TreeNode {
 	}
 	return dfs(root, nil)
 }
+
+func sortArrayByParity(nums []int) []int {
+	odds := []int{}
+	evens := []int{}
+
+	for _, num := range nums {
+		if num%2 == 0 {
+			evens = append(evens, num)
+		} else {
+			odds = append(odds, num)
+		}
+	}
+	evens = append(evens, odds...)
+	return evens
+}
