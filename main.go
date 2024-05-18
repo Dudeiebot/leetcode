@@ -3207,3 +3207,19 @@ func reverseOnlyLetters(s string) string {
 	}
 	return string(res)
 }
+
+func sortByParityII(nums []int) []int {
+	l, r := 0, 1
+	res := make([]int, len(nums))
+
+	for _, n := range nums {
+		if n%2 == 0 {
+			res[l] = n
+			l += 2
+		} else {
+			res[r] = n
+			r += 2
+		}
+	}
+	return res
+}
