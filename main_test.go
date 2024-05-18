@@ -3268,21 +3268,21 @@ func TestSortArrayByParity(t *testing.T) {
 	}
 }
 
-func TestReverseOnlyLetters(t *testing.T){
-  tests := []struct{
-    s string
-    want string
-  }{
-    {"ab-cd", "dc-ba"},
-    {"a-bC-dEf-ghIj", "j-Ih-gfE-dCba"},
-    {"Test1ng-Leet=code-Q!", "Qedo1ct-eeLg=ntse-T!"}
-  }
-  for _, tt := range tests {
-    t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T){
-      got := reverseOnlyLetters(tt.s)
-      if got != tt.want {
-        t.Fatalf("got %v, want %v", got, tt.want)
-      }
-    })
-  }
+func TestReverseOnlyLetters(t *testing.T) {
+	tests := []struct {
+		s    string
+		want string
+	}{
+		{"ab-cd", "dc-ba"},
+		{"a-bC-dEf-ghIj", "j-Ih-gfE-dCba"},
+		{"Test1ng-Leet=code-Q!", "Qedo1ct-eeLg=ntse-T!"},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := reverseOnlyLetters(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
