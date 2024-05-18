@@ -3286,3 +3286,21 @@ func TestReverseOnlyLetters(t *testing.T) {
 		})
 	}
 }
+
+func TestSortByParityII(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want []int
+	}{
+		{[]int{4, 2, 5, 7}, []int{4, 5, 2, 7}},
+		{[]int{2, 3}, []int{2, 3}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := sortByParityII(tt.nums)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
