@@ -3189,3 +3189,21 @@ func sortArrayByParity(nums []int) []int {
 	evens = append(evens, odds...)
 	return evens
 }
+
+func reverseOnlyLetters(s string) string {
+	res := []rune(s)
+	l, r := 0, len(s)-1
+
+	for l < r {
+		if !unicode.IsLetter(res[l]) {
+			l++
+		} else if !unicode.IsLetter(res[r]) {
+			r--
+		} else {
+			res[l], res[r] = res[r], res[l]
+			l++
+			r--
+		}
+	}
+	return string(res)
+}
