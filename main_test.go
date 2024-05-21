@@ -3304,3 +3304,28 @@ func TestSortByParityII(t *testing.T) {
 		})
 	}
 }
+
+func TestNumInUniqueEmails(t *testing.T) {
+	tests := []struct {
+		emails []string
+		want   int
+	}{
+		{
+			[]string{
+				"test.email+alex@leetcode.com",
+				"test.e.mail+bob.cathy@leetcode.com",
+				"testemail+david@lee.tcode.com",
+			},
+			2,
+		},
+		{[]string{"a@leetcode.com", "b@leetcode.com", "c@leetcode.com"}, 3},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.emails), func(t *testing.T) {
+			got := numInUniqueEmails(tt.emails)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
