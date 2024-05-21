@@ -3224,15 +3224,38 @@ func sortByParityII(nums []int) []int {
 	return res
 }
 
+// func numInUniqueEmails(emails []string) int {
+// 	// this is the first metghod to do it and the efficient method using standard lib
+// 	seen := make(map[string]int)
+// 	for _, email := range emails {
+// 		nameAndDomain := strings.Split(email, "@")
+// 		splitName := strings.Split(nameAndDomain[0], "+")
+// 		trimmedName := strings.ReplaceAll(splitName[0], ".", "")
+// 		fullName := trimmedName + "@" + nameAndDomain[1]
+// 		seen[fullName] = 1
+// 	}
+// 	return len(seen)
+// }
+
 func numInUniqueEmails(emails []string) int {
-	// this is the first metghod to do it and the efficient method using standard lib
 	seen := make(map[string]int)
-	for _, email := range emails {
-		nameAndDomain := strings.Split(email, "@")
-		splitName := strings.Split(nameAndDomain[0], "+")
-		trimmedName := strings.ReplaceAll(splitName[0], ".", "")
-		fullName := trimmedName + "@" + nameAndDomain[1]
-		seen[fullName] = 1
+
+	for i := 0; i < len(emails); i++ {
+		var localName []byte
+		j := 0
+		for emails[i][j] != '@' && emails[i][j] != '+' {
+			if emails[i][j] != '.' {
+				localName = append(localName, emails[i][j])
+			}
+			j++
+		}
+		for emails[i][j] != '@' {
+			j++
+		}
+		address := string(localName) + string(emails[i][j:])
+		if _, exists := seen[address]; !exists {
+			seen[address] = 1
+		}
 	}
 	return len(seen)
 }
