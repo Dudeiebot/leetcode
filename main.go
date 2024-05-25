@@ -3273,3 +3273,20 @@ func rangeSumBST(root *util.TreeNode, low int, high int) int {
     return root.Val + rangeSumBST(root.Left, low, high) + rangeSumBST(root.Right, low, high)
   }
 }
+
+func DIStringMatch (s string) []int {
+  res := make([]int, len(s)+1) 
+  low, high := 0, len(s)
+
+  for i, v := range s {
+    if v == 'I' {
+      res[i] = low
+      low++
+    } else {
+      res[i] = high
+      high--
+    }
+  }
+  res[len(s)] = low
+  return res
+}
