@@ -3329,3 +3329,22 @@ func TestNumInUniqueEmails(t *testing.T) {
 		})
 	}
 }
+
+func TestDIStringMatch(t  *testing.T){
+  tests := []struct {
+    s string
+    want []int
+  }{
+    {"IDID", []int{0,4,1,3,2}},
+    {"III", []int{0,1,2,3}},
+    {"DDI", []int{3,2,0,1}},
+  }
+  for _, tt := range tests{
+    t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T){
+      got := DIStringMatch(tt.s)
+      if !reflect.DeepEqual(got, tt.want){
+        t.Fatalf("Got %v, want %v", got, tt.want)
+      }
+    })
+  }
+}
