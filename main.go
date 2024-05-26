@@ -3290,3 +3290,19 @@ func DIStringMatch (s string) []int {
   res[len(s)] = low
   return res
 }
+
+func minDeletionSize(strs []string) int {
+  res := 0 
+
+  for c := 0; c < len(strs[0]); c++{
+    prev := -1
+    for r := 0; r < len(strs); r++{
+      if int(strs[r][c]) < prev{
+        res++
+        break
+      }
+      prev = int(strs[r][c])
+    }
+  }
+  return res
+}
