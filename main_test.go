@@ -3348,3 +3348,22 @@ func TestDIStringMatch(t  *testing.T){
     })
   }
 }
+
+func TestMinDeletionSize(t *testing.T){
+  tests := []struct {
+    strs []string
+    want int
+  }{
+    {[]string{"cba","daf","ghi"}, 1},
+    {[]string{"a","b"}, 0},
+    {[]string{"zyx","wvu","tsr"}, 3},
+  }
+  for _, tt := range tests{
+    t.Run(fmt.Sprintf("%v", tt.strs), func(t *testing.T){
+      got := minDeletionSize(tt.strs)
+      if got != tt.want {
+        t.Fatalf("Got %v, want %v", got, tt.want)
+      }
+    })
+  }
+}
