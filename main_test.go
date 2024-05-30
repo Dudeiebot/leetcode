@@ -3388,3 +3388,22 @@ func TestIsAlienSorted(t *testing.T) {
 		})
 	}
 }
+
+func TestReapeatedNtimes(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 3, 2, 2}, 2},
+		{[]int{2, 1, 2, 5, 3, 2}, 2},
+		{[]int{5, 1, 5, 2, 5, 3, 5, 4}, 5},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := repeatedNtimes(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
