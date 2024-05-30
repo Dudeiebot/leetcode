@@ -3306,3 +3306,30 @@ func minDeletionSize(strs []string) int {
   }
   return res
 }
+
+func isAlienSorted (words []string, order string) bool {
+  m := make(map[rune]int)
+
+  for i, v := range order {
+    m[v] = i
+  }
+
+  for i := 0; i < len(words)-1; i++ {
+    w1, w2 := words[i], words[i+1]
+    for j := 0; j < len(words[i]); j++{
+      if  j >= len(w2){
+        return false
+      }
+      l := rune(w1[j])
+      r := rune(w2[j])
+      if l != r {
+        if m[l] > m[r]{
+          return false
+        } else {
+          break
+        }
+      }
+    }
+  }
+  return true
+}
