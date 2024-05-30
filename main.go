@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"leetCode/struct"
 	"math"
 	"math/bits"
 	"reflect"
@@ -11,6 +10,8 @@ import (
 	"strconv"
 	"strings"
 	"unicode"
+
+	util "leetCode/struct"
 )
 
 // duplicate num in a array
@@ -3261,75 +3262,87 @@ func numInUniqueEmails(emails []string) int {
 }
 
 func rangeSumBST(root *util.TreeNode, low int, high int) int {
-  if root == nil {
-    return 0
-  }
+	if root == nil {
+		return 0
+	}
 
-  if root.Val > high {
-    return rangeSumBST(root.Left, low, high)
-  } else if root.Val < low {
-    return rangeSumBST(root.Right, low, high)
-  } else {
-    return root.Val + rangeSumBST(root.Left, low, high) + rangeSumBST(root.Right, low, high)
-  }
+	if root.Val > high {
+		return rangeSumBST(root.Left, low, high)
+	} else if root.Val < low {
+		return rangeSumBST(root.Right, low, high)
+	} else {
+		return root.Val + rangeSumBST(root.Left, low, high) + rangeSumBST(root.Right, low, high)
+	}
 }
 
-func DIStringMatch (s string) []int {
-  res := make([]int, len(s)+1) 
-  low, high := 0, len(s)
+func DIStringMatch(s string) []int {
+	res := make([]int, len(s)+1)
+	low, high := 0, len(s)
 
-  for i, v := range s {
-    if v == 'I' {
-      res[i] = low
-      low++
-    } else {
-      res[i] = high
-      high--
-    }
-  }
-  res[len(s)] = low
-  return res
+	for i, v := range s {
+		if v == 'I' {
+			res[i] = low
+			low++
+		} else {
+			res[i] = high
+			high--
+		}
+	}
+	res[len(s)] = low
+	return res
 }
 
 func minDeletionSize(strs []string) int {
-  res := 0 
+	res := 0
 
-  for c := 0; c < len(strs[0]); c++{
-    prev := -1
-    for r := 0; r < len(strs); r++{
-      if int(strs[r][c]) < prev{
-        res++
-        break
-      }
-      prev = int(strs[r][c])
-    }
-  }
-  return res
+	for c := 0; c < len(strs[0]); c++ {
+		prev := -1
+		for r := 0; r < len(strs); r++ {
+			if int(strs[r][c]) < prev {
+				res++
+				break
+			}
+			prev = int(strs[r][c])
+		}
+	}
+	return res
 }
 
-func isAlienSorted (words []string, order string) bool {
-  m := make(map[rune]int)
+func isAlienSorted(words []string, order string) bool {
+	m := make(map[rune]int)
 
-  for i, v := range order {
-    m[v] = i
-  }
+	for i, v := range order {
+		m[v] = i
+	}
 
-  for i := 0; i < len(words)-1; i++ {
-    w1, w2 := words[i], words[i+1]
-    for j := 0; j < len(words[i]); j++{
-      if  j >= len(w2){
-        return false
-      }
-      l := rune(w1[j])
-      r := rune(w2[j])
-      if l != r {
-        if m[l] > m[r]{
-          return false
-        } else {
-          break
-        }
-      }
-    }
-  }
-  return true
+	for i := 0; i < len(words)-1; i++ {
+		w1, w2 := words[i], words[i+1]
+		for j := 0; j < len(words[i]); j++ {
+			if j >= len(w2) {
+				return false
+			}
+			l := rune(w1[j])
+			r := rune(w2[j])
+			if l != r {
+				if m[l] > m[r] {
+					return false
+				} else {
+					break
+				}
+			}
+		}
+	}
+	return true
+}
+
+func repeatedNtimes(nums []int) int {
+	m := make(map[int]int)
+
+	for _, num := range nums {
+		if m[num] == 1 {
+			return num
+		}
+		m[num]++
+	}
+	return -1
 }
