@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	util "leetCode/struct"
 	"reflect"
 	"testing"
+
+	util "leetCode/struct"
 )
 
 // the test files
@@ -3330,40 +3331,60 @@ func TestNumInUniqueEmails(t *testing.T) {
 	}
 }
 
-func TestDIStringMatch(t  *testing.T){
-  tests := []struct {
-    s string
-    want []int
-  }{
-    {"IDID", []int{0,4,1,3,2}},
-    {"III", []int{0,1,2,3}},
-    {"DDI", []int{3,2,0,1}},
-  }
-  for _, tt := range tests{
-    t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T){
-      got := DIStringMatch(tt.s)
-      if !reflect.DeepEqual(got, tt.want){
-        t.Fatalf("Got %v, want %v", got, tt.want)
-      }
-    })
-  }
+func TestDIStringMatch(t *testing.T) {
+	tests := []struct {
+		s    string
+		want []int
+	}{
+		{"IDID", []int{0, 4, 1, 3, 2}},
+		{"III", []int{0, 1, 2, 3}},
+		{"DDI", []int{3, 2, 0, 1}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := DIStringMatch(tt.s)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("Got %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
 
-func TestMinDeletionSize(t *testing.T){
-  tests := []struct {
-    strs []string
-    want int
-  }{
-    {[]string{"cba","daf","ghi"}, 1},
-    {[]string{"a","b"}, 0},
-    {[]string{"zyx","wvu","tsr"}, 3},
-  }
-  for _, tt := range tests{
-    t.Run(fmt.Sprintf("%v", tt.strs), func(t *testing.T){
-      got := minDeletionSize(tt.strs)
-      if got != tt.want {
-        t.Fatalf("Got %v, want %v", got, tt.want)
-      }
-    })
-  }
+func TestMinDeletionSize(t *testing.T) {
+	tests := []struct {
+		strs []string
+		want int
+	}{
+		{[]string{"cba", "daf", "ghi"}, 1},
+		{[]string{"a", "b"}, 0},
+		{[]string{"zyx", "wvu", "tsr"}, 3},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.strs), func(t *testing.T) {
+			got := minDeletionSize(tt.strs)
+			if got != tt.want {
+				t.Fatalf("Got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestIsAlienSorted(t *testing.T) {
+	tests := []struct {
+		words []string
+		order string
+		want  bool
+	}{
+		{[]string{"hello", "leetcode"}, "hlabcdefgijkmnopqrstuvwxyz", true},
+		{[]string{"word", "world", "row"}, "worldabcefghijkmnpqstuvxyz", false},
+		{[]string{"apple", "app"}, "abcdefghijklmnopqrstuvwxyz", false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.words, tt.order), func(t *testing.T) {
+			got := isAlienSorted(tt.words, tt.order)
+			if got != tt.want {
+				t.Fatalf("Got %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
