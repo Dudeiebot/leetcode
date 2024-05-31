@@ -3407,3 +3407,21 @@ func TestReapeatedNtimes(t *testing.T) {
 		})
 	}
 }
+
+func TestLargestPerimeter(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 2, 1, 10}, 0},
+		{[]int{2, 1, 2}, 5},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.want), func(t *testing.T) {
+			got := largestPerimeter(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
