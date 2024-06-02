@@ -176,4 +176,4 @@ So here basically we have the algorithm for leetcode and some explainantion foll
 - here we are going to be checking if the string are lexographically sorted, and it is not by row but by column, we are juct going to be converting the byte to int and checking them on the ascii table if the follow the lexographical order.
 - checking with alien dictionary, we want to just make sure the words are lexographically ordered. so first w ehvae to be sure shorter word comes first and then we store all our aliend word in a dict, we are going to ranging throughn the words and you know each letter
 - repeatedNtimes in a nums, it is just checking for the nums that are repeated in an array, that means the occurrence of the num is more than 1
-- for largest perimeter, what we should remember is that the sum of 2 side must always be greater than the other side, so we can practically be checking if the sides meet the criteria
+- for largest perimeter, what we should remember is that the sum of 2 side must always be greater than the other side, so we can practically be checking if the sides meet the criteria(for the looping, we are going to be doing it once or twice)
