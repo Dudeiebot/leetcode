@@ -3357,3 +3357,24 @@ func largestPerimeter(nums []int) int {
 	}
 	return 0
 }
+
+func isUnivalTree(root *util.TreeNode) bool {
+	q := []*util.TreeNode{root}
+
+	for len(q) > 0 {
+		for i := 0; i < len(q); i++ {
+			n := q[0]
+			q := q[1:]
+			if n.Left != nil {
+				q = append(q, n.Left)
+			}
+			if n.Right != nil {
+				q = append(q, n.Right)
+			}
+			if n.Val != root.Val {
+				return false
+			}
+		}
+	}
+	return true
+}
