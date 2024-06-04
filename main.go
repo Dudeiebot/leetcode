@@ -3394,3 +3394,23 @@ func addToArrayform(nums []int, k int) []int {
 	}
 	return nums
 }
+
+func sortedSquares(nums []int) []int {
+	i, l, r := len(nums)-1, 0, len(nums)-1
+	res := make([]int, len(nums))
+
+	for l <= r {
+		lsq := nums[l] * nums[l]
+		rsq := nums[r] * nums[r]
+
+		if lsq > rsq {
+			res[i] = lsq
+			l++
+		} else {
+			res[i] = rsq
+			r--
+		}
+		i--
+	}
+	return res
+}
