@@ -3425,3 +3425,23 @@ func TestLargestPerimeter(t *testing.T) {
 		})
 	}
 }
+
+func TestAddToArrayForm(t *testing.T) {
+	tests := []struct {
+		nums []int
+		k    int
+		want []int
+	}{
+		{[]int{2, 7, 4}, 181, []int{4, 5, 5}},
+		{[]int{1, 2, 0, 0}, 34, []int{1, 2, 3, 4}},
+		{[]int{2, 1, 5}, 806, []int{1, 0, 2, 1}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.nums, tt.k), func(t *testing.T) {
+			got := addToArrayform(tt.nums, tt.k)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
