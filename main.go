@@ -3378,3 +3378,19 @@ func isUnivalTree(root *util.TreeNode) bool {
 	}
 	return true
 }
+
+func addToArrayform(nums []int, k int) []int {
+	i := 1
+
+	for k > 0 {
+		if len(nums) >= i {
+			k += nums[len(nums)-i]
+			nums[len(nums)-i] = k % 10
+		} else {
+			nums = append([]int{k % 10}, nums...)
+		}
+		i++
+		k = k / 10
+	}
+	return nums
+}
