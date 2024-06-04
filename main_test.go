@@ -3445,3 +3445,21 @@ func TestAddToArrayForm(t *testing.T) {
 		})
 	}
 }
+
+func TestSortedSquares(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want []int
+	}{
+		{[]int{-7, -3, 2, 3, 11}, []int{4, 9, 9, 49, 121}},
+		{[]int{-4, -1, 0, 3, 10}, []int{0, 1, 9, 16, 100}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := sortedSquares(tt.nums)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
