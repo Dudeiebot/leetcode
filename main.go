@@ -3432,3 +3432,49 @@ func findJudge(trust [][]int, n int) int {
 	}
 	return -1
 }
+
+func isCousins(root *util.TreeNode, x, y int) bool {
+	var xHeight, yHeight, xParent, yParent int
+
+	var dfs func(r *util.TreeNode, h int)
+	dfs = func(r *util.TreeNode, h int) {
+		if r == nil {
+			return
+		}
+
+		dfs(r.Left, h+1)
+		dfs(r.Right, h+1)
+
+		if r.Left != nil {
+			if r.Left.Val == x {
+				xHeight = h + 1
+				xParent = r.Val
+			}
+			if r.Left.Val == y {
+				yHeight = h + 1
+				yParent = r.Val
+			}
+
+			if r.Right != nil {
+				if r.Right.Val == x {
+					xHeight = h + 1
+					xParent = r.Val
+				}
+				if r.Right.Val == y {
+					yHeight = h + 1
+					yParent = r.Val
+				}
+			}
+		}
+	}
+
+	dfs(root, 0)
+	if xHeight == yHeight {
+		if xHeight > 1 && yHeight > 1 {
+			if xParent != yParent {
+				return true
+			}
+		}
+	}
+	return false
+}
