@@ -3463,3 +3463,23 @@ func TestSortedSquares(t *testing.T) {
 		})
 	}
 }
+
+func TestFindJudge(t *testing.T) {
+	tests := []struct {
+		trust [][]int
+		n     int
+		want  int
+	}{
+		{[][]int{{1, 2}}, 2, 2},
+		{[][]int{{1, 3}, {2, 3}}, 3, 3},
+		{[][]int{{1, 3}, {2, 3}, {3, 1}}, 3, -1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.trust, tt.n), func(t *testing.T) {
+			got := findJudge(tt.trust, tt.n)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
