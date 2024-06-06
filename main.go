@@ -3414,3 +3414,21 @@ func sortedSquares(nums []int) []int {
 	}
 	return res
 }
+
+func findJudge(trust [][]int, n int) int {
+	trustedcount := make([]int, n+1)
+
+	for _, trustInfo := range trust {
+		truster := trustInfo[0]
+		trusted := trustInfo[1]
+
+		trustedcount[truster]--
+		trustedcount[trusted]++
+	}
+	for p := 1; p <= n; p++ {
+		if trustedcount[p] == n-1 {
+			return p
+		}
+	}
+	return -1
+}
