@@ -3478,3 +3478,36 @@ func isCousins(root *util.TreeNode, x, y int) bool {
 	}
 	return false
 }
+
+func commonChars(words []string) []string {
+	res := []string{}
+	seen := make(map[rune]int)
+
+	for _, each := range words[0] {
+		seen[each]++
+	}
+
+	for i := 1; i <= len(words)-1; i++ {
+		seenN := make(map[rune]int)
+
+		for _, char := range words[i] {
+			seenN[char]++
+		}
+
+		for k, v := range seen {
+			if _, exists := seenN[k]; !exists {
+				seen[k] = 0
+			} else {
+				seen[k] = util.Min(v, seenN[k])
+			}
+		}
+	}
+	for k, v := range seen {
+		if v != 0 {
+			for i := 0; i < v; i++ {
+				res = append(res, string(k))
+			}
+		}
+	}
+	return res
+}
