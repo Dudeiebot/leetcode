@@ -3483,3 +3483,21 @@ func TestFindJudge(t *testing.T) {
 		})
 	}
 }
+
+func TestCommonChar(t *testing.T) {
+	tests := []struct {
+		words []string
+		want  []string
+	}{
+		{[]string{"bella", "label", "roller"}, []string{"e", "l", "l"}},
+		{[]string{"cool", "lock", "cook"}, []string{"c", "o"}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.want), func(t *testing.T) {
+			got := commonChars(tt.words)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
