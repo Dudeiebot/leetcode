@@ -3501,3 +3501,22 @@ func TestCommonChar(t *testing.T) {
 		})
 	}
 }
+
+func TestCanThreePartsEqualSum(t *testing.T) {
+	tests := []struct {
+		arr  []int
+		want bool
+	}{
+		{[]int{0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1}, true},
+		{[]int{0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1}, false},
+		{[]int{3, 3, 6, 5, -2, 2, 5, 1, -9, 4}, true},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.arr), func(t *testing.T) {
+			got := canThreePartsEqualSum(tt.arr)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
