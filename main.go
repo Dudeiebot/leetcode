@@ -1678,6 +1678,7 @@ func findComplement(n int) int {
 		temp = (temp << 1) | 1
 	}
 	return n ^ temp
+	// same as question 1009 bitwise complement
 }
 
 func licenseFormatting(s string, k int) string {
