@@ -3535,3 +3535,16 @@ func canThreePartsEqualSum(arr []int) bool {
 	}
 	return count >= 3
 }
+
+func prefixesDivBy5(nums []int) []bool {
+	res := make([]bool, len(nums))
+	rem := 0
+
+	for i, num := range nums {
+		rem = (rem*2 + num) % 5
+		if rem == 0 {
+			res[i] = true
+		}
+	}
+	return res
+}
