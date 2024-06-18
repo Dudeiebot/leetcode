@@ -3520,3 +3520,21 @@ func TestCanThreePartsEqualSum(t *testing.T) {
 		})
 	}
 }
+
+func TestPrefixesDivBy5(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want []bool
+	}{
+		{[]int{0, 1, 1}, []bool{true, false, false}},
+		{[]int{1, 1, 1}, []bool{false, false, false}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := prefixesDivBy5(tt.nums)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
