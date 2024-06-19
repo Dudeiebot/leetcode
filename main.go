@@ -3548,3 +3548,24 @@ func prefixesDivBy5(nums []int) []bool {
 	}
 	return res
 }
+
+func removeOuterParentheses(s string) string {
+	res := ""
+	i := 0
+
+	for _, x := range s {
+		switch x {
+		case '(':
+			if i > 0 {
+				res += string(x)
+			}
+			i++
+		case ')':
+			i--
+			if i > 0 {
+				res += string(x)
+			}
+		}
+	}
+	return res
+}
