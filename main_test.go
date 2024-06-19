@@ -3538,3 +3538,22 @@ func TestPrefixesDivBy5(t *testing.T) {
 		})
 	}
 }
+
+func TestRemoveOuterParentheses(t *testing.T) {
+	tests := []struct {
+		s    string
+		want string
+	}{
+		{"(()())(())", "()()()"},
+		{"(()())(())(()(()))", "()()()()(())"},
+		{"()()", ""},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := removeOuterParentheses(tt.s)
+			if got != tt.want {
+				t.Fatalf("Got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
