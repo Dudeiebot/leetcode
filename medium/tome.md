@@ -1,7 +1,7 @@
   to me for medium
 
 
-###Group Anagram
+### Group Anagram
 - Initialize a map where the key is an array of 26 integers (one for each letter) and the value is a slice of strings (the group of anagrams)
 - range through the strings
 - Initialize an array of 26 integers to count the frequency of each character in the string. so therefore k = [0,0,0,0,0,0,0...........0] for intialization.
