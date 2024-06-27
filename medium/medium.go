@@ -16,3 +16,28 @@ func GroupAnagram(strs []string) [][]string {
 	}
 	return res
 }
+
+func topKFrequent(nums []int, k int) []int {
+	seen := make(map[int]int)
+	res := make([]int, 0, k)
+
+	for _, tt := range nums {
+		seen[tt]++
+	}
+
+	freq := make([][]int, len(nums)+1)
+	for mk, mv := range seen {
+		freq[mv] = append(freq[mv], mk)
+	}
+
+	for i := len(freq) - 1; i >= 0; i-- {
+		if freq[i] != nil {
+			res = append(res, freq[i]...)
+			if len(res) >= k {
+				res = res[:k]
+				break
+			}
+		}
+	}
+	return res
+}
