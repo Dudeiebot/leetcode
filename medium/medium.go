@@ -31,11 +31,19 @@ func topKFrequent(nums []int, k int) []int {
 	}
 
 	for i := len(freq) - 1; i >= 0; i-- {
-		if freq[i] != nil {
-			res = append(res, freq[i]...)
-			if len(res) >= k {
-				res = res[:k]
-				break
+		// if freq[i] != nil {
+		// 	res = append(res, freq[i]...)
+		// 	if len(res) >= k {
+		// 		res = res[:k]
+		// 		break
+		// 	}
+		// }
+
+		// another way to do it
+		for _, val := range freq[i] {
+			if k > 0 {
+				res = append(res, val)
+				k--
 			}
 		}
 	}
