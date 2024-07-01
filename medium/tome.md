@@ -23,4 +23,4 @@
 - so we are going to be using a prefix and suffix solution here, prefix will find the products from the front and suffix with do the product from the back
 - prefix solution will go like this, when we range through the nums array, we will make sure to equalize our result position(res[i]) to the prefix and the prefix will always be Updated with new figures because we are multiplying it by the nums position(nums[i])
 - suffix will eqaully go like this from the end, but here instead our result position is being updated with the product of our suffix, and the suffix is being updated with the nums position
-- every variables get updated upon each iteration
+- every variables get updated upon each iteration, and also i noticed that you dont need to get to the last and first array when performing both prefix and suffix operation
