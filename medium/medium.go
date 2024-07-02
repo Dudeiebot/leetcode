@@ -66,3 +66,29 @@ func productExceptSelf(nums []int) []int {
 	}
 	return res
 }
+
+func longestConsecutive(nums []int) int {
+	seen := make(map[int]bool)
+	maxLen := 0
+
+	for _, n := range nums {
+		seen[n] = true
+	}
+
+	for _, n := range nums {
+		if !seen[n-1] {
+			currLen := 0
+			curr := n
+
+			for seen[curr+1] {
+				curr++
+				currLen++
+			}
+
+			if maxLen < currLen {
+				maxLen = currLen
+			}
+		}
+	}
+	return maxLen
+}
