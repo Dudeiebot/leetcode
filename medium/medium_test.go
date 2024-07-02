@@ -64,3 +64,21 @@ func TestProductExceptSelf(t *testing.T) {
 		})
 	}
 }
+
+func TestLongestConsecutive(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{100, 4, 200, 1, 3, 2}, 4},
+		{[]int{0, 3, 7, 2, 5, 8, 4, 6, 0, 1}, 9},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := longestConsecutive(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
