@@ -77,7 +77,7 @@ func longestConsecutive(nums []int) int {
 
 	for _, n := range nums {
 		if !seen[n-1] {
-			currLen := 0
+			currLen := 1
 			curr := n
 
 			for seen[curr+1] {
