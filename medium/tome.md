@@ -28,3 +28,8 @@
 
 ### longest Consecutive
 - we can use slices.Sort to sort this and then check the longest Consecutive there but the question want us to solve this in o(n) instead of introducing the sorting algorithm that uses o(logn) 
+- so for of our o(n) operation, we are going to be going through the nums and making sure that a number does not occur more than one, so we are using the normal map for this
+- so right now the problem we have is that our map is not ordered, we range through the nums again and we check if n-1 is not in the map, if it is not we assign our currentLength to 1 and assign an arg current to n 
+- so now we are working with current and currentLength, we go on further to check if current(our n) + 1 is in the map(if it is not we go to the next num but if it is we increment the current by 1) and also currentLength by 1 
+- when we are done with all the number, we remember that upon each number that does not have it Consecutive nos in the array we are going to be reasssigning our currentLength to 1, upon getting the longest Consecutive we are going to be comparing it to the maxLength and equating it to the maxLength (if the maxLength is less than currentLength)
+- finally we return maxLength
