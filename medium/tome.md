@@ -33,3 +33,9 @@
 - so now we are working with current and currentLength, we go on further to check if current(our n) + 1 is in the map(if it is not we go to the next num but if it is we increment the current by 1) and also currentLength by 1 
 - when we are done with all the number, we remember that upon each number that does not have it Consecutive nos in the array we are going to be reasssigning our currentLength to 1, upon getting the longest Consecutive we are going to be comparing it to the maxLength and equating it to the maxLength (if the maxLength is less than currentLength)
 - finally we return maxLength
+
+### Two Sum II 
+- so this is a medium question to the easy question (2 sum) but here our array is sorted
+- binary search will be used here to solve the problem and for l < r{}
+- the algorithm is that on addition of nums in l and r, we check if it is greater than or less than our target
+- so if nums[l] + nums[r] is greater than target, r is decremented and if nums[l]+ nums[r] is less than target, l is incremented and if we get our answer, we store it in an array and return it
