@@ -35,7 +35,7 @@
 - finally we return maxLength
 
 ### Two Sum II 
-- so this is a medium question to the easy question (2 sum) but here our array is sorted
+- so this is a medium and also a follow up question to the easy question (2 sum) and here our array is sorted
 - binary search will be used here to solve the problem and for l < r{}
 - the algorithm is that on addition of nums in l and r, we check if it is greater than or less than our target
 - so if nums[l] + nums[r] is greater than target, r is decremented and if nums[l]+ nums[r] is less than target, l is incremented and if we get our answer, we store it in an array and return it
