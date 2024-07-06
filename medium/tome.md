@@ -39,3 +39,10 @@
 - binary search will be used here to solve the problem and for l < r{}
 - the algorithm is that on addition of nums in l and r, we check if it is greater than or less than our target
 - so if nums[l] + nums[r] is greater than target, r is decremented and if nums[l]+ nums[r] is less than target, l is incremented and if we get our answer, we store it in an array and return it
+
+### ThreeSum
+- three sums with using our idea from two sums II, so here we arer going to be sorting the algorithm (and we using the faster one slices.Sort)
+- range through the nums with index(i) and each num(n), checking if i is greater than 0 and n is not equal to our former nos(i-1)
+- introducing binary search, intitalizing our threeSum which is the addition of n + nums[l] + nums[r] and if threeSum is greater than 0(our target) we decrement r, if it is lessthan 0 we increment l 
+- else we append our result to the double slice created, and remember we need multiple instances where our threeSum is equal to target and not only one possible scenario
+- When we are done with the first result already appended, we go back to the array by incrementing l and checking if nums[l] is equal to nums[l-1] and l < r for more results
