@@ -102,3 +102,22 @@ func TestTwoSumII(t *testing.T) {
 		})
 	}
 }
+
+func TestThreeSum(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want [][]int
+	}{
+		{[]int{-1, 0, 1, 2, -1, -4}, [][]int{{-1, -1, 2}, {-1, 0, 1}}},
+		{[]int{0, 1, 1}, [][]int{}},
+		{[]int{0, 0, 0}, [][]int{{0, 0, 0}}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := threeSum(tt.nums)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
