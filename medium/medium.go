@@ -1,5 +1,7 @@
 package medium
 
+import "slices"
+
 func GroupAnagram(strs []string) [][]string {
 	hmap := map[[26]int][]string{}
 	res := [][]string{}
@@ -106,4 +108,31 @@ func twoSumII(nums []int, target int) []int {
 		}
 	}
 	return nil
+}
+
+func threeSum(nums []int) [][]int {
+	res := [][]int{}
+
+	slices.Sort(nums)
+	for i, n := range nums {
+		if i > 0 && n == nums[i-1] {
+			continue
+		}
+		l, r := i+1, len(nums)-1
+		for l < r {
+			threeSum := n + nums[l] + nums[r]
+			if threeSum > 0 {
+				r--
+			} else if threeSum < 0 {
+				l++
+			} else {
+				res = append(res, []int{n, nums[l], nums[r]})
+				l++
+				for nums[l] == nums[l-1] && l < r {
+					l++
+				}
+			}
+		}
+	}
+	return res
 }
