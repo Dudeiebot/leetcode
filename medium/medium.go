@@ -1,6 +1,8 @@
 package medium
 
-import "slices"
+import (
+	"slices"
+)
 
 func GroupAnagram(strs []string) [][]string {
 	hmap := map[[26]int][]string{}
@@ -132,6 +134,22 @@ func threeSum(nums []int) [][]int {
 					l++
 				}
 			}
+		}
+	}
+	return res
+}
+
+func maxArea(height []int) int {
+	l, r := 0, len(height)-1
+	res := 0
+
+	for l < r {
+		area := (r - l) * min(height[l], height[r])
+		res = max(res, area)
+		if height[l] < height[r] {
+			l++
+		} else {
+			r--
 		}
 	}
 	return res
