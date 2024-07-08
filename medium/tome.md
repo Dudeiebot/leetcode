@@ -46,3 +46,8 @@
 - upon introducing binary search, we then intitalize our threeSum which is the addition of n + nums[l] + nums[r] and if threeSum is greater than 0(our target) we decrement r, and if it is lessthan 0 we increment l 
 - else we append our result to the double slice created, and remember we need multiple instances where our threeSum is equal to target and not only one possible scenario
 - When we are done with the first result already appended, we go back to the array by incrementing l and checking if nums[l] is equal to nums[l-1] and l < r for more results
+
+### MaxArea
+- Binary search is going to be used here
+- while l is less than r, we are going to intitalize our area as l-r * min(nums[l], nums[r])
+- we keep on updating the max value with the our intitalized res, and checking if nums[l] is less than nums[r], we increment l and we decrement r if not
