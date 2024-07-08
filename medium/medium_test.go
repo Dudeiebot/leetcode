@@ -121,3 +121,21 @@ func TestThreeSum(t *testing.T) {
 		})
 	}
 }
+
+func TestMaxArea(t *testing.T) {
+	tests := []struct {
+		height []int
+		want   int
+	}{
+		{[]int{1, 8, 6, 2, 5, 4, 8, 3, 7}, 49},
+		{[]int{1, 1}, 1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.height), func(t *testing.T) {
+			got := maxArea(tt.height)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
