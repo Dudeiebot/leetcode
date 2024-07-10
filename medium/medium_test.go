@@ -139,3 +139,22 @@ func TestMaxArea(t *testing.T) {
 		})
 	}
 }
+
+func TestLengthOfLongestSubstring(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"abcabcbb", 3},
+		{"bbbb", 1},
+		{"pwwkew", 3},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := lengthOfLongestSubString(tt.s)
+			if got != tt.want {
+				t.Fatalf("%v, %v", got, tt.want)
+			}
+		})
+	}
+}
