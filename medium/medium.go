@@ -154,3 +154,19 @@ func maxArea(height []int) int {
 	}
 	return res
 }
+
+func lengthOfLongestSubString(s string) int {
+	seen := make(map[byte]int)
+	l, r, res := 0, 0, 0
+
+	for r < len(s) {
+		seen[s[r]]++
+		for seen[s[r]] > 1 {
+			seen[s[l]]--
+			l++
+		}
+		res = max(res, r-l+1)
+		r++
+	}
+	return res
+}
