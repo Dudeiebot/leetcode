@@ -51,3 +51,9 @@
 - Binary search is going to be used here
 - while l is less than r, we are going to intitalize our area as l-r * min(nums[l], nums[r])
 - we keep on updating the max value with the our intitalized res, and checking if nums[l] is less than nums[r], we increment l and we decrement r if not
+
+### Length Of Longest Substring
+- so here we are using the sliding window techniques(double pointer as in the case of binary search)
+- so both left and right start at the beginning but the right is being incremented till the end of the string and they are stored in a map
+- When a letter appear more than once, we decrease the value from the map and increment the left
+- our result is being stored as the max value in comparison with (right-left+1) which is our current position in the string
