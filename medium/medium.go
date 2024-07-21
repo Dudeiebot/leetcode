@@ -170,3 +170,17 @@ func lengthOfLongestSubString(s string) int {
 	}
 	return res
 }
+
+func findMin(nums []int) int {
+	l, r := 0, len(nums)-1
+
+	for l < r {
+		m := l + (r-l)/2
+		if nums[l] > nums[r] {
+			l = m + 1
+		} else {
+			m = r
+		}
+	}
+	return nums[l]
+}
