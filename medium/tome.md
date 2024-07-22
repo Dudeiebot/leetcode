@@ -71,3 +71,15 @@ to me for medium
 - we check for difference, if left is greater than right, left is updated to middle + 1
 - and else that means if left is less than right, we equate right to middle
 - upon all our min num will end at the l, then we return it
+
+### searching a particular number in a rotated sorted array
+
+- we have our rotated array here and we are going to be going through it searching a certain target in it
+- we are using binary search also here because we are to submit it in Ologn
+- we define our left and right, initiate our loop and define our middle
+- so basiccally it all suppose to come down to the middle, we we check at the beginning of our loop
+- so here our approach is that we want to divide the array into left and right and how do we check intiallialy if we are meant to use the left or the right
+- if l is lessthan or equal to middle that means we should check the left because it is sorted but if it is the other way round, we are checking the right because that means our right is being sorted
+- for the left part, we are checking with our target next, if our target is greater than left and our target is less than middle, we update our right as middle + 1 else our left is updated as middle - 1
+- for the right part, we are checking with our target, if target is greater than middle and target is less than right, we update our left as middle + 1 else the right as middle - 1
+- at the end if the target is not in the array, we return -1
