@@ -177,3 +177,23 @@ func TestFindMIn(t *testing.T) {
 		})
 	}
 }
+
+func TestSearch(t *testing.T) {
+	tests := []struct {
+		nums   []int
+		target int
+		want   int
+	}{
+		{[]int{4, 5, 6, 7, 0, 1, 2}, 0, 4},
+		{[]int{4, 5, 6, 7, 0, 1, 2}, 3, -1},
+		{[]int{1}, 0, -1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.nums, tt.target), func(t *testing.T) {
+			got := search(tt.nums, tt.target)
+			if got != tt.want {
+				t.Fatalf("%v, %v", got, tt.want)
+			}
+		})
+	}
+}
