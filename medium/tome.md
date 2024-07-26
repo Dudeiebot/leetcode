@@ -83,3 +83,28 @@ to me for medium
 - for the left part, we are checking with our target next, if our target is greater than left and our target is less than middle, we update our right as middle + 1 else our left is updated as middle - 1
 - for the right part, we are checking with our target, if target is greater than middle and target is less than right, we update our left as middle + 1 else the right as middle - 1
 - at the end if the target is not in the array, we return -1
+
+### Re-Order List
+
+- we are going to be re-ordering a list in this format.
+  ![image](../medium/static/list_rep.png)
+
+- so in this question we are not returning anything but only our input back
+- we check for all base cases and return nothing also
+- we are using a fast and slow pointer(floyd tortoise and hare method), the slow pointer move at `1*` speed and the fast pointer move at `2*` speed
+- so here we are trying to get the middle of our listNode and it our slow that will help use to get there and remember the fast is moving at `2*` pace so we should remember to make sure our fast get to null because of odd lens
+- we swap values upon getting the second half of the listNode
+- we then go on to merge the two halves of the listNode
+- The two halves of the list are merged. first traverses the first half, and prev (now the head of the reversed second half) traverses the reversed second half
+- For each node in the first half, the next node is set to the corresponding node from the reversed second half, effectively weaving the two halves together.
+
+##### to Illustrate
+
+consider the list: `1 -> 2 -> 3 -> 4 -> 5`
+Finding the Middle:
+
+- slow points to 3 (middle of the list)
+  Reversing the Second Half:
+- The second half `4 -> 5` is reversed to `5 -> 4`
+  Merging the Two Halves:
+- The list is merged as `1 -> 5 -> 2 -> 4 -> 3`
