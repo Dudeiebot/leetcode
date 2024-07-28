@@ -173,6 +173,24 @@ func lengthOfLongestSubString(s string) int {
 	return res
 }
 
+func characterReplacement(s string, k int) int {
+	res := 0
+	maxF := 0
+	seen := make(map[byte]int)
+	l := 0
+
+	for r := 0; r < len(s); r++ {
+		seen[s[r]]++
+		maxF = max(maxF, seen[s[r]])
+		if (r-l+1)-maxF > k {
+			seen[s[l]]--
+			l++
+		}
+		res = max(res, r-l+1)
+	}
+	return res
+}
+
 // chip in characterReplacement here
 func findMin(nums []int) int {
 	l, r := 0, len(nums)-1
