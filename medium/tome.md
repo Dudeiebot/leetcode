@@ -64,6 +64,14 @@ to me for medium
 - When a letter appear more than once, we decrease the value from the map and increment the left
 - our result is being stored as the max value in comparison with (right-left+1) which is our current position in the string
 
+### Longest repeating character Replacement
+
+- we are finding the length of the longest substring that can be obtained by replacing at most k characters in the input string s with any other character
+- this approach uses a sliding window techniques, which is our left and right
+- maxF tracks the maximum freq of any single characters
+- we traverse over the string and store our letter in the map with their occurence
+- we are checking and storing for the max between each letter r in our map
+
 ### Find Min in a rotated sorted array
 
 - so here we are using Binary search, and upon intialization we check if l is less than right
