@@ -191,7 +191,6 @@ func characterReplacement(s string, k int) int {
 	return res
 }
 
-// chip in characterReplacement here
 func findMin(nums []int) int {
 	l, r := 0, len(nums)-1
 
