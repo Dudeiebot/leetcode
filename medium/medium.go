@@ -253,3 +253,20 @@ func reOrderList(head *util.ListNode) {
 		prev.Next, prev = first, prev.Next
 	}
 }
+
+func removeNthNode(head *util.ListNode, n int) *util.ListNode {
+	dummy := &util.ListNode{Next: head}
+
+	slow, fast := dummy, dummy
+
+	for i := 0; i <= n; i++ {
+		fast = fast.Next
+	}
+
+	for fast != nil {
+		fast = fast.Next
+		slow = slow.Next
+	}
+	slow.Next = slow.Next.Next
+	return dummy.Next
+}
