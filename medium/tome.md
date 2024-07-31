@@ -115,3 +115,11 @@ Finding the Middle:
 - The second half `4 -> 5` is reversed to `5 -> 4`
   Merging the Two Halves:
 - The list is merged as `1 -> 5 -> 2 -> 4 -> 3`
+
+### Remove Nth node
+
+- removing the nth Node from the end of the list
+- e.g `1 -> 2 -> 3 -> 4 -> 5`, and `n = 2` then we will have to remove `4` and return ` 1 -> 2 -> 3 -> 5`
+- so how are we doing it is using a slow and a fast approach, which are intialized to the dummy node and remember our dummy node does not start from head but the next for edge cases
+- fast is move in n + 1 (equivalent to 2\* where we the middle become slow when fast get to the end) and that is why our iteration was used
+- so upon fast getting to the end, slow will be pointing to the node we want to remove and we get to return dummy.Next which points to the head of the original list
