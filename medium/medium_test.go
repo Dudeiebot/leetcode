@@ -218,3 +218,5 @@ func TestSearch(t *testing.T) {
 }
 
 // no test for reorderLIst
+
+// no test for removeNthNode
