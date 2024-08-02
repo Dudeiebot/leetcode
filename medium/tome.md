@@ -130,3 +130,9 @@ Finding the Middle:
 - so we are starting from the root
 - the root is a common ancestor of every node in the tree but it is not actually the Lowest
 - if one of them is in the left subtree and the other in the right subtree, then our root is our LCA and vice versa also
+
+### Level Order
+
+- we are traversing through a binary tree and storing all subtree level order in a 2d array
+- we are using BFS here using a queue data structure
+- inserting element to the right and popping at the life (FIFO)
