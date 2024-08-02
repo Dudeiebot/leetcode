@@ -292,3 +292,33 @@ func lowestCommonAncestor(root, p, q *util.TreeNode) *util.TreeNode {
 	}
 	return nil
 }
+
+func levelOrder(root *util.TreeNode) [][]int {
+	if root == nil {
+		return [][]int{}
+	}
+
+	var res [][]int
+	q := ([]*util.TreeNode{root}) // Initialize the queue with the root node.
+
+	for len(q) > 0 { // Continue processing while there are nodes in the queue.
+		curSize := len(q) // We need this because it is the number of nodes at the current level.
+		var level []int   // Slice to store the values of nodes at the current level.
+
+		for i := 0; i < curSize; i++ { // current level processing
+			node := q[0]
+			q := q[1:]                      // removing the first node
+			level = append(level, node.Val) // Append the node's value to the current level slice.
+
+			if node.Left != nil { // If the left child exists, add it to the queue.
+				q = append(q, node.Left)
+			}
+
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		res = append(res, level)
+	}
+	return res
+}
