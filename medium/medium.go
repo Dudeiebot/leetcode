@@ -273,10 +273,22 @@ func removeNthNode(head *util.ListNode, n int) *util.ListNode {
 
 func lowestCommonAncestor(root, p, q *util.TreeNode) *util.TreeNode {
 	// recursion solution that is more efficient
-	if p.Val < root.Val && q.Val < root.Val {
-		return lowestCommonAncestor(root.Left, p, q)
-	} else if p.Val > root.Val && q.Val > root.Val {
-		return lowestCommonAncestor(root.Right, p, q)
+	// if p.Val < root.Val && q.Val < root.Val {
+	// 	return lowestCommonAncestor(root.Left, p, q)
+	// } else if p.Val > root.Val && q.Val > root.Val {
+	// 	return lowestCommonAncestor(root.Right, p, q)
+	// }
+	// return root
+
+	// iterative solution that is less efficient
+	for root != nil {
+		if p.Val < root.Val && q.Val < root.Val {
+			root = root.Left
+		} else if p.Val > root.Val && q.Val > root.Val {
+			root = root.Right
+		} else {
+			return root
+		}
 	}
-	return root
+	return nil
 }
