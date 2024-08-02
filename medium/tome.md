@@ -123,3 +123,10 @@ Finding the Middle:
 - so how are we doing it is using a slow and a fast approach, which are intialized to the dummy node and remember our dummy node does not start from head but the next for edge cases
 - fast is move in n + 1 (equivalent to 2\* where we the middle become slow when fast get to the end) and that is why our iteration was used
 - so upon fast getting to the end, slow will be pointing to the node we want to remove and we get to return dummy.Next which points to the head of the original list
+
+### Lowest Common Ancestor
+
+- we can solve this with both iterative and recursive traversal
+- so we are starting from the root
+- the root is a common ancestor of every node in the tree but it is not actually the Lowest
+- if one of them is in the left subtree and the other in the right subtree, then our root is our LCA and vice versa also
