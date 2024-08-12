@@ -136,3 +136,15 @@ Finding the Middle:
 - we are traversing through a binary tree and storing all subtree level order in a 2d array
 - we are using BFS here using a queue data structure
 - inserting element to the right and popping at the life (FIFO)
+
+### Build Tree
+
+- so we can use the iterative mode and the recursion mode, but now we are using th e recursion mode
+- we check for base cases to return nil quickly
+- always remember the first in the preorder is always the root, so we make that our value
+- left and right of our binary tree are gotten with recursion and by slice manipulation
+- left in preorder will be preorder array [starts from the secode element because the first element is the root]
+- right in preorder will be preorder array [ take element from index 1 but not including index i+1]
+- l in inorder will be inorder array [ these create a new slice containing all the element including index i]
+- r IN inorder will be inorder array [ creates a new slice containing all element of inorder from index i+1 to the end]
+- so upon doing all that finish this element traverses the index i to the root and the lpre and lin to the left of the tree, rpre and rin goes to the right if the tree
