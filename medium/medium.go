@@ -322,3 +322,21 @@ func levelOrder(root *util.TreeNode) [][]int {
 	}
 	return res
 }
+
+func buildTree(preorder, inorder []int) *util.TreeNode {
+	if len(preorder) == 0 {
+		return nil
+	}
+
+	i := slices.Index(inorder, preorder[0])
+	lpre := preorder[1 : i+1]
+	rpre := preorder[i+1:]
+	lin := inorder[:i]
+	rin := inorder[i+1:]
+
+	return &util.TreeNode{
+		Val:   i,
+		Left:  buildTree(lpre, lin),
+		Right: buildTree(rpre, rin),
+	}
+}
