@@ -145,6 +145,18 @@ Finding the Middle:
 - If the current node's value is greater than or equal to the maximum allowed value, it returns false.
 - If the current node passes these checks, the function recursively checks the left and right subtrees: For the left subtree, the current node becomes the new maximum and For the right subtree, the current node becomes the new minimum.
 
+### Kth smallest element
+
+- It initializes an empty stack to keep track of nodes and a curr pointer to the root.
+- It uses a variable x to keep count of the current position as we traverse the tree.
+- The main loop continues as long as there are nodes to process (curr != nil) or there are nodes in the stack.
+- The inner loop pushes all left children of the current node onto the stack, going as far left as possible.
+- After the inner loop, we pop the top node from the stack (which is the leftmost unprocessed node).
+- If the current position x equals k, we've found our kth smallest element, so we return its value.
+- If not, we increment x and move to the right child of the current node.
+- This process continues, effectively performing an in-order traversal of the BST.
+- If we exhaust the tree without finding the kth element (which would happen if k is greater than the number of nodes), we return -1.
+
 ### Build Tree
 
 - so we can use the iterative mode and the recursion mode, but now we are using th e recursion mode
