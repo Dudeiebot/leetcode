@@ -137,6 +137,14 @@ Finding the Middle:
 - we are using BFS here using a queue data structure
 - inserting element to the right and popping at the life (FIFO)
 
+### Is Valid BST
+
+- we are cheking is a binary search tree is valid and how we know that is that the left node is less than the root node and the right node is greater than the root node.
+- we are creating a helper function to help us check the validity with the min and max values
+- if root is equal to nil return true and If the current node's value is less than or equal to the minimum allowed value, it returns false
+- If the current node's value is greater than or equal to the maximum allowed value, it returns false.
+- If the current node passes these checks, the function recursively checks the left and right subtrees: For the left subtree, the current node becomes the new maximum and For the right subtree, the current node becomes the new minimum.
+
 ### Build Tree
 
 - so we can use the iterative mode and the recursion mode, but now we are using th e recursion mode
