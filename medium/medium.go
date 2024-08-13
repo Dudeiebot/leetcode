@@ -323,6 +323,25 @@ func levelOrder(root *util.TreeNode) [][]int {
 	return res
 }
 
+func isValidBST(root *util.TreeNode) bool {
+	var isValid func(root, min, max *util.TreeNode) bool
+
+	isValid = func(root, min, max *util.TreeNode) bool {
+		if root == nil {
+			return true
+		}
+
+		if min != nil && root.Val <= min.Val {
+			return false
+		}
+		if max != nil && root.Val >= max.Val {
+			return false
+		}
+		return isValid(root.Left, min, root) && isValid(root.Right, root, max)
+	}
+	return isValid(root, nil, nil)
+}
+
 func buildTree(preorder, inorder []int) *util.TreeNode {
 	if len(preorder) == 0 {
 		return nil
