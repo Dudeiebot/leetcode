@@ -225,6 +225,8 @@ func TestSearch(t *testing.T) {
 
 // no test for level order
 
+// no test for kth smallest element
+
 // no test for isValid BST
 
 // no test for build tree
