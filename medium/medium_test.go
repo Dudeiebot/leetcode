@@ -223,6 +223,8 @@ func TestSearch(t *testing.T) {
 
 // no test for lowest common ancestor
 
-// no test foe level order
+// no test for level order
+
+// no test for isValid BST
 
 // no test for build tree
