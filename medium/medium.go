@@ -342,6 +342,26 @@ func isValidBST(root *util.TreeNode) bool {
 	return isValid(root, nil, nil)
 }
 
+func kthSmallest(root *util.TreeNode, k int) int {
+	stack := []*util.TreeNode{}
+	curr := root
+	x := 1
+	for curr != nil || len(stack) > 0 {
+		for curr != nil {
+			stack = append(stack, curr)
+			curr = curr.Left
+		}
+		curr = stack[len(stack)-1]
+		if x == k {
+			return curr.Val
+		}
+		x++
+		stack = stack[:len(stack)-1]
+		curr = curr.Right
+	}
+	return -1
+}
+
 func buildTree(preorder, inorder []int) *util.TreeNode {
 	if len(preorder) == 0 {
 		return nil
