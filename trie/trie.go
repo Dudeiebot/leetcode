@@ -3,8 +3,11 @@ package trie
 type Trie struct {
 	children [26]*Trie
 	// it have a node of 26 letters a-z and the node children are a-z also
+	// Each element is a pointer to another Trie node, allowing the structure to branch out
 	endOfWord bool
-	// we need end of the word because it practically returns true upon the end od the word
+	// This boolean flag indicates whether the current node represents the end of a valid word.
+	// It's crucial for distinguishing between complete words and prefixes.
+	// For example, if you insert "app" and "apple", the node after "p" in "app" will have endOfWord set to true, while the same node in the path of "apple" will not
 }
 
 func Constructor() Trie {
