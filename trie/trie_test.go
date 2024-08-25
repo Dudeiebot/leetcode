@@ -32,7 +32,7 @@ func TestTrie(t *testing.T) {
 		})
 	}
 
-	testCase2 := []struct {
+	testPrefix := []struct {
 		prefix string
 		want   bool
 	}{
@@ -45,7 +45,7 @@ func TestTrie(t *testing.T) {
 		{"c", false},
 	}
 
-	for _, tc := range testCase2 {
+	for _, tc := range testPrefix {
 		t.Run("Stars with ", func(t *testing.T) {
 			got := trie.StartsWith(tc.prefix)
 			if got != tc.want {
@@ -59,3 +59,41 @@ func TestTrie(t *testing.T) {
 // so it intialize the trie Constructor
 // and then inserts all the word inside it
 // then we return true if the word is in the trie, nd false otherwise
+
+func TestEndOfDictionary(t *testing.T) {
+	dict := Init()
+	testCases := []struct {
+		addWords    []string
+		searchWords map[string]bool
+	}{
+		{
+			addWords: []string{"bad", "dad", "mad"},
+			searchWords: map[string]bool{
+				"pad": false,
+				".ad": true,
+				"b..": true,
+				"b.d": true,
+				"b.":  false,
+				"...": true,
+				"m.d": true,
+				"mad": true,
+				"ma.": true,
+			},
+		},
+	}
+
+	for _, tc := range testCases {
+		for _, word := range tc.addWords {
+			dict.AddWord(word)
+		}
+
+		for word, expected := range tc.searchWords {
+			t.Run("Search_"+word, func(t *testing.T) {
+				result := dict.Search(word)
+				if result != expected {
+					t.Errorf("Search(%q) = %v, want %v", word, result, expected)
+				}
+			})
+		}
+	}
+}
