@@ -230,3 +230,22 @@ func TestSearch(t *testing.T) {
 // no test for isValid BST
 
 // no test for build tree
+
+func TestCombinationSum(t *testing.T) {
+	tests := []struct {
+		candidates []int
+		target     int
+		want       [][]int
+	}{
+		{[]int{2, 3, 6, 7}, 7, [][]int{{2, 2, 3}, {7}}},
+		{[]int{2, 3, 5}, 8, [][]int{{2, 2, 2, 2}, {2, 3, 3}, {3, 5}}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.candidates, tc.target), func(t *testing.T) {
+			got := combinationSum(tc.candidates, tc.target)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("%v, %v", got, tc.want)
+			}
+		})
+	}
+}
