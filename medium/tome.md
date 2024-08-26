@@ -168,3 +168,15 @@ Finding the Middle:
 - l in inorder will be inorder array [ these create a new slice containing all the element including index i]
 - r IN inorder will be inorder array [ creates a new slice containing all element of inorder from index i+1 to the end]
 - so upon doing all that finish this element traverses the index i to the root and the lpre and lin to the left of the tree, rpre and rin goes to the right if the tree
+
+### Combination Sum
+
+- Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order. The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+- it will be solved with a recursively dfs function and backtracking.
+- Iterate through candidates starting from index i
+- Add the current candidate to the temporary combination
+- Recursively call DFS with. The same index j (allowing reuse of the same number)
+- Updated current sum
+- Updated temporary combination
+- After the recursive call, remove the last added number (backtracking)
+- This implementation uses backtracking to explore all possible combinations. It allows reusing the same number multiple times (by keeping the same index in recursive calls) and ensures that it doesn't use the same combination in a different order (by starting from index i in each recursive call).
