@@ -379,3 +379,25 @@ func buildTree(preorder, inorder []int) *util.TreeNode {
 		Right: buildTree(rpre, rin),
 	}
 }
+
+func combinationSum(candidates []int, target int) [][]int {
+	res := [][]int{}
+	temp := []int{}
+
+	var dfs func(i, curr int, temp []int)
+	dfs = func(i, curr int, temp []int) {
+		if curr == target {
+			res = append(res, append([]int{}, temp...))
+		}
+		if curr > target {
+			return
+		}
+		for j := i; j < len(candidates); j++ {
+			temp = append(temp, candidates[j])
+			dfs(j, curr+candidates[j], temp)
+			temp = temp[:len(temp)-1]
+		}
+	}
+	dfs(0, 0, temp)
+	return res
+}
