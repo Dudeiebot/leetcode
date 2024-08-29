@@ -249,3 +249,69 @@ func TestCombinationSum(t *testing.T) {
 		})
 	}
 }
+
+func TestNumIslands(t *testing.T) {
+	tests := []struct {
+		name     string
+		grid     [][]byte
+		expected int
+	}{
+		{
+			name: "Single island",
+			grid: [][]byte{
+				{'1', '1', '1', '1', '0'},
+				{'1', '1', '0', '1', '0'},
+				{'1', '1', '0', '0', '0'},
+				{'0', '0', '0', '0', '0'},
+			},
+			expected: 1,
+		},
+		{
+			name: "Multiple islands",
+			grid: [][]byte{
+				{'1', '1', '0', '0', '0'},
+				{'1', '1', '0', '0', '0'},
+				{'0', '0', '1', '0', '0'},
+				{'0', '0', '0', '1', '1'},
+			},
+			expected: 3,
+		},
+		{
+			name: "No islands",
+			grid: [][]byte{
+				{'0', '0', '0', '0', '0'},
+				{'0', '0', '0', '0', '0'},
+			},
+			expected: 0,
+		},
+		{
+			name: "All islands",
+			grid: [][]byte{
+				{'1', '1'},
+				{'1', '1'},
+			},
+			expected: 1,
+		},
+		{
+			name:     "Empty grid",
+			grid:     [][]byte{},
+			expected: 0,
+		},
+		{
+			name: "Single cell island",
+			grid: [][]byte{
+				{'1'},
+			},
+			expected: 1,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := numIslands(tt.grid)
+			if result != tt.expected {
+				t.Errorf("numIslands() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
