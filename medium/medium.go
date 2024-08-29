@@ -3,6 +3,7 @@ package medium
 import (
 	"slices"
 
+	"leetCode/graph"
 	util "leetCode/struct"
 )
 
@@ -400,4 +401,26 @@ func combinationSum(candidates []int, target int) [][]int {
 	}
 	dfs(0, 0, temp)
 	return res
+}
+
+func numIslands(grid [][]byte) int {
+	if len(grid) == 0 || len(grid[0]) == 0 {
+		return 0
+	}
+
+	rows := len(grid)
+	cols := len(grid[0])
+	islands := 0
+
+	for r := 0; r < rows; r++ {
+		for c := 0; c < cols; c++ {
+			if grid[r][c] == '1' {
+				// choose either IslandBfs and IslandDfs
+				// graph.IslandDfs(r, c, grid)
+				graph.IslandBfs(grid, r, c)
+				islands++
+			}
+		}
+	}
+	return islands
 }
