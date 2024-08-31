@@ -424,3 +424,31 @@ func numIslands(grid [][]byte) int {
 	}
 	return islands
 }
+
+func cloneGraph(node *util.Node) *util.Node {
+	if node == nil {
+		return nil
+	}
+
+	copies := make(map[*util.Node]*util.Node)
+	var dfs func(n *util.Node)
+
+	dfs = func(n *util.Node) {
+		if n == nil {
+			return
+		}
+
+		if _, exists := copies[n]; exists {
+			return
+		}
+		newNode := &util.Node{Val: n.Val}
+		copies[n] = newNode
+
+		for _, child := range n.Children {
+			dfs(child)
+			newNode.Children = append(newNode.Children, copies[child])
+		}
+	}
+	dfs(node)
+	return copies[node]
+}
