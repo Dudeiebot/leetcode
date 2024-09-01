@@ -315,3 +315,5 @@ func TestNumIslands(t *testing.T) {
 		})
 	}
 }
+
+// no test for cloned Graph
