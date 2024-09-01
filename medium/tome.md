@@ -180,3 +180,12 @@ Finding the Middle:
 - Updated temporary combination
 - After the recursive call, remove the last added number (backtracking)
 - This implementation uses backtracking to explore all possible combinations. It allows reusing the same number multiple times (by keeping the same index in recursive calls) and ensures that it doesn't use the same combination in a different order (by starting from index i in each recursive call).
+
+### number of Islands
+
+![image](../medium/static/numislands.png =300x300 )
+
+- This function counts the number of islands in a 2D grid. An island is represented by '1's (land) surrounded by '0's (water) or the edge of the grid.
+- the island dfs and bfs, Mark the current cell as visited (usually by changing it to '0' or another value)
+- Check all adjacent cells (up, down, left, right)
+- For each adjacent cell that is land ('1'), recursively or iteratively apply the same
