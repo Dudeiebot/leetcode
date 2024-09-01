@@ -189,3 +189,13 @@ Finding the Middle:
 - the island dfs and bfs, Mark the current cell as visited (usually by changing it to '0' or another value)
 - Check all adjacent cells (up, down, left, right)
 - For each adjacent cell that is land ('1'), recursively or iteratively apply the same
+
+### Cloned Graph
+
+- it takes in a Node with Val and Children that clone the Graph
+- This map will store the mapping between original nodes and their cloned counterparts.
+- If the current node has already been cloned, return to avoid cycles
+- Create a new node with the same value as the original and store it in the copies map.
+- Recursively clone each child node, then add the cloned child to the new node's children.
+- Begin the depth-first search from the input node.
+- Return the cloned version of the input node, which is now the root of the cloned graph.
