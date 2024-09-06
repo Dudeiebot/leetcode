@@ -317,3 +317,31 @@ func TestNumIslands(t *testing.T) {
 }
 
 // no test for cloned Graph
+
+func TestPacificAtlanctic(t *testing.T) {
+	tests := []struct {
+		heights [][]int
+		want    [][]int
+	}{
+		{
+			[][]int{
+				{1, 2, 2, 3, 5},
+				{3, 2, 3, 4, 4},
+				{2, 4, 5, 3, 1},
+				{6, 7, 1, 4, 5},
+				{5, 1, 1, 2, 4},
+			},
+			[][]int{{0, 4}, {1, 3}, {1, 4}, {2, 2}, {3, 0}, {3, 1}, {4, 0}},
+		},
+		{[][]int{{1}}, [][]int{{0, 0}}},
+	}
+
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.heights), func(t *testing.T) {
+			got := pacificAtlantic(tt.heights)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got: %v, want: %v", got, tt.want)
+			}
+		})
+	}
+}
