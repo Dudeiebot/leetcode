@@ -199,3 +199,13 @@ Finding the Middle:
 - Recursively clone each child node, then add the cloned child to the new node's children.
 - Begin the depth-first search from the input node.
 - Return the cloned version of the input node, which is now the root of the cloned graph.
+
+### Pacific and Atlantic
+
+- Given an m x n matrix of non-negative integers representing the height of each unit cell in a continent, we want to find the list of grid coordinates where water can flow to both the Pacific ocean and the Atlantic ocean.
+- The Pacific ocean touches the left and top edges of the matrix, and the Atlantic ocean touches the right and bottom edges.
+- The solution uses a depth-first search (DFS) approach to determine the cells that can reach each ocean
+- We create two boolean matrices, one for the Pacific ocean and one for the Atlantic ocean.
+- We start DFS from the edges touching each ocean, moving inward.
+- For each cell, we mark it as reachable if: It's on the edge of the continent and It's adjacent to a cell that can reach the ocean and its height is greater than or equal to that cell
+- After running DFS for both oceans, we find the cells that can reach both oceans.
