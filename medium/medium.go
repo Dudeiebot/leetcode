@@ -452,3 +452,52 @@ func cloneGraph(node *util.Node) *util.Node {
 	dfs(node)
 	return copies[node]
 }
+
+func pacificAtlantic(heights [][]int) [][]int {
+	res := make([][]int, 0)
+
+	if len(heights) == 0 || len(heights[0]) == 0 {
+		return res
+	}
+
+	rows := len(heights)
+	cols := len(heights[0])
+
+	pac := make([][]bool, rows)
+	atl := make([][]bool, rows)
+
+	for r := 0; r < rows; r++ {
+		pac[r] = make([]bool, cols)
+		atl[r] = make([]bool, cols)
+	}
+
+	var dfs func(r, c int, visit [][]bool, prevHeight int)
+	dfs = func(r, c int, visit [][]bool, prevHeight int) {
+		if r < 0 || c < 0 || r == rows || c == cols || heights[r][c] < prevHeight || visit[r][c] {
+			return
+		}
+		visit[r][c] = true
+		dfs(r+1, c, visit, heights[r][c])
+		dfs(r-1, c, visit, heights[r][c])
+		dfs(r, c+1, visit, heights[r][c])
+		dfs(r, c-1, visit, heights[r][c])
+	}
+
+	for c := 0; c < cols; c++ {
+		dfs(0, c, pac, heights[0][c])
+		dfs(rows-1, c, atl, heights[rows-1][c])
+	}
+
+	for r := 0; r < rows; r++ {
+		dfs(r, 0, pac, heights[r][0])
+		dfs(r, cols-1, atl, heights[r][cols-1])
+	}
+	for r := 0; r < rows; r++ {
+		for c := 0; c < cols; c++ {
+			if pac[r][c] && atl[r][c] {
+				res = append(res, []int{r, c})
+			}
+		}
+	}
+	return res
+}
