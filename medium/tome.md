@@ -209,3 +209,12 @@ Finding the Middle:
 - We start DFS from the edges touching each ocean, moving inward.
 - For each cell, we mark it as reachable if: It's on the edge of the continent and It's adjacent to a cell that can reach the ocean and its height is greater than or equal to that cell
 - After running DFS for both oceans, we find the cells that can reach both oceans.
+
+### course scheduler can finish
+
+- There are a total of n courses you have to take, labeled from 0 to n-1. Some courses may have prerequisites, for example, to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]
+- Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+- This problem can be solved using a graph-based approach, specifically using Depth-First Search (DFS) to detect cycles in the graph.
+- We use two boolean arrays: visited and visiting, visited[i] is true if course i has been fully processed, visiting[i] is true if course i is currently being processed (in the DFS stack).
+- If we encounter a course that is currently being visited, we've found a cycle, If we encounter a course that has already been fully visited, we can skip it.
+- We iterate through all courses and perform DFS on each unvisited course, If DFS returns false for any course, we return false (impossible to complete all courses), If we can process all courses without finding a cycle, we return true.
