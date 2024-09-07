@@ -345,3 +345,24 @@ func TestPacificAtlanctic(t *testing.T) {
 		})
 	}
 }
+
+func TestCanFinish(t *testing.T) {
+	tests := []struct {
+		numCourses    int
+		prerequisites [][]int
+		want          bool
+	}{
+		{2, [][]int{{1, 0}}, true},
+		{2, [][]int{{1, 0}, {0, 1}}, false},
+		{4, [][]int{{1, 0}, {2, 1}, {3, 2}}, true},
+	}
+
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.numCourses, tt.prerequisites), func(t *testing.T) {
+			got := canFinish(tt.numCourses, tt.prerequisites)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
