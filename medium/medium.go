@@ -501,3 +501,40 @@ func pacificAtlantic(heights [][]int) [][]int {
 	}
 	return res
 }
+
+func canFinish(numCourses int, prerequisites [][]int) bool {
+	visited := make([]bool, numCourses)
+	visiting := make([]bool, numCourses)
+
+	var dfs func(course int) bool
+
+	dfs = func(course int) bool {
+		if visited[course] {
+			return true
+		}
+
+		if visiting[course] {
+			return false
+		}
+
+		visiting[course] = true
+		for _, p := range prerequisites {
+			if p[0] == course {
+				if !dfs(p[1]) {
+					return false
+				}
+			}
+		}
+		visiting[course] = false
+		visited[course] = true
+		return true
+	}
+	for i := 0; i < numCourses; i++ {
+		if !visited[i] {
+			if !dfs(i) {
+				return false
+			}
+		}
+	}
+	return true
+}
