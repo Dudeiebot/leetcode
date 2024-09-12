@@ -551,3 +551,21 @@ func rob(nums []int) int {
 	}
 	return rob2
 }
+
+func robII(nums []int) int {
+	var helper func(nums []int) int
+
+	helper = func(nums []int) int {
+		h1, h2 := 0, 0
+		for _, n := range nums {
+			maxM := max(h1+n, h2)
+			h1 = h2
+			h2 = maxM
+		}
+		return h2
+	}
+	if len(nums) == 1 {
+		return nums[0]
+	}
+	return max(helper(nums[1:]), helper(nums[:len(nums)-1]))
+}
