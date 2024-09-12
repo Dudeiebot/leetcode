@@ -227,3 +227,10 @@ Finding the Middle:
 - We calculate the maximum amount that can be robbed including the current house (n + rob1) or excluding it (rob2).
 - We update rob1 and rob2 for the next iteration
 - After iterating through all houses, rob2 will contain the maximum amount that can be robbed
+
+### Rob II
+
+- the only difference here is that the house is arranged in a circular pattern and adjacent houses should not be robbed, That means the first house is the neighbor of the last one.
+- We define a helper function helper that calculates the maximum amount that can be robbed from a linear arrangement of houses (like in the original House Robber problem).
+- The helper function uses two variables, h1 and h2, to keep track of the maximum amount that can be robbed up to two houses ago and one house ago, respectively.
+- in the main func we consider two scenarios: (a.) Rob houses from the second to the last (excluding the first house, (b.) Rob houses from the first to the second last (excluding the last house)
