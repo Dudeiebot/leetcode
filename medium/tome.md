@@ -218,3 +218,12 @@ Finding the Middle:
 - We use two boolean arrays: visited and visiting, visited[i] is true if course i has been fully processed, visiting[i] is true if course i is currently being processed (in the DFS stack).
 - If we encounter a course that is currently being visited, we've found a cycle, If we encounter a course that has already been fully visited, we can skip it.
 - We iterate through all courses and perform DFS on each unvisited course, If DFS returns false for any course, we return false (impossible to complete all courses), If we can process all courses without finding a cycle, we return true.
+
+### Rob
+
+- These question is based on robbing a neighbourhood and each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+- We use two variables, rob1 and rob2, to keep track of the maximum amount that can be robbed up to two houses ago and one house ago, respectively
+- We iterate through each house (represented by n in the nums slice):
+- We calculate the maximum amount that can be robbed including the current house (n + rob1) or excluding it (rob2).
+- We update rob1 and rob2 for the next iteration
+- After iterating through all houses, rob2 will contain the maximum amount that can be robbed
