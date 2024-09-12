@@ -538,3 +538,16 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 	}
 	return true
 }
+
+// Dynamic Programming they can be very silly and get harder with time also
+func rob(nums []int) int {
+	rob1 := 0
+	rob2 := 0
+
+	for _, n := range nums {
+		temp := max(n+rob1, rob2)
+		rob1 = rob2
+		rob2 = temp
+	}
+	return rob2
+}
