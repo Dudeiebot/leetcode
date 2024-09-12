@@ -385,3 +385,22 @@ func TestRob(t *testing.T) {
 		})
 	}
 }
+
+func TestRobII(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{2, 3, 2}, 3},
+		{[]int{1, 2, 3, 1}, 4},
+		{[]int{1, 2, 3}, 3},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := robII(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
