@@ -366,3 +366,41 @@ func TestCanFinish(t *testing.T) {
 		})
 	}
 }
+
+func TestRob(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{2, 7, 9, 3, 1}, 12},
+		{[]int{1, 2, 3, 1}, 4},
+		{[]int{1, 2}, 2},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := rob(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestRobII(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{2, 3, 2}, 3},
+		{[]int{1, 2, 3, 1}, 4},
+		{[]int{1, 2, 3}, 3},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := robII(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
