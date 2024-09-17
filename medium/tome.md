@@ -234,3 +234,13 @@ Finding the Middle:
 - We define a helper function helper that calculates the maximum amount that can be robbed from a linear arrangement of houses (like in the original House Robber problem).
 - The helper function uses two variables, h1 and h2, to keep track of the maximum amount that can be robbed up to two houses ago and one house ago, respectively.
 - in the main func we consider two scenarios: (a.) Rob houses from the second to the last (excluding the first house, (b.) Rob houses from the first to the second last (excluding the last house)
+
+### Longest Palindrome
+
+- we find the longest palindromic substring in a given string. A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward.
+- It iterates through each character in the string.
+- For each character, it checks for palindromes of both odd and even lengths
+- Odd-length palindromes: Use the current character as the center.
+- Even-length palindromes: Use the current character and the next character as the center.
+- For each potential palindrome, it expands outward as long as the characters match and are within the string bounds
+- It keeps track of the longest palindrome found so far.
