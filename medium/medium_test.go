@@ -404,3 +404,21 @@ func TestRobII(t *testing.T) {
 		})
 	}
 }
+
+func TestLongestPalindrome(t *testing.T) {
+	tests := []struct {
+		s    string
+		want string
+	}{
+		{"babad", "bab"},
+		{"cbbd", "bb"},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := longestPalindrome(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
