@@ -244,3 +244,17 @@ Finding the Middle:
 - Even-length palindromes: Use the current character and the next character as the center.
 - For each potential palindrome, it expands outward as long as the characters match and are within the string bounds
 - It keeps track of the longest palindrome found so far.
+
+### Word Break
+
+- Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
+- initialize a queue q with the input string s.
+- Create a memoization map memo to store processed substrings.
+- While the queue is not empty:
+  a. Dequeue the first string (remaining).
+  b. If this string has been processed before (in memo), skip it.
+  c. For each word in the dictionary:
+- If the word matches the entire remaining string, return true.
+- If the word is a prefix of the remaining string:
+- Enqueue the substring after removing this prefix.
+- Mark the current remaining string as processed in memo.
