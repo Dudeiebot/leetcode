@@ -245,6 +245,11 @@ Finding the Middle:
 - For each potential palindrome, it expands outward as long as the characters match and are within the string bounds
 - It keeps track of the longest palindrome found so far.
 
+### palindrommic substring
+
+- this is the same pattern with longest palindrome, only that here we are checking to return the number of palindromic substring from a string s
+- and that is by checking all substring there and incrementing the result
+
 ### Word Break
 
 - Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
