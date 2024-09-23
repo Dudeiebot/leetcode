@@ -423,6 +423,24 @@ func TestLongestPalindrome(t *testing.T) {
 	}
 }
 
+func TestPalindromicString(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"abc", 3},
+		{"aaa", 6},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := palindromicSubstring(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestWordBreak(t *testing.T) {
 	tests := []struct {
 		s        string
