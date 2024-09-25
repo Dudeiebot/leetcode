@@ -639,3 +639,24 @@ func wordBreak(s string, wordDict []string) bool {
 	}
 	return false
 }
+
+func lengthOfLIS(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+
+	res := []int{nums[0]}
+	for i := 1; i < len(nums); i++ {
+		if nums[i] > res[len(res)-1] {
+			res = append(res, nums[i])
+		} else {
+			// Find the first element in res that is >= nums[i]
+			j := 0
+			for j < len(res) && res[j] < nums[i] {
+				j++
+			}
+			res[j] = nums[i]
+		}
+	}
+	return len(res)
+}

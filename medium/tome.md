@@ -263,3 +263,17 @@ Finding the Middle:
 - If the word is a prefix of the remaining string:
 - Enqueue the substring after removing this prefix.
 - Mark the current remaining string as processed in memo.
+
+### Length Of Lis
+
+- Given an integer array nums, return the length of the longest strictly increasing
+  subsequence
+- create an array store num[0]
+- start index from 1 and loop through
+- if nums[index] > last element of res
+- append
+- else
+- new var j
+- for loop to check if res[j] < nums[index]
+- it keep getting inncremented until loop break
+- res[j] = nums[i]
