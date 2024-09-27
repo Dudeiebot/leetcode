@@ -277,3 +277,11 @@ Finding the Middle:
 - for loop to check if res[j] < nums[index]
 - it keep getting inncremented until loop break
 - res[j] = nums[i]
+
+### Unique Path
+
+- a robot moving in a m \* n path and it can only go right or down, so we have to find all the unique path it can pass
+- we are going to be using the combination method which is the mathematical approach and also using the dynamic programming approach also
+- the combinatorial approach is straight forward because we are just ranging through it and upating the var ans
+- the dynamic programming approach intilizes the 2d array with 0 first, then range through intializing the beginning as 1, it goes on further to fill the first arr with 1 through out
+- then addition are done on all the array adding the down and the right
