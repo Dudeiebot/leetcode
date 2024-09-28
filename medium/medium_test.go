@@ -479,3 +479,20 @@ func TestLengthOfLIS(t *testing.T) {
 		})
 	}
 }
+
+func TestUniquePaths(t *testing.T) {
+	tests := []struct {
+		m, n, want int
+	}{
+		{3, 7, 28},
+		{3, 2, 3},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v and %v", tt.m, tt.n), func(t *testing.T) {
+			got := uniquePaths(tt.m, tt.n)
+			if got != tt.want {
+				t.Fatalf("Got %v, Want %v", got, tt.want)
+			}
+		})
+	}
+}
