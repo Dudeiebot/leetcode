@@ -496,3 +496,22 @@ func TestUniquePaths(t *testing.T) {
 		})
 	}
 }
+
+func TestLongestCommonSubsequence(t *testing.T) {
+	tests := []struct {
+		text1, text2 string
+		want         int
+	}{
+		{"abcde", "ace", 3},
+		{"abc", "abc", 3},
+		{"abc", "def", 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v and %v", tt.text1, tt.text2), func(t *testing.T) {
+			got := longestCommonSubsequence(tt.text1, tt.text2)
+			if got != tt.want {
+				t.Fatalf("Got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
