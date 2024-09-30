@@ -285,3 +285,11 @@ Finding the Middle:
 - the combinatorial approach is straight forward because we are just ranging through it and upating the var ans
 - the dynamic programming approach intilizes the 2d array with 0 first, then range through intializing the beginning as 1, it goes on further to fill the first arr with 1 through out
 - then addition are done on all the array adding the down and the right
+
+### Longest Common Subsequence
+
+- Given 2 string, return the longest common subsequence in the strings and it there is not return 0
+- wwe are going to be intializing a dp 2d array with dimension (len(text1)+1) x (len(text2)+1)
+- we are using a nested loop to fill teh dp 2d array and if the characters match we are going to be adding '1' to the LCS
+- if it doesnot match it take the max of the lcs without including without either character
+- Finally, it returns the value in the bottom-right cell of the matrix, which represents the length of the longest common subsequence
