@@ -515,3 +515,23 @@ func TestLongestCommonSubsequence(t *testing.T) {
 		})
 	}
 }
+
+func TestMaxSubArr(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{-2, 1, -3, 4, -1, 2, 1, -5, 4}, 6},
+		{[]int{1}, 1},
+		{[]int{-1}, -1},
+		{[]int{5, 4, -1, 7, 8}, 23},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("got %v", tt.nums), func(t *testing.T) {
+			got := maxSubArray(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

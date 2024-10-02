@@ -734,3 +734,14 @@ func longestCommonSubsequence(text1, text2 string) int {
 	}
 	return dp[len(text1)][len(text2)]
 }
+
+func maxSubArray(nums []int) int {
+	max_end := nums[0]
+	max_at_certain := nums[0]
+
+	for i := 1; i < len(nums); i++ {
+		max_at_certain = max(max_at_certain+nums[i], nums[i])
+		max_end = max(max_end, max_at_certain)
+	}
+	return max_end
+}

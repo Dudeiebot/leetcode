@@ -293,3 +293,11 @@ Finding the Middle:
 - we are using a nested loop to fill teh dp 2d array and if the characters match we are going to be adding '1' to the LCS
 - if it doesnot match it take the max of the lcs without including without either character
 - Finally, it returns the value in the bottom-right cell of the matrix, which represents the length of the longest common subsequence
+
+### Max subarray
+
+- we are using Kadane's Algorithm to solve the maximum subarray sum problem. Given an array of integers, it finds the contiguous subarray with the largest sum
+- At each position i, the algorithm makes a choice:
+  - Either extend the previous subarray (max_at_certain + nums[i])
+  - Or start a new subarray from the current position (nums[i])
+- max_end is updated to maintain the overall maximum sum found
