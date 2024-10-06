@@ -260,6 +260,15 @@ Finding the Middle:
 
 The final answer is stored in dp[n] where n is the string length
 
+### coinChange
+
+- Given a set of coin denominations and a target amount, find the minimum number of coins needed to make up that amount. If it's not possible to make the amount with the given coins, return -1.
+- Always initialize dp[0] = 0 as base case
+- Initialize other dp values to amount + 1 (impossible value)
+- Process each amount from 1 to target
+- For each amount, try all possible coins
+- Final answer exists only if dp[amount] ≤ amount
+
 ### Word Break
 
 - Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
