@@ -441,6 +441,83 @@ func TestPalindromicString(t *testing.T) {
 	}
 }
 
+func TestNumDecoding(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"12", 2},
+		{"226", 3},
+		{"06", 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := numDecodings(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestCoinChange(t *testing.T) {
+	tests := []struct {
+		coins  []int
+		amount int
+		want   int
+	}{
+		{[]int{1, 2, 5}, 11, 3},
+		{[]int{2}, 3, -1},
+		{[]int{1}, 0, 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.coins, tt.amount), func(t *testing.T) {
+			got := coinChange(tt.coins, tt.amount)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestCoinChangeII(t *testing.T) {
+	tests := []struct {
+		amount int
+		coins  []int
+		want   int
+	}{
+		{5, []int{1, 2, 5}, 4},
+		{3, []int{2}, 0},
+		{10, []int{10}, 1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.coins, tt.amount), func(t *testing.T) {
+			got := coinChangeII(tt.amount, tt.coins)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestMaxProduct(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{2, 3, -2, 4}, 6},
+		{[]int{-2, 0, -1}, 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := maxProduct(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestWordBreak(t *testing.T) {
 	tests := []struct {
 		s        string
@@ -530,6 +607,47 @@ func TestMaxSubArr(t *testing.T) {
 		t.Run(fmt.Sprintf("got %v", tt.nums), func(t *testing.T) {
 			got := maxSubArray(tt.nums)
 			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestCanJump(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want bool
+	}{
+		{[]int{2, 3, 1, 1, 4}, true},
+		{[]int{3, 2, 1, 0, 4}, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := canJump(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestInsert(t *testing.T) {
+	tests := []struct {
+		intervals   [][]int
+		newInterval []int
+		want        [][]int
+	}{
+		{[][]int{{1, 3}, {6, 9}, {11, 15}}, []int{2, 7}, [][]int{{1, 9}, {11, 15}}},
+		{
+			[][]int{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}},
+			[]int{4, 8},
+			[][]int{{1, 2}, {3, 10}, {12, 16}},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.intervals, tt.newInterval), func(t *testing.T) {
+			got := insert(tt.intervals, tt.newInterval)
+			if !reflect.DeepEqual(got, tt.want) {
 				t.Fatalf("got %v, want %v", got, tt.want)
 			}
 		})

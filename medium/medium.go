@@ -618,6 +618,86 @@ func palindromicSubstring(s string) int {
 	return res
 }
 
+func numDecodings(s string) int {
+	if len(s) == 0 || s[0] == '0' {
+		return 0
+	}
+
+	n := len(s)
+	dp := make([]int, n+1)
+	dp[0], dp[1] = 1, 1
+
+	for i := 2; i <= n; i++ {
+		// Check one-digit number
+		if s[i-1] != '0' {
+			dp[i] += dp[i-1]
+		}
+
+		// Check two-digit number
+		twoDigit := s[i-2 : i]
+		if twoDigit >= "10" && twoDigit <= "26" {
+			dp[i] += dp[i-2]
+		}
+	}
+
+	return dp[n]
+}
+
+func coinChange(coins []int, amount int) int {
+	dp := make([]int, amount+1)
+	for i := 1; i <= amount; i++ {
+		dp[i] = amount + 1 // Initialize with a value larger than possible
+	}
+	dp[0] = 0
+	for i := 1; i <= amount; i++ {
+		for _, coin := range coins {
+			if coin <= i {
+				dp[i] = min(dp[i], 1+dp[i-coin])
+			}
+		}
+	}
+
+	if dp[amount] > amount {
+		return -1 // If no solution is possible
+	}
+	return dp[amount]
+}
+
+func coinChangeII(amount int, coins []int) int {
+	dp := make([]int, amount+1)
+	dp[0] = 1
+
+	for _, coin := range coins {
+		for j := coin; j <= amount; j++ {
+			dp[j] += dp[j-coin]
+		}
+	}
+
+	return dp[amount]
+}
+
+func maxProduct(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+
+	maxSoFar := nums[0]
+	minSoFar := nums[0]
+	result := maxSoFar
+
+	for i := 1; i < len(nums); i++ {
+		curr := nums[i]
+		tempMax := max(curr, max(maxSoFar*curr, minSoFar*curr))
+		minSoFar = min(curr, min(maxSoFar*curr, minSoFar*curr))
+
+		maxSoFar = tempMax
+
+		result = max(result, maxSoFar)
+	}
+
+	return result
+}
+
 func wordBreak(s string, wordDict []string) bool {
 	q := []string{s}
 	memo := make(map[string]bool)
@@ -744,4 +824,37 @@ func maxSubArray(nums []int) int {
 		max_end = max(max_end, max_at_certain)
 	}
 	return max_end
+}
+
+func canJump(nums []int) bool {
+	reach := 0
+	for i := 0; i <= reach; i++ {
+		if reach < i+nums[i] {
+			reach = i + nums[i]
+		}
+		if reach >= len(nums)-1 {
+			return true
+		}
+	}
+	return false
+}
+
+func insert(intervals [][]int, newInterval []int) [][]int {
+	res := [][]int{}
+
+	for i := 0; i < len(intervals); i++ {
+		if newInterval[1] < intervals[i][0] {
+			res = append(res, newInterval)
+			return append(res, intervals[i:]...)
+		} else if newInterval[0] > intervals[i][1] {
+			res = append(res, intervals[i])
+		} else {
+			newInterval = []int{
+				min(newInterval[0], intervals[i][0]),
+				max(newInterval[1], intervals[i][1]),
+			}
+		}
+	}
+	res = append(res, newInterval)
+	return res
 }

@@ -250,6 +250,38 @@ Finding the Middle:
 - this is the same pattern with longest palindrome, only that here we are checking to return the number of palindromic substring from a string s
 - and that is by checking all substring there and incrementing the result
 
+### numDecodings
+
+- Given a string of digits, return the number of ways to decode it
+- Edge Cases, The function handles several edge cases: Empty strings return 0, Strings starting with '0' return 0, Invalid two-digit combinations (> 26) are automatically handled
+- dp[i] represents the number of ways to decode the string up to index i-1, For each position, it considers:
+  - Single digit decoding (if digit is not '0')
+  - Two digit decoding (if number is between 10 and 26)
+
+The final answer is stored in dp[n] where n is the string length
+
+### coinChange
+
+- Given a set of coin denominations and a target amount, find the minimum number of coins needed to make up that amount. If it's not possible to make the amount with the given coins, return -1.
+- Always initialize dp[0] = 0 as base case
+- Initialize other dp values to amount + 1 (impossible value)
+- Process each amount from 1 to target
+- For each amount, try all possible coins
+- Final answer exists only if dp[amount] ≤ amount
+
+### coinChange II
+
+- just like the other coinChnage this one goes furthe in finding the amount of combination in getting the amount from the coins
+- initalizing our dp table
+- loop over each coin, and updating the dp table with returning the result
+
+### Max Product
+
+- The maxProduct function is designed to solve the "Maximum Product Subarray" problem, which asks for the largest product that can be obtained from a contiguous subarray in a given list of integers nums.
+- Starting from the second element (i = 1), iterate over the nums array.
+- At each step we check the tempmax, maxsofar and minsofar
+- We iterate through the array while maintaining the maximum and minimum products up to the current position. This helps account for negative numbers, which can flip the effect of products
+
 ### Word Break
 
 - Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
@@ -301,3 +333,17 @@ Finding the Middle:
   - Either extend the previous subarray (max_at_certain + nums[i])
   - Or start a new subarray from the current position (nums[i])
 - max_end is updated to maintain the overall maximum sum found
+
+### Can Jump
+
+- You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position. Return true if you can reach the last index, or false otherwise.
+- reach is the maximum index that can be reached, where i is the current positon in the array
+- we go through the array and update the new reach as we ge to there, Ensures we only try jumping from positions we can actually reach
+- If i becomes greater than reach, we can't get there
+
+### insert
+
+- we have an intervals 2d array, and newintervals array, so what we are doing is that, we want to Insert newInterval into intervals such that intervals is still sorted in ascending order by [starti] and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary)
+- case 1, we check if the newInterval is ends before the current interval and the is the first if statement
+- else we check if newInterval start befor the intervals
+- else there is an overlap which does the blatant min and max of both points
