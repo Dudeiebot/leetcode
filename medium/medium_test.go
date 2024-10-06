@@ -535,3 +535,26 @@ func TestMaxSubArr(t *testing.T) {
 		})
 	}
 }
+
+func TestInsert(t *testing.T) {
+	tests := []struct {
+		intervals   [][]int
+		newInterval []int
+		want        [][]int
+	}{
+		{[][]int{{1, 3}, {6, 9}, {11, 15}}, []int{2, 7}, [][]int{{1, 9}, {11, 15}}},
+		{
+			[][]int{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}},
+			[]int{4, 8},
+			[][]int{{1, 2}, {3, 10}, {12, 16}},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.intervals, tt.newInterval), func(t *testing.T) {
+			got := insert(tt.intervals, tt.newInterval)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
