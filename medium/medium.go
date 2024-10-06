@@ -746,6 +746,19 @@ func maxSubArray(nums []int) int {
 	return max_end
 }
 
+func canJump(nums []int) bool {
+	reach := 0
+	for i := 0; i <= reach; i++ {
+		if reach < i+nums[i] {
+			reach = i + nums[i]
+		}
+		if reach >= len(nums)-1 {
+			return true
+		}
+	}
+	return false
+}
+
 func insert(intervals [][]int, newInterval []int) [][]int {
 	res := [][]int{}
 
