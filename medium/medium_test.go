@@ -460,6 +460,26 @@ func TestNumDecoding(t *testing.T) {
 	}
 }
 
+func TestCoinChange(t *testing.T) {
+	tests := []struct {
+		coins  []int
+		amount int
+		want   int
+	}{
+		{[]int{1, 2, 5}, 11, 3},
+		{[]int{2}, 3, -1},
+		{[]int{1}, 0, 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.coins, tt.amount), func(t *testing.T) {
+			got := coinChange(tt.coins, tt.amount)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestWordBreak(t *testing.T) {
 	tests := []struct {
 		s        string
