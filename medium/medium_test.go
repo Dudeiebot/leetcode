@@ -441,6 +441,25 @@ func TestPalindromicString(t *testing.T) {
 	}
 }
 
+func TestNumDecoding(t *testing.T) {
+	tests := []struct {
+		s    string
+		want int
+	}{
+		{"12", 2},
+		{"226", 3},
+		{"06", 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.s), func(t *testing.T) {
+			got := numDecodings(tt.s)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestWordBreak(t *testing.T) {
 	tests := []struct {
 		s        string
