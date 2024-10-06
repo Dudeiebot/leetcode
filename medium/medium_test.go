@@ -536,6 +536,24 @@ func TestMaxSubArr(t *testing.T) {
 	}
 }
 
+func TestCanJump(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want bool
+	}{
+		{[]int{2, 3, 1, 1, 4}, true},
+		{[]int{3, 2, 1, 0, 4}, false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := canJump(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestInsert(t *testing.T) {
 	tests := []struct {
 		intervals   [][]int
