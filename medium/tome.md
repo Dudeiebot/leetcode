@@ -250,6 +250,16 @@ Finding the Middle:
 - this is the same pattern with longest palindrome, only that here we are checking to return the number of palindromic substring from a string s
 - and that is by checking all substring there and incrementing the result
 
+### numDecodings
+
+- Given a string of digits, return the number of ways to decode it
+- Edge Cases, The function handles several edge cases: Empty strings return 0, Strings starting with '0' return 0, Invalid two-digit combinations (> 26) are automatically handled
+- dp[i] represents the number of ways to decode the string up to index i-1, For each position, it considers:
+  - Single digit decoding (if digit is not '0')
+  - Two digit decoding (if number is between 10 and 26)
+
+The final answer is stored in dp[n] where n is the string length
+
 ### Word Break
 
 - Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
