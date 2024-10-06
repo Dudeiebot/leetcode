@@ -269,6 +269,12 @@ The final answer is stored in dp[n] where n is the string length
 - For each amount, try all possible coins
 - Final answer exists only if dp[amount] ≤ amount
 
+### coinChange II
+
+- just like the other coinChnage this one goes furthe in finding the amount of combination in getting the amount from the coins
+- initalizing our dp table
+- loop over each coin, and updating the dp table with returning the result
+
 ### Word Break
 
 - Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
