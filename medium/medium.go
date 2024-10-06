@@ -643,6 +643,26 @@ func numDecodings(s string) int {
 	return dp[n]
 }
 
+func coinChange(coins []int, amount int) int {
+	dp := make([]int, amount+1)
+	for i := 1; i <= amount; i++ {
+		dp[i] = amount + 1 // Initialize with a value larger than possible
+	}
+	dp[0] = 0
+	for i := 1; i <= amount; i++ {
+		for _, coin := range coins {
+			if coin <= i {
+				dp[i] = min(dp[i], 1+dp[i-coin])
+			}
+		}
+	}
+
+	if dp[amount] > amount {
+		return -1 // If no solution is possible
+	}
+	return dp[amount]
+}
+
 func wordBreak(s string, wordDict []string) bool {
 	q := []string{s}
 	memo := make(map[string]bool)
