@@ -500,6 +500,24 @@ func TestCoinChangeII(t *testing.T) {
 	}
 }
 
+func TestMaxProduct(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{2, 3, -2, 4}, 6},
+		{[]int{-2, 0, -1}, 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := maxProduct(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestWordBreak(t *testing.T) {
 	tests := []struct {
 		s        string
