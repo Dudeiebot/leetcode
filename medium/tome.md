@@ -302,6 +302,13 @@ Finding the Middle:
   - Or start a new subarray from the current position (nums[i])
 - max_end is updated to maintain the overall maximum sum found
 
+### Can Jump
+
+- You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position. Return true if you can reach the last index, or false otherwise.
+- reach is the maximum index that can be reached, where i is the current positon in the array
+- we go through the array and update the new reach as we ge to there, Ensures we only try jumping from positions we can actually reach
+- If i becomes greater than reach, we can't get there
+
 ### insert
 
 - we have an intervals 2d array, and newintervals array, so what we are doing is that, we want to Insert newInterval into intervals such that intervals is still sorted in ascending order by [starti] and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary)
