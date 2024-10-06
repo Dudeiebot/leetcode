@@ -275,6 +275,13 @@ The final answer is stored in dp[n] where n is the string length
 - initalizing our dp table
 - loop over each coin, and updating the dp table with returning the result
 
+### Max Product
+
+- The maxProduct function is designed to solve the "Maximum Product Subarray" problem, which asks for the largest product that can be obtained from a contiguous subarray in a given list of integers nums.
+- Starting from the second element (i = 1), iterate over the nums array.
+- At each step we check the tempmax, maxsofar and minsofar
+- We iterate through the array while maintaining the maximum and minimum products up to the current position. This helps account for negative numbers, which can flip the effect of products
+
 ### Word Break
 
 - Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
