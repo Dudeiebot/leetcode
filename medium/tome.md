@@ -301,3 +301,10 @@ Finding the Middle:
   - Either extend the previous subarray (max_at_certain + nums[i])
   - Or start a new subarray from the current position (nums[i])
 - max_end is updated to maintain the overall maximum sum found
+
+### insert
+
+- we have an intervals 2d array, and newintervals array, so what we are doing is that, we want to Insert newInterval into intervals such that intervals is still sorted in ascending order by [starti] and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary)
+- case 1, we check if the newInterval is ends before the current interval and the is the first if statement
+- else we check if newInterval start befor the intervals
+- else there is an overlap which does the blatant min and max of both points
