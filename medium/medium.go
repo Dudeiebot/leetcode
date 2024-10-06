@@ -676,6 +676,28 @@ func coinChangeII(amount int, coins []int) int {
 	return dp[amount]
 }
 
+func maxProduct(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+
+	maxSoFar := nums[0]
+	minSoFar := nums[0]
+	result := maxSoFar
+
+	for i := 1; i < len(nums); i++ {
+		curr := nums[i]
+		tempMax := max(curr, max(maxSoFar*curr, minSoFar*curr))
+		minSoFar = min(curr, min(maxSoFar*curr, minSoFar*curr))
+
+		maxSoFar = tempMax
+
+		result = max(result, maxSoFar)
+	}
+
+	return result
+}
+
 func wordBreak(s string, wordDict []string) bool {
 	q := []string{s}
 	memo := make(map[string]bool)
