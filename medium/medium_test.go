@@ -480,6 +480,26 @@ func TestCoinChange(t *testing.T) {
 	}
 }
 
+func TestCoinChangeII(t *testing.T) {
+	tests := []struct {
+		amount int
+		coins  []int
+		want   int
+	}{
+		{5, []int{1, 2, 5}, 4},
+		{3, []int{2}, 0},
+		{10, []int{10}, 1},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.coins, tt.amount), func(t *testing.T) {
+			got := coinChangeII(tt.amount, tt.coins)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestWordBreak(t *testing.T) {
 	tests := []struct {
 		s        string
