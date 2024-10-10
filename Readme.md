@@ -1,1 +1,1 @@
-This repository contains a collection of solutions to various problems from LeetCode, all implemented using the Go. The solutions cover a wide range of algorithmic and data structure challenges, providing practical examples of Go's application in solving common coding interview questions
+This repository contains a collection of solutions to various problems from LeetCode, all implemented using Go. The solutions cover a wide range of algorithmic and data structure challenges, providing practical examples of Go's application in solving common coding interview questions
