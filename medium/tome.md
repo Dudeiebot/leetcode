@@ -347,3 +347,9 @@ The final answer is stored in dp[n] where n is the string length
 - case 1, we check if the newInterval is ends before the current interval and the is the first if statement
 - else we check if newInterval start befor the intervals
 - else there is an overlap which does the blatant min and max of both points
+
+### merge
+
+- this basically merge intervals where they are overlapping
+- so first we sort the 2d array, and we create like a newInterval for checking with the intervals
+- compare and contrast returning the max and swapping values get all done
