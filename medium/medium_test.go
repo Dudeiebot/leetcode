@@ -653,3 +653,21 @@ func TestInsert(t *testing.T) {
 		})
 	}
 }
+
+func TestMerge(t *testing.T) {
+	tests := []struct {
+		intervals [][]int
+		want      [][]int
+	}{
+		{[][]int{{1, 3}, {2, 6}, {8, 10}, {15, 18}}, [][]int{{1, 6}, {8, 10}, {15, 18}}},
+		{[][]int{{1, 4}, {4, 5}}, [][]int{{1, 5}}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.intervals), func(t *testing.T) {
+			got := merge(tt.intervals)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
