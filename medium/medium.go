@@ -2,7 +2,6 @@ package medium
 
 import (
 	"slices"
-	"sort"
 	"strings"
 
 	"leetCode/graph"
@@ -857,24 +856,5 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 		}
 	}
 	res = append(res, newInterval)
-	return res
-}
-
-func merge(intervals [][]int) [][]int {
-	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][0] < intervals[j][0]
-	})
-
-	var res [][]int
-	current := intervals[0]
-
-	for j := range intervals {
-		if intervals[j][0] > current[1] {
-			res = append(res, current)
-			current = intervals[j]
-		}
-		current[1] = max(current[1], intervals[j][1])
-	}
-	res = append(res, current)
 	return res
 }
