@@ -878,3 +878,18 @@ func merge(intervals [][]int) [][]int {
 	res = append(res, current)
 	return res
 }
+
+func rotate(matrix [][]int) {
+	row := len(matrix)
+	col := len(matrix[0])
+	// transposing the array
+	for r := 0; r < col; r++ {
+		for c := r; c < row; c++ {
+			matrix[c][r], matrix[r][c] = matrix[r][c], matrix[c][r]
+		}
+		// reversing the array
+		for c, k := 0, col-1; c < k; c, k = c+1, k-1 {
+			matrix[r][c], matrix[r][k] = matrix[r][k], matrix[r][c]
+		}
+	}
+}
