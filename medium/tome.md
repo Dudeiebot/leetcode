@@ -353,3 +353,10 @@ The final answer is stored in dp[n] where n is the string length
 - this basically merge intervals where they are overlapping
 - so first we sort the 2d array, and we create like a newInterval for checking with the intervals
 - compare and contrast returning the max and swapping values get all done
+
+### Rotate
+
+- rotating a 2d matrix(example is an imgae) 90 degree clockwise,
+- so here we are going to be transposing the matrix first and Reversing it
+- transposing matrix row become columns
+- so we reverse it to get the rotated matrix
