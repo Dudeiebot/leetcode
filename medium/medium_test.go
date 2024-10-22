@@ -672,6 +672,25 @@ func TestMerge(t *testing.T) {
 	}
 }
 
+func TestEraseOverLapIntervals(t *testing.T) {
+	tests := []struct {
+		intervals [][]int
+		want      int
+	}{
+		{[][]int{{1, 2}, {2, 3}, {3, 4}, {1, 3}}, 1},
+		{[][]int{{1, 2}, {1, 2}, {1, 2}}, 2},
+		{[][]int{{1, 2}, {2, 3}}, 0},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.intervals), func(t *testing.T) {
+			got := eraseOverLapIntervals(tt.intervals)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestRotate(t *testing.T) {
 	tests := []struct {
 		matrix [][]int

@@ -354,6 +354,13 @@ The final answer is stored in dp[n] where n is the string length
 - so first we sort the 2d array, and we create like a newInterval for checking with the intervals
 - compare and contrast returning the max and swapping values get all done
 
+### erase overlapping intervals
+
+- first we sort the 2d array and it can be sorted with slices.sortFunc and sort.slices
+- If current interval starts before previous interval ends < we have an overlap >
+- If current interval ends before previous interval < update currentInterval to the one that ends earlier >
+- we increment the counter, and if there is not we go on further by updating the currentInterval to i
+
 ### Rotate
 
 - rotating a 2d matrix(example is an imgae) 90 degree clockwise,

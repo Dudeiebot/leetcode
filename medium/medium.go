@@ -2,7 +2,6 @@ package medium
 
 import (
 	"slices"
-	"sort"
 	"strings"
 
 	"leetCode/graph"
@@ -861,8 +860,11 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 }
 
 func merge(intervals [][]int) [][]int {
-	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][0] < intervals[j][0]
+	// sort.Slice(intervals, func(i, j int) bool {
+	// 	return intervals[i][0] < intervals[j][0]
+	// })
+	slices.SortFunc(intervals, func(a, b []int) int {
+		return a[0] - b[0]
 	})
 
 	var res [][]int
@@ -877,6 +879,29 @@ func merge(intervals [][]int) [][]int {
 	}
 	res = append(res, current)
 	return res
+}
+
+func eraseOverLapIntervals(intervals [][]int) int {
+	slices.SortFunc(intervals, func(a, b []int) int {
+		return a[0] - b[0]
+	})
+	// sort.Slice(intervals, func(i, j int) bool {
+	// 	return intervals[i][0] < intervals[j][0]
+	// })
+
+	currentInterval := 0
+	ans := 0
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] < intervals[currentInterval][1] {
+			if intervals[i][1] < intervals[currentInterval][1] {
+				currentInterval = i
+			}
+			ans++
+		} else {
+			currentInterval = i
+		}
+	}
+	return ans
 }
 
 func rotate(matrix [][]int) {
