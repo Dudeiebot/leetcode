@@ -373,3 +373,9 @@ The final answer is stored in dp[n] where n is the string length
 - Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's. You must do it in place.
 - so we create an array row and column to store all the 1 in the matrix
 - then we range through the array and any occurence of 1 in row and column will be replaced to 0 in the matrix
+
+### Get Sum
+
+- so this is us performing addition without using the addition sign "+",
+- so here we are solving it with binary, first we xand both number and leftshift it once, we store it as b
+- we check till b is equal to zeros and xor the both number
