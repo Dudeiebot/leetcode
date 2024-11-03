@@ -732,3 +732,20 @@ func TestSetZeroes(t *testing.T) {
 		})
 	}
 }
+
+func TestGetSum(t *testing.T) {
+	tests := []struct {
+		a, b, want int
+	}{
+		{2, 3, 5},
+		{4, 8, 12},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.a, tt.b), func(t *testing.T) {
+			got := getSum(tt.a, tt.b)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
