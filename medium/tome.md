@@ -368,6 +368,18 @@ The final answer is stored in dp[n] where n is the string length
 - transposing matrix row become columns
 - so we reverse it to get the rotated matrix
 
+### SpiralOrder
+
+- Given an m x n matrix, return all elements of the matrix in spiral order.
+- Right (→), Down (↓), Left (←), Up (↑).
+- Edge Cases, Empty matrix (nil or len(matrix) == 0): Returns an empty slice, Single row matrix: Returns elements from left to right, Single column matrix: Returns elements from top to bottom, Non-square matrix: Handles rectangular matrices correctly
+- The function uses four pointers (top, bottom, left, right) to keep track of the boundaries of the current layer being processed. It processes each layer in four steps:
+  - Traverse from left to right along the top row
+  - Traverse from top to bottom along the right column
+  - Traverse from right to left along the bottom row
+  - Traverse from bottom to top along the left column
+- After each step, the corresponding boundary is adjusted, and the process continues until all elements have been visited.
+
 ### Set zEroes
 
 - Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's. You must do it in place.
