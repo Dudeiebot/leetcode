@@ -1016,3 +1016,46 @@ func maxSlidingWindow(nums []int, k int) []int {
 	}
 	return res
 }
+
+func minWindow(s string, t string) string {
+	rem := 0
+	countT := make(map[byte]int)
+
+	for i := range t {
+		rem++
+		countT[t[i]]++
+	}
+
+	if rem > len(s) {
+		return ""
+	}
+
+	res := string(make([]byte, len(s)))
+	start, end := 0, 0
+
+	for end < len(s) {
+		if v, ok := countT[s[end]]; ok {
+			if v > 0 {
+				rem--
+			}
+			countT[s[end]]--
+		}
+		for rem <= 0 {
+			if len(res) >= len(s[start:end+1]) {
+				res = s[start : end+1]
+			}
+			if _, ok := countT[s[start]]; ok {
+				countT[s[start]]++
+				if countT[s[start]] > 0 {
+					rem++
+				}
+			}
+			start++
+		}
+		end++
+	}
+	if res == string(make([]byte, len(s))) {
+		return ""
+	}
+	return res
+}
