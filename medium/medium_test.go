@@ -770,3 +770,22 @@ func TestGetSum(t *testing.T) {
 		})
 	}
 }
+
+func TestMaxSlidingWindow(t *testing.T) {
+	tests := []struct {
+		nums []int
+		k    int
+		want []int
+	}{
+		{[]int{1, 3, -1, -3, 5, 3, 6, 7}, 3, []int{3, 3, 5, 5, 6, 7}},
+		{[]int{1}, 1, []int{1}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.nums, tt.k), func(t *testing.T) {
+			got := maxSlidingWindow(tt.nums, tt.k)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
