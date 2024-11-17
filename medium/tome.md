@@ -391,3 +391,11 @@ The final answer is stored in dp[n] where n is the string length
 - so this is us performing addition without using the addition sign "+",
 - so here we are solving it with binary, first we xand both number and leftshift it once, we store it as b
 - we check till b is equal to zeros and xor the both number
+
+### Max Sliding Window
+
+- What we are doing here is a queue being created
+- we check for the nos of k which is the first window
+- we check for the biggest and store the number in res, this is for the first 3
+- in continual process, we compare the newly added input with the remaining 2 num in the queue and if it is bigger we can remove the leftmost at the end (if it is outside the window, that is why we compare it with the window size)
+- so the approach for continual process is checking the current window (that is k) comparing it with the remaining nums (using our for loop, i.e if our new input is bigger than the remaining nums in the deque we remove them) and append the index of the new num, store the num and check if the window is still the same size or it is bigger than the size required then we can remove the leftmost element
