@@ -399,3 +399,14 @@ The final answer is stored in dp[n] where n is the string length
 - we check for the biggest and store the number in res, this is for the first 3
 - in continual process, we compare the newly added input with the remaining 2 num in the queue and if it is bigger we can remove the leftmost at the end (if it is outside the window, that is why we compare it with the window size)
 - so the approach for continual process is checking the current window (that is k) comparing it with the remaining nums (using our for loop, i.e if our new input is bigger than the remaining nums in the deque we remove them) and append the index of the new num, store the num and check if the window is still the same size or it is bigger than the size required then we can remove the leftmost element
+
+### Min Window in a string
+
+so what we are doing is that, in our intial approach our rem is equal to t
+then we range through s and decrement our rem, when rem is equal to 0
+we store the current in an array, we can convert it back to string
+so our map is used to keep track of how many of the characters we need
+
+Use a sliding window approach with two pointers (start and end) to keep track of the current substring in s.
+Use a hash map (countT) to track the count of each character in t.
+Maintain a counter (rem) to track how many characters are still needed to satisfy the substring condition.
