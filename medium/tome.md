@@ -368,6 +368,18 @@ The final answer is stored in dp[n] where n is the string length
 - transposing matrix row become columns
 - so we reverse it to get the rotated matrix
 
+### SpiralOrder
+
+- Given an m x n matrix, return all elements of the matrix in spiral order.
+- Right (→), Down (↓), Left (←), Up (↑).
+- Edge Cases, Empty matrix (nil or len(matrix) == 0): Returns an empty slice, Single row matrix: Returns elements from left to right, Single column matrix: Returns elements from top to bottom, Non-square matrix: Handles rectangular matrices correctly
+- The function uses four pointers (top, bottom, left, right) to keep track of the boundaries of the current layer being processed. It processes each layer in four steps:
+  - Traverse from left to right along the top row
+  - Traverse from top to bottom along the right column
+  - Traverse from right to left along the bottom row
+  - Traverse from bottom to top along the left column
+- After each step, the corresponding boundary is adjusted, and the process continues until all elements have been visited.
+
 ### Set zEroes
 
 - Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's. You must do it in place.
@@ -379,3 +391,22 @@ The final answer is stored in dp[n] where n is the string length
 - so this is us performing addition without using the addition sign "+",
 - so here we are solving it with binary, first we xand both number and leftshift it once, we store it as b
 - we check till b is equal to zeros and xor the both number
+
+### Max Sliding Window
+
+- What we are doing here is a queue being created
+- we check for the nos of k which is the first window
+- we check for the biggest and store the number in res, this is for the first 3
+- in continual process, we compare the newly added input with the remaining 2 num in the queue and if it is bigger we can remove the leftmost at the end (if it is outside the window, that is why we compare it with the window size)
+- so the approach for continual process is checking the current window (that is k) comparing it with the remaining nums (using our for loop, i.e if our new input is bigger than the remaining nums in the deque we remove them) and append the index of the new num, store the num and check if the window is still the same size or it is bigger than the size required then we can remove the leftmost element
+
+### Min Window in a string
+
+so what we are doing is that, in our intial approach our rem is equal to t
+then we range through s and decrement our rem, when rem is equal to 0
+we store the current in an array, we can convert it back to string
+so our map is used to keep track of how many of the characters we need
+
+Use a sliding window approach with two pointers (start and end) to keep track of the current substring in s.
+Use a hash map (countT) to track the count of each character in t.
+Maintain a counter (rem) to track how many characters are still needed to satisfy the substring condition.

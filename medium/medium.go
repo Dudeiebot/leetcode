@@ -919,6 +919,51 @@ func rotate(matrix [][]int) {
 	}
 }
 
+func spiralOrder(matrix [][]int) []int {
+	if matrix == nil || len(matrix) == 0 {
+		return []int{}
+	}
+	res := []int{}
+	top, bottom, left, right := 0, len(matrix)-1, 0, len(matrix[0])-1
+	for {
+		// right
+		for i := left; i <= right; i++ {
+			res = append(res, matrix[top][i])
+		}
+		top++
+		if top > bottom {
+			break
+		}
+		// down
+		for i := top; i <= bottom; i++ {
+			res = append(res, matrix[i][right])
+		}
+		right--
+		if left > right {
+			break
+		}
+
+		// left
+		for i := right; i >= left; i-- {
+			res = append(res, matrix[bottom][i])
+		}
+		bottom--
+		if top > bottom {
+			break
+		}
+
+		// up
+		for i := bottom; i >= top; i-- {
+			res = append(res, matrix[i][left])
+		}
+		left++
+		if left > right {
+			break
+		}
+	}
+	return res
+}
+
 func setZeroes(matrix [][]int) {
 	n := len(matrix)
 	m := len(matrix[0])
@@ -950,4 +995,67 @@ func getSum(a, b int) int {
 		b = tmp
 	}
 	return a
+}
+
+func maxSlidingWindow(nums []int, k int) []int {
+	deque := make([]int, 0, k)
+	res := make([]int, 0, len(nums)-k+1)
+
+	for i, n := range nums {
+		for len(deque) > 0 && nums[deque[len(deque)-1]] < n {
+			deque = deque[:len(deque)-1]
+		}
+		deque = append(deque, i)
+		if i < k-1 {
+			continue
+		}
+		res = append(res, nums[deque[0]])
+		if deque[0] == i-k+1 {
+			deque = deque[1:]
+		}
+	}
+	return res
+}
+
+func minWindow(s string, t string) string {
+	rem := 0
+	countT := make(map[byte]int)
+
+	for i := range t {
+		rem++
+		countT[t[i]]++
+	}
+
+	if rem > len(s) {
+		return ""
+	}
+
+	res := string(make([]byte, len(s)))
+	start, end := 0, 0
+
+	for end < len(s) {
+		if v, ok := countT[s[end]]; ok {
+			if v > 0 {
+				rem--
+			}
+			countT[s[end]]--
+		}
+		for rem <= 0 {
+			if len(res) >= len(s[start:end+1]) {
+				res = s[start : end+1]
+			}
+			if _, ok := countT[s[start]]; ok {
+				countT[s[start]]++
+				if countT[s[start]] > 0 {
+					rem++
+				}
+			}
+			start++
+		}
+		end++
+	}
+	if res == string(make([]byte, len(s))) {
+		return ""
+	}
+	return res
 }

@@ -712,6 +712,27 @@ func TestRotate(t *testing.T) {
 	}
 }
 
+func TestSpiralOrder(t *testing.T) {
+	tests := []struct {
+		matrix [][]int
+		want   []int
+	}{
+		{[][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, []int{1, 2, 3, 6, 9, 8, 7, 4, 5}},
+		{
+			[][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}},
+			[]int{1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.matrix), func(t *testing.T) {
+			got := spiralOrder(tt.matrix)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestSetZeroes(t *testing.T) {
 	tests := []struct {
 		matrix [][]int
@@ -743,6 +764,43 @@ func TestGetSum(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(fmt.Sprintf("%v, %v", tt.a, tt.b), func(t *testing.T) {
 			got := getSum(tt.a, tt.b)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestMaxSlidingWindow(t *testing.T) {
+	tests := []struct {
+		nums []int
+		k    int
+		want []int
+	}{
+		{[]int{1, 3, -1, -3, 5, 3, 6, 7}, 3, []int{3, 3, 5, 5, 6, 7}},
+		{[]int{1}, 1, []int{1}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.nums, tt.k), func(t *testing.T) {
+			got := maxSlidingWindow(tt.nums, tt.k)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestMinWindows(t *testing.T) {
+	tests := []struct {
+		s, t, want string
+	}{
+		{"ADOBECODEBANC", "ABC", "BANC"},
+		{"a", "a", "a"},
+		{"a", "aa", ""},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s, tt.t), func(t *testing.T) {
+			got := minWindow(tt.s, tt.t)
 			if got != tt.want {
 				t.Fatalf("got %v, want %v", got, tt.want)
 			}
