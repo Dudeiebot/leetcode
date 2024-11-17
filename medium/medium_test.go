@@ -789,3 +789,21 @@ func TestMaxSlidingWindow(t *testing.T) {
 		})
 	}
 }
+
+func TestMinWindows(t *testing.T) {
+	tests := []struct {
+		s, t, want string
+	}{
+		{"ADOBECODEBANC", "ABC", "BANC"},
+		{"a", "a", "a"},
+		{"a", "aa", ""},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.s, tt.t), func(t *testing.T) {
+			got := minWindow(tt.s, tt.t)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
