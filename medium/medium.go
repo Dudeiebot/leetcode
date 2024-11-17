@@ -996,3 +996,23 @@ func getSum(a, b int) int {
 	}
 	return a
 }
+
+func maxSlidingWindow(nums []int, k int) []int {
+	deque := make([]int, 0, k)
+	res := make([]int, 0, len(nums)-k+1)
+
+	for i, n := range nums {
+		for len(deque) > 0 && nums[deque[len(deque)-1]] < n {
+			deque = deque[:len(deque)-1]
+		}
+		deque = append(deque, i)
+		if i < k-1 {
+			continue
+		}
+		res = append(res, nums[deque[0]])
+		if deque[0] == i-k+1 {
+			deque = deque[1:]
+		}
+	}
+	return res
+}
