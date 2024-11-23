@@ -37,31 +37,63 @@ type MyStack struct {
 // Putting out seperately for easy access of all
 
 // FIFO stack to queue
-type MyQueue struct {
-	a []int
+// type MyQueue struct {
+// 	a []int
+// }
+//
+// func Constructor() MyQueue {
+// 	return MyQueue{}
+// }
+//
+// func (this *MyQueue) Push(x int) {
+// 	this.a = append(this.a, x)
+// }
+//
+// func (this *MyQueue) Pop() int {
+// 	val := this.a[0]
+// 	this.a = this.a[1:]
+// 	return val
+// }
+//
+// func (this *MyQueue) Peek() int {
+// 	if len(this.a) == 0 {
+// 		return 0
+// 	}
+// 	return this.a[0]
+// }
+//
+// func (this *MyQueue) Empty() bool {
+// 	return len(this.a) == 0
+// }
+
+// min stack
+type MinStack struct {
+	nums []int
+	mins []int
 }
 
-func Constructor() MyQueue {
-	return MyQueue{}
+func Constructor() MinStack {
+	return MinStack{}
 }
 
-func (this *MyQueue) Push(x int) {
-	this.a = append(this.a, x)
-}
-
-func (this *MyQueue) Pop() int {
-	val := this.a[0]
-	this.a = this.a[1:]
-	return val
-}
-
-func (this *MyQueue) Peek() int {
-	if len(this.a) == 0 {
-		return 0
+func (this *MinStack) Push(val int) {
+	if len(this.mins) == 0 || val <= this.GetMin() {
+		this.mins = append(this.mins, val)
 	}
-	return this.a[0]
+	this.nums = append(this.nums, val)
 }
 
-func (this *MyQueue) Empty() bool {
-	return len(this.a) == 0
+func (this *MinStack) Pop() {
+	if this.Top() == this.GetMin() {
+		this.mins = this.mins[:len(this.mins)-1]
+	}
+	this.nums = this.nums[:len(this.nums)-1]
+}
+
+func (this *MinStack) Top() int {
+	return this.nums[len(this.nums)-1]
+}
+
+func (this *MinStack) GetMin() int {
+	return this.mins[len(this.mins)-1]
 }
