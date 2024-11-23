@@ -410,3 +410,9 @@ so our map is used to keep track of how many of the characters we need
 Use a sliding window approach with two pointers (start and end) to keep track of the current substring in s.
 Use a hash map (countT) to track the count of each character in t.
 Maintain a counter (rem) to track how many characters are still needed to satisfy the substring condition.
+
+### Generate Parenthesis
+
+- we using backtracking and going in and out
+- checking in with our helper function and being controlled by open and close
+- because we want it to be valid, openend and closed parenthesis and not leaving anyone out
