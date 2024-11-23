@@ -807,3 +807,21 @@ func TestMinWindows(t *testing.T) {
 		})
 	}
 }
+
+func TestGenerateParenthesis(t *testing.T) {
+	tests := []struct {
+		n    int
+		want []string
+	}{
+		{3, []string{"((()))", "(()())", "(())()", "()(())", "()()()"}},
+		// {1, []string{"()"}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.n), func(t *testing.T) {
+			got := generateParenthesis(tt.n)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
