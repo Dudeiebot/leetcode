@@ -1059,3 +1059,30 @@ func minWindow(s string, t string) string {
 	}
 	return res
 }
+
+func generateParenthesis(n int) []string {
+	res := []string{}
+	var backtrack func(curr string, open, close int)
+
+	backtrack = func(curr string, open, close int) {
+		// fmt.Printf("Current: %s | Open: %d | Close: %d\n", curr, open, close)
+
+		if len(curr) == n*2 {
+			// fmt.Println("Adding to results:", curr)
+			res = append(res, curr)
+			return
+		}
+
+		if open < n {
+			// fmt.Println("Adding (")
+			backtrack(curr+"(", open+1, close)
+		}
+
+		if close < open {
+			// fmt.Println("Adding )")
+			backtrack(curr+")", open, close+1)
+		}
+	}
+	backtrack("", 0, 0)
+	return res
+}
