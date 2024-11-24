@@ -416,3 +416,30 @@ Maintain a counter (rem) to track how many characters are still needed to satisf
 - we using backtracking and going in and out
 - checking in with our helper function and being controlled by open and close
 - because we want it to be valid, openend and closed parenthesis and not leaving anyone out
+
+### Is Valid Sudoku
+
+- A Sudoku board must satisfy the following rules:
+- Each row must contain the digits 1-9 without repetition.
+- Each column must contain the digits 1-9 without repetition.
+- Each of the 9 sub-boxes (3x3 grids) must contain the digits 1-9 without repetition.
+- The board is represented as a 2D slice of bytes ([][]byte) where:
+- Empty cells are represented as '.'.
+- Filled cells contain digits '1' through '9'.
+- These 3 arrays track whether a specific digit (1-9) has been seen in a row, column, or 3x3 square:
+- rows[i][k]: Tracks if digit k exists in row i.
+- columns[j][k]: Tracks if digit k exists in column j.
+- squares[s][k]: Tracks if digit k exists in the 3x3 square s.
+- Loops through every cell of the Sudoku board.
+- i is the row index, and j is the column index.
+- If the current cell is '.', it's skipped since it doesn't need validation.
+- Converts the byte value of the digit '1'-'9' into an index 0-8 for easier tracking in the rows, columns, and squares arrays:
+- '1' (ASCII 49) becomes 0 (int(v) - 49).
+- '2' becomes 1, and so on.
+- Computes the index of the 3x3 square that the cell (i, j) belongs to:
+- i/3 determines which row group (top, middle, bottom) the cell is in.
+- j/3 determines which column group (left, middle, right) the cell is in.
+- Combining these gives the square index s (0-8).
+- If the digit k has already been seen in the current row, column, or square, the board is invalid, so return false
+- Marks the digit k as "seen" in the current row, column, and square.
+- If all cells are valid, return true.
