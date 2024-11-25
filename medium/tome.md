@@ -443,3 +443,9 @@ Maintain a counter (rem) to track how many characters are still needed to satisf
 - If the digit k has already been seen in the current row, column, or square, the board is invalid, so return false
 - Marks the digit k as "seen" in the current row, column, and square.
 - If all cells are valid, return true.
+
+### Trap
+
+- we are using 2 pointers and It calculates the total amount of water that can be trapped between bars of varying heights after a rainfall
+- Water trapped above a bar is determined by the minimum of the tallest bars to its left and right minus the height of the current bar: water=max(min(leftMax,rightMax)−height[i],0)
+- If at any point the tallest bar on the left (leftMax) is smaller than or equal to the tallest bar on the right (rightMax), then the amount of water trapped at the left pointer is determined entirely by leftMax. Similarly, if rightMax < leftMax, the water trapped is determined by rightMax
