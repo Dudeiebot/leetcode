@@ -858,7 +858,7 @@ func TestIsValidSudoku(t *testing.T) {
 				{'7', '.', '.', '.', '2', '.', '.', '.', '6'},
 				{'.', '6', '.', '.', '.', '.', '2', '8', '.'},
 				{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-				{'5', '.', '.', '.', '8', '.', '.', '7', '9'}, // Duplicate '5' in column 0
+				{'5', '.', '.', '.', '8', '.', '.', '7', '9'},
 			},
 			want: false,
 		},
@@ -869,6 +869,24 @@ func TestIsValidSudoku(t *testing.T) {
 			got := isValidSudoku(tt.board)
 			if got != tt.want {
 				t.Fatalf("%s: got %v, want %v", tt.name, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestTrap(t *testing.T) {
+	tests := []struct {
+		height []int
+		want   int
+	}{
+		{[]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}, 6},
+		{[]int{4, 2, 0, 3, 2, 5}, 9},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.height), func(t *testing.T) {
+			got := trap(tt.height)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
 			}
 		})
 	}
