@@ -449,3 +449,13 @@ Maintain a counter (rem) to track how many characters are still needed to satisf
 - we are using 2 pointers and It calculates the total amount of water that can be trapped between bars of varying heights after a rainfall
 - Water trapped above a bar is determined by the minimum of the tallest bars to its left and right minus the height of the current bar: water=max(min(leftMax,rightMax)−height[i],0)
 - If at any point the tallest bar on the left (leftMax) is smaller than or equal to the tallest bar on the right (rightMax), then the amount of water trapped at the left pointer is determined entirely by leftMax. Similarly, if rightMax < leftMax, the water trapped is determined by rightMax
+
+### DailyTemprature
+
+- we have a stack that store append index when our last appended index(temperatures) is greater than the curr temperatures we are filling now
+  but we pop and append to res, then do the Calculation when our last appended index(temperatures) is less than the curr temp
+  IN OREDERLINESS TERM
+- The stack keeps track of indices of temperatures waiting for a warmer day
+- When a warmer temperature is found, it resolves waiting temperatures
+- Each index is processed exactly once
+- The algorithm efficiently finds the next warmer day in a single pass
