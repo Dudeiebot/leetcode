@@ -11,6 +11,12 @@ type ListNode struct {
 	Next *ListNode
 }
 
+type RandomNode struct {
+	Val    int
+	Next   *RandomNode
+	Random *RandomNode
+}
+
 func Abs(n int) int {
 	if n < 0 {
 		return -n
