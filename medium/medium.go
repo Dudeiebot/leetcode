@@ -1140,3 +1140,25 @@ func dailyTemperatures(temperatures []int) []int {
 	}
 	return res
 }
+
+func copyRandomList(head *util.RandomNode) *util.RandomNode {
+	if head == nil {
+		return nil
+	}
+
+	old2New := make(map[*util.RandomNode]*util.RandomNode)
+
+	curr := head
+	for curr != nil {
+		old2New[curr] = &util.RandomNode{Val: curr.Val}
+		curr = curr.Next
+	}
+
+	curr = head
+	for curr != nil {
+		old2New[curr].Next = old2New[curr.Next]
+		old2New[curr].Random = old2New[curr.Random]
+		curr = curr.Next
+	}
+	return old2New[head]
+}
