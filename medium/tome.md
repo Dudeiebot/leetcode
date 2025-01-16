@@ -459,3 +459,13 @@ Maintain a counter (rem) to track how many characters are still needed to satisf
 - When a warmer temperature is found, it resolves waiting temperatures
 - Each index is processed exactly once
 - The algorithm efficiently finds the next warmer day in a single pass
+
+### Copy A Random List
+
+- If the input list (head) is nil, return nil.
+
+- First Pass - Create Nodes and Map Them. Traverse the original list and create a new node for each original node.
+- Store the mapping between the original node (curr) and the newly created node in the old2New hash map.
+- This ensures that you have all the nodes created before trying to assign Random or Next pointers.
+- Second Pass - Set Next and Random Pointers. Traverse the original list again and use the old2New map to assign the Next and Random pointers for each new node. old2New[curr].Next is set to old2New[curr.Next], and similarly for Random.
+- Return the Head of the New List. The head of the new list is the node mapped to the original list's head (old2New[head]).
