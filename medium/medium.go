@@ -1206,3 +1206,19 @@ func FindsDuplicates(nums []int) int {
 	}
 	return slow
 }
+
+func mergeKList(lists []*util.ListNode) *util.ListNode {
+	if len(lists) == 0 {
+		return nil
+	}
+
+	for len(lists) > 1 {
+		l1 := lists[1]
+		l2 := lists[2]
+		lists = lists[2:]
+
+		merged := util.MergeTwoLists(l1, l2)
+		lists = append(lists, merged)
+	}
+	return lists[0]
+}
