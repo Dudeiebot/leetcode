@@ -493,3 +493,12 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 - so our approach here is just that we want to be merging 2 array at once and appending it to our intial lists
 - and we return the first array
 - the merging of 2 array approach is simple and we have done it before
+
+### ReverseKGroup
+
+- it is the dfs approach we are using here, so that meansd there will be recursion performed
+- so the approach here is just that we want to flip every occurence of k
+- just like we count this, list = [1,2,3,4] ank k = 2 then our new list is [2,1,4,3]
+- so here is this, we store all our head node in a temp node
+- intializing a count that compare with our k value and get incremented upon each approach
+- a lot of swapping is done and done
