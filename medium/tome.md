@@ -486,3 +486,10 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 - when slow is eqaul to fast we want to break out of the loop and that meant that fast and slow intercepted here
 - we create a second slow var which is the phase 2 of the algorithm, advance the slow and fast by 1 together and we return the slow when they are equal
 - The loop exists because the var points to the same spot twice (the duplicate number). So by finding the loop, you're confirming, "Yep,
+
+### Merge K lists
+
+- we are going to be using a helper function, which is merging 2 linked list together
+- so our approach here is just that we want to be merging 2 array at once and appending it to our intial lists
+- and we return the first array
+- the merging of 2 array approach is simple and we have done it before
