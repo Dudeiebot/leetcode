@@ -1162,3 +1162,85 @@ func copyRandomList(head *util.RandomNode) *util.RandomNode {
 	}
 	return old2New[head]
 }
+
+func addTwoNumbers(l1, l2 *util.ListNode) *util.ListNode {
+	temp := &util.ListNode{}
+	curr := temp
+	carry := 0
+
+	for l1 != nil || l2 != nil || carry != 0 {
+		sum := carry
+		if l1 != nil {
+			sum += l1.Val
+			l1 = l1.Next
+		}
+
+		if l2 != nil {
+			sum += l2.Val
+			l2 = l2.Next
+		}
+		carry = sum / 10
+		curr.Next = &util.ListNode{Val: sum % 10}
+		curr = curr.Next
+	}
+	return temp.Next
+}
+
+func FindsDuplicates(nums []int) int {
+	slow := nums[0]
+	fast := nums[0]
+
+	for {
+		slow = nums[slow]
+		fast = nums[nums[fast]]
+
+		if slow == fast {
+			break
+		}
+	}
+
+	slow = nums[0]
+	for slow != fast {
+		slow = nums[slow]
+		fast = nums[fast]
+	}
+	return slow
+}
+
+func mergeKList(lists []*util.ListNode) *util.ListNode {
+	if len(lists) == 0 {
+		return nil
+	}
+
+	for len(lists) > 1 {
+		l1 := lists[1]
+		l2 := lists[2]
+		lists = lists[2:]
+
+		merged := util.MergeTwoLists(l1, l2)
+		lists = append(lists, merged)
+	}
+	return lists[0]
+}
+
+func reverseKGroup(head *util.ListNode, k int) *util.ListNode {
+	node, count := head, 0
+
+	for count < k {
+		if node == nil {
+			return head
+		}
+		node = node.Next
+		count++
+	}
+	prev := reverseKGroup(node, k)
+
+	for count > 0 {
+		next := head.Next
+		head.Next = prev
+		prev = head
+		head = next
+		count--
+	}
+	return prev
+}

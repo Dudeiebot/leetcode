@@ -469,3 +469,36 @@ Maintain a counter (rem) to track how many characters are still needed to satisf
 - This ensures that you have all the nodes created before trying to assign Random or Next pointers.
 - Second Pass - Set Next and Random Pointers. Traverse the original list again and use the old2New map to assign the Next and Random pointers for each new node. old2New[curr].Next is set to old2New[curr.Next], and similarly for Random.
 - Return the Head of the New List. The head of the new list is the node mapped to the original list's head (old2New[head]).
+
+### Add Two numbers list and return a list as the total also
+
+- so we are creating a carry var that is used to track if our addition have a crayy on number to the other number
+- we check initially from thje beginning and go level by level, if l1 is not nil we add it to the sum and if l2 is not nil also we add it to the sum also
+- remember it is the val we are adding, juset like l1.Val and we go to the next
+- carry divide our current sum by 10 and if there is a carry we add it to the next sum, but in sacing our current value we are storing the modular of the current sum
+- then we return temp.Next
+
+### find duplicates
+
+we are using the floyd tortoise and hare method because it is a linked list problem
+
+- so we are starting from the first number in the array and intializing it like this - slow goes 1 step ahead and fast goes 2 step ahead
+- when slow is eqaul to fast we want to break out of the loop and that meant that fast and slow intercepted here
+- we create a second slow var which is the phase 2 of the algorithm, advance the slow and fast by 1 together and we return the slow when they are equal
+- The loop exists because the var points to the same spot twice (the duplicate number). So by finding the loop, you're confirming, "Yep,
+
+### Merge K lists
+
+- we are going to be using a helper function, which is merging 2 linked list together
+- so our approach here is just that we want to be merging 2 array at once and appending it to our intial lists
+- and we return the first array
+- the merging of 2 array approach is simple and we have done it before
+
+### ReverseKGroup
+
+- it is the dfs approach we are using here, so that meansd there will be recursion performed
+- so the approach here is just that we want to flip every occurence of k
+- just like we count this, list = [1,2,3,4] ank k = 2 then our new list is [2,1,4,3]
+- so here is this, we store all our head node in a temp node
+- intializing a count that compare with our k value and get incremented upon each approach
+- a lot of swapping is done and done

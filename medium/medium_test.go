@@ -910,3 +910,22 @@ func TestDailyTemperatures(t *testing.T) {
 		})
 	}
 }
+
+func TestFindsDuplicate(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want int
+	}{
+		{[]int{1, 3, 4, 2, 2}, 2},
+		{[]int{3, 1, 3, 4, 2}, 3},
+		{[]int{3, 3, 3, 3, 3}, 3},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := FindsDuplicates(tt.nums)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
