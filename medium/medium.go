@@ -1162,3 +1162,26 @@ func copyRandomList(head *util.RandomNode) *util.RandomNode {
 	}
 	return old2New[head]
 }
+
+func addTwoNumbers(l1, l2 *util.ListNode) *util.ListNode {
+	temp := &util.ListNode{}
+	curr := temp
+	carry := 0
+
+	for l1 != nil || l2 != nil || carry != 0 {
+		sum := carry
+		if l1 != nil {
+			sum += l1.Val
+			l1 = l1.Next
+		}
+
+		if l2 != nil {
+			sum += l2.Val
+			l2 = l2.Next
+		}
+		carry = sum / 10
+		curr.Next = &util.ListNode{Val: sum % 10}
+		curr = curr.Next
+	}
+	return temp.Next
+}
