@@ -469,3 +469,11 @@ Maintain a counter (rem) to track how many characters are still needed to satisf
 - This ensures that you have all the nodes created before trying to assign Random or Next pointers.
 - Second Pass - Set Next and Random Pointers. Traverse the original list again and use the old2New map to assign the Next and Random pointers for each new node. old2New[curr].Next is set to old2New[curr.Next], and similarly for Random.
 - Return the Head of the New List. The head of the new list is the node mapped to the original list's head (old2New[head]).
+
+### Add Two numbers list and return a list as the total also
+
+- so we are creating a carry var that is used to track if our addition have a crayy on number to the other number
+- we check initially from thje beginning and go level by level, if l1 is not nil we add it to the sum and if l2 is not nil also we add it to the sum also
+- remember it is the val we are adding, juset like l1.Val and we go to the next
+- carry divide our current sum by 10 and if there is a carry we add it to the next sum, but in sacing our current value we are storing the modular of the current sum
+- then we return temp.Next
