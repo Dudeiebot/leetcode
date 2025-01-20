@@ -477,3 +477,12 @@ Maintain a counter (rem) to track how many characters are still needed to satisf
 - remember it is the val we are adding, juset like l1.Val and we go to the next
 - carry divide our current sum by 10 and if there is a carry we add it to the next sum, but in sacing our current value we are storing the modular of the current sum
 - then we return temp.Next
+
+### find duplicates
+
+we are using the floyd tortoise and hare method because it is a linked list problem
+
+- so we are starting from the first number in the array and intializing it like this - slow goes 1 step ahead and fast goes 2 step ahead
+- when slow is eqaul to fast we want to break out of the loop and that meant that fast and slow intercepted here
+- we create a second slow var which is the phase 2 of the algorithm, advance the slow and fast by 1 together and we return the slow when they are equal
+- The loop exists because the var points to the same spot twice (the duplicate number). So by finding the loop, you're confirming, "Yep,
