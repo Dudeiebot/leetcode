@@ -1244,3 +1244,33 @@ func reverseKGroup(head *util.ListNode, k int) *util.ListNode {
 	}
 	return prev
 }
+
+func rightSideView(root *util.TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+
+	var res []int
+	q := []*util.TreeNode{root}
+
+	for len(q) > 0 {
+		levelSize := len(q)
+
+		for i := 0; i < levelSize; i++ {
+			node := q[0]
+			q = q[1:]
+
+			if i == levelSize-1 {
+				res = append(res, node.Val)
+			}
+
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+	}
+	return res
+}
