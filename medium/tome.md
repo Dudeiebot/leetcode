@@ -502,3 +502,15 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 - so here is this, we store all our head node in a temp node
 - intializing a count that compare with our k value and get incremented upon each approach
 - a lot of swapping is done and done
+- here is the approach (Initial state: prev, prev points to the head of the reversed part of the next group (from recursion)). Save the next node in next, Redirect the current node head.Next to point to prev, Update prev to the current node, Move head to the next node, Decrement count
+- prev now points to the new head of the reversed k-group, which gets linked back to the previous group by recursion.
+
+### RightSide
+
+- we are collecting the data from the rightside of a tree, what we can see when we stay in the rightside of a tree
+- we are solving it with the bfs approach here and the only checking we want is to append all the value behind our current level
+
+### GoodNodes
+
+- we are checking if a node is good and we are using the dfs approach here
+- there is a helper function to help us check if our node is good and how to know a good node is where the value of the node is greater than or equal to the maximum value encountered along the path from the root to that node
