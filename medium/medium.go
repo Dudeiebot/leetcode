@@ -1274,3 +1274,22 @@ func rightSideView(root *util.TreeNode) []int {
 	}
 	return res
 }
+
+func goodNodes(root *util.TreeNode) int {
+	var isGood func(root *util.TreeNode, maxVal int) int
+
+	isGood = func(root *util.TreeNode, maxVal int) int {
+		if root == nil {
+			return 0
+		}
+
+		isCurrGood := 0
+		if root.Val >= maxVal {
+			isCurrGood = 1
+			maxVal = root.Val
+		}
+		return isCurrGood + isGood(root.Left, maxVal) + isGood(root.Right, maxVal)
+	}
+
+	return isGood(root, root.Val)
+}
