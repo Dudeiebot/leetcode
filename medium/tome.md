@@ -509,3 +509,8 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 
 - we are collecting the data from the rightside of a tree, what we can see when we stay in the rightside of a tree
 - we are solving it with the bfs approach here and the only checking we want is to append all the value behind our current level
+
+### GoodNodes
+
+- we are checking if a node is good and we are using the dfs approach here
+- there is a helper function to help us check if our node is good and how to know a good node is where the value of the node is greater than or equal to the maximum value encountered along the path from the root to that node
