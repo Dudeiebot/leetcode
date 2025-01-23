@@ -1,6 +1,7 @@
 package medium
 
 import (
+	"math"
 	"slices"
 	"strings"
 
@@ -1292,4 +1293,26 @@ func goodNodes(root *util.TreeNode) int {
 	}
 
 	return isGood(root, root.Val)
+}
+
+func maxPathSum(root *util.TreeNode) int {
+	maxSum := math.MaxInt32
+
+	var dfs func(root *util.TreeNode) int
+	dfs = func(root *util.TreeNode) int {
+		if root == nil {
+			return 0
+		}
+
+		leftMax := dfs(root.Left)
+		rightMax := dfs(root.Right)
+		leftMax = max(leftMax, 0)
+		rightMax = max(rightMax, 0)
+
+		rootMax := root.Val + leftMax + rightMax
+		maxSum = max(maxSum, rootMax)
+		return root.Val + max(leftMax, rightMax)
+	}
+	dfs(root)
+	return maxSum
 }
