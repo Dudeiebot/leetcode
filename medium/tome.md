@@ -514,3 +514,8 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 
 - we are checking if a node is good and we are using the dfs approach here
 - there is a helper function to help us check if our node is good and how to know a good node is where the value of the node is greater than or equal to the maximum value encountered along the path from the root to that node
+
+### MaxPathSum
+
+- The maxPathSum function calculates the maximum path sum for a binary tree. A path in the tree is defined as any sequence of nodes connected by edges, and the path sum is the sum of the values of the nodes in the path. The path does not necessarily need to go through the root of the tree, but it must contain at least one node.
+- A recursive helper function, dfs, is used to compute the maximum gain from the left and right subtrees of a given node.
