@@ -519,3 +519,9 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 
 - The maxPathSum function calculates the maximum path sum for a binary tree. A path in the tree is defined as any sequence of nodes connected by edges, and the path sum is the sum of the values of the nodes in the path. The path does not necessarily need to go through the root of the tree, but it must contain at least one node.
 - A recursive helper function, dfs, is used to compute the maximum gain from the left and right subtrees of a given node.
+
+### Least Interval
+
+- The function finds the most frequent tasks and determines how much idle time we need to schedule them properly.
+- It ensures that tasks obey the cooldown n, without making the schedule unnecessarily long.
+- If tasks naturally fill all available slots, we just return len(tasks). Otherwise, we return the calculated res
