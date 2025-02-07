@@ -929,3 +929,23 @@ func TestFindsDuplicate(t *testing.T) {
 		})
 	}
 }
+
+func TestLeastInterval(t *testing.T) {
+	tests := []struct {
+		tasks []byte
+		n     int
+		want  int
+	}{
+		{[]byte{'A', 'A', 'A', 'B', 'B', 'B'}, 2, 8},
+		{[]byte{'A', 'C', 'A', 'B', 'D', 'B'}, 1, 6},
+		{[]byte{'A', 'A', 'A', 'B', 'B', 'B'}, 3, 10},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.tasks, tt.n), func(t *testing.T) {
+			got := leastInterval(tt.tasks, tt.n)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
