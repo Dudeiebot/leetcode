@@ -1342,3 +1342,24 @@ func leastInterval(tasks []byte, n int) int {
 		return len(tasks)
 	}
 }
+
+func subsets(nums []int) [][]int {
+	var res [][]int
+	var curr []int
+
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == len(nums) {
+			subset := make([]int, len(curr))
+			copy(subset, curr)
+			res = append(res, subset)
+			return
+		}
+		curr = append(curr, nums[i])
+		dfs(i + 1)
+		curr = curr[:len(curr)-1]
+		dfs(i + 1)
+	}
+	dfs(0)
+	return res
+}
