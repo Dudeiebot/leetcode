@@ -525,3 +525,24 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 - The function finds the most frequent tasks and determines how much idle time we need to schedule them properly.
 - It ensures that tasks obey the cooldown n, without making the schedule unnecessarily long.
 - If tasks naturally fill all available slots, we just return len(tasks). Otherwise, we return the calculated res
+
+### SubSets
+
+- using dfs recursive function in finding the SubSets of an array
+- backtracking it also
+- Recursive function (dfs(i)) logic:
+
+  If i == len(nums), it means we've considered all elements.
+  We create a copy of curr and add it to res.
+  We return to explore other possibilities.
+  Otherwise, we explore two choices:
+  Include nums[i] in the subset:
+  Add nums[i] to curr.
+  Call dfs(i + 1) to move to the next element.
+  Remove nums[i] from curr (backtracking).
+  Exclude nums[i] from the subset:
+  Simply call dfs(i + 1) without adding nums[i].
+  Base case (end of recursion):
+
+  When we reach i == len(nums), we save the current subset.
+  Start recursion with dfs(0), then return res.
