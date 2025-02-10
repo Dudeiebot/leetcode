@@ -250,6 +250,25 @@ func TestCombinationSum(t *testing.T) {
 	}
 }
 
+func TestCombinationSumII(t *testing.T) {
+	tests := []struct {
+		candidates []int
+		target     int
+		want       [][]int
+	}{
+		{[]int{10, 1, 2, 7, 6, 1, 5}, 8, [][]int{{1, 1, 6}, {1, 2, 5}, {1, 7}, {2, 6}}},
+		{[]int{2, 5, 2, 1, 2}, 5, [][]int{{1, 2, 2}, {5}}},
+	}
+	for _, tc := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tc.candidates, tc.target), func(t *testing.T) {
+			got := combinationSumII(tc.candidates, tc.target)
+			if !reflect.DeepEqual(got, tc.want) {
+				t.Fatalf("%v, %v", got, tc.want)
+			}
+		})
+	}
+}
+
 func TestNumIslands(t *testing.T) {
 	tests := []struct {
 		name     string
