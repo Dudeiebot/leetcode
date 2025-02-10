@@ -405,11 +405,38 @@ func combinationSum(candidates []int, target int) [][]int {
 	return res
 }
 
+func combinationSumII(candidates []int, target int) [][]int {
+	slices.Sort(candidates)
+
+	res := [][]int{}
+	curr := []int{}
+
+	var dfs func(target, start int)
+	dfs = func(target, start int) {
+		if target == 0 {
+			res = append(res, append([]int{}, curr...))
+			return
+		}
+		for i := start; i < len(candidates); i++ {
+			if i > start && candidates[i] == candidates[i-1] {
+				continue
+			}
+			if candidates[i] > target {
+				break
+			}
+			curr = append(curr, candidates[i])
+			dfs(target-candidates[i], i+1)
+			curr = curr[:len(curr)-1]
+		}
+	}
+	dfs(target, 0)
+	return res
+}
+
 func numIslands(grid [][]byte) int {
 	if len(grid) == 0 || len(grid[0]) == 0 {
 		return 0
 	}
-
 	rows := len(grid)
 	cols := len(grid[0])
 	islands := 0
