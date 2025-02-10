@@ -181,6 +181,12 @@ Finding the Middle:
 - After the recursive call, remove the last added number (backtracking)
 - This implementation uses backtracking to explore all possible combinations. It allows reusing the same number multiple times (by keeping the same index in recursive calls) and ensures that it doesn't use the same combination in a different order (by starting from index i in each recursive call).
 
+### Combination Sum II
+
+- combinationSum2 finds all unique combinations of numbers from the given candidates array that sum up to target. Each number can be used only once, and the result must not contain duplicate combination
+- it is also solved with the dfs and backtracking function
+- we sort the candidates, and a dfs function that start from the beginning to the target
+
 ### number of Islands
 
 ![image](../medium/static/numislands.png)
