@@ -1390,3 +1390,29 @@ func subsets(nums []int) [][]int {
 	dfs(0)
 	return res
 }
+
+func permute(nums []int) [][]int {
+	var res [][]int
+	temp := make([]int, len(nums))
+	visit := make([]bool, len(nums))
+
+	var dfs func(int)
+	dfs = func(index int) {
+		if index == len(nums) {
+			copiedTemp := make([]int, len(nums))
+			copy(copiedTemp, temp)
+			res = append(res, copiedTemp)
+			return
+		}
+		for i := 0; i < len(nums); i++ {
+			if visit[i] == false {
+				visit[i] = true
+				temp[index] = nums[i]
+				dfs(index + 1)
+				visit[i] = false
+			}
+		}
+	}
+	dfs(0)
+	return res
+}
