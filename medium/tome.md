@@ -567,3 +567,15 @@ we are using the floyd tortoise and hare method because it is a linked list prob
 - It generates all possible permutations (different arrangements) of a list of numbers
 - Res: Stores the final list of permutations. Temp: Temporary array that holds the current permutation we’re building. Visit: A boolean array to keep track of which numbers are already used.
 - dfs is a function that runs recursively (calls itself) to build each permutation step by step.
+
+### exists
+
+- This function exist(board, word) determines if a given word can be constructed by sequentially adjacent letters in a 2D grid (board). The letters must be adjacent horizontally or vertically, and each cell can be used only once per search.
+- Our dfs recursive function where r and c: Row and column indices in board, i: The current index of the letter in word being searched.
+- Ensures r, c are within bounds. Prevents revisiting the same cell (board[r][c] == '0' is a placeholder for visited cells).
+- If the current board cell does not match the i-th character in word, return false.
+- If all characters have been matched, return true.
+- Temporarily mark the current cell as visited ('0'). This prevents revisiting in the same DFS path.
+- Explore the left (c-1), right (c+1), up (r-1), and down (r+1) neighbors. If any path leads to finding the full word, return true.
+- Backtrack by restoring the previous value of board[r][c].
+- Loop through all cells and start DFS if the first letter matches. If any DFS call returns true, the word exists.
