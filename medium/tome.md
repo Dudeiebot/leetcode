@@ -553,9 +553,17 @@ we are using the floyd tortoise and hare method because it is a linked list prob
   When we reach i == len(nums), we save the current subset.
   Start recursion with dfs(0), then return res.
 
-  ### Permutation
+### Subsets2
 
-  - It generates all possible permutations (different arrangements) of a list of numbers
-  - Res: Stores the final list of permutations. Temp: Temporary array that holds the current permutation we’re building. Visit: A boolean array to keep track of which numbers are already used.
+- finding all the subsets of an array without duplicates
+- we sort the array
+- creates a recursive dfs function that stores and check
+- Sorting (slices.Sort(nums)) ensures duplicate elements are adjacent.
+- Skipping duplicates (if i != start && nums[i] == nums[i-1]) prevents redundant subsets.
+- DFS + Backtracking efficiently explores all unique subsets.
 
+### Permutation
+
+- It generates all possible permutations (different arrangements) of a list of numbers
+- Res: Stores the final list of permutations. Temp: Temporary array that holds the current permutation we’re building. Visit: A boolean array to keep track of which numbers are already used.
 - dfs is a function that runs recursively (calls itself) to build each permutation step by step.
