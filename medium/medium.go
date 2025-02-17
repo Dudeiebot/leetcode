@@ -1416,3 +1416,21 @@ func permute(nums []int) [][]int {
 	dfs(0)
 	return res
 }
+
+func subsetsII(nums []int) [][]int {
+	res := make([][]int, 0)
+	slices.Sort(nums)
+
+	var dfs func(start int, curr []int)
+	dfs = func(start int, curr []int) {
+		res = append(res, append([]int{}, curr...))
+		for i := start; i < len(nums); i++ {
+			if i != start && nums[i] == nums[i-1] {
+				continue
+			}
+			dfs(i+1, append(curr, nums[i]))
+		}
+	}
+	dfs(0, nil)
+	return res
+}
