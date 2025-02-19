@@ -1005,3 +1005,45 @@ func TestPermute(t *testing.T) {
 		})
 	}
 }
+
+func TestSubsetsII(t *testing.T) {
+	tests := []struct {
+		nums []int
+		want [][]int
+	}{
+		{[]int{1, 2, 2}, [][]int{{}, {1}, {1, 2}, {1, 2, 2}, {2}, {2, 2}}},
+		{[]int{0}, [][]int{{}, {0}}},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.nums), func(t *testing.T) {
+			got := subsetsII(tt.nums)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestExist(t *testing.T) {
+	tests := []struct {
+		board [][]byte
+		word  string
+		want  bool
+	}{
+		{
+			[][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}},
+			"ABCCED",
+			true,
+		},
+		{[][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "SEE", true},
+		{[][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCD", false},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, %v", tt.board, tt.word), func(t *testing.T) {
+			got := exist(tt.board, tt.word)
+			if got != tt.want {
+				t.Fatalf("got %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

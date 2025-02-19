@@ -1416,3 +1416,55 @@ func permute(nums []int) [][]int {
 	dfs(0)
 	return res
 }
+
+func subsetsII(nums []int) [][]int {
+	res := make([][]int, 0)
+	slices.Sort(nums)
+
+	var dfs func(start int, curr []int)
+	dfs = func(start int, curr []int) {
+		res = append(res, append([]int{}, curr...))
+		for i := start; i < len(nums); i++ {
+			if i != start && nums[i] == nums[i-1] {
+				continue
+			}
+			dfs(i+1, append(curr, nums[i]))
+		}
+	}
+	dfs(0, nil)
+	return res
+}
+
+func exist(board [][]byte, word string) bool {
+	var dfs func(r, c, i int) bool
+
+	dfs = func(r, c, i int) bool {
+		if r < 0 || r > len(board)-1 || c < 0 || c > len(board[0])-1 || board[r][c] == '0' {
+			return false
+		}
+
+		if board[r][c] != word[i] {
+			return false
+		}
+
+		if i == len(word)-1 {
+			return word[i] == board[r][c]
+		}
+
+		val := board[r][c]
+		board[r][c] = '0'
+		if dfs(r, c-1, i+1) || dfs(r, c+1, i+1) || dfs(r-1, c, i+1) || dfs(r+1, c, i+1) {
+			return true
+		}
+		board[r][c] = val
+		return false
+	}
+	for r := 0; r < len(board); r++ {
+		for c := 0; c < len(board[0]); c++ {
+			if dfs(r, c, 0) {
+				return true
+			}
+		}
+	}
+	return false
+}
