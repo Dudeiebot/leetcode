@@ -1468,3 +1468,114 @@ func exist(board [][]byte, word string) bool {
 	}
 	return false
 }
+
+func canJumpII(nums []int) int {
+	jumps := 0
+	farthest := 0
+	currentEnd := 0
+
+	for i := 0; i < len(nums)-1; i++ {
+		farthest = max(farthest, i+nums[i])
+
+		if i == currentEnd {
+			jumps++
+			currentEnd = farthest
+		}
+	}
+	return jumps
+}
+
+// 2 3 1 1 4
+// 0 1 2 3 4
+//
+// j = 0
+// f = 0
+// c = 0
+//
+// i = 0, f = 0, ce = 0, j = 0
+// f = 2
+// j = 1
+// ce = 2
+//
+// i = 1, f = 2, ce = 2, j = 1
+// f = 4  ! nothing happens
+//
+// i = 2, f = 4, ce = 2, j = 1
+// f = 4
+// j = 2
+// ce = 4
+//
+// i = 3, f = 4, ce = 4, j = 2
+// f = 4 ! nothing happens and final iteration
+
+func minPathSum(grid [][]int) int {
+	rows := len(grid)
+	cols := len(grid[0])
+
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+
+			if i == 0 && j == 0 {
+				continue
+			}
+
+			if i == 0 {
+				grid[i][j] += grid[i][j-1]
+				continue
+			}
+
+			if j == 0 {
+				grid[i][j] += grid[i-1][j]
+				continue
+			}
+			grid[i][j] += min(grid[i-1][j], grid[i][j-1])
+		}
+	}
+	return grid[rows-1][cols-1]
+}
+
+// 	0 1 2
+// 0 1 3 1
+// 1 1 5 1
+// 2 4 2 1
+//
+// because the concept of this is that
+
+func uniquePathsII(grid [][]int) int {
+	if len(grid) == 0 || len(grid[0]) == 0 {
+		return 0
+	}
+
+	r := len(grid)
+	c := len(grid[0])
+
+	if grid[0][0] == 1 || grid[r-1][c-1] == 1 {
+		return 0
+	}
+
+	dp := make([][]int, r)
+
+	for i := range dp {
+		dp[i] = make([]int, c)
+	}
+
+	dp[0][0] = 1
+
+	for i := 0; i < r; i++ {
+		for j := 0; j < c; j++ {
+			if grid[i][j] == 1 {
+				dp[i][j] = 0
+				continue
+			}
+
+			if i > 0 {
+				dp[i][j] += dp[i-1][j]
+			}
+
+			if j > 0 {
+				dp[i][j] += dp[i][j-1]
+			}
+		}
+	}
+	return dp[r-1][c-1]
+}
